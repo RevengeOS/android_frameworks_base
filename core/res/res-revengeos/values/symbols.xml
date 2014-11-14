@@ -31,4 +31,14 @@
     <!-- Device keyhandlers -->
     <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
     <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
+
+    <!-- Device hardware keys -->
+    <java-symbol type="integer" name="config_deviceHardwareKeys" />
+
+    <!-- Device keys user-customisable behavior -->
+    <java-symbol type="integer" name="config_longPressOnHomeBehaviorHwKeys" />
+    <java-symbol type="integer" name="config_doubleTapOnHomeBehaviorHwKeys" />
+    <java-symbol type="integer" name="config_longPressOnMenuBehaviorHwKeys" />
+    <java-symbol type="integer" name="config_longPressOnAppSwitchBehaviorHwKeys" />
+    <java-symbol type="integer" name="config_longPressOnAssistBehaviorHwKeys" />
 </resources>

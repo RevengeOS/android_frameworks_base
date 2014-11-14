@@ -220,5 +220,13 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.DOUBLE_TAP_SLEEP_LOCKSCREEN, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.VOLUME_ROCKER_WAKE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.VOLUME_BUTTON_MUSIC_CONTROL, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.KEY_HOME_LONG_PRESS_ACTION, new InclusiveIntegerRangeValidator(0, 9));
+        VALIDATORS.put(System.KEY_HOME_DOUBLE_TAP_ACTION, new InclusiveIntegerRangeValidator(0, 9));
+        VALIDATORS.put(System.KEY_MENU_ACTION, new InclusiveIntegerRangeValidator(0, 9));
+        VALIDATORS.put(System.KEY_MENU_LONG_PRESS_ACTION, new InclusiveIntegerRangeValidator(0, 9));
+        VALIDATORS.put(System.KEY_ASSIST_ACTION, new InclusiveIntegerRangeValidator(0, 9));
+        VALIDATORS.put(System.KEY_ASSIST_LONG_PRESS_ACTION, new InclusiveIntegerRangeValidator(0, 9));
+        VALIDATORS.put(System.KEY_APP_SWITCH_ACTION, new InclusiveIntegerRangeValidator(0, 9));
+        VALIDATORS.put(System.KEY_APP_SWITCH_LONG_PRESS_ACTION, new InclusiveIntegerRangeValidator(0, 9));
     }
 }
