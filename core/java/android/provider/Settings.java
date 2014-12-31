@@ -4811,6 +4811,17 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Whether to use the custom quick unlock screen control
+         * @hide
+         */
+        public static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL =
+                "lockscreen_quick_unlock_control";
+
+        /** @hide */
+        private static final Validator LOCKSCREEN_QUICK_UNLOCK_CONTROL_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -4893,6 +4904,7 @@ public final class Settings {
             BATTERY_LIGHT_MEDIUM_COLOR,
             BATTERY_LIGHT_FULL_COLOR,
             BATTERY_LIGHT_REALLYFULL_COLOR,
+            LOCKSCREEN_QUICK_UNLOCK_CONTROL,
         };
 
         /**
@@ -5046,6 +5058,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SWAP_NAVIGATION_KEYS);
             PRIVATE_SETTINGS.add(SHOW_CPU_OVERLAY);
             PRIVATE_SETTINGS.add(NAV_BAR_GESTURAL_HIDE_NAV);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
         }
 
         /**
@@ -5175,6 +5188,7 @@ public final class Settings {
             VALIDATORS.put(SWAP_NAVIGATION_KEYS, SWAP_NAVIGATION_KEYS_VALIDATOR);
             VALIDATORS.put(SHOW_CPU_OVERLAY, SHOW_CPU_OVERLAY_VALIDATOR);
             VALIDATORS.put(NAV_BAR_GESTURAL_HIDE_NAV, NAV_BAR_GESTURAL_HIDE_NAV_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_QUICK_UNLOCK_CONTROL, LOCKSCREEN_QUICK_UNLOCK_CONTROL_VALIDATOR);
         }
 
         /**
