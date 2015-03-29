@@ -89,5 +89,6 @@ public class SystemSettings {
         Settings.System.VOLUME_ROCKER_WAKE,
         Settings.System.VOLUME_BUTTON_MUSIC_CONTROL,
         Settings.System.LOCKSCREEN_MEDIA_ART,
+        Settings.System.SCREENSHOT_SOUND,
     };
 }
