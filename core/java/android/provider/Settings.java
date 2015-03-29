@@ -4476,7 +4476,7 @@ public final class Settings {
          */
         public static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
 
-        /**
+	/**
          * Whether to enable gaming mode or not
          *
          * @hide
@@ -4495,6 +4495,15 @@ public final class Settings {
          * @hide
          */
         public static final String DATA_DISABLED_ICON = "data_disabled_icon";
+
+	/**
+         * @hide
+         */
+        public static final String OMNI_SCREENSHOT_SHUTTER_SOUND = "screenshot_shutter_sound";
+
+        /** @hide */
+        private static final Validator OMNI_SCREENSHOT_SHUTTER_SOUND_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -4560,7 +4569,8 @@ public final class Settings {
             NAVIGATION_BAR_SHOW,
             VIBRATE_ON_CONNECT,
             VIBRATE_ON_DISCONNECT,
-            VIBRATE_ON_CALLWAITING
+            VIBRATE_ON_CALLWAITING,
+            OMNI_SCREENSHOT_SHUTTER_SOUND
         };
 
         /**
@@ -4699,6 +4709,7 @@ public final class Settings {
 	    PRIVATE_SETTINGS.add(VIBRATE_ON_CONNECT);
             PRIVATE_SETTINGS.add(VIBRATE_ON_DISCONNECT);
             PRIVATE_SETTINGS.add(VIBRATE_ON_CALLWAITING);
+            PRIVATE_SETTINGS.add(OMNI_SCREENSHOT_SHUTTER_SOUND);
         }
 
         /**
@@ -4801,6 +4812,8 @@ public final class Settings {
             VALIDATORS.put(VIBRATE_ON_CONNECT, VIBRATE_ON_CONNECT_VALIDATOR);
             VALIDATORS.put(VIBRATE_ON_DISCONNECT, VIBRATE_ON_DISCONNECT_VALIDATOR);
             VALIDATORS.put(VIBRATE_ON_CALLWAITING, VIBRATE_ON_CALLWAITING_VALIDATOR);
+            VALIDATORS.put(OMNI_SCREENSHOT_SHUTTER_SOUND,
+                    OMNI_SCREENSHOT_SHUTTER_SOUND_VALIDATOR);
         }
 
         /**
