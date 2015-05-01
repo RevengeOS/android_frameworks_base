@@ -46,6 +46,11 @@ public abstract class DreamManagerInternal {
     public abstract boolean isDreaming();
 
     /**
+     * Called by the power manager to determine whether the dream has gone to doze mode.
+     */
+    public abstract boolean isDozing();
+
+    /**
      * Called by the ActivityTaskManagerService to verify that the startDreamActivity
      * request comes from the current active dream component.
      *
