@@ -5036,6 +5036,30 @@ public final class Settings {
         public static final String PRIVACY_CHIP_VIEW = "privacy_chip_view";
 
         /**
+         * Activate torchlight when power button is
+         * long-pressed while the display is off
+         * The value is boolean (1 or 0).
+         */
+        public static final String TORCH_LONG_PRESS_POWER_GESTURE =
+                "torch_long_press_power_gesture";
+
+        /** @hide */
+        public static final Validator TORCH_LONG_PRESS_POWER_GESTURE_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * When the torch has been turned on by long press on power,
+         * automatically turn off after a configurable number of seconds.
+         * The value is an integer number of seconds in the range 0-3600.
+         * 0 means never automatically turn off.
+         */
+        public static final String TORCH_LONG_PRESS_POWER_TIMEOUT =
+                "torch_long_press_power_timeout";
+
+        /** @hide */
+        public static final Validator TORCH_LONG_PRESS_POWER_TIMEOUT_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 3600);
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5115,6 +5139,8 @@ public final class Settings {
             LOCKSCREEN_QUICK_UNLOCK_CONTROL,
             SWIPE_TO_SCREENSHOT,
             FORCE_FULLSCREEN_CUTOUT_APPS,
+            TORCH_LONG_PRESS_POWER_GESTURE,
+            TORCH_LONG_PRESS_POWER_TIMEOUT,
         };
 
         /**
@@ -5283,6 +5309,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_PICTURE_ADJUSTMENT);
             PRIVATE_SETTINGS.add(LIVE_DISPLAY_HINTED);
             PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
+            PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_GESTURE);
+            PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_TIMEOUT);
         }
 
         /**
@@ -5427,6 +5455,8 @@ public final class Settings {
             VALIDATORS.put(DISPLAY_PICTURE_ADJUSTMENT, DISPLAY_PICTURE_ADJUSTMENT_VALIDATOR);
             VALIDATORS.put(LIVE_DISPLAY_HINTED, LIVE_DISPLAY_HINTED_VALIDATOR);
             VALIDATORS.put(FORCE_FULLSCREEN_CUTOUT_APPS, FORCE_FULLSCREEN_CUTOUT_APPS_VALIDATOR);
+            VALIDATORS.put(TORCH_LONG_PRESS_POWER_GESTURE, TORCH_LONG_PRESS_POWER_GESTURE_VALIDATOR);
+            VALIDATORS.put(TORCH_LONG_PRESS_POWER_TIMEOUT, TORCH_LONG_PRESS_POWER_TIMEOUT_VALIDATOR);
         }
 
         /**
@@ -14477,7 +14507,7 @@ public final class Settings {
         public static final String POWER_BUTTON_LONG_PRESS =
                 "power_button_long_press";
         private static final Validator POWER_BUTTON_LONG_PRESS_VALIDATOR =
-                new SettingsValidators.InclusiveIntegerRangeValidator(0, 5);
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 6);
 
         /**
          * Overrides internal R.integer.config_veryLongPressOnPowerBehavior.
