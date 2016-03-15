@@ -4717,6 +4717,18 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Whether user can swap navigation lateral keys.
+         * <p>
+         * Type: int (0 for false, 1 for true)
+         * @hide
+         */
+        public static final String SWAP_NAVIGATION_KEYS = "swap_navigation_keys";
+
+        /** @hide */
+        public static final Validator SWAP_NAVIGATION_KEYS_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -5013,6 +5025,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_WAKE_SCREEN);
             PRIVATE_SETTINGS.add(CAMERA_SLEEP_ON_RELEASE);
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
+            PRIVATE_SETTINGS.add(SWAP_NAVIGATION_KEYS);
         }
 
         /**
@@ -5139,6 +5152,7 @@ public final class Settings {
             VALIDATORS.put(CAMERA_WAKE_SCREEN, CAMERA_WAKE_SCREEN_VALIDATOR);
             VALIDATORS.put(CAMERA_SLEEP_ON_RELEASE, CAMERA_SLEEP_ON_RELEASE_VALIDATOR);
             VALIDATORS.put(CAMERA_LAUNCH, CAMERA_LAUNCH_VALIDATOR);
+            VALIDATORS.put(SWAP_NAVIGATION_KEYS, SWAP_NAVIGATION_KEYS_VALIDATOR);
         }
 
         /**
