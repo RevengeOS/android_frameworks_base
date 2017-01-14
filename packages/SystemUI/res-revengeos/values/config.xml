@@ -31,4 +31,7 @@
      <!-- Whether SystemUI ignores notch -->
      <bool name="hide_view_behind_notch">false</bool>
 
+    <!-- Burn in protection -->
+    <bool name="config_statusBarBurnInProtection">true</bool>
+    <integer name="config_shift_interval">60</integer>
 </resources>
