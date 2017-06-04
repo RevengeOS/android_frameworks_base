@@ -79,6 +79,7 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         mBg = new ImageView(getContext());
         mBg.setScaleType(ScaleType.FIT_CENTER);
         mBg.setImageDrawable(getContext().getDrawable(R.drawable.qs_tile_background_active));
+        mBg.setAlpha(0f);
         mIconFrame.addView(mBg);
         mIconFrame.setBackground(mTileBgInactive);
         mIcon = icon;
@@ -174,7 +175,6 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         if (newTileState != mState) {
             if (mBg.isShown()) {
                 if (newTileState == Tile.STATE_ACTIVE) {
-                    mBg.setAlpha(0f);
                     mBg.animate()
                        .alpha(1f)
                        .setDuration(QS_ANIM_LENGTH)
