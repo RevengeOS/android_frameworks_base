@@ -5761,4 +5761,12 @@ ul.</string>
     <string name="config_pdp_reject_service_not_subscribed"></string>
     <!-- pdp data reject dialog string for cause 55 (MULTI_CONN_TO_SAME_PDN_NOT_ALLOWED) [CHAR LIMIT=100] -->
     <string name="config_pdp_reject_multi_conn_to_same_pdn_not_allowed"></string>
+
+    <!-- Global actions -->
+    <string name="reboot_to_bootloader_title">Reboot bootloader</string>
+    <string name="reboot_to_bootloader_message">Rebooting to bootloader\u2026</string>
+    <string name="reboot_to_recovery_title">Reboot recovery</string>
+    <string name="reboot_to_recovery_message">Rebooting to recovery\u2026</string>
+    <string name="reboot_system_title">Restart system</string>
+    <string name="reboot_system_message">Restarting system\u2026</string>
 </resources>
