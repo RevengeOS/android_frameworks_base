@@ -4796,9 +4796,14 @@ public final class Settings {
          */
         public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
 
-        /**
+        /** 
+	 * @hide
+         */
+        public static final String GLOBAL_ACTIONS_LIST = "global_actions_list";
+
+         /**
          * Three Finger Gesture from Oppo
-         * @hide
+	 * @hide
          */
         public static final String THREE_FINGER_GESTURE = "three_finger_gesture";
 
@@ -8915,6 +8920,11 @@ public final class Settings {
          * @hide
          */
         public static final String NOTIFICATION_DISMISS_RTL = "notification_dismiss_rtl";
+
+        /**
+         * @hide
+         */
+        public static final String ADVANCED_REBOOT = "advanced_reboot";
 
         /**
          * Comma separated list of QS tiles that have been auto-added already.
