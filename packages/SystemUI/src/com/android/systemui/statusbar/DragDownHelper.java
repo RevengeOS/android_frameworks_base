@@ -21,7 +21,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.os.PowerManager;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -34,6 +33,8 @@ import com.android.systemui.R;
 import com.android.systemui.classifier.FalsingManagerFactory;
 import com.android.systemui.plugins.FalsingManager;
 import com.android.systemui.statusbar.notification.row.ExpandableView;
+
+import com.revengeos.internal.util.PowerUtils;
 
 /**
  * A utility class to enable the downward swipe on the lockscreen to go to the full shade and expand
@@ -66,7 +67,7 @@ public class DragDownHelper implements Gefingerpoken {
     private long mDoubleTapTimeout;
     private Runnable mGoToSleep;
 
-    public DragDownHelper(Context context, View host, ExpandHelper.Callback callback,
+    public DragDownHelper(final Context context, View host, ExpandHelper.Callback callback,
             DragDownCallback dragDownCallback) {
         mMinDragDistance = context.getResources().getDimensionPixelSize(
                 R.dimen.keyguard_drag_down_min_distance);
@@ -81,10 +82,7 @@ public class DragDownHelper implements Gefingerpoken {
         mGoToSleep = new Runnable() {
             @Override
             public void run() {
-                PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-                if(pm != null) {
-                    pm.goToSleep(mLastDownEvent);
-                }
+                PowerUtils.switchScreenOff(context);
             }
         };
     }
