@@ -70,4 +70,9 @@
 
    <!-- Proximity check on screen on default -->
    <java-symbol type="bool" name="config_proximityCheckOnWakeEnabledByDefault" />
+
+  <java-symbol type="bool" name="config_intrusiveBatteryLed" />
+  <java-symbol type="bool" name="config_multiColorBatteryLed" />
+  <java-symbol type="bool" name="config_ledCanPulse" />
+
 </resources>
