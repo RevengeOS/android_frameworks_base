@@ -31,6 +31,7 @@ import com.android.systemui.qs.tiles.BatterySaverTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
 import com.android.systemui.qs.tiles.CastTile;
 import com.android.systemui.qs.tiles.CellularTile;
+import com.android.systemui.qs.tiles.CaffeineTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DndTile;
@@ -79,6 +80,8 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<UiModeNightTile> mUiModeNightTileProvider;
     private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
+    private final Provider<CaffeineTile> mCaffeineTileProvider;
+
     private QSTileHost mHost;
 
     @Inject
@@ -102,7 +105,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<GarbageMonitor.MemoryTile> memoryTileProvider,
             Provider<UiModeNightTile> uiModeNightTileProvider,
             Provider<LiveDisplayTile> liveDisplayTileProvider,
-            Provider<HeadsUpTile> headsupTileProvider) {
+            Provider<HeadsUpTile> headsupTileProvider,
+            Provider<CaffeineTile> caffeineTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -124,6 +128,7 @@ public class QSFactoryImpl implements QSFactory {
         mUiModeNightTileProvider = uiModeNightTileProvider;
         mLiveDisplayTileProvider = liveDisplayTileProvider;
         mHeadsUpTileProvider = headsupTileProvider;
+        mCaffeineTileProvider = caffeineTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -181,6 +186,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mLiveDisplayTileProvider.get();
             case "heads_up":
                 return mHeadsUpTileProvider.get();
+            case "caffeine":
+                return mCaffeineTileProvider.get();
         }
 
         // Intent tiles.
