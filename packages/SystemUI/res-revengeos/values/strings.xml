@@ -119,4 +119,7 @@
          the clock face. [CHAR LIMIT=8] -->
     <string name="clock_title_type" translatable="false">Type</string>
 
+    <!-- Title for statusbar items -->
+    <string name="statusbar_items_title">Statusbar items</string>
+
 </resources>
