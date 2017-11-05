@@ -38,6 +38,7 @@ import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.GamingModeTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.IntentTile;
+import com.android.systemui.qs.tiles.LiveDisplayTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
@@ -119,6 +120,8 @@ public class QSFactoryImpl implements QSFactory {
                 return new ScreenshotTile(mHost);
 	    case "recorder":
                 return new RecorderTile(mHost);
+            case "livedisplay":
+                return new LiveDisplayTile(mHost);
         }
 
         // Intent tiles.
