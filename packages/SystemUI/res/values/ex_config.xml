@@ -18,4 +18,6 @@
     <!-- Allow devices override audio panel location to the left side -->
     <bool name="config_audioPanelOnLeftSide">false</bool>
 
+    <!-- Use wakelock for flashlight -->
+    <bool name="config_useWakeLockForFlashlight">false</bool>
 </resources>
