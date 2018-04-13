@@ -27,5 +27,5 @@ public class KeyguardConstants {
      */
     public static final boolean DEBUG = true;
     public static final boolean DEBUG_SIM_STATES = true;
-    public static final boolean DEBUG_FP_WAKELOCK = true;
+    public static final boolean DEBUG_FP_WAKELOCK = false;
 }
