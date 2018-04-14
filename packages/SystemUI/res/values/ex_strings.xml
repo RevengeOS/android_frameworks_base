@@ -77,4 +77,7 @@
     <string name="accessibility_quick_settings_gaming_mode_on">Gaming mode on</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Gaming mode off</string>
 
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Invert layout</string>
+
 </resources>
