@@ -48,6 +48,7 @@ import android.os.Binder;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.FileUtils;
+import android.os.SystemProperties;
 import android.os.Handler;
 import android.os.IDeviceIdleController;
 import android.os.IMaintenanceActivityListener;
@@ -108,6 +109,9 @@ import java.util.Arrays;
 public class DeviceIdleController extends SystemService
         implements AnyMotionDetector.DeviceIdleCallback {
     private static final String TAG = "DeviceIdleController";
+
+    private static final String SYSTEM_PROPERTY_PM_DEEP_IDLE = "persist.pm.deep_idle";
+    private static final String SYSTEM_PROPERTY_PM_FREE_NET = "persist.pm.free_net";
 
     private static final boolean DEBUG = false;
 
@@ -1064,6 +1068,8 @@ public class DeviceIdleController extends SystemService
 
         @Override public void handleMessage(Message msg) {
             if (DEBUG) Slog.d(TAG, "handleMessage(" + msg.what + ")");
+            boolean freeNetwork = SystemProperties.get(SYSTEM_PROPERTY_PM_FREE_NET, "0").equals("1");
+
             switch (msg.what) {
                 case MSG_WRITE_CONFIG: {
                     // Does not hold a wakelock. Just let this happen whenever.
@@ -1083,7 +1089,7 @@ public class DeviceIdleController extends SystemService
                         lightChanged = mLocalPowerManager.setLightDeviceIdleMode(true);
                     }
                     try {
-                        mNetworkPolicyManager.setDeviceIdleMode(true);
+                        mNetworkPolicyManager.setDeviceIdleMode(!freeNetwork);
                         mBatteryStats.noteDeviceIdleMode(msg.what == MSG_REPORT_IDLE_ON
                                 ? BatteryStats.DEVICE_IDLE_MODE_DEEP
                                 : BatteryStats.DEVICE_IDLE_MODE_LIGHT, null, Process.myUid());
@@ -1451,8 +1457,10 @@ public class DeviceIdleController extends SystemService
                     ApplicationInfo ai = pm.getApplicationInfo(pkg,
                             PackageManager.MATCH_SYSTEM_ONLY);
                     int appid = UserHandle.getAppId(ai.uid);
-                    mPowerSaveWhitelistAppsExceptIdle.put(ai.packageName, appid);
-                    mPowerSaveWhitelistSystemAppIdsExceptIdle.put(appid, true);
+                    if( !ai.packageName.startsWith("com.google.android.gms") ) {
+                        mPowerSaveWhitelistAppsExceptIdle.put(ai.packageName, appid);
+                        mPowerSaveWhitelistSystemAppIdsExceptIdle.put(appid, true);
+                    }
                 } catch (PackageManager.NameNotFoundException e) {
                 }
             }
@@ -1465,10 +1473,12 @@ public class DeviceIdleController extends SystemService
                     int appid = UserHandle.getAppId(ai.uid);
                     // These apps are on both the whitelist-except-idle as well
                     // as the full whitelist, so they apply in all cases.
-                    mPowerSaveWhitelistAppsExceptIdle.put(ai.packageName, appid);
-                    mPowerSaveWhitelistSystemAppIdsExceptIdle.put(appid, true);
-                    mPowerSaveWhitelistApps.put(ai.packageName, appid);
-                    mPowerSaveWhitelistSystemAppIds.put(appid, true);
+                    if( !ai.packageName.startsWith("com.google.android.gms") ) {
+                        mPowerSaveWhitelistAppsExceptIdle.put(ai.packageName, appid);
+                        mPowerSaveWhitelistSystemAppIdsExceptIdle.put(appid, true);
+                        mPowerSaveWhitelistApps.put(ai.packageName, appid);
+                        mPowerSaveWhitelistSystemAppIds.put(appid, true);
+                    }
                 } catch (PackageManager.NameNotFoundException e) {
                 }
             }
@@ -1890,12 +1900,15 @@ public class DeviceIdleController extends SystemService
         boolean informWhitelistChanged = false;
         synchronized (this) {
             int callingAppId = UserHandle.getAppId(callingUid);
-            if (callingAppId >= Process.FIRST_APPLICATION_UID) {
+
+            /*
+            if (callingAppId >= Process.FIRST_APPLICATION_UID ) {
                 if (!mPowerSaveWhitelistSystemAppIds.get(callingAppId)) {
                     throw new SecurityException("Calling app " + UserHandle.formatUid(callingUid)
                             + " is not on whitelist");
                 }
-            }
+            }*/
+
             duration = Math.min(duration, mConstants.MAX_TEMP_APP_WHITELIST_DURATION);
             Pair<MutableLong, String> entry = mTempWhitelistAppIdEndTimes.get(appId);
             final boolean newEntry = entry == null;
@@ -2122,6 +2135,33 @@ public class DeviceIdleController extends SystemService
             if (mState == STATE_ACTIVE && mDeepEnabled) {
                 mState = STATE_INACTIVE;
                 if (DEBUG) Slog.d(TAG, "Moved from STATE_ACTIVE to STATE_INACTIVE");
+            	boolean aggressiveDeepIdle = SystemProperties.get(SYSTEM_PROPERTY_PM_DEEP_IDLE, "0").equals("1");
+
+
+		        if( !aggressiveDeepIdle ) {
+                    mConstants.INACTIVE_TIMEOUT = 30 * 60 * 1000L;
+                    mConstants.SENSING_TIMEOUT = 4 * 60 * 1000L;
+                    mConstants.LOCATING_TIMEOUT = 30 * 1000L;
+                    mConstants.LOCATION_ACCURACY = 100;
+                    mConstants.MOTION_INACTIVE_TIMEOUT = 10 * 60 * 1000L;
+                    mConstants.IDLE_AFTER_INACTIVE_TIMEOUT = 30 * 60 * 1000L;
+                    mConstants.IDLE_PENDING_TIMEOUT = 5 * 60 * 1000L;
+                    mConstants.MAX_IDLE_PENDING_TIMEOUT = 10 * 60 * 1000L;
+		        } else {
+                    mConstants.INACTIVE_TIMEOUT = 500L;
+                    mConstants.SENSING_TIMEOUT = 0L;
+                    mConstants.LOCATING_TIMEOUT = 0L;
+                    mConstants.LOCATION_ACCURACY = 100;
+                    mConstants.MOTION_INACTIVE_TIMEOUT = 0L;
+                    mConstants.IDLE_AFTER_INACTIVE_TIMEOUT = 1000L;
+                    mConstants.IDLE_PENDING_TIMEOUT = 3000L;
+                    mConstants.MAX_IDLE_PENDING_TIMEOUT = 15000L;
+
+
+		        }
+
+		        mInactiveTimeout = mConstants.INACTIVE_TIMEOUT;
+
                 resetIdleManagementLocked();
                 scheduleAlarmLocked(mInactiveTimeout, false);
                 EventLogTags.writeDeviceIdle(mState, "no activity");
@@ -2261,49 +2301,56 @@ public class DeviceIdleController extends SystemService
             case STATE_INACTIVE:
                 // We have now been inactive long enough, it is time to start looking
                 // for motion and sleep some more while doing so.
-                startMonitoringMotionLocked();
-                scheduleAlarmLocked(mConstants.IDLE_AFTER_INACTIVE_TIMEOUT, false);
                 // Reset the upcoming idle delays.
                 mNextIdlePendingDelay = mConstants.IDLE_PENDING_TIMEOUT;
                 mNextIdleDelay = mConstants.IDLE_TIMEOUT;
                 mState = STATE_IDLE_PENDING;
                 if (DEBUG) Slog.d(TAG, "Moved from STATE_INACTIVE to STATE_IDLE_PENDING.");
                 EventLogTags.writeDeviceIdle(mState, reason);
-                break;
+		        if( mConstants.IDLE_TIMEOUT > 0 ) {
+                    scheduleAlarmLocked(mConstants.IDLE_AFTER_INACTIVE_TIMEOUT, false);
+                    startMonitoringMotionLocked();
+                    break;
+                }
             case STATE_IDLE_PENDING:
                 mState = STATE_SENSING;
                 if (DEBUG) Slog.d(TAG, "Moved from STATE_IDLE_PENDING to STATE_SENSING.");
                 EventLogTags.writeDeviceIdle(mState, reason);
-                scheduleSensingTimeoutAlarmLocked(mConstants.SENSING_TIMEOUT);
                 cancelLocatingLocked();
                 mNotMoving = false;
                 mLocated = false;
                 mLastGenericLocation = null;
                 mLastGpsLocation = null;
-                mAnyMotionDetector.checkForAnyMotion();
-                break;
+        		if( mConstants.SENSING_TIMEOUT > 0 ) {
+                    scheduleSensingTimeoutAlarmLocked(mConstants.SENSING_TIMEOUT);
+                    mAnyMotionDetector.checkForAnyMotion();
+                    break;
+                }
             case STATE_SENSING:
                 cancelSensingTimeoutAlarmLocked();
                 mState = STATE_LOCATING;
                 if (DEBUG) Slog.d(TAG, "Moved from STATE_SENSING to STATE_LOCATING.");
                 EventLogTags.writeDeviceIdle(mState, reason);
-                scheduleAlarmLocked(mConstants.LOCATING_TIMEOUT, false);
-                if (mLocationManager != null
-                        && mLocationManager.getProvider(LocationManager.NETWORK_PROVIDER) != null) {
-                    mLocationManager.requestLocationUpdates(mLocationRequest,
-                            mGenericLocationListener, mHandler.getLooper());
-                    mLocating = true;
-                } else {
-                    mHasNetworkLocation = false;
-                }
-                if (mLocationManager != null
-                        && mLocationManager.getProvider(LocationManager.GPS_PROVIDER) != null) {
-                    mHasGps = true;
-                    mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 5,
-                            mGpsLocationListener, mHandler.getLooper());
-                    mLocating = true;
-                } else {
-                    mHasGps = false;
+        		mLocating = false;
+		        if( mConstants.LOCATING_TIMEOUT > 0 ) {
+                    scheduleAlarmLocked(mConstants.LOCATING_TIMEOUT, false);
+                    if (mLocationManager != null
+                            && mLocationManager.getProvider(LocationManager.NETWORK_PROVIDER) != null) {
+                        mLocationManager.requestLocationUpdates(mLocationRequest,
+                                mGenericLocationListener, mHandler.getLooper());
+                        mLocating = true;
+                    } else {
+                        mHasNetworkLocation = false;
+                    }
+                    if (mLocationManager != null
+                            && mLocationManager.getProvider(LocationManager.GPS_PROVIDER) != null) {
+                        mHasGps = true;
+                        mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 5,
+                                mGpsLocationListener, mHandler.getLooper());
+                        mLocating = true;
+                    } else {
+                        mHasGps = false;
+                    }
                 }
                 // If we have a location provider, we're all set, the listeners will move state
                 // forward.
