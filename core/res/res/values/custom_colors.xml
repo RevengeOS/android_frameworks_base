@@ -72,5 +72,8 @@
     <!-- Fastscroller -->
     <color name="fastscroller_text_color">#FFFFFFFF</color>
 
+    <!-- bootleg accent gradient clock -->
+    <color name="bootleg_accent_gradient_end_color">#00000000</color>
+
 </resources>
 
