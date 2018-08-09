@@ -143,5 +143,8 @@
     <attr name="rotateButtonEndAngle" format="float" />
     <attr name="rotateButtonScaleX" format="float" />
 
+    <declare-styleable name="BackArrowView">
+        <attr name="reversed" format="boolean" />
+    </declare-styleable>
 </resources>
 
