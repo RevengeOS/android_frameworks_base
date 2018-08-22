@@ -60,7 +60,6 @@ public class QSSecurityFooter implements OnClickListener, DialogInterface.OnClic
     private final SecurityController mSecurityController;
     private final ActivityStarter mActivityStarter;
     private final Handler mMainHandler;
-    private final View mDivider;
 
     private final UserManager mUm;
 
@@ -85,7 +84,6 @@ public class QSSecurityFooter implements OnClickListener, DialogInterface.OnClic
         mActivityStarter = Dependency.get(ActivityStarter.class);
         mSecurityController = Dependency.get(SecurityController.class);
         mHandler = new H(Dependency.get(Dependency.BG_LOOPER));
-        mDivider = qsPanel == null ? null : qsPanel.getDivider();
         mUm = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
     }
 
@@ -447,7 +445,6 @@ public class QSSecurityFooter implements OnClickListener, DialogInterface.OnClic
                 mFooterText.setText(mFooterTextContent);
             }
             mRootView.setVisibility(mIsVisible ? View.VISIBLE : View.GONE);
-            if (mDivider != null) mDivider.setVisibility(mIsVisible ? View.GONE : View.VISIBLE);
         }
     };
 
