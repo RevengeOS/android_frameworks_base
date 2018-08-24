@@ -432,8 +432,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
             int qsType, boolean activityIn, boolean activityOut,
             int dataActivityId, int stackedDataIcon, int stackedVoiceIcon,
             String typeContentDescription,
-            String description, boolean isWide, int subId, boolean roaming,
-            boolean fiveGAvailable, int fiveGSignalStrengId, boolean dataOnFiveG) {
+            String description, boolean isWide, int subId, boolean roaming) {
         mInfo.visible = statusIcon.visible;
         mInfo.mobileSignalIconId = statusIcon.icon;
         mInfo.contentDescription = statusIcon.contentDescription;

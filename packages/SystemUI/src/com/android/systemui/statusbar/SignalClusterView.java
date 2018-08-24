@@ -297,8 +297,7 @@ public class SignalClusterView extends LinearLayout implements NetworkController
             int qsType, boolean activityIn, boolean activityOut, int dataActivityId,
             int stackedDataId, int stackedVoiceId,
             String typeContentDescription, String description, boolean isWide,
-            int subId, boolean roaming,
-            boolean fiveGAvailable, int fiveGStrengthId, boolean dataOnFiveG) {
+            int subId, boolean roaming) {
         PhoneState state = getState(subId);
         if (state == null) {
             return;

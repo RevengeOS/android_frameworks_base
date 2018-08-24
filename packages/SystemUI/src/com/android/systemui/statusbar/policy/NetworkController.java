@@ -54,8 +54,7 @@ public interface NetworkController extends CallbackController<SignalCallback>, D
                 int qsType, boolean activityIn, boolean activityOut, int dataActivityId,
                 int stackedDataIcon, int stackedVoiceIcon,
                 String typeContentDescription, String description, boolean isWide,
-                int subId, boolean roaming,
-                boolean fiveGAvailable, int fiveGStrengthId, boolean dataOnFiveG) {}
+                int subId, boolean roaming) {}
         default void setSubs(List<SubscriptionInfo> subs) {}
         default void setNoSims(boolean show, boolean simDetected) {}
 
