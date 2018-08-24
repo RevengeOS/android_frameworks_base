@@ -24,4 +24,8 @@
      <!-- Max visible status icons -->
      <integer name="config_maxVisibleStatusIcons">7</integer>
 
+     <!-- Max visible notification icons -->
+    <integer name="config_maxVisibleNotificationIcons">4</integer>
+    <integer name="config_maxVisibleNotificationIconsWhenDark">5</integer>
+
 </resources>
