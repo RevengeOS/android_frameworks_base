@@ -30,5 +30,8 @@
     <dimen name="config_customCutoutTopHeight">0.0px</dimen>
     <dimen name="config_customCutoutBottomWidth">0.0px</dimen>
     <dimen name="config_customCutoutBottomHeight">0.0px</dimen>
+    
+    <!-- Omnijaws-->
+    <dimen name="current_weather_image_size">42dp</dimen>
 
 </resources>

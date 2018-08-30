@@ -249,6 +249,9 @@
 
     <!-- QS Tiles -->
     <uses-permission android:name="lineageos.permission.MANAGE_LIVEDISPLAY" />
+    
+    <!-- OmniJaws -->
+    <uses-permission android:name="org.omnirom.omnijaws.READ_WEATHER" />
 
     <protected-broadcast android:name="com.android.settingslib.action.REGISTER_SLICE_RECEIVER" />
     <protected-broadcast android:name="com.android.settingslib.action.UNREGISTER_SLICE_RECEIVER" />
