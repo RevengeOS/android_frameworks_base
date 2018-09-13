@@ -25,9 +25,10 @@ import android.util.Log;
 import android.util.SparseArray;
 
 import com.android.systemui.R;
+import com.android.systemui.statusbar.policy.MobileSignalController;
 import com.android.systemui.statusbar.policy.MobileSignalController.MobileIconGroup;
 
-class TelephonyIcons {
+public class TelephonyIcons {
     //Default roaming icons with R indicator
     static final int[][] TELEPHONY_SIGNAL_STRENGTH_ROAMING_R = {
             { R.drawable.stat_sys_signal_0_default_roam,
@@ -44,17 +45,17 @@ class TelephonyIcons {
     //***** Data connection icons
     static final int FLIGHT_MODE_ICON = R.drawable.stat_sys_airplane_mode;
 
-    static final int ICON_LTE = R.drawable.ic_lte_mobiledata;
-    static final int ICON_LTE_PLUS = R.drawable.ic_lte_plus_mobiledata;
-    static final int ICON_G = R.drawable.ic_g_mobiledata;
-    static final int ICON_E = R.drawable.ic_e_mobiledata;
-    static final int ICON_H = R.drawable.ic_h_mobiledata;
-    static final int ICON_H_PLUS = R.drawable.ic_h_plus_mobiledata;
+    static int ICON_LTE = R.drawable.ic_lte_mobiledata;
+    static int ICON_LTE_PLUS = R.drawable.ic_lte_plus_mobiledata;
+    static int ICON_G = R.drawable.ic_g_mobiledata;
+    static int ICON_E = R.drawable.ic_e_mobiledata;
+    static int ICON_H = R.drawable.ic_h_mobiledata;
+    static int ICON_H_PLUS = R.drawable.ic_h_plus_mobiledata;
     static final int ICON_2G = R.drawable.ic_2g_mobiledata;
-    static final int ICON_3G = R.drawable.ic_3g_mobiledata;
-    static final int ICON_4G = R.drawable.ic_4g_mobiledata;
-    static final int ICON_4G_PLUS = R.drawable.ic_4g_plus_mobiledata;
-    static final int ICON_1X = R.drawable.ic_1x_mobiledata;
+    static int ICON_3G = R.drawable.ic_3g_mobiledata;
+    static int ICON_4G = R.drawable.ic_4g_mobiledata;
+    static int ICON_4G_PLUS = R.drawable.ic_4g_plus_mobiledata;
+    static int ICON_1X = R.drawable.ic_1x_mobiledata;
     static final int ICON_5G = R.drawable.ic_5g_mobiledata;
     static final int ICON_5G_SA = R.drawable.ic_5g_mobiledata;
     static final int ICON_5G_BASIC = R.drawable.ic_5g_mobiledata;
@@ -73,7 +74,7 @@ class TelephonyIcons {
             0,
             false);
 
-    static final MobileIconGroup THREE_G = new MobileIconGroup(
+    static MobileIconGroup THREE_G = new MobileIconGroup(
             "3G",
             null,
             null,
@@ -108,7 +109,7 @@ class TelephonyIcons {
             AccessibilityContentDescriptions.PHONE_SIGNAL_STRENGTH[0],
             0, 0, false);
 
-    static final MobileIconGroup E = new MobileIconGroup(
+    static MobileIconGroup E = new MobileIconGroup(
             "E",
             null,
             null,
@@ -121,7 +122,7 @@ class TelephonyIcons {
             TelephonyIcons.ICON_E,
             false);
 
-    static final MobileIconGroup ONE_X = new MobileIconGroup(
+    static MobileIconGroup ONE_X = new MobileIconGroup(
             "1X",
             null,
             null,
@@ -134,7 +135,7 @@ class TelephonyIcons {
             TelephonyIcons.ICON_1X,
             true);
 
-    static final MobileIconGroup G = new MobileIconGroup(
+    static MobileIconGroup G = new MobileIconGroup(
             "G",
             null,
             null,
@@ -147,7 +148,7 @@ class TelephonyIcons {
             TelephonyIcons.ICON_G,
             false);
 
-    static final MobileIconGroup H = new MobileIconGroup(
+    static MobileIconGroup H = new MobileIconGroup(
             "H",
             null,
             null,
@@ -160,7 +161,7 @@ class TelephonyIcons {
             TelephonyIcons.ICON_H,
             false);
 
-    static final MobileIconGroup H_PLUS = new MobileIconGroup(
+    static MobileIconGroup H_PLUS = new MobileIconGroup(
             "H+",
             null,
             null,
@@ -173,7 +174,7 @@ class TelephonyIcons {
             TelephonyIcons.ICON_H_PLUS,
             false);
 
-    static final MobileIconGroup FOUR_G = new MobileIconGroup(
+    static MobileIconGroup FOUR_G = new MobileIconGroup(
             "4G",
             null,
             null,
@@ -186,7 +187,7 @@ class TelephonyIcons {
             TelephonyIcons.ICON_4G,
             true);
 
-    static final MobileIconGroup FOUR_G_PLUS = new MobileIconGroup(
+    static MobileIconGroup FOUR_G_PLUS = new MobileIconGroup(
             "4G+",
             null,
             null,
@@ -199,7 +200,7 @@ class TelephonyIcons {
             TelephonyIcons.ICON_4G_PLUS,
             true);
 
-    static final MobileIconGroup LTE = new MobileIconGroup(
+    static MobileIconGroup LTE = new MobileIconGroup(
             "LTE",
             null,
             null,
@@ -212,7 +213,7 @@ class TelephonyIcons {
             TelephonyIcons.ICON_LTE,
             true);
 
-    static final MobileIconGroup LTE_PLUS = new MobileIconGroup(
+    static MobileIconGroup LTE_PLUS = new MobileIconGroup(
             "LTE+",
             null,
             null,
@@ -702,6 +703,19 @@ class TelephonyIcons {
         if (DEBUG) {
             Log.d(tag, str);
         }
+    }
+    
+    public static void updateIcons(boolean useOldStyle) {
+        TelephonyIcons.ICON_LTE = LTE.mDataType = useOldStyle ? R.drawable.stat_sys_data_fully_connected_lte : R.drawable.ic_lte_mobiledata;
+        TelephonyIcons.ICON_LTE_PLUS = LTE_PLUS.mDataType = useOldStyle ? R.drawable.stat_sys_data_fully_connected_lte_plus : R.drawable.ic_lte_plus_mobiledata;
+        TelephonyIcons.ICON_G = G.mDataType = useOldStyle ? R.drawable.stat_sys_data_fully_connected_g : R.drawable.ic_g_mobiledata;
+        TelephonyIcons.ICON_E = E.mDataType = useOldStyle ? R.drawable.stat_sys_data_fully_connected_e : R.drawable.ic_e_mobiledata;
+        TelephonyIcons.ICON_H = H.mDataType = useOldStyle ? R.drawable.stat_sys_data_fully_connected_h : R.drawable.ic_h_mobiledata;
+        TelephonyIcons.ICON_H_PLUS = H_PLUS.mDataType = useOldStyle ? R.drawable.stat_sys_data_fully_connected_hp : R.drawable.ic_h_plus_mobiledata;
+        TelephonyIcons.ICON_3G = THREE_G.mDataType = useOldStyle ? R.drawable.stat_sys_data_fully_connected_3g : R.drawable.ic_3g_mobiledata;
+        TelephonyIcons.ICON_4G = FOUR_G.mDataType = useOldStyle ? R.drawable.stat_sys_data_fully_connected_4g : R.drawable.ic_4g_mobiledata;
+        TelephonyIcons.ICON_4G_PLUS = FOUR_G_PLUS.mDataType = useOldStyle ? R.drawable.stat_sys_data_fully_connected_4g_plus : R.drawable.ic_4g_plus_mobiledata;
+        TelephonyIcons.ICON_1X = ONE_X.mDataType = useOldStyle ? R.drawable.stat_sys_data_fully_connected_1x : R.drawable.ic_1x_mobiledata;
     }
 }
 
