@@ -4315,12 +4315,6 @@ public final class Settings {
         public static final String TORCH_LONG_PRESS_POWER_TIMEOUT = "torch_long_press_power_timeout";
 
         /**
-         * volume answer
-         * @hide
-         */
-        public static final String ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER = "call_volume_answer";
-
-        /**
          * Whether to show network traffic indicator in statusbar
          * @hide
          */
