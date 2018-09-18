@@ -4222,12 +4222,6 @@ public final class Settings {
         public static final String POWERMENU_LOGOUT = "powermenu_logout";
 
         /**
-         * Whether to show Brightness Icon On Brightness Slider
-         * @hide
-         */
-        public static final String QS_SHOW_BRIGHTNESS_ICON = "qs_show_brightness_icon";
-
-        /**
          * Double tap on lockscreen to sleep
          * @hide
          */
