@@ -8188,12 +8188,6 @@ public final class Settings {
                 "packages_to_clear_data_before_full_restore";
 
         /**
-         * Whether to show the brightness slider in quick settings panel
-         * @hide
-         */
-        public static final String QS_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
-
-        /**
          * Enable face auto unlock on secure lock screens
          *
          * @hide
