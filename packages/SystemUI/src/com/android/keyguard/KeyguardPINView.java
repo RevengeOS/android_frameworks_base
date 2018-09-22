@@ -122,7 +122,7 @@ public class KeyguardPINView extends KeyguardPinBasedInputView {
         }
 
         boolean quickUnlock = (Settings.System.getIntForUser(getContext().getContentResolver(),
-                Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0, UserHandle.USER_CURRENT) == 1);
+                Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 1, UserHandle.USER_CURRENT) == 1);
 
         if (quickUnlock) {
             mPasswordEntry.setQuickUnlockListener(new QuickUnlockListener() {

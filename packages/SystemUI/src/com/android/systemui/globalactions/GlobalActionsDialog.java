@@ -518,7 +518,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 }
             } else if (GLOBAL_ACTION_KEY_LOCKDOWN.equals(actionKey)) {
                 if (Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.POWERMENU_LOCKDOWN, 0) != 0) {
+                        Settings.System.POWERMENU_LOCKDOWN, 1) != 0) {
                     mItems.add(getLockdownAction());
                     mHasLockdownButton = true;
                 }
@@ -550,7 +550,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 }
             } else if (GLOBAL_ACTION_KEY_RESTART_RECOVERY.equals(actionKey)) {
                 if (Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.POWERMENU_RESTART_RECOVERY, 1) == 1) {
+                        Settings.System.POWERMENU_RESTART_RECOVERY, 0) == 1) {
                     mItems.add(mShowAdvancedToggles);
                 }
             } else {

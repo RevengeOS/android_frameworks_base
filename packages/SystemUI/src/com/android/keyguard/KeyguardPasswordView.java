@@ -65,7 +65,7 @@ public class KeyguardPasswordView extends KeyguardAbsKeyInputView
     private Interpolator mFastOutLinearInInterpolator;
 
     private final boolean quickUnlock = (Settings.System.getIntForUser(getContext().getContentResolver(),
-            Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0, UserHandle.USER_CURRENT) == 1);
+            Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 1, UserHandle.USER_CURRENT) == 1);
     private final int userId = KeyguardUpdateMonitor.getCurrentUser();
 
     public KeyguardPasswordView(Context context) {

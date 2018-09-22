@@ -2796,7 +2796,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mHasNavigationBar = AEXUtils.deviceSupportNavigationBar(mContext);
 
             mVolumeMusicControl = Settings.System.getIntForUser(resolver,
-                    Settings.System.VOLUME_BUTTON_MUSIC_CONTROL, 0,
+                    Settings.System.VOLUME_BUTTON_MUSIC_CONTROL, 1,
                     UserHandle.USER_CURRENT) != 0;
         }
         synchronized (mWindowManagerFuncs.getWindowManagerLock()) {
