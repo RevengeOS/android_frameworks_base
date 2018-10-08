@@ -97,4 +97,8 @@
   <!-- Fastscroller text color (Launcher3) -->
   <java-symbol type="color" name="fastscroller_text_color" />
 
+  <!-- SystemUI Restart -->
+  <java-symbol type="string" name="systemui_restart_title" />
+  <java-symbol type="string" name="systemui_restart_message" />
+
 </resources>
