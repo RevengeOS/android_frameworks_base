@@ -4945,10 +4945,10 @@ public final class PowerManagerService extends SystemService
             mButtonBacklightEnable = mButtonBacklightEnable && !hardwareKeysDisable;
             mButtonBacklightOnTouchOnly = Settings.System.getIntForUser(
                     mContext.getContentResolver(), Settings.System.BUTTON_BACKLIGHT_ON_TOUCH_ONLY,
-                    0, UserHandle.USER_CURRENT) != 0;
+                    1, UserHandle.USER_CURRENT) != 0;
             mButtonTimeout = Settings.System.getIntForUser(resolver,
                     Settings.System.BUTTON_BACKLIGHT_TIMEOUT,
-                    0, UserHandle.USER_CURRENT) * 1000;
+                    5, UserHandle.USER_CURRENT) * 1000;
 
             mButtonTimeoutEnabled = mButtonTimeout != 0 && mButtonBacklightEnable;
             // prevent remaining timout to be triggered

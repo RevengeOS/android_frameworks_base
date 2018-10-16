@@ -123,17 +123,17 @@ public class ActionConstants {
                 dl(HWKEY_DEF_BUTTONS)
               + dl(BACK_BUTTON_TAG)
               + dl(SystemAction.Back.mAction)        + dl(SystemAction.Back.mLabelRes)         + dl(EMPTY)  // single tap (PRIMARY)
-              + dl(SystemAction.KillApp.mAction)     + dl(SystemAction.KillApp.mLabelRes)      + dl(EMPTY)  // long press (SECOND)
+              + dl(SystemAction.Screenshot.mAction)     + dl(SystemAction.Screenshot.mLabelRes)      + dl(EMPTY)  // long press (SECOND)
               + dl(SystemAction.NoAction.mAction)    + dl(SystemAction.NoAction.mLabelRes)     + dl(EMPTY)  // double tap (THIRD)
 
               + dl(HOME_BUTTON_TAG)
               + dl(SystemAction.Home.mAction)        + dl(SystemAction.Home.mLabelRes)         + dl(EMPTY)
-              + dl(SystemAction.Overview.mAction)    + dl(SystemAction.Overview.mLabelRes)     + dl(EMPTY)
+              + dl(SystemAction.GoogleAssistant.mAction)    + dl(SystemAction.GoogleAssistant.mLabelRes)     + dl(EMPTY)
               + dl(SystemAction.NoAction.mAction)    + dl(SystemAction.NoAction.mLabelRes)     + dl(EMPTY)
 
               + dl(OVERVIEW_BUTTON_TAG)
               + dl(SystemAction.Overview.mAction)    + dl(SystemAction.Overview.mLabelRes)     + dl(EMPTY)
-              + dl(SystemAction.NoAction.mAction)    + dl(SystemAction.NoAction.mLabelRes)     + dl(EMPTY)
+              + dl(SystemAction.SplitScreen.mAction)    + dl(SystemAction.SplitScreen.mLabelRes)     + dl(EMPTY)
               + dl(SystemAction.NoAction.mAction)    + dl(SystemAction.NoAction.mLabelRes)     + dl(EMPTY)
 
               + dl(MENU_BUTTON_TAG)
