@@ -329,15 +329,15 @@ public class MobileSignalController extends SignalController<
 
     private int getVolteResId() {
         int resId = 0;
-        int voiceNetTye = getVoiceNetworkType();
+        //int voiceNetTye = getVoiceNetworkType();
 
-        if ( mCurrentState.imsResitered ) {
+        if (mCurrentState.imsResitered) {
             resId = R.drawable.ic_volte;
-        }else if ( mDataNetType == TelephonyManager.NETWORK_TYPE_LTE
+        /*} else if ( mDataNetType == TelephonyManager.NETWORK_TYPE_LTE
                     || mDataNetType == TelephonyManager.NETWORK_TYPE_LTE_CA
                     || voiceNetTye  == TelephonyManager.NETWORK_TYPE_LTE
                     || voiceNetTye  == TelephonyManager.NETWORK_TYPE_LTE_CA) {
-            resId = R.drawable.ic_volte_no_voice;
+            resId = R.drawable.ic_volte_no_voice;*/
         }
         return resId;
     }
