@@ -4379,6 +4379,12 @@ public final class Settings {
                BOOLEAN_VALIDATOR;
 
         /**
+         * Whether to show VoLTE icon or not
+         * @hide
+         */
+        public static final String SHOW_VOLTE_ICON = "volte_icon";
+
+        /**
          * Volume rocker wake
          * @hide
          */
