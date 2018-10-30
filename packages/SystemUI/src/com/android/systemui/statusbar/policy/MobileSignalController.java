@@ -415,8 +415,7 @@ public class MobileSignalController extends SignalController<
                 icons.mDataType : 0;
         int volteIcon = mConfig.showVolteIcon && isEnhanced4gLteModeSettingEnabled()
                 ? getVolteResId() : 0;
-        boolean fiveGAvailable = mFiveGState.connected && isDataRegisteredOnLte()
-                && mCurrentState.dataConnected;
+        boolean fiveGAvailable = mFiveGState.connected && isDataRegisteredOnLte();
         if (DEBUG) {
             Log.d(mTag, "notifyListeners mAlwasyShowTypeIcon=" + mAlwasyShowTypeIcon
                     + "  mDataNetType:" + mDataNetType +
