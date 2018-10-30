@@ -133,7 +133,7 @@ public final class PowerManagerService extends SystemService
     // Message: Polling to look for long held wake locks.
     private static final int MSG_CHECK_FOR_LONG_WAKELOCKS = 4;
     private static final int MSG_BUTTON_TIMEOUT = 5;
-    private static final int MSG_WAKE_UP = 5;
+    private static final int MSG_WAKE_UP = 6;
 
     // Dirty bit: mWakeLocks changed
     protected static final int DIRTY_WAKE_LOCKS = 1 << 0;
