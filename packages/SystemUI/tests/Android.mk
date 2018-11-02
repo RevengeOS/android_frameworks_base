@@ -76,7 +76,6 @@ LOCAL_JAVA_LIBRARIES := \
     telephony-common \
     android.test.base \
     android.car \
-    telephony-ext \
     ims-common
 
 LOCAL_AAPT_FLAGS := --extra-packages com.android.systemui:com.android.keyguard
