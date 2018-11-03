@@ -88,6 +88,8 @@ public class MobileSignalController extends SignalController<
     private int mCallState = TelephonyManager.CALL_STATE_IDLE;
 
     private ImsManager mImsManager;
+    private boolean mImsResitered;
+    private final boolean mShowVolteIcon;
 
     // TODO: Reduce number of vars passed in, if we have the NetworkController, probably don't
     // need listener lists anymore.
@@ -112,6 +114,7 @@ public class MobileSignalController extends SignalController<
         mAlwasyShowTypeIcon = context.getResources().getBoolean(R.bool.config_alwaysShowTypeIcon);
         mShowIconGForCDMA_1x = context.getResources().getBoolean(R.bool.config_showIconGforCDMA_1X);
         mHideNoInternetState = context.getResources().getBoolean(R.bool.config_hideNoInternetState);
+        mShowVolteIcon = context.getResources().getBoolean(R.bool.config_display_volte);
 
         mapIconSets();
 
@@ -331,7 +334,7 @@ public class MobileSignalController extends SignalController<
         int resId = 0;
         int voiceNetTye = getVoiceNetworkType();
 
-        if ( mCurrentState.imsResitered ) {
+        if ( mImsResitered ) {
             resId = R.drawable.ic_volte;
         }else if ( mDataNetType == TelephonyManager.NETWORK_TYPE_LTE
                     || mDataNetType == TelephonyManager.NETWORK_TYPE_LTE_CA
@@ -343,8 +346,8 @@ public class MobileSignalController extends SignalController<
     }
 
     private void updateImsRegistrationState() {
-        mCurrentState.imsResitered = mPhone.isImsRegistered(mSubscriptionInfo.getSubscriptionId());
-        notifyListenersIfNecessary();
+        mImsResitered = mPhone.isImsRegistered(mSubscriptionInfo.getSubscriptionId());
+        Log.d(mTag, "updateImsRegistrationState mImsResitered=" + mImsResitered);
     }
 
     @Override
@@ -383,8 +386,8 @@ public class MobileSignalController extends SignalController<
         showDataIcon &= mCurrentState.isDefault || dataDisabled;
         int typeIcon = (showDataIcon || mConfig.alwaysShowDataRatIcon || mAlwasyShowTypeIcon) ?
                 icons.mDataType : 0;
-        int volteIcon = mConfig.showVolteIcon && isEnhanced4gLteModeSettingEnabled()
-                ? getVolteResId() : 0;
+        int volteIcon = mShowVolteIcon && isEnhanced4gLteModeSettingEnabled() ? getVolteResId() : 0;
+
         if (DEBUG) {
             Log.d(mTag, "notifyListeners mAlwasyShowTypeIcon=" + mAlwasyShowTypeIcon
                     + "  mDataNetType:" + mDataNetType +
@@ -394,7 +397,7 @@ public class MobileSignalController extends SignalController<
                     + " showDataIcon=" + showDataIcon
                     + " mConfig.alwaysShowDataRatIcon=" + mConfig.alwaysShowDataRatIcon
                     + " icons.mDataType=" + icons.mDataType
-                    + " mConfig.showVolteIcon=" + mConfig.showVolteIcon
+                    + " mShowVolteIcon=" + mShowVolteIcon
                     + " isEnhanced4gLteModeSettingEnabled=" + isEnhanced4gLteModeSettingEnabled()
                     + " volteIcon=" + volteIcon);
         }
@@ -789,6 +792,7 @@ public class MobileSignalController extends SignalController<
                         @ImsRegistrationImplBase.ImsRegistrationTech int imsRadioTech) {
                     Log.d(mTag, "onRegistered imsRadioTech=" + imsRadioTech);
                     updateImsRegistrationState();
+                    notifyListeners();
                 }
 
                 @Override
@@ -796,21 +800,21 @@ public class MobileSignalController extends SignalController<
                         @ImsRegistrationImplBase.ImsRegistrationTech int imsRadioTech) {
                     Log.d(mTag, "onRegistering imsRadioTech=" + imsRadioTech);
                     updateImsRegistrationState();
+                    notifyListeners();
                 }
 
                 @Override
                 public void onDeregistered(ImsReasonInfo imsReasonInfo) {
                     Log.d(mTag, "onDeregistered imsReasonInfo=" + imsReasonInfo);
                     updateImsRegistrationState();
+                    notifyListeners();
                 }
             };
 
     private final BroadcastReceiver mVolteSwitchObserver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             Log.d(mTag, "action=" + intent.getAction());
-            if ( mConfig.showVolteIcon ) {
-                notifyListeners();
-            }
+            notifyListeners();
         }
     };
 
@@ -843,7 +847,6 @@ public class MobileSignalController extends SignalController<
         boolean isDefault;
         boolean userSetup;
         boolean roaming;
-        boolean imsResitered;
 
         @Override
         public void copyFrom(State s) {
@@ -859,7 +862,6 @@ public class MobileSignalController extends SignalController<
             carrierNetworkChangeMode = state.carrierNetworkChangeMode;
             userSetup = state.userSetup;
             roaming = state.roaming;
-            imsResitered = state.imsResitered;
         }
 
         @Override
@@ -876,8 +878,7 @@ public class MobileSignalController extends SignalController<
             builder.append("airplaneMode=").append(airplaneMode).append(',');
             builder.append("carrierNetworkChangeMode=").append(carrierNetworkChangeMode)
                     .append(',');
-            builder.append("userSetup=").append(userSetup).append(',');
-            builder.append("imsResitered=").append(imsResitered);
+            builder.append("userSetup=").append(userSetup);
         }
 
         @Override
@@ -892,8 +893,7 @@ public class MobileSignalController extends SignalController<
                     && ((MobileState) o).carrierNetworkChangeMode == carrierNetworkChangeMode
                     && ((MobileState) o).userSetup == userSetup
                     && ((MobileState) o).isDefault == isDefault
-                    && ((MobileState) o).roaming == roaming
-                    && ((MobileState) o).imsResitered == imsResitered;
+                    && ((MobileState) o).roaming == roaming;
         }
     }
 }
