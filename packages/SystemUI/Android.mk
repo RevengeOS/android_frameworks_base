@@ -53,6 +53,7 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
     android-arch-lifecycle-extensions \
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
+    qtiNetworkLib \
     SystemUI-tags \
     SystemUI-proto
 
