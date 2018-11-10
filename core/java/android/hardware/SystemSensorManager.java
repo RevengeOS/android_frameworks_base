@@ -154,6 +154,8 @@ public class SystemSensorManager extends SensorManager {
             Log.e(TAG, "Trigger Sensors should use the requestTriggerSensor.");
             return false;
         }
+
+
         if (maxBatchReportLatencyUs < 0 || delayUs < 0) {
             Log.e(TAG, "maxBatchReportLatencyUs and delayUs should be non-negative");
             return false;
@@ -167,13 +169,18 @@ public class SystemSensorManager extends SensorManager {
                 Settings.System.SENSOR_BLOCK, 0) == 1) {
             if (sensor.getType() == Sensor.TYPE_SIGNIFICANT_MOTION) {
                 String pkgName = mContext.getPackageName();
-                for (String blockedPkgName : mContext.getResources().getStringArray(
-                        com.android.internal.R.array.config_blockPackagesSensorDrain)) {
-                    if (pkgName.equals(blockedPkgName)) {
-                        Log.w(TAG, "Preventing " + pkgName + "from draining battery using " +
-                                "significant motion sensor");
-                        return false;
-                    }
+                Log.w(TAG, "Preventing " + pkgName + " from draining battery using " +
+                       "significant motion sensor");
+                Log.w(TAG,"Here :", new Throwable());
+                return true;
+            } else if (sensor.getType() == Sensor. TYPE_ACCELEROMETER) {
+                String pkgName = mContext.getPackageName();
+                String opPkgName = mContext.getOpPackageName();
+                if(  opPkgName.equals("com.google.android.gms" ) ) {
+                    Log.w(TAG, "Preventing " + pkgName + "(" + opPkgName +") from draining battery using " +
+                           "accelerometer sensor");
+                    Log.w(TAG,"Here :", new Throwable());
+                    return true;
                 }
             }
         }
@@ -242,6 +249,26 @@ public class SystemSensorManager extends SensorManager {
             throw new IllegalStateException("request failed, "
                     + "the trigger listeners size has exceeded the maximum limit "
                     + MAX_LISTENER_COUNT);
+        }
+
+        if (Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SENSOR_BLOCK, 0) == 1) {
+            if (sensor.getType() == Sensor.TYPE_SIGNIFICANT_MOTION) {
+                String pkgName = mContext.getPackageName();
+                Log.w(TAG, "Preventing " + pkgName + " from draining battery using " +
+                       "significant motion sensor");
+                Log.w(TAG,"Here :", new Throwable());
+                return true;
+            } else if (sensor.getType() == Sensor. TYPE_ACCELEROMETER) {
+                String pkgName = mContext.getPackageName();
+                String opPkgName = mContext.getOpPackageName();
+                if(  opPkgName.equals("com.google.android.gms" ) ) {
+                    Log.w(TAG, "Preventing " + pkgName + "(" + opPkgName +") from draining battery using " +
+                           "accelerometer sensor");
+                    Log.w(TAG,"Here :", new Throwable());
+                    return true;
+                }
+            }
         }
 
         synchronized (mTriggerListeners) {
