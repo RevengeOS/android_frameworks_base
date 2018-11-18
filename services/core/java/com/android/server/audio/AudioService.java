@@ -3820,7 +3820,15 @@ public class AudioService extends IAudioService.Stub
             broadcastScoConnectionState(AudioManager.SCO_AUDIO_STATE_DISCONNECTED);
         }
         mScoClientDevices.clear();
-        AudioSystem.setParameters("A2dpSuspended=false");
+        synchronized(mConnectedDevices) {
+            for (int i = 0; i < mConnectedDevices.size(); i++) {
+                DeviceListSpec deviceSpec = mConnectedDevices.valueAt(i);
+                if (deviceSpec.mDeviceType == AudioSystem.DEVICE_OUT_BLUETOOTH_A2DP) {
+                    AudioSystem.setParameters("A2dpSuspended=false");
+                    break;
+                }
+            }
+        }
         setBluetoothScoOnInt(false, "resetBluetoothSco");
     }
 

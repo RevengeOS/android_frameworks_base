@@ -86,7 +86,7 @@ public class MobileSignalController extends SignalController<
     private Config mConfig;
 
     private boolean mAlwasyShowTypeIcon = false;
-    private boolean mShowIconGForCDMA_1x = false;
+    private boolean mShow2GForCDMA_1x = false;
     private boolean mHideNoInternetState = false;
     private int mCallState = TelephonyManager.CALL_STATE_IDLE;
 
@@ -122,7 +122,7 @@ public class MobileSignalController extends SignalController<
                 com.android.internal.R.string.lockscreen_carrier_default);
 
         mAlwasyShowTypeIcon = context.getResources().getBoolean(R.bool.config_alwaysShowTypeIcon);
-        mShowIconGForCDMA_1x = context.getResources().getBoolean(R.bool.config_showIconGforCDMA_1X);
+        mShow2GForCDMA_1x = context.getResources().getBoolean(R.bool.config_show2GforCDMA_1X);
         mHideNoInternetState = context.getResources().getBoolean(R.bool.config_hideNoInternetState);
         mShowVolteIcon = context.getResources().getBoolean(R.bool.config_display_volte);
 
@@ -243,9 +243,9 @@ public class MobileSignalController extends SignalController<
             mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_UNKNOWN,
                     TelephonyIcons.UNKNOWN);
             mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_EDGE, TelephonyIcons.E);
-            if ( mShowIconGForCDMA_1x ) {
-                mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_CDMA, TelephonyIcons.G);
-                mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_1xRTT, TelephonyIcons.G);
+            if (mShow2GForCDMA_1x) {
+                mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_CDMA, TelephonyIcons.TWO_G);
+                mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_1xRTT, TelephonyIcons.TWO_G);
             }else {
                 mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_CDMA, TelephonyIcons.ONE_X);
                 mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_1xRTT, TelephonyIcons.ONE_X);
@@ -416,8 +416,10 @@ public class MobileSignalController extends SignalController<
         showDataIcon &= mCurrentState.isDefault || dataDisabled;
         int typeIcon = (showDataIcon || mConfig.alwaysShowDataRatIcon || mAlwasyShowTypeIcon) ?
                 icons.mDataType : 0;
-        int volteIcon = mShowVolteIcon && isEnhanced4gLteModeSettingEnabled() ? getVolteResId() : 0;
-        boolean fiveGAvailable = mFiveGState.connected && isDataRegisteredOnLte();
+        int volteIcon = mConfig.showVolteIcon && isEnhanced4gLteModeSettingEnabled()
+                ? getVolteResId() : 0;
+        boolean show5GIcon = mFiveGState.connected && isDataRegisteredOnLte()
+                && mCurrentState.dataConnected;
         if (DEBUG) {
             Log.d(mTag, "notifyListeners mAlwasyShowTypeIcon=" + mAlwasyShowTypeIcon
                     + "  mDataNetType:" + mDataNetType +
@@ -429,14 +431,14 @@ public class MobileSignalController extends SignalController<
                     + " icons.mDataType=" + icons.mDataType
                     + " mShowVolteIcon=" + mShowVolteIcon
                     + " isEnhanced4gLteModeSettingEnabled=" + isEnhanced4gLteModeSettingEnabled()
-                    + " volteIcon=" + volteIcon);
+                    + " volteIcon=" + volteIcon + " show5GIcon=" + show5GIcon);
         }
         callback.setMobileDataIndicators(statusIcon, qsIcon, typeIcon, qsTypeIcon,
                 activityIn, activityOut, 0,
                 0, volteIcon,
                 dataContentDescription, description, icons.mIsWide,
                 mSubscriptionInfo.getSubscriptionId(), mCurrentState.roaming,
-                fiveGAvailable, getCurrentFiveGIconId(), mFiveGState.dataConnected);
+                show5GIcon, getCurrentFiveGIconId(), mFiveGState.dataConnected);
     }
 
     @Override

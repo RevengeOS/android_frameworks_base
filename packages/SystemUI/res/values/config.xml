@@ -152,8 +152,8 @@
     <!-- Whether or not we always show type icon -->
     <bool name="config_alwaysShowTypeIcon">false</bool>
 
-    <!-- Whether or not we show G for CDMA/1xRTT -->
-    <bool name="config_showIconGforCDMA_1X">false</bool>
+    <!-- Whether or not we show 2G for CDMA/1xRTT -->
+    <bool name="config_show2GforCDMA_1X">false</bool>
 
     <!-- When true, hide no internet statue on signal strength icon -->
     <bool name="config_hideNoInternetState">false</bool>

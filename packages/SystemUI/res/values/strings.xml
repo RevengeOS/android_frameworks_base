@@ -366,6 +366,8 @@
     <!-- Content description of the data connection type HSPA and its variants. [CHAR LIMIT=NONE] -->
     <string name="data_connection_hspa">HSPA</string>
 
+    <string name="data_connection_2g">2G</string>
+
     <!-- Content description of the data connection type 3G. [CHAR LIMIT=NONE] -->
     <string name="data_connection_3g">3G</string>
 

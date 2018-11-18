@@ -44,14 +44,14 @@ import android.util.SparseArray;
 
 import java.lang.Exception;
 
-import org.codeaurora.qti.qtiNetworkLib.Client;
-import org.codeaurora.qti.qtiNetworkLib.DcParam;
-import org.codeaurora.qti.qtiNetworkLib.INetworkCallback;
-import org.codeaurora.qti.qtiNetworkLib.INetworkInterface;
-import org.codeaurora.qti.qtiNetworkLib.ServiceUtil;
-import org.codeaurora.qti.qtiNetworkLib.SignalStrength;
-import org.codeaurora.qti.qtiNetworkLib.Status;
-import org.codeaurora.qti.qtiNetworkLib.Token;
+import org.codeaurora.internal.Client;
+import org.codeaurora.internal.DcParam;
+import org.codeaurora.internal.IExtTelephony;
+import org.codeaurora.internal.INetworkCallback;
+import org.codeaurora.internal.ServiceUtil;
+import org.codeaurora.internal.SignalStrength;
+import org.codeaurora.internal.Status;
+import org.codeaurora.internal.Token;
 
 import com.android.systemui.R;
 
@@ -72,7 +72,7 @@ public class FiveGServiceClient {
 
     private Context mContext;
     private boolean mServiceConnected;
-    private INetworkInterface mNetworkService;
+    private IExtTelephony mNetworkService;
     private String mPackageName;
     private Client mClient;
     private int mBindRetryTimes = 0;
@@ -301,7 +301,7 @@ public class FiveGServiceClient {
             Log.d(TAG, "onServiceConnected:" + service);
 
             try {
-                mNetworkService = INetworkInterface.Stub.asInterface(service);
+                mNetworkService = IExtTelephony.Stub.asInterface(service);
                 mClient = mNetworkService.registerCallback(mPackageName, mCallback);
                 mServiceConnected = true;
                 initFiveGServiceState();
@@ -392,7 +392,7 @@ public class FiveGServiceClient {
 
         @Override
         public void onSignalStrength(int slotId, Token token, Status status,
-                                     org.codeaurora.qti.qtiNetworkLib.SignalStrength
+                                     org.codeaurora.internal.SignalStrength
                                              signalStrength) throws RemoteException {
             if ( DEBUG ) {
                 Log.d(TAG, "onSignalStrength: slotId=" + slotId + " token=" + token

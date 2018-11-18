@@ -163,6 +163,18 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
         if (!mState.equals(state)) {
             updateState(state.copy());
         }
+
+        if ( needFixVisibleState() ) {
+            Log.d(TAG, "fix VisibleState width=" + getWidth() + " height=" + getHeight());
+            mVisibleState = STATE_ICON;
+            setVisibility(View.VISIBLE);
+            requestLayout();
+        }else if (needFixInVisibleState() ) {
+            Log.d(TAG, "fix InVisibleState width=" + getWidth() + " height=" + getHeight());
+            mVisibleState = -1;
+            setVisibility(View.INVISIBLE);
+            requestLayout();
+        }
     }
 
     private void initViewState() {
@@ -356,6 +368,22 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
     @VisibleForTesting
     public MobileIconState getState() {
         return mState;
+    }
+
+    private boolean needFixVisibleState() {
+        if ( (mState.visible||mState.fiveGIconVisible) && (getVisibility() != View.VISIBLE) ) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    private boolean needFixInVisibleState() {
+        if ( (!mState.visible && !mState.fiveGIconVisible ) && (getVisibility() == View.VISIBLE)) {
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override

@@ -49,6 +49,7 @@ import java.util.List;
 public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> {
     private static final String TAG = "CachedBluetoothDevice";
     private static final boolean DEBUG = Utils.V;
+    private static final boolean mIsTwsConnectEnabled = false;
 
     private final Context mContext;
     private final LocalBluetoothAdapter mLocalAdapter;
@@ -739,7 +740,7 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
         if (bondState == BluetoothDevice.BOND_BONDED) {
             if (mDevice.isBluetoothDock()) {
                 onBondingDockConnect();
-            } else if (SystemProperties.getBoolean("persist.vendor.btstack.connect.peer_earbud", false)) {
+            } else if (mIsTwsConnectEnabled) {
                 Log.d(TAG, "Initiating connection to" + mDevice);
                 if (mDevice.isBondingInitiatedLocally() || mDevice.isTwsPlusDevice()) {
                     connect(false);

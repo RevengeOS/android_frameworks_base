@@ -53,11 +53,11 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
     android-arch-lifecycle-extensions \
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
-    qtiNetworkLib \
     SystemUI-tags \
     SystemUI-proto
 
-LOCAL_JAVA_LIBRARIES := telephony-common \
+LOCAL_JAVA_LIBRARIES := telephony-ext \
+    telephony-common \
     android.car \
     ims-common
 
