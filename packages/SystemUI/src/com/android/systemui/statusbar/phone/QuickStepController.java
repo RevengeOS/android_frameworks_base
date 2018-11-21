@@ -43,6 +43,7 @@ import android.os.RemoteException;
 import android.util.FloatProperty;
 import android.util.Log;
 import android.util.Slog;
+import android.view.HapticFeedbackConstants;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -358,6 +359,7 @@ public class QuickStepController implements GestureHelper {
 
                 if (mBackActionScheduled) {
                     AEXUtils.sendKeycode(KeyEvent.KEYCODE_BACK);
+                    mNavigationBarView.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                 } else {
                     endQuickScrub(true /* animate */);
                 }
