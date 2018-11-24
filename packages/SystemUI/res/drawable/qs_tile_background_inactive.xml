@@ -28,10 +28,7 @@
         android:height="44dp"
         android:gravity="center">
         <shape android:shape="rectangle">
-            <gradient 
-                android:startColor="#058FFF"
-                android:endColor="#00FFD2"
-                android:angle="45"/>
+            <solid android:color="#dbdbdb" />
             <corners android:radius="22dp"/>
         </shape>
     </item>

@@ -54,9 +54,8 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
     private boolean mCollapsedView;
     private boolean mClicked;
 
-    private final ImageView mBg;
-    private final Drawable mColorActive;
-    private final int mColorDisabled;
+    private final Drawable mTileBgActive;
+    private final Drawable mTileBgInactive;
 
     public QSTileBaseView(Context context, QSIconView icon) {
         this(context, icon, false);
@@ -67,14 +66,13 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         // Default to Quick Tile padding, and QSTileView will specify its own padding.
         int padding = context.getResources().getDimensionPixelSize(R.dimen.qs_quick_tile_padding);
 
+        mTileBgActive = getResources().getDrawable(R.drawable.qs_tile_background_active);
+        mTileBgInactive = getResources().getDrawable(R.drawable.qs_tile_background_inactive);
+
         mIconFrame = new FrameLayout(context);
         mIconFrame.setForegroundGravity(Gravity.CENTER);
         int size = context.getResources().getDimensionPixelSize(R.dimen.qs_quick_tile_size);
         addView(mIconFrame, new LayoutParams(size, size));
-        mBg = new ImageView(getContext());
-        mBg.setScaleType(ScaleType.FIT_CENTER);
-        mBg.setImageResource(R.drawable.ic_qs_circle);
-        mIconFrame.addView(mBg);
         mIcon = icon;
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -90,19 +88,11 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
         setBackground(mTileBackground);
 
-        mColorActive = getResources().getDrawable(R.drawable.qs_tile_background_active);
-        mColorDisabled = Utils.getDisabled(context,
-                Utils.getColorAttr(context, android.R.attr.textColorTertiary));
-
         setPadding(0, 0, 0, 0);
         setClipChildren(false);
         setClipToPadding(false);
         mCollapsedView = collapsedView;
         setFocusable(true);
-    }
-
-    public View getBgCicle() {
-        return mBg;
     }
 
     protected Drawable newTileBackground() {
@@ -185,15 +175,15 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
             }
         }
         switch (state.state) {
-			case Tile.STATE_ACTIVE:
-			    mBg.setImageDrawable(mColorActive);
-			    break;
-			case Tile.STATE_INACTIVE:
-			    mBg.setColorFilter(mColorDisabled);
-			    break;
-			case Tile.STATE_UNAVAILABLE:
-			    mBg.setColorFilter(mColorDisabled);
-			    break;
+            case Tile.STATE_ACTIVE:
+                mIconFrame.setBackground(mTileBgActive);
+                break;
+            case Tile.STATE_INACTIVE:
+                mIconFrame.setBackground(mTileBgInactive);
+                break;
+            case Tile.STATE_UNAVAILABLE:
+                mIconFrame.setBackground(mTileBgInactive);
+                break;
             default:
                 Log.e(TAG, "Invalid state " + state);
                 break;
