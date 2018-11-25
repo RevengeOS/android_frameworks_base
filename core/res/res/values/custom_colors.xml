@@ -57,7 +57,7 @@
     <color name="notification_shade_background_color">#ffeeeeee</color>
     <color name="notification_ripple_untinted_color">#28000000</color>
     <color name="notification_ripple_tinted_color">#30ffffff</color>
-    <color name="notification_gear_color">#ff757575</color>
+    <color name="notification_gear_color">#ffffffff</color>
     <color name="notification_guts_bg_color">#f8f9fa</color>
     <color name="notification_snooze_text">#dd000000</color>
 
