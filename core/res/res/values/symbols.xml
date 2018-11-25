@@ -3403,4 +3403,9 @@
 
   <java-symbol type="integer" name="config_defaultHapticFeedbackIntensity" />
   <java-symbol type="integer" name="config_defaultNotificationVibrationIntensity" />
+
+  <!-- RevengeOS colors-->
+  <java-symbol type="color" name="inactive_grey" />
+  <java-symbol type="color" name="primary_accent" />
+  <java-symbol type="color" name="secondary_accent" />
 </resources>
