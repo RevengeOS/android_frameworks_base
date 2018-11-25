@@ -17,19 +17,19 @@
     <item android:id="@android:id/background"
           android:gravity="center_vertical|fill_horizontal">
         <shape android:shape="rectangle"
-               android:tint="?android:attr/colorControlActivated">
+               android:tint="@*android:color/inactive_grey">
             <size android:height="@dimen/seek_bar_height" />
-            <solid android:color="@color/white_disabled" />
             <corners android:radius="@dimen/seek_bar_corner_radius" />
         </shape>
     </item>
     <item android:id="@android:id/progress"
           android:gravity="center_vertical|fill_horizontal">
         <scale android:scaleWidth="100%">
-            <shape android:shape="rectangle"
-                   android:tint="?android:attr/colorControlActivated">
+            <shape android:shape="rectangle">
                 <size android:height="@dimen/seek_bar_height" />
-                <solid android:color="@android:color/white" />
+                <gradient 
+                    android:startColor="@*android:color/primary_accent"
+                    android:endColor="@*android:color/secondary_accent"/>
                 <corners android:radius="@dimen/seek_bar_corner_radius" />
             </shape>
         </scale>
