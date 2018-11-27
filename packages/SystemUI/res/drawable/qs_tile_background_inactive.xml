@@ -28,7 +28,16 @@
         android:height="44dp"
         android:gravity="center">
         <shape android:shape="rectangle">
-            <solid android:color="@*android:color/inactive_grey" />
+            <solid android:color="@*android:color/white" />
+            <corners android:radius="22dp"/>
+        </shape>
+    </item>
+    <item
+        android:width="44dp"
+        android:height="44dp"
+        android:gravity="center">
+        <shape android:shape="rectangle">
+            <solid android:color="@*android:color/background_grey" />
             <corners android:radius="22dp"/>
         </shape>
     </item>

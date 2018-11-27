@@ -16,9 +16,9 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@android:id/background"
           android:gravity="center_vertical|fill_horizontal">
-        <shape android:shape="rectangle"
-               android:tint="@*android:color/inactive_grey">
+        <shape android:shape="rectangle">
             <size android:height="@dimen/seek_bar_height" />
+            <solid android:color="@*android:color/background_grey" />
             <corners android:radius="@dimen/seek_bar_corner_radius" />
         </shape>
     </item>

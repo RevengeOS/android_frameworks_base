@@ -211,7 +211,6 @@
     <color name="floating_popup_divider_light">#E9E9E9</color>
 
     <!-- RevengeOS colors-->
-    <color name="inactive_grey">#ffdedede</color>
     <color name="primary_accent">#ff058fff</color>
     <color name="secondary_accent">#ff00ffd2</color>
 </resources>
