@@ -27,12 +27,11 @@
         android:width="44dp"
         android:height="44dp"
         android:gravity="center">
-        <shape android:shape="rectangle">
+        <shape android:shape="oval">
             <gradient 
                 android:startColor="@*android:color/primary_accent"
                 android:endColor="@*android:color/secondary_accent"
                 android:angle="45"/>
-            <corners android:radius="22dp"/>
         </shape>
     </item>
 </layer-list>
