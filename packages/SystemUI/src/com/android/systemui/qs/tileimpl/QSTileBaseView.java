@@ -67,8 +67,8 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         // Default to Quick Tile padding, and QSTileView will specify its own padding.
         int padding = context.getResources().getDimensionPixelSize(R.dimen.qs_quick_tile_padding);
 
-        mTileBgActive = getResources().getDrawable(R.drawable.qs_tile_background_active);
-        mTileBgInactive = getResources().getDrawable(R.drawable.qs_tile_background_inactive);
+        mTileBgActive = getContext().getDrawable(R.drawable.qs_tile_background_active);
+        mTileBgInactive = getContext().getDrawable(R.drawable.qs_tile_background_inactive);
 
         mIconFrame = new FrameLayout(context);
         mIconFrame.setForegroundGravity(Gravity.CENTER);
@@ -180,13 +180,13 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         }
         switch (state.state) {
             case Tile.STATE_ACTIVE:
-                mBg.setImageResource(R.drawable.qs_tile_background_active);
+                mBg.setImageDrawable(mTileBgActive);
                 break;
             case Tile.STATE_INACTIVE:
-                mBg.setImageResource(R.drawable.qs_tile_background_inactive);
+                mBg.setImageDrawable(mTileBgInactive);
                 break;
             case Tile.STATE_UNAVAILABLE:
-                mBg.setImageResource(R.drawable.qs_tile_background_inactive);
+                mBg.setImageDrawable(mTileBgInactive);
                 break;
             default:
                 Log.e(TAG, "Invalid state " + state);
