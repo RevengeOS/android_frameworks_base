@@ -132,21 +132,12 @@ public class ScreenGesturesView extends FrameLayout {
         }
     }
 
-    private int getFeedbackStrength() {
-        try {
-            return Settings.Secure.getIntForUser(getContext().getContentResolver(),
-                    Settings.Secure.EDGE_GESTURES_FEEDBACK_DURATION, UserHandle.USER_CURRENT);
-        } catch (Settings.SettingNotFoundException exception) {
-            return 100;
-        }
-    }
-
     private int getLongpressDuration() {
         try {
             return Settings.Secure.getIntForUser(getContext().getContentResolver(),
                     Settings.Secure.EDGE_GESTURES_LONG_PRESS_DURATION, UserHandle.USER_CURRENT);
         } catch (Settings.SettingNotFoundException exception) {
-            return 500;
+            return 200;
         }
     }
 
@@ -173,7 +164,7 @@ public class ScreenGesturesView extends FrameLayout {
         boolean canSendHome = (possibleGestures & GestureType.HOME) != 0;
         if (canSendHome && (posY - initialY < -threshold)) {
             if (DEBUG) Log.d(TAG, "stopGesture: Home");
-            vibrator.vibrate(getFeedbackStrength());
+            vibrator.vibrate(50);
             onGestureCompletedListener.onGestureCompleted(GestureType.HOME);
             return;
         }
@@ -181,7 +172,7 @@ public class ScreenGesturesView extends FrameLayout {
         boolean canSendBack = (possibleGestures & GestureType.BACK) != 0;
         if (canSendBack && (Math.abs(posX - initialX) > threshold)) {
             if (DEBUG) Log.d(TAG, "stopGesture: Back");
-            vibrator.vibrate(getFeedbackStrength());
+            vibrator.vibrate(50);
             onGestureCompletedListener.onGestureCompleted(GestureType.BACK);
             return;
         }
@@ -267,7 +258,7 @@ public class ScreenGesturesView extends FrameLayout {
                 if (onGestureCompletedListener != null) {
                     onGestureCompletedListener.onGestureCompleted(GestureType.RECENTS);
                 }
-                vibrator.vibrate(getFeedbackStrength());
+                vibrator.vibrate(50);
             }
         }
     };

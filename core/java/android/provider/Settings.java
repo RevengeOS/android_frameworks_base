@@ -8052,12 +8052,6 @@ public final class Settings {
         public static final String EDGE_GESTURES_ENABLED = "edge_gestures_enabled";
 
         /**
-         * Haptic feedback duration on edge gesture navigation.
-         * @hide
-         */
-        public static final String EDGE_GESTURES_FEEDBACK_DURATION = "edge_gestures_feedback_duration";
-
-        /**
          * Long press duration on edge gesture navigation.
          * @hide
          */
