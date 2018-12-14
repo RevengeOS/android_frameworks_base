@@ -248,7 +248,8 @@ public class CellularTile extends QSTileImpl<SignalState> {
                 int qsType, boolean activityIn, boolean activityOut, int dataActivityId,
                 int stackedDataIcon, int stackedVoiceIcon,
                 String typeContentDescription, String description, boolean isWide,
-                int subId, boolean roaming) {
+                int subId, boolean roaming,
+                boolean fiveGAvailable, int fiveGSignalStrengId, boolean dataOnFiveG) {
             if (qsIcon == null) {
                 // Not data sim, don't display.
                 return;
