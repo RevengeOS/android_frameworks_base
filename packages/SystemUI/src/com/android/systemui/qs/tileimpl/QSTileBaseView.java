@@ -13,7 +13,10 @@
  */
 package com.android.systemui.qs.tileimpl;
 
-import android.animation.ValueAnimator;
+import static com.android.systemui.qs.tileimpl.QSIconViewImpl.QS_ANIM_LENGTH;
+
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -55,8 +58,8 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
     private boolean mClicked;
 
     private final ImageView mBg;
-    private final Drawable mTileBgActive;
     private final Drawable mTileBgInactive;
+    private int mState;
 
     public QSTileBaseView(Context context, QSIconView icon) {
         this(context, icon, false);
@@ -67,7 +70,6 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         // Default to Quick Tile padding, and QSTileView will specify its own padding.
         int padding = context.getResources().getDimensionPixelSize(R.dimen.qs_quick_tile_padding);
 
-        mTileBgActive = getContext().getDrawable(R.drawable.qs_tile_background_active);
         mTileBgInactive = getContext().getDrawable(R.drawable.qs_tile_background_inactive);
 
         mIconFrame = new FrameLayout(context);
@@ -76,7 +78,9 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         addView(mIconFrame, new LayoutParams(size, size));
         mBg = new ImageView(getContext());
         mBg.setScaleType(ScaleType.FIT_CENTER);
+        mBg.setImageDrawable(getContext().getDrawable(R.drawable.qs_tile_background_active));
         mIconFrame.addView(mBg);
+        mIconFrame.setBackground(mTileBgInactive);
         mIcon = icon;
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -166,6 +170,32 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
     }
 
     protected void handleStateChanged(QSTile.State state) {
+        int newTileState = state.state;
+        if (newTileState != mState) {
+            if (mBg.isShown()) {
+                if (newTileState == Tile.STATE_ACTIVE) {
+                    mBg.setAlpha(0f);
+                    mBg.animate()
+                       .alpha(1f)
+                       .setDuration(QS_ANIM_LENGTH)
+                       .setListener(null);
+                }
+                else if (mState == Tile.STATE_ACTIVE) {
+                    mBg.animate()
+                       .alpha(0f)
+                       .setDuration(QS_ANIM_LENGTH)
+                       .setListener(null);
+                }
+            } else {
+                if (newTileState == Tile.STATE_ACTIVE) {
+                    mBg.setAlpha(1f);
+                }
+                else {
+                    mBg.setAlpha(0f);
+                }
+            }
+            mState = newTileState;
+        }
         setClickable(state.state != Tile.STATE_UNAVAILABLE);
         mIcon.setIcon(state);
         setContentDescription(state.contentDescription);
@@ -177,20 +207,6 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
                 mClicked = false;
                 mTileState = newState;
             }
-        }
-        switch (state.state) {
-            case Tile.STATE_ACTIVE:
-                mBg.setImageDrawable(mTileBgActive);
-                break;
-            case Tile.STATE_INACTIVE:
-                mBg.setImageDrawable(mTileBgInactive);
-                break;
-            case Tile.STATE_UNAVAILABLE:
-                mBg.setImageDrawable(mTileBgInactive);
-                break;
-            default:
-                Log.e(TAG, "Invalid state " + state);
-                break;
         }
     }
 
