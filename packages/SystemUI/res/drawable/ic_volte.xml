@@ -1,40 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--Copyright (c) 2018, The Linux Foundation. All rights reserved.
- *                2018, Citrus-CAF
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are
- * met:
- *  * Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- *  * Redistributions in binary form must reproduce the above
- *    copyright notice, this list of conditions and the following
- *    disclaimer in the documentation and/or other materials provided
- *    with the distribution.
- *  * Neither the name of The Linux Foundation nor the names of its
- *    contributors may be used to endorse or promote products derived
- *    from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
- * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
- * ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
- * BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
- * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
- * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
- * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<!--
+ Copyright (c) 2016, The Linux Foundation. All rights reserved.
+               2017, Cardinal-AOSP
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are
+ met:
+        * Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        * Redistributions in binary form must reproduce the above
+        copyright notice, this list of conditions and the following
+        disclaimer in the documentation and/or other materials provided
+        with the distribution.
+        * Neither the name of The Linux Foundation nor the names of its
+        contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+ THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+ WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+ ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+ BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+ BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
-
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:viewportWidth="17"
-    android:viewportHeight="17"
-    android:width="17dp"
-    android:height="17dp">
-        <path
-            android:pathData="M14.5 1C15.328 1 16 1.672 16 2.5l0 12c0 0.828 -0.672 1.5 -1.5 1.5l-12 0C1.672 16 1 15.328 1 14.5L1 2.5C1 1.672 1.672 1 2.5 1l12 0zm-6.904 11.13l0 -7.26 -0.736 0 0 3.071 -2.995 0 0 -3.071 -0.736 0 0 7.26 0.736 0 0 -3.386 2.995 0 0 3.386 0.736 0zm3.224 0c0.96 0 1.708 -0.31 2.245 -0.931 0.538 -0.62 0.806 -1.543 0.806 -2.77 0 -0.773 -0.117 -1.424 -0.351 -1.952C13.285 5.948 12.951 5.548 12.517 5.277 12.084 5.006 11.575 4.87 10.991 4.87l-1.8 0 0 7.26 1.629 0zm0.065 -6.477c0.704 0 1.248 0.225 1.632 0.676 0.385 0.451 0.577 1.161 0.577 2.13 0 1.925 -0.791 2.888 -2.373 2.888l-0.793 0 0 -5.694 0.957 0z"
-            android:fillType="evenOdd"
-            android:fillColor="#ffffff" />
+    android:width="28dp"
+    android:height="24dp"
+    android:viewportWidth="28"
+    android:viewportHeight="24">
+
+    <path
+        android:fillColor="#ffffff"
+        android:fillType="evenOdd"
+        android:pathData="M26.819,5.154c0.605,0 1.098,0.491 1.102,1.095l0.069,11.502c0.004,0.604
+-0.484,1.095 -1.088,1.095l-25.721,0c-0.605,0 -1.098,-0.491
+-1.102,-1.095l-0.069,-11.502c-0.004,-0.604 0.484,-1.095
+1.088,-1.095l25.721,0Zm-17.174,10.07l0.609,0l0,-6.096l-0.609,0l0,6.096Zm-6.833,-5.181l1.258,3.724l1.261,-3.75c0.066,-0.197
+0.115,-0.334 0.148,-0.411c0.033,-0.077 0.087,-0.147 0.163,-0.208c0.076,-0.062
+0.179,-0.093 0.31,-0.093c0.096,0 0.185,0.024 0.268,0.072c0.082,0.048 0.146,0.111
+0.193,0.191c0.046,0.08 0.07,0.16 0.07,0.241c0,0.055 -0.008,0.115
+-0.023,0.18c-0.015,0.064 -0.034,0.127 -0.057,0.189c-0.022,0.062 -0.045,0.126
+-0.068,0.191l-1.345,3.629c-0.048,0.139 -0.096,0.271 -0.144,0.396c-0.048,0.125
+-0.103,0.235 -0.166,0.33c-0.064,0.095 -0.147,0.172 -0.252,0.233c-0.105,0.06
+-0.233,0.091 -0.385,0.091c-0.151,0 -0.28,-0.03 -0.384,-0.089c-0.105,-0.06
+-0.19,-0.138 -0.254,-0.235c-0.065,-0.097 -0.121,-0.208
+-0.169,-0.332c-0.048,-0.123 -0.096,-0.255
+-0.144,-0.394l-1.322,-3.598c-0.022,-0.066 -0.046,-0.131
+-0.07,-0.194c-0.024,-0.063 -0.044,-0.131 -0.06,-0.204c-0.017,-0.073
+-0.025,-0.135 -0.025,-0.186c0,-0.129 0.052,-0.246 0.155,-0.352c0.104,-0.106
+0.234,-0.159 0.39,-0.159c0.192,0 0.328,0.058 0.408,0.176c0.079,0.117 0.161,0.305
+0.244,0.562Zm18.05,0.285c0.192,0 0.336,-0.043 0.432,-0.127c0.096,-0.085
+0.144,-0.197 0.144,-0.336c0,-0.138 -0.048,-0.251 -0.142,-0.337c-0.095,-0.086
+-0.24,-0.129 -0.434,-0.129l-3.576,0c-0.185,0 -0.326,0.042
+-0.423,0.125c-0.097,0.084 -0.146,0.197 -0.146,0.341c0,0.139 0.047,0.251
+0.141,0.336c0.093,0.084 0.236,0.127 0.428,0.127l1.227,0l0,4.034c0,0.23
+0.052,0.402 0.157,0.515c0.105,0.114 0.241,0.171 0.408,0.171c0.164,0 0.298,-0.056
+0.401,-0.169c0.104,-0.112 0.155,-0.285
+0.155,-0.517l0,-4.034l1.228,0Zm-6.221,3.701l0,-4.042c0,-0.23 -0.052,-0.401
+-0.157,-0.514c-0.105,-0.112 -0.242,-0.168 -0.411,-0.168c-0.166,0 -0.301,0.057
+-0.403,0.17c-0.103,0.114 -0.154,0.284 -0.154,0.512l0,4.277c0,0.242 0.054,0.418
+0.161,0.526c0.108,0.109 0.284,0.163 0.529,0.163l2.716,0c0.184,0 0.325,-0.042
+0.42,-0.127c0.096,-0.084 0.144,-0.195 0.144,-0.331c0,-0.134 -0.048,-0.245
+-0.145,-0.334c-0.098,-0.088 -0.237,-0.132
+-0.419,-0.132l-2.281,0Zm11.123,-4.63l-2.97,0c-0.159,0 -0.29,0.024
+-0.392,0.071c-0.103,0.046 -0.178,0.121 -0.226,0.223c-0.048,0.102 -0.072,0.234
+-0.072,0.396l0,4.175c0,0.242 0.054,0.418 0.161,0.526c0.108,0.109 0.284,0.163
+0.529,0.163l3.057,0c0.177,0 0.31,-0.041 0.4,-0.123c0.089,-0.082 0.134,-0.189
+0.134,-0.32c0,-0.137 -0.045,-0.246 -0.134,-0.328c-0.09,-0.082 -0.223,-0.123
+-0.4,-0.123l-2.622,0l0,-1.58l2.334,0c0.174,0 0.303,-0.039
+0.386,-0.119c0.084,-0.08 0.125,-0.182 0.125,-0.309c0,-0.126 -0.042,-0.228
+-0.126,-0.305c-0.085,-0.077 -0.213,-0.115
+-0.385,-0.115l-2.334,0l0,-1.364l2.535,0c0.179,0 0.312,-0.04
+0.399,-0.119c0.088,-0.08 0.131,-0.185 0.131,-0.317c0,-0.128 -0.043,-0.233
+-0.131,-0.312c-0.087,-0.08 -0.22,-0.12
+-0.399,-0.12Zm-17.338,4.606l0.609,0l0,-3.657l-0.609,0l0,3.657Zm2.438,0l0.609,0l0,-3.657l-0.609,0l0,3.657Zm-3.658,-1.219l0.61,0l0,-1.219l-0.61,0l0,1.219Zm4.877,-1.219l0,1.219l0.609,0l0,-1.219l-0.609,0Z" />
 </vector>
