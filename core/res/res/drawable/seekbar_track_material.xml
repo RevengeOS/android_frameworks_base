@@ -41,7 +41,7 @@
     </item>
     <item android:id="@id/progress"
           android:gravity="center_vertical|fill_horizontal">
-        <scale android:scaleWidth="100%">
+        <clip>
             <selector>
                 <item android:state_enabled="false"
                       android:drawable="@color/transparent" />
@@ -56,6 +56,6 @@
                     </shape>
                 </item>
             </selector>
-        </scale>
+        </clip>
     </item>
 </layer-list>

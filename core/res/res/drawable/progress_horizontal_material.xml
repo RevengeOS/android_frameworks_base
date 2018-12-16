@@ -35,7 +35,7 @@
     </item>
     <item android:id="@id/progress"
           android:gravity="center_vertical|fill_horizontal">
-        <scale android:scaleWidth="100%">
+        <clip>
             <shape android:shape="rectangle">
                 <corners android:radius="?attr/progressBarCornerRadius" />
                 <size android:height="@dimen/progress_bar_height_material" />
@@ -44,6 +44,6 @@
                     android:endColor="@*android:color/secondary_accent"
                     android:angle="45"/>
             </shape>
-        </scale>
+        </clip>
     </item>
 </layer-list>
