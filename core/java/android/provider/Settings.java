@@ -4378,16 +4378,6 @@ public final class Settings {
         public static final String VOLUME_BUTTON_MUSIC_CONTROL = "volume_button_music_control";
 
         /**
-         * @hide
-         */
-        public static final String TORCH_LONG_PRESS_POWER_GESTURE = "torch_long_press_power_gesture";
-
-        /**
-         * @hide
-         */
-        public static final String TORCH_LONG_PRESS_POWER_TIMEOUT = "torch_long_press_power_timeout";
-
-        /**
          * Whether to show network traffic indicator in statusbar
          * @hide
          */
