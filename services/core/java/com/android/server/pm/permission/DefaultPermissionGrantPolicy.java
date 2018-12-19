@@ -978,8 +978,8 @@ public final class DefaultPermissionGrantPolicy {
         }
 
         // Weather client
-        PackageParser.Package weatherClientPackage = getSystemPackage(WeatherClient.SERVICE_PACKAGE);
-        if (weatherClientPackage != null && doesPackageSupportRuntimePermissions(weatherClientPackage)) {
+        PackageParser.Package weatherClientPackage = getDefaultProviderAuthorityPackage("com.android.providers.weather", userId);
+        if (weatherClientPackage != null) {
             grantRuntimePermissions(weatherClientPackage, LOCATION_PERMISSIONS, userId);
         }
 
