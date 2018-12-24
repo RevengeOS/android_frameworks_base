@@ -280,14 +280,12 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
     private void updateSettings() {
         updateVisibility();
         if (mIsEnabled) {
-            if (getConnectAvailable()) {
-                if (mAttached) {
-                    totalRxBytes = TrafficStats.getTotalRxBytes();
-                    lastUpdateTime = SystemClock.elapsedRealtime();
-                    mTrafficHandler.sendEmptyMessage(1);
-                }
-                return;
+            if (mAttached) {
+                totalRxBytes = TrafficStats.getTotalRxBytes();
+                lastUpdateTime = SystemClock.elapsedRealtime();
+                mTrafficHandler.sendEmptyMessage(1);
             }
+            return;
         } else {
             clearHandlerCallbacks();
         }
@@ -379,7 +377,6 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
         mColorIsStatic = true;
         mTintColor = color;
         setTextColor(mTintColor);
-        updateTrafficDrawable();
     }
 
     @Override
