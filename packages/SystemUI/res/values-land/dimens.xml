@@ -17,7 +17,7 @@
 -->
 <resources>
     <!-- thickness (width) of the navigation bar on phones that require it -->
-    <dimen name="navigation_bar_size">@*android:dimen/navigation_bar_width</dimen>
+    <dimen name="navigation_bar_size">@*android:dimen/navigation_bar_height</dimen>
 
     <dimen name="docked_divider_handle_width">2dp</dimen>
     <dimen name="docked_divider_handle_height">16dp</dimen>
