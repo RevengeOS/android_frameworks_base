@@ -858,6 +858,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private boolean mVolumeMusicControl;
     private boolean mVolumeWakeActive;
 
+    private boolean mSwipeUpEnabled;
+    private int mNavigationBarHeight;
+
     // Fallback actions by key code.
     private final SparseArray<KeyCharacterMap.FallbackAction> mFallbackActions =
             new SparseArray<KeyCharacterMap.FallbackAction>();
@@ -3196,6 +3199,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         Context uiContext = getSystemUiContext();
         final Resources res = uiContext.getResources();
 
+        mSwipeUpEnabled = Settings.Secure.getIntForUser(mContext.getContentResolver(), Settings.Secure.SWIPE_UP_TO_SWITCH_APPS_ENABLED, 1, UserHandle.USER_CURRENT) == 1;
+        mNavigationBarHeight = mSwipeUpEnabled ? res.getDimensionPixelSize(com.android.internal.R.dimen.gesture_navigation_bar_height) :
+                res.getDimensionPixelSize(com.android.internal.R.dimen.navigation_bar_height);
+        
+
         mStatusBarHeightForRotation[mPortraitRotation] =
                 mStatusBarHeightForRotation[mUpsideDownRotation] = res.getDimensionPixelSize(
                                 com.android.internal.R.dimen.status_bar_height_portrait);
@@ -3205,18 +3213,15 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         // Height of the navigation bar when presented horizontally at bottom
         mNavigationBarHeightForRotationDefault[mPortraitRotation] =
-        mNavigationBarHeightForRotationDefault[mUpsideDownRotation] =
-                res.getDimensionPixelSize(com.android.internal.R.dimen.navigation_bar_height);
+        mNavigationBarHeightForRotationDefault[mUpsideDownRotation] = mNavigationBarHeight;
         mNavigationBarHeightForRotationDefault[mLandscapeRotation] =
-        mNavigationBarHeightForRotationDefault[mSeascapeRotation] = res.getDimensionPixelSize(
-                com.android.internal.R.dimen.navigation_bar_height);
+        mNavigationBarHeightForRotationDefault[mSeascapeRotation] =  mNavigationBarHeight;
 
         // Width of the navigation bar when presented vertically along one side
         mNavigationBarWidthForRotationDefault[mPortraitRotation] =
         mNavigationBarWidthForRotationDefault[mUpsideDownRotation] =
         mNavigationBarWidthForRotationDefault[mLandscapeRotation] =
-        mNavigationBarWidthForRotationDefault[mSeascapeRotation] =
-                res.getDimensionPixelSize(com.android.internal.R.dimen.navigation_bar_height);
+        mNavigationBarWidthForRotationDefault[mSeascapeRotation] = mNavigationBarHeight;
 
         if (ALTERNATE_CAR_MODE_NAV_SIZE) {
             // Height of the navigation bar when presented horizontally at bottom

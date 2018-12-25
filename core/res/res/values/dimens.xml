@@ -43,6 +43,8 @@
     <dimen name="quick_qs_total_height">176dp</dimen>
     <!-- Height of the bottom navigation / system bar. -->
     <dimen name="navigation_bar_height">48dp</dimen>
+    <!-- Height of the bottom navigation / system bar. in gestures mode -->
+    <dimen name="gesture_navigation_bar_height">35dp</dimen>
     <!-- Height of the bottom navigation / system bar in car mode. -->
     <dimen name="navigation_bar_height_car_mode">96dp</dimen>
     <!-- Height of the bottom navigation bar in portrait; often the same as
