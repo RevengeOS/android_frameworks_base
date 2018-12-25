@@ -483,6 +483,7 @@ class GlobalScreenshot {
 
     private MediaActionSound mCameraSound;
 
+    private boolean mPlayScreenshotSound;
 
     /**
      * @param context everything needs a context :(
@@ -511,6 +512,7 @@ class GlobalScreenshot {
                 return true;
             }
         });
+        mPlayScreenshotSound = r.getBoolean(R.bool.config_playScreenshotSound);
 
         // Setup the window that we are going to use
         mWindowLayoutParams = new WindowManager.LayoutParams(
@@ -730,7 +732,9 @@ class GlobalScreenshot {
             @Override
             public void run() {
                 // Play the shutter sound to notify that we've taken a screenshot
-                mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+                if (mPlayScreenshotSound) {
+                    mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+                }
 
                 mScreenshotView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
                 mScreenshotView.buildLayer();
