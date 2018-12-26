@@ -392,6 +392,18 @@
     <!-- Content description of the data connection type CDMA. [CHAR LIMIT=NONE] -->
     <string name="data_connection_cdma">1X</string>
 
+    <!-- Content description of the data connection type 5G. [CHAR LIMIT=NONE] -->
+    <string name="data_connection_5g">5G</string>
+
+    <!-- Content description of the data connection type 5G Basic. [CHAR LIMIT=NONE] -->
+    <string name="data_connection_5g_basic">5GBasic</string>
+
+    <!-- Content description of the data connection type 5G UWB. [CHAR LIMIT=NONE] -->
+    <string name="data_connection_5g_uwb">5GUWB</string>
+
+    <!-- Content description of the data connection type 5G stand alone. [CHAR LIMIT=NONE] -->
+    <string name="data_connection_5g_sa">5GSA</string>
+
     <!-- Content description of the roaming data connection type. [CHAR LIMIT=NONE] -->
     <string name="data_connection_roaming">Roaming</string>
 

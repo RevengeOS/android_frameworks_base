@@ -116,14 +116,10 @@ public class CallbackHandlerTest extends SysuiTestCase {
         int type = TelephonyIcons.ICON_1X;
         int qsType = TelephonyIcons.ICON_1X;
         boolean wide = true;
-        int phoneId = 1;
+        int subId = 5;
         boolean roaming = true;
-        boolean fiveGAvailable = true;
-        int fiveGStrengthId = 5;
-        boolean dataOnFiveG = true;
-        mHandler.setMobileDataIndicators(status, qs, type, qsType, in, out, 0, 0, 0,
-                typeDescription, description, wide, phoneId, roaming,
-                fiveGAvailable, fiveGStrengthId, dataOnFiveG);
+        mHandler.setMobileDataIndicators(status, qs, type, qsType, in, out, 0,
+                typeDescription, description, wide, subId, roaming);
         waitForCallbacks();
 
         ArgumentCaptor<IconState> statusArg = ArgumentCaptor.forClass(IconState.class);
@@ -136,18 +132,12 @@ public class CallbackHandlerTest extends SysuiTestCase {
         ArgumentCaptor<String> descArg = ArgumentCaptor.forClass(String.class);
         ArgumentCaptor<Boolean> wideArg = ArgumentCaptor.forClass(Boolean.class);
         ArgumentCaptor<Integer> subIdArg = ArgumentCaptor.forClass(Integer.class);
-        ArgumentCaptor<Boolean> fiveGAvailableArg = ArgumentCaptor.forClass(Boolean.class);
-        ArgumentCaptor<Integer> fiveGStrengthIdArg = ArgumentCaptor.forClass(Integer.class);
-        ArgumentCaptor<Boolean> dataOnFiveGArg = ArgumentCaptor.forClass(Boolean.class);
         Mockito.verify(mSignalCallback).setMobileDataIndicators(statusArg.capture(),
                 qsArg.capture(), typeIconArg.capture(), qsTypeIconArg.capture(), inArg.capture(),
                 outArg.capture(),
                 ArgumentCaptor.forClass(Integer.class).capture(),
-                ArgumentCaptor.forClass(Integer.class).capture(),
-                ArgumentCaptor.forClass(Integer.class).capture(),
                 typeContentArg.capture(), descArg.capture(), wideArg.capture(),
-                subIdArg.capture(), eq(roaming), fiveGAvailableArg.capture(),
-                fiveGStrengthIdArg.capture(), dataOnFiveGArg.capture());
+                subIdArg.capture(), eq(roaming));
         assertEquals(status, statusArg.getValue());
         assertEquals(qs, qsArg.getValue());
         assertEquals(type, (int) typeIconArg.getValue());
@@ -157,10 +147,7 @@ public class CallbackHandlerTest extends SysuiTestCase {
         assertEquals(typeDescription, typeContentArg.getValue());
         assertEquals(description, descArg.getValue());
         assertEquals(wide, (boolean) wideArg.getValue());
-        assertEquals(phoneId, (int) subIdArg.getValue());
-        assertEquals(fiveGAvailable, (boolean) fiveGAvailableArg.getValue());
-        assertEquals(fiveGStrengthId, (int) fiveGStrengthIdArg.getValue());
-        assertEquals(dataOnFiveG, (boolean) dataOnFiveGArg.getValue());
+        assertEquals(subId, (int) subIdArg.getValue());
     }
 
     @SuppressWarnings("unchecked")

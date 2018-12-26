@@ -4454,16 +4454,6 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
     private void removeSleepTokenLocked(SleepTokenImpl token) {
         mSleepTokens.remove(token);
 
-                    if (mService.mEnableNetOpts) {
-                        ActivityStack stack = getLastStack();
-                        if (stack != null) {
-                            ActivityRecord r = stack.topRunningActivityLocked();
-                            if (r != null) {
-                                mService.networkOptsCheck(0, r.processName);
-                            }
-                        }
-                    }
-
         ActivityDisplay display = mActivityDisplays.get(token.mDisplayId);
         if (display != null) {
             display.mAllSleepTokens.remove(token);

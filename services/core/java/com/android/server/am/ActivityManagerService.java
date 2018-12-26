@@ -314,8 +314,6 @@ import android.hardware.display.DisplayManagerInternal;
 import android.location.LocationManager;
 import android.media.audiofx.AudioEffect;
 import android.metrics.LogMaker;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.Proxy;
 import android.net.ProxyInfo;
 import android.net.Uri;
@@ -681,10 +679,6 @@ public class ActivityManagerService extends IActivityManager.Stub
     private static final int MAX_BUGREPORT_TITLE_SIZE = 50;
 
     private static final int NATIVE_DUMP_TIMEOUT_MS = 2000; // 2 seconds;
-
-    int mActiveNetType = -1;
-    Object mNetLock = new Object();
-    ConnectivityManager mConnectivityManager;
 
     /* Freq Aggr boost objects */
     public static BoostFramework mPerfServiceStartHint = null;
@@ -1950,7 +1944,6 @@ public class ActivityManagerService extends IActivityManager.Stub
     static final int PUSH_TEMP_WHITELIST_UI_MSG = 68;
     static final int SERVICE_FOREGROUND_CRASH_MSG = 69;
     static final int DISPATCH_OOM_ADJ_OBSERVER_MSG = 70;
-    static final int NETWORK_OPTS_CHECK_MSG = 88;
 
     static final int FIRST_ACTIVITY_STACK_MSG = 100;
     static final int FIRST_BROADCAST_QUEUE_MSG = 200;
@@ -1975,9 +1968,6 @@ public class ActivityManagerService extends IActivityManager.Stub
     // Enable B-service aging propagation on memory pressure.
     boolean mEnableBServicePropagation =
             SystemProperties.getBoolean("ro.vendor.qti.sys.fw.bservice_enable", false);
-    static final boolean mEnableNetOpts =
-            SystemProperties.getBoolean("persist.vendor.qti.netopts.enable",false);
-
     // Process in same process Group keep in same cgroup
     boolean mEnableProcessGroupCgroupFollow =
             SystemProperties.getBoolean("ro.vendor.qti.cgroup_follow.enable",false);
@@ -2632,25 +2622,6 @@ public class ActivityManagerService extends IActivityManager.Stub
                             }
                         }
                     }
-                }
-            } break;
-            case NETWORK_OPTS_CHECK_MSG: {
-                int flag = msg.arg1;
-                String packageName = (String)msg.obj;
-                if (flag == 0) {
-                    if (mActivityTrigger != null) {
-                        synchronized (mNetLock) {
-                            if (mActiveNetType >= 0) {
-                                mActivityTrigger.activityMiscTrigger(ActivityTrigger.NETWORK_OPTS,
-                                    packageName, mActiveNetType, 0);
-                                return;
-                            }
-                        }
-                    }
-                }
-                if (mActivityTrigger != null) {
-                    mActivityTrigger.activityMiscTrigger(ActivityTrigger.NETWORK_OPTS,
-                        packageName, ConnectivityManager.TYPE_NONE, 1);
                 }
             } break;
             }
@@ -3534,10 +3505,6 @@ public class ActivityManagerService extends IActivityManager.Stub
             addServiceToMap(mAppBindArgs, "mount");
         }
         return mAppBindArgs;
-    }
-
-    public final void networkOptsCheck(int flag, String packageName) {
-        mHandler.sendMessage(mHandler.obtainMessage(NETWORK_OPTS_CHECK_MSG, flag, 0, packageName));
     }
 
     private static void addServiceToMap(ArrayMap<String, IBinder> map, String name) {
@@ -6169,9 +6136,6 @@ public class ActivityManagerService extends IActivityManager.Stub
                                 + ProcessList.makeOomAdjString(app.setAdj)
                                 + ProcessList.makeProcStateString(app.setProcState), app.info.uid);
                 mAllowLowerMemLevel = true;
-                if (mEnableNetOpts) {
-                    networkOptsCheck(1, app.processName);
-                }
             } else {
                 // Note that we always want to do oom adj to update our state with the
                 // new number of procs.
@@ -8166,43 +8130,6 @@ public class ActivityManagerService extends IActivityManager.Stub
                 }
             }
         }, dumpheapFilter);
-
-        if (mEnableNetOpts) {
-            IntentFilter netInfoFilter = new IntentFilter();
-            netInfoFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
-            netInfoFilter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
-            mContext.registerReceiver(new BroadcastReceiver() {
-                @Override
-                public void onReceive(Context context, Intent intent) {
-                    if (mConnectivityManager != null) {
-                        NetworkInfo netInfo = mConnectivityManager.getActiveNetworkInfo();
-                        synchronized(mNetLock) {
-                            mActiveNetType = (netInfo != null) ? netInfo.getType() : -1;
-                        }
-                    }
-                    ActivityStack stack = mStackSupervisor.getLastStack();
-                    if (stack != null) {
-                        ActivityRecord r = stack.topRunningActivityLocked();
-                        if (r != null) {
-                            PowerManager powerManager =
-                                (PowerManager)mContext.getSystemService(Context.POWER_SERVICE);
-                            if (powerManager != null && powerManager.isInteractive())
-                                    networkOptsCheck(0, r.processName);
-                        }
-                    }
-                }
-            }, netInfoFilter);
-            mConnectivityManager =
-                        (ConnectivityManager)mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-            if (mConnectivityManager != null) {
-                NetworkInfo netInfo = mConnectivityManager.getActiveNetworkInfo();
-                if (netInfo != null) {
-                    synchronized (mNetLock) {
-                        mActiveNetType = netInfo.getType();
-                    }
-                }
-            }
-        }
 
         // Let system services know.
         mSystemServiceManager.startBootPhase(SystemService.PHASE_BOOT_COMPLETED);
@@ -16158,15 +16085,6 @@ public class ActivityManagerService extends IActivityManager.Stub
     SleepToken acquireSleepToken(String tag, int displayId) {
         synchronized (this) {
             final SleepToken token = mStackSupervisor.createSleepTokenLocked(tag, displayId);
-            if (mEnableNetOpts) {
-                ActivityStack stack = mStackSupervisor.getLastStack();
-                if (stack != null) {
-                    ActivityRecord r = stack.topRunningActivityLocked();
-                    if (r != null) {
-                        networkOptsCheck(1, r.processName);
-                    }
-                }
-            }
             updateSleepIfNeededLocked();
             return token;
         }

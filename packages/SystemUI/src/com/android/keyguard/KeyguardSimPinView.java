@@ -77,7 +77,6 @@ public class KeyguardSimPinView extends KeyguardPinBasedInputView {
                     if (mCallback != null) {
                         mCallback.dismiss(true, KeyguardUpdateMonitor.getCurrentUser());
                     }
-                    mSubId = subId;
                     break;
                 }
                 case READY: {
@@ -162,7 +161,7 @@ public class KeyguardSimPinView extends KeyguardPinBasedInputView {
     private void handleSubInfoChangeIfNeeded() {
         KeyguardUpdateMonitor monitor = KeyguardUpdateMonitor.getInstance(mContext);
         int subId = monitor.getNextSubIdForState(IccCardConstants.State.PIN_REQUIRED);
-        if (subId != mSubId && SubscriptionManager.isValidSubscriptionId(subId)) {
+        if (SubscriptionManager.isValidSubscriptionId(subId)) {
             mSubId = subId;
             mShowDefaultMessage = true;
             mRemainingAttempts = -1;
