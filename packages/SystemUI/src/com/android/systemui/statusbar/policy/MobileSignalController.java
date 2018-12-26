@@ -433,19 +433,9 @@ public class MobileSignalController extends SignalController<
                 && !mCurrentState.carrierNetworkChangeMode
                 && mCurrentState.activityOut;
         showDataIcon &= mCurrentState.isDefault || dataDisabled;
-<<<<<<< HEAD
-        int typeIcon = (showDataIcon || mConfig.alwaysShowDataRatIcon || mAlwasyShowTypeIcon) ?
-                icons.mDataType : 0;
-        int volteIcon = mConfig.showVolteIcon && isEnhanced4gLteModeSettingEnabled()
-                ? getVolteResId() : 0;
-        boolean show5GIcon = mFiveGState.connected && isDataRegisteredOnLte()
-                && mCurrentState.dataConnected;
-
-=======
         int typeIcon = (showDataIcon || mConfig.alwaysShowDataRatIcon || mAlwasyShowTypeIcon
                 || mFiveGState.isConnectedOnSaMode() ) ? icons.mDataType : 0;
         int volteIcon = mConfig.showVolteIcon && isVolteSwitchOn()   ? getVolteResId() : 0;
->>>>>>> LA.UM.7.3.r1-06600-sdm845.0
         if (DEBUG) {
             Log.d(mTag, "notifyListeners mAlwasyShowTypeIcon=" + mAlwasyShowTypeIcon
                     + "  mDataNetType:" + mDataNetType +
