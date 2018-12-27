@@ -160,13 +160,11 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mShownCount = getStoredShownCount();
 
         mContentResolver = getContext().getContentResolver();
-        if (WeatherClient.isAvailable(context)) {
-            mWeatherSettingsObserver = new WeatherSettingsObserver(mHandler);
-            mWeatherSettingsObserver.observe();
-            mWeatherSettingsObserver.updateWeatherUnit();
-            mWeatherClient = new WeatherClient(getContext());
-            mWeatherClient.addObserver(this);
-        }
+        mWeatherSettingsObserver = new WeatherSettingsObserver(mHandler);
+        mWeatherSettingsObserver.observe();
+        mWeatherSettingsObserver.updateWeatherUnit();
+        mWeatherClient = new WeatherClient(getContext());
+        mWeatherClient.addObserver(this);
     }
 
     @Override
@@ -258,11 +256,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             Log.w(TAG, "Weather is not available");
             return false;
         }
-        int iconId = mWeatherInfo.getWeatherConditionImage();
-        if (iconId == 0) {
-            return false;
-        }
-        mWeatherIcon.setImageDrawable(getContext().getDrawable(iconId));
+        mWeatherIcon.setImageDrawable(getContext().getDrawable(mWeatherInfo.getWeatherConditionImage()));
         String temperatureText = (mWeatherInfo.getTemperature(useMetricUnit)) + (useMetricUnit ? "°C" : "°F");
         mWeatherTextView.setText(temperatureText);
         if (mWeatherTextView.getVisibility() == View.GONE) {
