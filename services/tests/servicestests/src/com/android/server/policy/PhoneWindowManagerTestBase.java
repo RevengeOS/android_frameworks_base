@@ -85,9 +85,9 @@ public class PhoneWindowManagerTestBase {
         mContext.getResourceMocker().addOverride(
                 com.android.internal.R.dimen.navigation_bar_height, NAV_BAR_HEIGHT);
         mContext.getResourceMocker().addOverride(
-                com.android.internal.R.dimen.navigation_bar_height, NAV_BAR_HEIGHT);
+                com.android.internal.R.dimen.navigation_bar_height_landscape, NAV_BAR_HEIGHT);
         mContext.getResourceMocker().addOverride(
-                com.android.internal.R.dimen.navigation_bar_height, NAV_BAR_HEIGHT);
+                com.android.internal.R.dimen.navigation_bar_width, NAV_BAR_HEIGHT);
 
         mPolicy = TestablePhoneWindowManager.create(mContext);
 
