@@ -160,13 +160,11 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mShownCount = getStoredShownCount();
 
         mContentResolver = getContext().getContentResolver();
-        if (WeatherClient.isAvailable(context)) {
-            mWeatherSettingsObserver = new WeatherSettingsObserver(mHandler);
-            mWeatherSettingsObserver.observe();
-            mWeatherSettingsObserver.updateWeatherUnit();
-            mWeatherClient = new WeatherClient(getContext());
-            mWeatherClient.addObserver(this);
-        }
+        mWeatherSettingsObserver = new WeatherSettingsObserver(mHandler);
+        mWeatherSettingsObserver.observe();
+        mWeatherSettingsObserver.updateWeatherUnit();
+        mWeatherClient = new WeatherClient(getContext());
+        mWeatherClient.addObserver(this);
     }
 
     @Override
@@ -254,12 +252,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     }
 
     private boolean updateWeatherStatus() {
-        if (mWeatherInfo == null) {
-            Log.w(TAG, "Weather is not available");
-            return false;
-        }
         int iconId = mWeatherInfo.getWeatherConditionImage();
-        if (iconId == 0) {
+        if (iconId == 0 || mWeatherInfo == null) {
+            Log.w(TAG, "Weather is not available");
             return false;
         }
         mWeatherIcon.setImageDrawable(getContext().getDrawable(iconId));
