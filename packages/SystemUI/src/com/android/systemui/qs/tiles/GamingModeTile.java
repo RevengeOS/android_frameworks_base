@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.AudioManager;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.provider.Settings.System;
 import android.provider.Settings.Global;
@@ -108,14 +109,17 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
                         Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 1);
         }
         // Hardware keys
-        boolean isHwKeysOn = Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.HARDWARE_KEYS_DISABLE, 0) == 0;
-        if (enabled && isHwKeysOn) {
-            Settings.Secure.putInt(mContext.getContentResolver(),
-                    Settings.Secure.HARDWARE_KEYS_DISABLE, 1);
-        } else if (!enabled) {
-            Settings.Secure.putInt(mContext.getContentResolver(),
-                    Settings.Secure.HARDWARE_KEYS_DISABLE, 0);
+        int isNavbarEnabled = Settings.System.getIntForUser(
+                mContext.getContentResolver(), Settings.System.NAVIGATION_BAR_SHOW,
+                 -1, UserHandle.USER_CURRENT);
+        if (isNavbarEnabled == 0) {
+            if (enabled) {
+                Settings.Secure.putInt(mContext.getContentResolver(),
+                        Settings.Secure.HARDWARE_KEYS_DISABLE, 1);
+            } else if (!enabled) {
+                Settings.Secure.putInt(mContext.getContentResolver(),
+                        Settings.Secure.HARDWARE_KEYS_DISABLE, 0);
+            }
         }
         // Ringer changed to "Vibrate mode"
         if (enabled) {
@@ -190,7 +194,7 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.BOOTLEG;
+        return MetricsEvent.EXTENSIONS;
     }
 
     @Override
