@@ -27497,4 +27497,9 @@ public class ActivityManagerService extends IActivityManager.Stub
             return mIsSwipeToScrenshotEnabled && SystemProperties.getBoolean("sys.android.screenshot", false);
         }
     }
+
+    Context getContext() {
+        return mContext;
+    }
+
 }
