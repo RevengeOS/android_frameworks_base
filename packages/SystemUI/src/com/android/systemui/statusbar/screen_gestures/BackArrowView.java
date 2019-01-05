@@ -80,7 +80,7 @@ public class BackArrowView extends View {
         eraser.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
 
         painter = new Paint();
-        painter.setColor(Utils.getColorAttr(getContext(), android.R.attr.colorSecondary));
+        painter.setColor(Utils.getColorAttr(context, android.R.attr.colorSecondary));
         painter.setAntiAlias(true);
         painter.setStyle(Paint.Style.FILL);
 
@@ -100,7 +100,7 @@ public class BackArrowView extends View {
         this.posX = -1;
         this.posY = -1;
 
-        painter.setColor(Utils.getColorAttr(getContext(), android.R.attr.colorSecondary));
+        painter.setColor(getResources().getColor(R.color.qs_edit_item_decoration_bg));
 
         topArch = new Path();
         bottomArch = new Path();
