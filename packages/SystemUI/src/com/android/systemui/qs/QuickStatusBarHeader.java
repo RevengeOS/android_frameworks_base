@@ -88,7 +88,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     private static final long AUTO_FADE_OUT_DELAY_MS = DateUtils.SECOND_IN_MILLIS * 6;
     private static final int FADE_ANIMATION_DURATION_MS = 300;
     private static final int TOOLTIP_NOT_YET_SHOWN_COUNT = 0;
-    public static final int MAX_TOOLTIP_SHOWN_COUNT = 2;
+    public static final int MAX_TOOLTIP_SHOWN_COUNT = 3;
 
     private final Handler mHandler = new Handler();
 
@@ -215,7 +215,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     }
 
     private void updateStatusText() {
-        boolean changed = updateRingerStatus() || updateAlarmStatus();
+        boolean changed = updateRingerStatus() || updateAlarmStatus() || updateWeatherStatus();
 
         if (changed) {
             boolean alarmVisible = mNextAlarmTextView.getVisibility() == View.VISIBLE;
@@ -253,21 +253,23 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                 !Objects.equals(originalRingerText, mRingerModeTextView.getText());
     }
 
-    private void updateWeatherStatus() {
+    private boolean updateWeatherStatus() {
         if (mWeatherInfo == null) {
             Log.w(TAG, "Weather is not available");
-            return;
+            return false;
         }
-        mWeatherIcon.setImageDrawable(getContext().getDrawable(mWeatherInfo.getWeatherConditionImage()));
+        int iconId = mWeatherInfo.getWeatherConditionImage();
+        if (iconId == 0) {
+            return false;
+        }
+        mWeatherIcon.setImageDrawable(getContext().getDrawable(iconId));
         String temperatureText = (mWeatherInfo.getTemperature(useMetricUnit)) + (useMetricUnit ? "°C" : "°F");
         mWeatherTextView.setText(temperatureText);
         if (mWeatherTextView.getVisibility() == View.GONE) {
             mWeatherIcon.setVisibility(View.VISIBLE);
             mWeatherTextView.setVisibility(View.VISIBLE);
         }
-        if (mStatusContainer.getVisibility() != View.VISIBLE) {
-            updateTooltipShow();
-        }
+        return true;
     }
 
     private boolean updateAlarmStatus() {
@@ -492,8 +494,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     @Override
     public void onWeatherUpdated(WeatherClient.WeatherInfo weatherInfo) {
         mWeatherInfo = weatherInfo;
-        Log.d(TAG, "Updating weather");
-        updateWeatherStatus();
+        updateStatusText();
     }
 
     private void updateTooltipShow() {
