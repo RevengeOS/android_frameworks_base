@@ -252,11 +252,12 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     }
 
     private boolean updateWeatherStatus() {
-        if (mWeatherInfo == null) {
+        int iconId = mWeatherInfo.getWeatherConditionImage();
+        if (iconId == 0 || mWeatherInfo == null) {
             Log.w(TAG, "Weather is not available");
             return false;
         }
-        mWeatherIcon.setImageDrawable(getContext().getDrawable(mWeatherInfo.getWeatherConditionImage()));
+        mWeatherIcon.setImageDrawable(getContext().getDrawable(iconId));
         String temperatureText = (mWeatherInfo.getTemperature(useMetricUnit)) + (useMetricUnit ? "°C" : "°F");
         mWeatherTextView.setText(temperatureText);
         if (mWeatherTextView.getVisibility() == View.GONE) {
