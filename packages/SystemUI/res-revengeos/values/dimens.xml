@@ -32,4 +32,8 @@
     <dimen name="analog_clock_width">90dp</dimen>
     <dimen name="analog_clock_height">90dp</dimen>
     <dimen name="date_padding">8dp</dimen>
+
+    <!-- Network traffic monitor -->
+    <dimen name="net_traffic_multi_text_size">8dp</dimen>
+    <dimen name="net_traffic_txt_img_padding">2dp</dimen>
 </resources>
