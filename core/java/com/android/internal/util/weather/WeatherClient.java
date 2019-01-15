@@ -41,9 +41,9 @@ import com.android.internal.R;
 
 public class WeatherClient {
 
-    public static final String SERVICE_PACKAGE = "com.android.providers.weather";
+    public static final String SERVICE_PACKAGE = "com.revengeos.weather.client";
     private static final String SERVICE_PACKAGE_PERMISSION = SERVICE_PACKAGE + ".READ_WEATHER";
-    public static final Uri WEATHER_URI = Uri.parse("content://com.android.providers.weather.provider/weather");
+    public static final Uri WEATHER_URI = Uri.parse("content://com.revengeos.weather.client.provider/weather");
     public static final int WEATHER_UPDATE_SUCCESS = 0; // Success
     public static final int WEATHER_UPDATE_RUNNING = 1; // Update running
     public static final int WEATHER_UPDATE_ERROR = 2; // Error
