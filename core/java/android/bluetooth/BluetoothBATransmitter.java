@@ -154,6 +154,8 @@ public final class BluetoothBATransmitter implements BluetoothProfile {
 
     private Context mContext;
     private ServiceListener mServiceListener;
+    private boolean mBinding;
+    private boolean mUnbinding;
     private final ReentrantReadWriteLock mServiceLock = new ReentrantReadWriteLock();
     @GuardedBy("mServiceLock") private IBluetoothBATransmitter mService;
     private BluetoothAdapter mAdapter;
@@ -196,10 +198,15 @@ public final class BluetoothBATransmitter implements BluetoothProfile {
     /*package*/ BluetoothBATransmitter(Context context, ServiceListener l) {
         mContext = context;
         mServiceListener = l;
+        mBinding = false;
+        mUnbinding = false;
         mAdapter = BluetoothAdapter.getDefaultAdapter();
         IBluetoothManager mgr = mAdapter.getBluetoothManager();
         if (mgr != null) {
             try {
+                if (DBG) Log.d(TAG, "BAT constructor: pid: " + android.os.Process.myPid() +
+                    " Caller API: " + Thread.currentThread().getStackTrace()[1].getMethodName() +
+                    " Caller API: " + Thread.currentThread().getStackTrace()[2].getMethodName());
                 mgr.registerStateChangeCallback(mBluetoothStateChangeCallback);
             } catch (RemoteException e) {
                 Log.e(TAG,"",e);
@@ -213,12 +220,18 @@ public final class BluetoothBATransmitter implements BluetoothProfile {
         Intent intent = new Intent(IBluetoothBATransmitter.class.getName());
         ComponentName comp = intent.resolveSystemService(mContext.getPackageManager(), 0);
         intent.setComponent(comp);
-        if (comp == null || !mContext.bindServiceAsUser(intent, mConnection, 0,
+        if (comp == null || mBinding) {
+            Log.e(TAG, "comp = " + comp + "mBinding ="+ mBinding + "Bluetooth Broadcast Audio Transmitter Service " + intent);
+            return false;
+        }
+        else if(!mContext.bindServiceAsUser(intent, mConnection, 0,
                 android.os.Process.myUserHandle())) {
             Log.e(TAG, "Could not bind to Bluetooth Broadcast Audio Transmitter Service " + intent);
             return false;
+        } else {
+            mBinding = true;
+            return true;
         }
-        return true;
     }
 
     /*package*/ void close() {
@@ -226,6 +239,9 @@ public final class BluetoothBATransmitter implements BluetoothProfile {
         IBluetoothManager mgr = mAdapter.getBluetoothManager();
         if (mgr != null) {
             try {
+                if (DBG) Log.d(TAG, "close(): pid: " + android.os.Process.myPid() +
+                   " Caller API: " + Thread.currentThread().getStackTrace()[1].getMethodName() +
+                   " Caller API: " + Thread.currentThread().getStackTrace()[2].getMethodName());
                 mgr.unregisterStateChangeCallback(mBluetoothStateChangeCallback);
             } catch (Exception e) {
                 Log.e(TAG,"",e);
@@ -234,9 +250,16 @@ public final class BluetoothBATransmitter implements BluetoothProfile {
 
         try {
             mServiceLock.writeLock().lock();
+            if (mUnbinding) {
+                return;
+            }
+            mUnbinding = true;
             if (mService != null) {
                 mService = null;
                 mContext.unbindService(mConnection);
+                mUnbinding = false;
+            } else {
+                mUnbinding = false;
             }
         } catch (Exception re) {
             Log.e(TAG, "", re);
@@ -483,6 +506,7 @@ public final class BluetoothBATransmitter implements BluetoothProfile {
             if (DBG) Log.d(TAG, "Proxy object connected");
             try {
                 mServiceLock.writeLock().lock();
+                mBinding = false;
                 mService = IBluetoothBATransmitter.Stub.asInterface(Binder.allowBlocking(service));
             } finally {
                 mServiceLock.writeLock().unlock();
@@ -498,6 +522,8 @@ public final class BluetoothBATransmitter implements BluetoothProfile {
             if (DBG) Log.d(TAG, "Proxy object disconnected");
             try {
                 mServiceLock.writeLock().lock();
+                mUnbinding = false;
+                mBinding = false;
                 mService = null;
             } finally {
                 mServiceLock.writeLock().unlock();

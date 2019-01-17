@@ -1372,10 +1372,14 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             // changes to lag, so we'd like to keep it always on.  (It will
             // still be turned off when the screen is off.)
 
-            // When locked we can provide rotation suggestions users can approve to change the
-            // current screen rotation. To do this the sensor needs to be running.
-            return mSupportAutoRotation &&
+            if (ActivityManager.isLowRamDeviceStatic()) {
+                return false;
+            } else {
+                // When locked we can provide rotation suggestions users can approve to change the
+                // current screen rotation. To do this the sensor needs to be running.
+                return mSupportAutoRotation &&
                     mShowRotationSuggestions == Settings.Secure.SHOW_ROTATION_SUGGESTIONS_ENABLED;
+            }
         }
         return mSupportAutoRotation;
     }

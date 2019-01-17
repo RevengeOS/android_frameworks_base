@@ -217,7 +217,7 @@ public class WifiP2pManager {
 
     /** @hide */
     public static final String WIFI_WSC_VENDOR_IE_CHANGED_ACTION =
-        "android.net.wifi.p2p.VENDOR_INFO_CHANGED";
+        "com.qualcomm.qti.p2p.VENDOR_INFO_CHANGED";
 
     /** @hide */
     public static final String WSC_VENDOR_IE_INFO = "wscVendorInfo";

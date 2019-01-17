@@ -3875,33 +3875,13 @@ public class AudioService extends IAudioService.Stub
         }
 
         String address = btDevice.getAddress();
-        BluetoothClass btClass = btDevice.getBluetoothClass();
         int inDevice = AudioSystem.DEVICE_IN_BLUETOOTH_SCO_HEADSET;
         int[] outDeviceTypes = {
             AudioSystem.DEVICE_OUT_BLUETOOTH_SCO,
             AudioSystem.DEVICE_OUT_BLUETOOTH_SCO_HEADSET,
             AudioSystem.DEVICE_OUT_BLUETOOTH_SCO_CARKIT
         };
-        if (btClass != null) {
-            switch (btClass.getDeviceClass()) {
-                case BluetoothClass.Device.AUDIO_VIDEO_WEARABLE_HEADSET:
-                case BluetoothClass.Device.AUDIO_VIDEO_HANDSFREE:
-                    outDeviceTypes = new int[] { AudioSystem.DEVICE_OUT_BLUETOOTH_SCO_HEADSET };
-                    break;
-                case BluetoothClass.Device.AUDIO_VIDEO_CAR_AUDIO:
-                    outDeviceTypes = new int[] { AudioSystem.DEVICE_OUT_BLUETOOTH_SCO_CARKIT };
-                    break;
-            }
-        }
-        if (!BluetoothAdapter.checkBluetoothAddress(address)) {
-            address = "";
-        }
-        String btDeviceName =  btDevice.getName();
-        if (btDeviceName == null) {
-            Slog.i(TAG, "handleBtScoActiveDeviceChange: btDeviceName is null," +
-                       " sending empty string");
-            btDeviceName = "";
-        }
+        String btDeviceName = "";
 
         boolean result = false;
         if (isActive) {
@@ -3931,14 +3911,29 @@ public class AudioService extends IAudioService.Stub
                 return;
             }
             if (!Objects.equals(btDevice, previousActiveDevice)) {
-                if (!handleBtScoActiveDeviceChange(previousActiveDevice, false)) {
-                    Log.w(TAG, "setBtScoActiveDevice() failed to remove previous device "
-                            + previousActiveDevice);
+                String DummyAddress = "00:00:00:00:00:00";
+                BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+                if (adapter == null) {
+                   Log.i(TAG, "adapter is null, returning from setBtScoActiveDevice");
+                   return;
                 }
-                if (!handleBtScoActiveDeviceChange(btDevice, true)) {
-                    Log.e(TAG, "setBtScoActiveDevice() failed to add new device " + btDevice);
-                    // set mBluetoothHeadsetDevice to null when failing to add new device
-                    btDevice = null;
+                final BluetoothDevice dummyActiveDevice = adapter.getRemoteDevice(DummyAddress);
+                if (mBluetoothHeadsetDevice == null && btDevice != null) {
+                    //SCO device entry is added to mConnectedDevices hash map only when active
+                    //device connects for the first time.
+                    if (!handleBtScoActiveDeviceChange(dummyActiveDevice, true)) {
+                        Log.e(TAG, "setBtScoActiveDevice() failed to add new device " + btDevice);
+                        // set mBluetoothHeadsetDevice to null when failing to add new device
+                        btDevice = null;
+                    }
+                }
+                if (mBluetoothHeadsetDevice != null && btDevice == null) {
+                    //SCO device entry is removed from mConnectedDevices hash map only when active
+                    //device is disconnected.
+                    if (!handleBtScoActiveDeviceChange(dummyActiveDevice, false)) {
+                        Log.w(TAG, "setBtScoActiveDevice() failed to remove previous device "
+                                + previousActiveDevice);
+                    }
                 }
                 mBluetoothHeadsetDevice = btDevice;
                 if (mBluetoothHeadsetDevice == null) {

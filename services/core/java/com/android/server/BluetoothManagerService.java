@@ -2149,8 +2149,10 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
                 sendBluetoothServiceDownCallback();
                 unbindAndFinish();
                 sendBleStateChanged(prevState, newState);
-                // Don't broadcast as it has already been broadcast before
-                isStandardBroadcast = false;
+                if (prevState != BluetoothAdapter.STATE_TURNING_ON) {
+                    // Don't broadcast as it has already been broadcast before
+                    isStandardBroadcast = false;
+                }
 
             } else if (!intermediate_off) {
                 // connect to GattService

@@ -380,6 +380,19 @@ public class MobileSignalController extends SignalController<
         } catch (ImsException e) {
             Log.d(mTag, "unable to addCapabilitiesCallback callback.");
         }
+        queryImsState();
+    }
+
+    private void queryImsState() {
+        TelephonyManager tm = mPhone.createForSubscriptionId(mSubscriptionInfo.getSubscriptionId());
+        boolean isVoiceCapable = tm.isVolteAvailable();
+        boolean isVideoCapable = tm.isVideoTelephonyAvailable();
+        Log.d(mTag, "tm=" + tm +" phone=" + mPhone
+                + " isVoiceCapable=" + isVoiceCapable
+                + " isVideoCapable=" +isVideoCapable);
+        if ( isVoiceCapable || isVideoCapable ) {
+            mCurrentState.showHD = true;
+        }
     }
 
     private void removeListeners() {
@@ -632,10 +645,12 @@ public class MobileSignalController extends SignalController<
 
         if ( mAlwasyShowTypeIcon ) {
             int iconType = TelephonyManager.NETWORK_TYPE_UNKNOWN;
-            if ( isDataNetworkTypeAvailable() ) {
-                iconType = mDataNetType;
-            }else {
-                iconType = getVoiceNetworkType();
+            if ( mCurrentState.connected ) {
+                if (isDataNetworkTypeAvailable()) {
+                    iconType = mDataNetType;
+                } else {
+                    iconType = getVoiceNetworkType();
+                }
             }
 
             if (mNetworkToIconLookup.indexOfKey(iconType) >= 0) {
@@ -780,6 +795,7 @@ public class MobileSignalController extends SignalController<
         pw.println("  mSignalStrength=" + mSignalStrength + ",");
         pw.println("  mDataState=" + mDataState + ",");
         pw.println("  mDataNetType=" + mDataNetType + ",");
+        pw.println("  mFiveGState=" + mFiveGState + ",");
     }
 
     class MobilePhoneStateListener extends PhoneStateListener {
@@ -876,7 +892,7 @@ public class MobileSignalController extends SignalController<
             boolean isVideoCapable =
                     config.isCapable(MmTelFeature.MmTelCapabilities.CAPABILITY_TYPE_VIDEO);
             boolean isImsRegistered = mPhone.isImsRegistered(mSubscriptionInfo.getSubscriptionId());
-            mCurrentState.showHD = isImsRegistered&&(isVideoCapable||isVideoCapable);
+            mCurrentState.showHD = isImsRegistered&&(isVideoCapable || isVoiceCapable);
             Log.d(mTag, "onCapabilitiesStatusChanged isVoiceCapable=" + isVoiceCapable
                     + " isVideoCapable=" + isVideoCapable
                     + " isImsRegistered=" + isImsRegistered);
