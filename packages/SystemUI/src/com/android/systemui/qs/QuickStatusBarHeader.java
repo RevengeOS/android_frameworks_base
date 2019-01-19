@@ -256,6 +256,10 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             Log.w(TAG, "Weather is not available");
             return false;
         }
+        if (mWeatherInfo.getWeatherConditionImage() == 0) {
+            Log.w(TAG, "Weather is not available");
+            return false;
+        }
         mWeatherIcon.setImageDrawable(getContext().getDrawable(mWeatherInfo.getWeatherConditionImage()));
         String temperatureText = (mWeatherInfo.getTemperature(useMetricUnit)) + (useMetricUnit ? "°C" : "°F");
         mWeatherTextView.setText(temperatureText);
