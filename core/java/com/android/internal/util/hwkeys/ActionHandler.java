@@ -133,8 +133,7 @@ public class ActionHandler {
     public static final String SYSTEMUI_TASK_CLEAR_NOTIFICATIONS = "task_clear_notifications";
     public static final String SYSTEMUI_TASK_VOLUME_PANEL = "task_volume_panel";
     public static final String SYSTEMUI_TASK_SPLIT_SCREEN = "task_split_screen";
-    public static final String SYSTEMUI_TASK_ONE_HANDED_MODE_LEFT = "task_one_handed_mode_left";
-    public static final String SYSTEMUI_TASK_ONE_HANDED_MODE_RIGHT = "task_one_handed_mode_right";
+    public static final String SYSTEMUI_TASK_ONE_HANDED_MODE = "task_one_handed_mode";
     public static final String SYSTEMUI_TASK_ASSISTANT_SOUND_SEARCH = "task_assistant_sound_search";
 
     public static final String INTENT_SHOW_POWER_MENU = "action_handler_show_power_menu";
@@ -146,8 +145,7 @@ public class ActionHandler {
     static final Set<String> sDisabledActions = new HashSet<String>();
     static {
         sDisabledActions.add(SYSTEMUI_TASK_SCREENRECORD);
-        sDisabledActions.add(SYSTEMUI_TASK_ONE_HANDED_MODE_LEFT);
-        sDisabledActions.add(SYSTEMUI_TASK_ONE_HANDED_MODE_RIGHT);
+        sDisabledActions.add(SYSTEMUI_TASK_ONE_HANDED_MODE);
         // we need to make this more reliable when the user tap the partial screenshot button
         // quickly and more times 
         sDisabledActions.add(SYSTEMUI_TASK_REGION_SCREENSHOT);
@@ -186,8 +184,7 @@ public class ActionHandler {
         ClearNotifications(SYSTEMUI_TASK_CLEAR_NOTIFICATIONS, SYSTEMUI, "label_action_clear_notifications", "ic_sysbar_clear_notifications"),
         VolumePanel(SYSTEMUI_TASK_VOLUME_PANEL, SYSTEMUI, "label_action_volume_panel", "ic_sysbar_volume_panel"),
         SplitScreen(SYSTEMUI_TASK_SPLIT_SCREEN, SYSTEMUI, "label_action_split_screen", "ic_sysbar_docked_hw"),
-        OneHandedModeLeft(SYSTEMUI_TASK_ONE_HANDED_MODE_LEFT, SYSTEMUI, "label_action_one_handed_mode_left", "ic_sysbar_one_handed_mode_left"),
-        OneHandedModeRight(SYSTEMUI_TASK_ONE_HANDED_MODE_RIGHT, SYSTEMUI, "label_action_one_handed_mode_right", "ic_sysbar_one_handed_mode_right"),
+        OneHandedMode(SYSTEMUI_TASK_ONE_HANDED_MODE, SYSTEMUI, "label_action_one_handed_mode", "ic_sysbar_one_handed_mode"),
         MediaArrowLeft(SYSTEMUI_TASK_MEDIA_PREVIOUS, SYSTEMUI, "label_action_media_left", "ic_skip_previous"),
         MediaArrowRight(SYSTEMUI_TASK_MEDIA_NEXT, SYSTEMUI, "label_action_media_right", "ic_skip_next"),
         AssistantSoundSearch(SYSTEMUI_TASK_ASSISTANT_SOUND_SEARCH, SYSTEMUI, "label_action_assistant_sound_search", "ic_assistant_sound_search");
@@ -230,7 +227,7 @@ public class ActionHandler {
             SystemAction.ImeArrowUp, SystemAction.InAppSearch,
             SystemAction.VolumePanel, SystemAction.ClearNotifications,
             SystemAction.SplitScreen, SystemAction.RegionScreenshot,
-            SystemAction.OneHandedModeLeft, SystemAction.OneHandedModeRight,
+            SystemAction.OneHandedMode,
             SystemAction.MediaArrowLeft, SystemAction.MediaArrowRight,
             SystemAction.AssistantSoundSearch
     };
@@ -658,10 +655,7 @@ public class ActionHandler {
         } else if (action.equals(SYSTEMUI_TASK_SPLIT_SCREEN)) {
             StatusBarHelper.splitScreen();
             return;
-        } else if (action.equals(SYSTEMUI_TASK_ONE_HANDED_MODE_LEFT)) {
-//            toggleOneHandedMode(context, "left");
-            return;
-        } else if (action.equals(SYSTEMUI_TASK_ONE_HANDED_MODE_RIGHT)) {
+        } else if (action.equals(SYSTEMUI_TASK_ONE_HANDED_MODE)) {
 //            toggleOneHandedMode(context, "right");
             return;
         } else if (action.equals(SYSTEMUI_TASK_ASSISTANT_SOUND_SEARCH)) {
