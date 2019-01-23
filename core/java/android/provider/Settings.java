@@ -6252,6 +6252,45 @@ public final class Settings {
          */
         public static final String SHOW_NOTE_ABOUT_NOTIFICATION_HIDING =
                 "show_note_about_notification_hiding";
+	    
+	/**
+         * some devices have a extra hw button e.g. n3 on the back on the
+         * fingerprint sensor. allow mapping button to key
+         *
+         * @hide
+         */
+        public static final String BUTTON_EXTRA_KEY_MAPPING = "button_extra_mapping";
+
+        /** @hide */
+        private static final Validator BUTTON_EXTRA_KEY_MAPPING_VALIDATOR = ANY_STRING_VALIDATOR;
+
+        /**
+         * Enable proxi check for wake keys - must be implemented in a device
+         * KeyHandler
+         * @hide
+         */
+        public static final String DEVICE_PROXI_CHECK_ENABLED = "device_proxi_check_enabled";
+
+        /** @hide */
+        private static final Validator DEVICE_PROXI_CHECK_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * Enable Gesture Haptic feedback
+         * KeyHandler
+         * @hide
+         */
+        public static final String DEVICE_GESTURE_FEEDBACK_ENABLED = "device_gesture_feedback_enabled";
+
+        /** @hide */
+        private static final Validator DEVICE_GESTURE_FEEDBACK_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * @hide
+         */
+        public static final String DEVICE_FEATURE_SETTINGS = "device_feature_settings";
+
+        /** @hide */
+        private static final Validator DEVICE_FEATURE_SETTINGS_VALIDATOR = ANY_STRING_VALIDATOR;
 
         /**
          * Set to 1 by the system after trust agents have been initialized.
@@ -8598,6 +8637,10 @@ public final class Settings {
             VALIDATORS.put(ACCESSIBILITY_CAPTIONING_WINDOW_COLOR,
                     ACCESSIBILITY_CAPTIONING_WINDOW_COLOR_VALIDATOR);
             VALIDATORS.put(TTS_DEFAULT_RATE, TTS_DEFAULT_RATE_VALIDATOR);
+	    VALIDATORS.put(BUTTON_EXTRA_KEY_MAPPING, BUTTON_EXTRA_KEY_MAPPING_VALIDATOR);
+	    VALIDATORS.put(DEVICE_PROXI_CHECK_ENABLED, DEVICE_PROXI_CHECK_ENABLED_VALIDATOR);	
+	    VALIDATORS.put(DEVICE_GESTURE_FEEDBACK_ENABLED, DEVICE_GESTURE_FEEDBACK_ENABLED_VALIDATOR);	
+	    VALIDATORS.put(DEVICE_FEATURE_SETTINGS, DEVICE_FEATURE_SETTINGS_VALIDATOR);	
             VALIDATORS.put(TTS_DEFAULT_PITCH, TTS_DEFAULT_PITCH_VALIDATOR);
             VALIDATORS.put(TTS_DEFAULT_SYNTH, TTS_DEFAULT_SYNTH_VALIDATOR);
             VALIDATORS.put(TTS_ENABLED_PLUGINS, TTS_ENABLED_PLUGINS_VALIDATOR);
