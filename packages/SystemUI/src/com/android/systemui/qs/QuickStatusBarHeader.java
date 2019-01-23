@@ -165,7 +165,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mWeatherSettingsObserver.observe();
         mWeatherSettingsObserver.updateWeatherUnit();
         mWeatherClient = new WeatherClient(getContext());
-        mWeatherClient.addObserver(this);
+        mWeatherClient.addObserver(this, false /*withQuery*/);
     }
 
     @Override
