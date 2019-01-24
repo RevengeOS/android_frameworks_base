@@ -422,6 +422,9 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     private boolean mFpDismissNotifications;
 
+    // false is for dark theme, true for black
+    private boolean mDarkThemeStyle;
+
     private final int[] mAbsPos = new int[2];
     private final ArrayList<Runnable> mPostCollapseRunnables = new ArrayList<>();
 
@@ -834,6 +837,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         final Context context = mContext;
         updateDisplaySize(); // populates mDisplayMetrics
         updateResources();
+        updateDarkThemeSetting();
         updateTheme();
 
         inflateStatusBarWindow(context);
@@ -2190,8 +2194,13 @@ public class StatusBar extends SystemUI implements DemoMode,
     public boolean isUsingDarkTheme() {
         OverlayInfo themeInfo = null;
         try {
-            themeInfo = mOverlayManager.getOverlayInfo("com.android.system.theme.dark",
-                    mLockscreenUserManager.getCurrentUserId());
+            if (mDarkThemeStyle) {
+                themeInfo = mOverlayManager.getOverlayInfo("com.android.system.theme.black",
+                        mLockscreenUserManager.getCurrentUserId());
+            } else {
+                themeInfo = mOverlayManager.getOverlayInfo("com.android.system.theme.dark",
+                        mLockscreenUserManager.getCurrentUserId());
+            }
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -4035,13 +4044,20 @@ public class StatusBar extends SystemUI implements DemoMode,
                 .getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
         final boolean useDarkTheme = systemColors != null
                 && (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
-        if (isUsingDarkTheme() != useDarkTheme) {
+        final boolean usingDarkTheme = isUsingDarkTheme();
+        if ((usingDarkTheme != useDarkTheme) || (usingDarkTheme != mDarkThemeStyle)) {
+            final boolean useBlackStyle = useDarkTheme && mDarkThemeStyle;
+            final boolean useDarkStyle = useDarkTheme && !mDarkThemeStyle;
             mUiOffloadThread.submit(() -> {
                 try {
+                    mOverlayManager.setEnabled("com.android.system.theme.black",
+		            useBlackStyle, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("com.android.settings.theme.black",
+                            useBlackStyle, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.system.theme.dark",
-                            useDarkTheme, mLockscreenUserManager.getCurrentUserId());
+                            useDarkStyle, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.settings.theme.dark",
-                            useDarkTheme, mLockscreenUserManager.getCurrentUserId());
+                            useDarkStyle, mLockscreenUserManager.getCurrentUserId());
                 } catch (RemoteException e) {
                     Log.w(TAG, "Can't change theme", e);
                 }
@@ -5264,6 +5280,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DARK_THEME_STYLE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -5287,6 +5306,10 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.Secure.getUriFor(
                     Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS))) {
                 setFpToDismissNotifications();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.DARK_THEME_STYLE))) {
+                updateDarkThemeSetting();
+                updateTheme();
             }
         }
 
@@ -5297,6 +5320,12 @@ public class StatusBar extends SystemUI implements DemoMode,
             setHeadsUpBlacklist();
             setFpToDismissNotifications();
         }
+    }
+
+    private void updateDarkThemeSetting() {
+        mDarkThemeStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.DARK_THEME_STYLE, 0,
+                UserHandle.USER_CURRENT) != 0;
     }
 
     private void setLockscreenDoubleTapToSleep() {
