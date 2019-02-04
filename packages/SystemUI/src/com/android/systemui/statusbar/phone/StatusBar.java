@@ -20,6 +20,7 @@ import static android.app.StatusBarManager.WINDOW_STATE_HIDDEN;
 import static android.app.StatusBarManager.WINDOW_STATE_SHOWING;
 import static android.app.StatusBarManager.windowStateToString;
 import static android.app.WindowConfiguration.WINDOWING_MODE_FULLSCREEN_OR_SPLIT_SCREEN_SECONDARY;
+import static android.content.Context.UI_MODE_SERVICE;
 
 import static com.android.systemui.keyguard.WakefulnessLifecycle.WAKEFULNESS_ASLEEP;
 import static com.android.systemui.keyguard.WakefulnessLifecycle.WAKEFULNESS_AWAKE;
@@ -52,6 +53,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.StatusBarManager;
 import android.app.TaskStackBuilder;
+import android.app.UiModeManager;
 import android.app.WallpaperColors;
 import android.app.WallpaperInfo;
 import android.app.WallpaperManager;
@@ -424,6 +426,7 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     // false is for dark theme, true for black
     private boolean mDarkThemeStyle;
+    private UiModeManager mUiModeManager;
 
     private final int[] mAbsPos = new int[2];
     private final ArrayList<Runnable> mPostCollapseRunnables = new ArrayList<>();
@@ -681,6 +684,8 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         mColorExtractor = Dependency.get(SysuiColorExtractor.class);
         mColorExtractor.addOnColorsChangedListener(this);
+
+        mUiModeManager = (UiModeManager) mContext.getSystemService(UI_MODE_SERVICE);
 
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
 
@@ -4042,12 +4047,17 @@ public class StatusBar extends SystemUI implements DemoMode,
         // The system wallpaper defines if QS should be light or dark.
         WallpaperColors systemColors = mColorExtractor
                 .getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
-        final boolean useDarkTheme = systemColors != null
-                && (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
+        final boolean supportsDarkTheme = (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
+        final boolean useDarkTheme = systemColors != null && supportsDarkTheme;
         final boolean usingDarkTheme = isUsingDarkTheme();
-        if ((usingDarkTheme != useDarkTheme) || (usingDarkTheme != mDarkThemeStyle)) {
+        final boolean hasDarkThemeChanged = usingDarkTheme != useDarkTheme;
+        if (hasDarkThemeChanged || (usingDarkTheme != mDarkThemeStyle)) {
             final boolean useBlackStyle = useDarkTheme && mDarkThemeStyle;
             final boolean useDarkStyle = useDarkTheme && !mDarkThemeStyle;
+            final int newUiMode = supportsDarkTheme ? 2 : 1;
+            if (mUiModeManager.getNightMode() != newUiMode) {
+                mUiModeManager.setNightMode(newUiMode);
+            }
             mUiOffloadThread.submit(() -> {
                 try {
                     mOverlayManager.setEnabled("com.android.system.theme.black",
