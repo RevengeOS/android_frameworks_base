@@ -408,6 +408,10 @@ please see themes_device_defaults.xml.
         <!-- Tooltip popup properties -->
         <item name="tooltipForegroundColor">@color/foreground_material_light</item>
         <item name="tooltipBackgroundColor">@color/tooltip_background_light</item>
+
+        <!-- RevengeOS gradients -->
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <!-- Material theme (light version). -->
@@ -783,6 +787,10 @@ please see themes_device_defaults.xml.
         <!-- Tooltip popup properties -->
         <item name="tooltipForegroundColor">@color/foreground_material_dark</item>
         <item name="tooltipBackgroundColor">@color/tooltip_background_dark</item>
+
+        <!-- RevengeOS gradients -->
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- Variant of the material (light) theme that has a solid (opaque) action bar

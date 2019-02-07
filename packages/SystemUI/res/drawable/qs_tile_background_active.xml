@@ -29,8 +29,8 @@
         android:gravity="center">
         <shape android:shape="oval">
             <gradient 
-                android:startColor="@*android:color/primary_accent"
-                android:endColor="@*android:color/secondary_accent"
+                android:startColor="?android:attr/colorGradientStart"
+                android:endColor="?android:attr/colorGradientEnd"
                 android:angle="45"/>
         </shape>
     </item>
