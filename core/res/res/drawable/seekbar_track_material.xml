@@ -50,8 +50,8 @@
                         <corners android:radius="@dimen/seekbar_track_progress_height_material" />
                         <size android:height="@dimen/seekbar_track_progress_height_material" />
                         <gradient 
-                            android:startColor="?attr/colorGradientStart"
-                            android:endColor="?attr/colorGradientEnd"
+                            android:startColor="@*android:color/primary_accent"
+                            android:endColor="@*android:color/secondary_accent"
                             android:angle="45"/>
                     </shape>
                 </item>

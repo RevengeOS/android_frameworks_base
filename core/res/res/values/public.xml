@@ -2903,8 +2903,6 @@
   <eat-comment />
 
     <public-group type="attr" first-id="0x01010587">
-        <public name="colorGradientStart" />
-        <public name="colorGradientEnd" />
     </public-group>
 
     <public-group type="style" first-id="0x010302e2">
