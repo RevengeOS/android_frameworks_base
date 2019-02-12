@@ -211,6 +211,11 @@
     <color name="floating_popup_divider_light">#E9E9E9</color>
 
     <!-- RevengeOS colors-->
-    <color name="primary_accent">#ff058fff</color>
-    <color name="secondary_accent">#ff00ffd2</color>
+    <color name="gradient_start_light">@color/accent_material_light</color>
+    <color name="gradient_start_dark">@color/accent_material_dark</color>
+    <color name="gradient_end_light">#ff00ffd2</color>
+    <color name="gradient_end_dark">#ff00ffd2</color>
+
+    <color name="gradient_start">@color/gradient_start_light</color>
+    <color name="gradient_end">@color/gradient_end_light</color>
 </resources>

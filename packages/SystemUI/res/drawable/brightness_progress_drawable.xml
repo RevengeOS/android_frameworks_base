@@ -28,8 +28,8 @@
             <shape android:shape="rectangle">
                 <size android:height="@dimen/seek_bar_height" />
                 <gradient 
-                    android:startColor="@*android:color/primary_accent"
-                    android:endColor="@*android:color/secondary_accent"/>
+                    android:startColor="@*android:color/gradient_start"
+                    android:endColor="@*android:color/gradient_end"/>
                 <corners android:radius="@dimen/seek_bar_corner_radius" />
             </shape>
         </scale>
