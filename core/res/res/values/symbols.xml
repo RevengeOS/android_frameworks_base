@@ -3404,4 +3404,12 @@
 
   <java-symbol type="integer" name="config_defaultHapticFeedbackIntensity" />
   <java-symbol type="integer" name="config_defaultNotificationVibrationIntensity" />
+
+  <!-- RevengeOS -->
+  <java-symbol type="color" name="gradient_start_light" />
+  <java-symbol type="color" name="gradient_start_dark" />
+  <java-symbol type="color" name="gradient_end_light" />
+  <java-symbol type="color" name="gradient_end_dark" />
+  <java-symbol type="color" name="gradient_start" />
+  <java-symbol type="color" name="gradient_end" />
 </resources>
