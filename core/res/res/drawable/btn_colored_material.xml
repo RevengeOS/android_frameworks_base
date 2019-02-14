@@ -21,12 +21,10 @@
        android:insetBottom="@dimen/button_inset_vertical_material">
     <ripple android:color="?attr/colorControlHighlight">
         <item>
-            <shape android:shape="rectangle">
+            <shape android:shape="rectangle"
+                   android:tint="@color/btn_colored_background_material">
                 <corners android:radius="?attr/buttonCornerRadius" />
-                <gradient 
-                    android:startColor="@color/gradient_start"
-                    android:endColor="@color/gradient_end"
-                    android:angle="45"/>
+                <solid android:color="@color/white" />
                 <padding android:left="@dimen/button_padding_horizontal_material"
                          android:top="@dimen/button_padding_vertical_material"
                          android:right="@dimen/button_padding_horizontal_material"

@@ -250,8 +250,8 @@ please see styles_device_defaults.xml.
 
     <style name="TextAppearance.Material.Button">
         <item name="textSize">@dimen/text_size_button_material</item>
-        <item name="fontFamily">@string/config_headlineFontFamilyMedium</item>
-        <item name="textAllCaps">false</item>
+        <item name="fontFamily">@string/font_family_button_material</item>
+        <item name="textAllCaps">true</item>
         <item name="textColor">?attr/textColorPrimary</item>
     </style>
 

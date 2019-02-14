@@ -16,20 +16,20 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@android:id/background"
           android:gravity="center_vertical|fill_horizontal">
-        <shape android:shape="rectangle">
+        <shape android:shape="rectangle"
+               android:tint="?android:attr/colorControlActivated">
             <size android:height="@dimen/seek_bar_height" />
-            <solid android:color="@*android:color/background_grey" />
+            <solid android:color="@color/white_disabled" />
             <corners android:radius="@dimen/seek_bar_corner_radius" />
         </shape>
     </item>
     <item android:id="@android:id/progress"
           android:gravity="center_vertical|fill_horizontal">
         <scale android:scaleWidth="100%">
-            <shape android:shape="rectangle">
+            <shape android:shape="rectangle"
+                   android:tint="?android:attr/colorControlActivated">
                 <size android:height="@dimen/seek_bar_height" />
-                <gradient 
-                    android:startColor="@*android:color/gradient_start"
-                    android:endColor="@*android:color/gradient_end"/>
+                <solid android:color="@android:color/white" />
                 <corners android:radius="@dimen/seek_bar_corner_radius" />
             </shape>
         </scale>

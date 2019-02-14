@@ -17,10 +17,11 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@id/background"
           android:gravity="center_vertical|fill_horizontal">
-        <shape android:shape="rectangle">
-            <corners android:radius="@dimen/seekbar_track_progress_height_material" />
+        <shape android:shape="rectangle"
+               android:tint="?attr/colorProgressBackgroundNormal">
+            <corners android:radius="?attr/progressBarCornerRadius" />
             <size android:height="@dimen/seekbar_track_background_height_material" />
-            <solid android:color="@color/background_grey" />
+            <solid android:color="@color/white_disabled_material" />
         </shape>
     </item>
     <item android:id="@id/secondaryProgress"
@@ -30,10 +31,11 @@
                 <item android:state_enabled="false"
                       android:drawable="@color/transparent" />
                 <item>
-                    <shape android:shape="rectangle">
-                        <corners android:radius="@dimen/seekbar_track_progress_height_material" />
+                    <shape android:shape="rectangle"
+                           android:tint="?attr/colorControlActivated">
+                        <corners android:radius="?attr/progressBarCornerRadius" />
                         <size android:height="@dimen/seekbar_track_progress_height_material" />
-                        <solid android:color="@color/background_grey" />
+                        <solid android:color="@color/white_disabled_material" />
                     </shape>
                 </item>
             </selector>
@@ -46,13 +48,11 @@
                 <item android:state_enabled="false"
                       android:drawable="@color/transparent" />
                 <item>
-                    <shape android:shape="rectangle">
-                        <corners android:radius="@dimen/seekbar_track_progress_height_material" />
+                    <shape android:shape="rectangle"
+                           android:tint="?attr/colorControlActivated">
+                        <corners android:radius="?attr/progressBarCornerRadius" />
                         <size android:height="@dimen/seekbar_track_progress_height_material" />
-                        <gradient 
-                            android:startColor="@color/gradient_start"
-                            android:endColor="@color/gradient_end"
-                            android:angle="45"/>
+                        <solid android:color="@color/white" />
                     </shape>
                 </item>
             </selector>
