@@ -15,7 +15,8 @@ package com.android.systemui.qs.tileimpl;
 
 import static com.android.systemui.qs.tileimpl.QSIconViewImpl.QS_ANIM_LENGTH;
 
-import android.animation.ValueAnimator;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -57,10 +58,8 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
     private boolean mClicked;
 
     private final ImageView mBg;
-    private final int mColorActive;
-    private final int mColorInactive;
-    private final int mColorDisabled;
-    private int mCircleColor;
+    private final Drawable mTileBgInactive;
+    private int mState;
 
     public QSTileBaseView(Context context, QSIconView icon) {
         this(context, icon, false);
@@ -71,14 +70,18 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         // Default to Quick Tile padding, and QSTileView will specify its own padding.
         int padding = context.getResources().getDimensionPixelSize(R.dimen.qs_quick_tile_padding);
 
+        mTileBgInactive = getContext().getDrawable(R.drawable.qs_tile_background_inactive);
+
         mIconFrame = new FrameLayout(context);
         mIconFrame.setForegroundGravity(Gravity.CENTER);
         int size = context.getResources().getDimensionPixelSize(R.dimen.qs_quick_tile_size);
         addView(mIconFrame, new LayoutParams(size, size));
         mBg = new ImageView(getContext());
         mBg.setScaleType(ScaleType.FIT_CENTER);
-        mBg.setImageResource(R.drawable.ic_qs_circle);
+        mBg.setImageDrawable(getContext().getDrawable(R.drawable.qs_tile_background_active));
+        mBg.setAlpha(0f);
         mIconFrame.addView(mBg);
+        mIconFrame.setBackground(mTileBgInactive);
         mIcon = icon;
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -94,20 +97,11 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
         setBackground(mTileBackground);
 
-        mColorActive = Utils.getColorAttr(context, android.R.attr.colorAccent);
-        mColorDisabled = Utils.getDisabled(context,
-                Utils.getColorAttr(context, android.R.attr.textColorTertiary));
-        mColorInactive = Utils.getColorAttr(context, android.R.attr.textColorSecondary);
-
         setPadding(0, 0, 0, 0);
         setClipChildren(false);
         setClipToPadding(false);
         mCollapsedView = collapsedView;
         setFocusable(true);
-    }
-
-    public View getBgCicle() {
-        return mBg;
     }
 
     protected Drawable newTileBackground() {
@@ -177,20 +171,31 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
     }
 
     protected void handleStateChanged(QSTile.State state) {
-        int circleColor = getCircleColor(state.state);
-        if (circleColor != mCircleColor) {
-            if (mBg.isShown() && animationsEnabled()) {
-                ValueAnimator animator = ValueAnimator.ofArgb(mCircleColor, circleColor)
-                        .setDuration(QS_ANIM_LENGTH);
-                animator.addUpdateListener(animation -> mBg.setImageTintList(ColorStateList.valueOf(
-                        (Integer) animation.getAnimatedValue())));
-                animator.start();
+        int newTileState = state.state;
+        if (newTileState != mState) {
+            if (mBg.isShown()) {
+                if (newTileState == Tile.STATE_ACTIVE) {
+                    mBg.animate()
+                       .alpha(1f)
+                       .setDuration(QS_ANIM_LENGTH)
+                       .setListener(null);
+                }
+                else if (mState == Tile.STATE_ACTIVE) {
+                    mBg.animate()
+                       .alpha(0f)
+                       .setDuration(QS_ANIM_LENGTH)
+                       .setListener(null);
+                }
             } else {
-                QSIconViewImpl.setTint(mBg, circleColor);
+                if (newTileState == Tile.STATE_ACTIVE) {
+                    mBg.setAlpha(1f);
+                }
+                else {
+                    mBg.setAlpha(0f);
+                }
             }
-            mCircleColor = circleColor;
+            mState = newTileState;
         }
-
         setClickable(state.state != Tile.STATE_UNAVAILABLE);
         mIcon.setIcon(state);
         setContentDescription(state.contentDescription);
@@ -207,19 +212,6 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
 
     protected boolean animationsEnabled() {
         return true;
-    }
-
-    private int getCircleColor(int state) {
-        switch (state) {
-            case Tile.STATE_ACTIVE:
-                return mColorActive;
-            case Tile.STATE_INACTIVE:
-            case Tile.STATE_UNAVAILABLE:
-                return mColorDisabled;
-            default:
-                Log.e(TAG, "Invalid state " + state);
-                return 0;
-        }
     }
 
     @Override
