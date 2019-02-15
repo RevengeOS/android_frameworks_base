@@ -62,7 +62,6 @@ import android.os.Process;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.provider.MediaStore;
-import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.Slog;
 import android.view.Display;
@@ -733,9 +732,7 @@ class GlobalScreenshot {
             @Override
             public void run() {
                 // Play the shutter sound to notify that we've taken a screenshot
-                if (Settings.System.getIntForUser(mContext.getContentResolver(),
-                        Settings.System.OMNI_SCREENSHOT_SHUTTER_SOUND, 1, UserHandle.USER_CURRENT) == 1) {
-                    // Play the shutter sound to notify that we've taken a screenshot
+                if (mPlayScreenshotSound) {
                     mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
                 }
 
