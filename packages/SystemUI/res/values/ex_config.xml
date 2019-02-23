@@ -20,4 +20,7 @@
 
     <!-- Use wakelock for flashlight -->
     <bool name="config_useWakeLockForFlashlight">false</bool>
+
+    <!-- System icon area layout weight -->
+    <item name="system_icon_area_weight" format="float" type="integer">1</item>
 </resources>
