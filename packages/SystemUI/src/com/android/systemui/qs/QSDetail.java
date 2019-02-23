@@ -67,7 +67,6 @@ public class QSDetail extends LinearLayout {
     private boolean mScanState;
     private boolean mClosingDetail;
     private boolean mFullyExpanded;
-    private QuickStatusBarHeader mHeader;
     private boolean mTriggeredExpand;
     private int mOpenX;
     private int mOpenY;
@@ -119,9 +118,7 @@ public class QSDetail extends LinearLayout {
 
     public void setQsPanel(QSPanel panel, QuickStatusBarHeader header, View footer) {
         mQsPanel = panel;
-        mHeader = header;
         mFooter = footer;
-        mHeader.setCallback(mQsPanelCallback);
         mQsPanel.setCallback(mQsPanelCallback);
     }
 
@@ -215,7 +212,6 @@ public class QSDetail extends LinearLayout {
             mClosingDetail = true;
             mDetailAdapter = null;
             listener = mTeardownDetailWhenDone;
-            mHeader.setVisibility(View.VISIBLE);
             mFooter.setVisibility(View.VISIBLE);
             mQsPanel.setGridContentVisibility(true);
             mQsPanelCallback.onScanStateChanged(false);
@@ -353,7 +349,6 @@ public class QSDetail extends LinearLayout {
             // Only hide content if still in detail state.
             if (mDetailAdapter != null) {
                 mQsPanel.setGridContentVisibility(false);
-                mHeader.setVisibility(View.INVISIBLE);
                 mFooter.setVisibility(View.INVISIBLE);
             }
             mAnimatingOpen = false;
