@@ -173,6 +173,7 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
         if (mQSAnimator != null) {
             mQSAnimator.updateSettings();
         }
+        updateResources();
     }
 
     @Override
@@ -228,6 +229,14 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
         mFooter.setExpanded((mKeyguardShowing && !mHeaderAnimating)
                 || (mQsExpanded && !mStackScrollerOverscrolling));
         mQSPanel.setVisibility(!mQsDisabled && expandVisually ? View.VISIBLE : View.INVISIBLE);
+    }
+
+    private void updateResources() {
+        LayoutParams layoutParams = (LayoutParams) mQSDetail.getLayoutParams();
+        layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(
+                com.android.internal.R.dimen.quick_qs_offset_height);
+
+        mQSDetail.setLayoutParams(layoutParams);
     }
 
     public QSPanel getQsPanel() {
