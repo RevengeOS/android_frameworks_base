@@ -228,6 +228,8 @@
     <uses-permission android:name="android.permission.ACCESS_SURFACE_FLINGER" />
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
 
+    <uses-permission android:name="android.permission.ONE_HANDED_MODE" />
+
     <!-- Weather on lockscreen -->
     <uses-permission android:name="com.revengeos.weather.client.READ_WEATHER" />
 

@@ -5000,4 +5000,7 @@
     <!-- Strings for car -->
     <!-- String displayed when loading a user in the car [CHAR LIMIT=30] -->
     <string name="car_loading_profile">Loading</string>
+
+    <!-- OneHand Mode -->
+    <string name="onehand_mode_label">OneHand mode</string>
 </resources>
