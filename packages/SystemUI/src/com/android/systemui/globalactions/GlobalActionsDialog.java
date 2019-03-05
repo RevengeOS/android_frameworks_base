@@ -523,7 +523,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 }
             } else if (GLOBAL_ACTION_KEY_LOCKDOWN.equals(actionKey)) {
                 if (Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.POWERMENU_LOCKDOWN, 1) != 0) {
+                        Settings.System.POWERMENU_LOCKDOWN, 0) != 0) {
                     mItems.add(getLockdownAction());
                     mHasLockdownButton = true;
                 }
