@@ -4042,13 +4042,13 @@ public class StatusBar extends SystemUI implements DemoMode,
         final boolean useDarkTheme = systemColors != null && supportsDarkTheme;
         final boolean usingDarkTheme = isUsingDarkTheme();
         final boolean hasDarkThemeChanged = usingDarkTheme != useDarkTheme;
+        final int newUiMode = useDarkTheme ? 2 : 1;
+        if (mUiModeManager.getNightMode() != newUiMode) {
+            mUiModeManager.setNightMode(newUiMode);
+        }
         if (hasDarkThemeChanged || (usingDarkTheme != mDarkThemeStyle)) {
             final boolean useBlackStyle = useDarkTheme && mDarkThemeStyle;
             final boolean useDarkStyle = useDarkTheme && !mDarkThemeStyle;
-            final int newUiMode = supportsDarkTheme ? 2 : 1;
-            if (mUiModeManager.getNightMode() != newUiMode) {
-                mUiModeManager.setNightMode(newUiMode);
-            }
             mUiOffloadThread.submit(() -> {
                 try {
                     mOverlayManager.setEnabled("com.android.system.theme.black",
