@@ -252,9 +252,11 @@ public class VolumeDialogImpl implements VolumeDialog {
                     addRow(AudioManager.STREAM_RING, R.drawable.ic_volume_ringer,
                             R.drawable.ic_volume_ringer_mute, true, false);
                 } else {
-                    addRow(AudioManager.STREAM_NOTIFICATION, R.drawable.ic_volume_notification,
+                    addRow(AudioManager.STREAM_RING, R.drawable.ic_volume_notification,
                             R.drawable.ic_volume_notification_mute, true, false);
                 }
+                addRow(AudioManager.STREAM_RING,
+                        R.drawable.ic_volume_ringer, R.drawable.ic_volume_ringer_mute, true, false);
                 addRow(STREAM_ALARM,
                         R.drawable.ic_volume_alarm, R.drawable.ic_volume_alarm_mute, true, false);
                 addRow(AudioManager.STREAM_VOICE_CALL,
@@ -594,20 +596,6 @@ public class VolumeDialogImpl implements VolumeDialog {
     }
 
     private boolean shouldBeVisibleH(VolumeRow row, VolumeRow activeRow) {
-        if (row.stream == AudioManager.STREAM_MUSIC) {
-            return true;
-        }
-        if (row.stream == AudioManager.STREAM_RING) {
-            return true;
-        }
-        if (row.stream == AudioManager.STREAM_NOTIFICATION) {
-            boolean isNotificationUnlinked = Settings.Secure.getInt(mContext.getContentResolver(), Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) != 1;;
-            if (isNotificationUnlinked) {
-                return true;
-            }
-            return false;
-        }
-
         boolean isActive = row.stream == activeRow.stream;
         if (row.stream == AudioSystem.STREAM_ACCESSIBILITY) {
             return mShowA11yStream;
