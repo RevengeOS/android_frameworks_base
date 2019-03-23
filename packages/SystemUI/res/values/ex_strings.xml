@@ -77,10 +77,6 @@
     <string name="accessibility_quick_settings_gaming_mode_on">Gaming mode on</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Gaming mode off</string>
 
-    <!-- Screenshot QS tile -->
-    <string name="quick_settings_screenshot_label">Screenshot</string>
-    <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
-
     <!-- Button that controls inversion of layout of navigation bar -->
     <string name="nav_bar_layout_inverse">Invert layout</string>
 
