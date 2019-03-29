@@ -4039,9 +4039,6 @@
     <permission android:name="android.permission.DISABLE_HIDDEN_API_CHECKS"
                 android:protectionLevel="signature" />
 
-    <!-- Weather on lockscreen -->
-    <uses-permission android:name="org.pixelexperience.weather.client.READ_WEATHER" />
-
     <!-- LineageOS additions -->
 
     <!-- Allows an application to override the power key action
