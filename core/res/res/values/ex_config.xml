@@ -108,4 +108,7 @@
     <!-- Smart charging battery percentage -->
     <integer name="config_smartChargingBatteryLevel">80</integer>
 
+    <!-- True if the home button has the ability to wake up phone from lockscreen-->
+    <bool name="config_HomeWakeButton">false</bool>
+
 </resources>

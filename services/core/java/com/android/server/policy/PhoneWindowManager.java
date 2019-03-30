@@ -682,6 +682,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private boolean mHandleVolumeKeysInWM;
 
     boolean mVolumeRockerWake;
+    boolean mHomeWakeButton;
 
     int mPointerLocationMode = 0; // guarded by mLock
 
@@ -2419,6 +2420,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         mHandleVolumeKeysInWM = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_handleVolumeKeysInWindowManager);
+
+        mHomeWakeButton = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_HomeWakeButton);
 
         readConfigurationDependentBehaviors();
 
@@ -6753,6 +6757,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 }
                 break;
             }
+
+            case KeyEvent.KEYCODE_HOME:
+                if (down && !interactive && mHomeWakeButton) {
+                    isWakeKey = true;
+                }
+                break;
 
             case KeyEvent.KEYCODE_ENDCALL: {
                 result &= ~ACTION_PASS_TO_USER;
