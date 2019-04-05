@@ -19,4 +19,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Whether to use scaled brightness (set -1 to disable) -->
     <java-symbol type="integer" name="config_useScaleBrightness" />
+
+    <!-- Whether to show a custom view for FOD -->
+    <java-symbol type="bool" name="config_needCustomFODView" />
 </resources>
