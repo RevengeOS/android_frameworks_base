@@ -25,6 +25,7 @@ import static android.os.ParcelFileDescriptor.MODE_TRUNCATE;
 import static android.view.Display.DEFAULT_DISPLAY;
 import static android.view.WindowManager.LayoutParams.TYPE_WALLPAPER;
 
+import android.annotation.Nullable;
 import android.annotation.NonNull;
 import android.app.ActivityManager;
 import android.app.AppGlobals;
@@ -100,7 +101,11 @@ import com.android.internal.util.FastXmlSerializer;
 import com.android.internal.util.JournaledFile;
 import com.android.server.EventLogTags;
 import com.android.server.FgThread;
+import com.android.server.LocalServices;
 import com.android.server.SystemService;
+import com.android.server.twilight.TwilightListener;
+import com.android.server.twilight.TwilightManager;
+import com.android.server.twilight.TwilightState;
 
 import java.lang.reflect.InvocationTargetException;
 import libcore.io.IoUtils;
@@ -361,6 +366,10 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
                     Settings.System.getUriFor(Settings.System.BATTERY_SAVER_DARK_THEME),
                     false,
                     this);
+            context.getContentResolver().registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.DARK_THEME_ON_NIGHT),
+                    false,
+                    this);
         }
 
         public void stopObserving(Context context) {
@@ -377,6 +386,8 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
     private void updateAutoDarkThemeSettings() {
         mBatterySaverDarkTheme = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.BATTERY_SAVER_DARK_THEME, 0) == 1;
+        mDarkThemeOnNight = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.DARK_THEME_ON_NIGHT, 0) == 1;
     }
 
     /**
@@ -428,7 +439,7 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         WallpaperData wallpaper;
         synchronized (mLock) {
             wallpaper = mWallpaperMap.get(mCurrentUserId);
-            final boolean forceDarkTheme = mBatterySaverDarkTheme && mPowerManager.isPowerSaveMode();
+            final boolean forceDarkTheme = useDarkThemeOnNight() || (mBatterySaverDarkTheme && mPowerManager.isPowerSaveMode());
             int updatedThemeMode = forceDarkTheme ? Settings.Secure.THEME_MODE_DARK :
                     Settings.Secure.getInt(mContext.getContentResolver(), Settings.Secure.THEME_MODE, Settings.Secure.THEME_MODE_WALLPAPER);
 
@@ -444,6 +455,16 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         if (wallpaper != null) {
             notifyWallpaperColorsChanged(wallpaper, FLAG_SYSTEM);
         }
+    }
+
+    boolean useDarkThemeOnNight() {
+        if (mDarkThemeOnNight) {
+            TwilightState state = mTwilightManager.getLastTwilightState();
+            if (state != null) {
+                return state.isNight();
+            }
+        }
+        return false;
     }
 
     void notifyLockWallpaperChanged() {
@@ -790,6 +811,8 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
     final MyPackageMonitor mMonitor;
     final AppOpsManager mAppOpsManager;
     final PowerManager mPowerManager;
+    TwilightManager mTwilightManager;
+    final Handler mHandler = new Handler();
     /**
      * Map of color listeners per user id.
      * The key will be the id of a user or UserHandle.USER_ALL - for wildcard listeners.
@@ -826,6 +849,7 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
     int mThemeMode;
 
     boolean mBatterySaverDarkTheme;
+    boolean mDarkThemeOnNight;
 
     static class WallpaperData {
 
@@ -1413,6 +1437,15 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
             }
         }, powerSaverFilter);
 
+        mTwilightManager.registerListener(new TwilightListener() {
+            @Override
+            public void onTwilightStateChanged(@Nullable TwilightState state) {
+                if (mDarkThemeOnNight) {
+                    onThemeSettingsChanged();
+                }
+            }
+        }, mHandler);
+
         try {
             ActivityManager.getService().registerUserSwitchObserver(
                     new UserSwitchObserver() {
@@ -1461,6 +1494,7 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
     public void onBootPhase(int phase) {
         if (phase == SystemService.PHASE_SYSTEM_SERVICES_READY) {
             updateAutoDarkThemeSettings();
+            mTwilightManager = LocalServices.getService(TwilightManager.class);
         } else if (phase == SystemService.PHASE_ACTIVITY_MANAGER_READY) {
             systemReady();
         } else if (phase == SystemService.PHASE_THIRD_PARTY_APPS_CAN_START) {
