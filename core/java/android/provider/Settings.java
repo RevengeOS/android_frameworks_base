@@ -4587,6 +4587,15 @@ public final class Settings {
         private static final Validator BATTERY_SAVER_DARK_THEME_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
+         /**
+         * @hide
+         */
+        public static final String DARK_THEME_ON_NIGHT = "dark_theme_on_night";
+
+         /** @hide */
+        private static final Validator DARK_THEME_ON_NIGHT_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
@@ -4658,7 +4667,8 @@ public final class Settings {
             OMNI_QS_LAYOUT_ROWS,
             OMNI_QS_LAYOUT_ROWS_LANDSCAPE,
             OMNI_QS_QUICKBAR_COLUMNS,
-            BATTERY_SAVER_DARK_THEME
+            BATTERY_SAVER_DARK_THEME,
+            DARK_THEME_ON_NIGHT
         };
 
         /**
@@ -4804,6 +4814,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNI_QS_LAYOUT_ROWS_LANDSCAPE);
             PRIVATE_SETTINGS.add(OMNI_QS_QUICKBAR_COLUMNS);
             PRIVATE_SETTINGS.add(BATTERY_SAVER_DARK_THEME);
+            PRIVATE_SETTINGS.add(DARK_THEME_ON_NIGHT);
         }
 
         /**
@@ -4921,6 +4932,7 @@ public final class Settings {
             VALIDATORS.put(OMNI_QS_LAYOUT_ROWS_LANDSCAPE, OMNI_QS_LAYOUT_ROWS_LANDSCAPE_VALIDATOR);
             VALIDATORS.put(OMNI_QS_QUICKBAR_COLUMNS, OMNI_QS_QUICKBAR_COLUMNS_VALIDATOR);
             VALIDATORS.put(BATTERY_SAVER_DARK_THEME, BATTERY_SAVER_DARK_THEME_VALIDATOR);
+            VALIDATORS.put(DARK_THEME_ON_NIGHT, DARK_THEME_ON_NIGHT_VALIDATOR);
         }
 
         /**
