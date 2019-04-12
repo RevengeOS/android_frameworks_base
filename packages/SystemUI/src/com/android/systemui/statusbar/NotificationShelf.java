@@ -187,10 +187,10 @@ public class NotificationShelf extends ActivatableNotificationView implements
     public void updateState(StackScrollState resultState,
             AmbientState ambientState) {
         View lastView = ambientState.getLastVisibleBackgroundChild();
-        if (mShowNotificationShelf && lastView != null) {
+        ExpandableViewState lastViewState = resultState.getViewStateForView(lastView);
+        if (mShowNotificationShelf && lastView != null && lastViewState != null) {
             float maxShelfEnd = ambientState.getInnerHeight() + ambientState.getTopPadding()
                     + ambientState.getStackTranslation();
-            ExpandableViewState lastViewState = resultState.getViewStateForView(lastView);
             float viewEnd = lastViewState.yTranslation + lastViewState.height;
             mShelfState.copyFrom(lastViewState);
             mShelfState.height = getIntrinsicHeight();
