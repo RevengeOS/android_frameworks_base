@@ -104,4 +104,7 @@
     <!-- QS Screenshot Tile -->
     <string name="quick_settings_screenshot_label">Screenshot</string>
 
+    <!-- QS Recorder Tile -->
+    <string name="quick_settings_recorder_label">Recorder</string>
+
 </resources>
