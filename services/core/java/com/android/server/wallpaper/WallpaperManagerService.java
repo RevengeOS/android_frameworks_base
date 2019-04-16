@@ -438,9 +438,7 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
             boolean useDarkThemeOnNight = false;
             if (mDarkThemeOnNight) {
                 TwilightState state = mTwilightManager.getLastTwilightState();
-                if (state != null) {
-                    useDarkThemeOnNight = state.isNight();
-                }
+                useDarkThemeOnNight = state.isNight();
             }
             final boolean forceDarkTheme = useDarkThemeOnNight || (mBatterySaverDarkTheme && mPowerManager.isPowerSaveMode());
             int updatedThemeMode = forceDarkTheme ? Settings.Secure.THEME_MODE_DARK :
