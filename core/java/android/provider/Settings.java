@@ -4578,15 +4578,6 @@ public final class Settings {
          */
         public static final String REVENGEOS_SMART_CHARGING_LEVEL = "revengeos_smart_charging_level";
 
-         /**
-         * @hide
-         */
-        public static final String BATTERY_SAVER_DARK_THEME = "battery_saver_dark_theme";
-
-         /** @hide */
-        private static final Validator BATTERY_SAVER_DARK_THEME_VALIDATOR =
-                ANY_INTEGER_VALIDATOR;
-
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
@@ -4657,8 +4648,7 @@ public final class Settings {
             OMNI_QS_TILE_TITLE_VISIBILITY,
             OMNI_QS_LAYOUT_ROWS,
             OMNI_QS_LAYOUT_ROWS_LANDSCAPE,
-            OMNI_QS_QUICKBAR_COLUMNS,
-            BATTERY_SAVER_DARK_THEME
+            OMNI_QS_QUICKBAR_COLUMNS
         };
 
         /**
@@ -4803,7 +4793,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNI_QS_LAYOUT_ROWS);
             PRIVATE_SETTINGS.add(OMNI_QS_LAYOUT_ROWS_LANDSCAPE);
             PRIVATE_SETTINGS.add(OMNI_QS_QUICKBAR_COLUMNS);
-            PRIVATE_SETTINGS.add(BATTERY_SAVER_DARK_THEME);
         }
 
         /**
@@ -4920,7 +4909,6 @@ public final class Settings {
             VALIDATORS.put(OMNI_QS_LAYOUT_ROWS, OMNI_QS_LAYOUT_ROWS_VALIDATOR);
             VALIDATORS.put(OMNI_QS_LAYOUT_ROWS_LANDSCAPE, OMNI_QS_LAYOUT_ROWS_LANDSCAPE_VALIDATOR);
             VALIDATORS.put(OMNI_QS_QUICKBAR_COLUMNS, OMNI_QS_QUICKBAR_COLUMNS_VALIDATOR);
-            VALIDATORS.put(BATTERY_SAVER_DARK_THEME, BATTERY_SAVER_DARK_THEME_VALIDATOR);
         }
 
         /**
