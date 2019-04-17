@@ -2316,8 +2316,9 @@ public class NotificationManagerService extends SystemService {
         public ParceledListSlice<NotificationChannelGroup> getNotificationChannelGroups(
                 String pkg) {
             checkCallerIsSystemOrSameApp(pkg);
+
             return mRankingHelper.getNotificationChannelGroups(
-                    pkg, Binder.getCallingUid(), false, false);
+                    pkg, Binder.getCallingUid(), false, false, true);
         }
 
         @Override
@@ -2393,7 +2394,9 @@ public class NotificationManagerService extends SystemService {
         public ParceledListSlice<NotificationChannelGroup> getNotificationChannelGroupsForPackage(
                 String pkg, int uid, boolean includeDeleted) {
             checkCallerIsSystem();
-            return mRankingHelper.getNotificationChannelGroups(pkg, uid, includeDeleted, true);
+
+            return mRankingHelper.getNotificationChannelGroups(
+                    pkg, uid, includeDeleted, true, false);
         }
 
         @Override
@@ -4282,13 +4285,6 @@ public class NotificationManagerService extends SystemService {
         final String pkg = r.sbn.getPackageName();
         final int callingUid = r.sbn.getUid();
 
-        final boolean isPackageSuspended = isPackageSuspendedForUser(pkg, callingUid);
-        if (isPackageSuspended) {
-            Slog.e(TAG, "Suppressing notification from package due to package "
-                    + "suspended by administrator.");
-            usageStats.registerSuspendedByAdmin(r);
-            return isPackageSuspended;
-        }
         final boolean isBlocked =
                 mRankingHelper.isGroupBlocked(pkg, callingUid, r.getChannel().getGroup())
                 || mRankingHelper.getImportance(pkg, callingUid)
@@ -4297,8 +4293,9 @@ public class NotificationManagerService extends SystemService {
         if (isBlocked) {
             Slog.e(TAG, "Suppressing notification from package by user request.");
             usageStats.registerBlocked(r);
+            return true;
         }
-        return isBlocked;
+        return false;
     }
 
     protected class SnoozeNotificationRunnable implements Runnable {
@@ -4476,7 +4473,11 @@ public class NotificationManagerService extends SystemService {
                         return;
                     }
 
-                    r.setHidden(isPackageSuspendedLocked(r));
+                    final boolean isPackageSuspended = isPackageSuspendedLocked(r);
+                    r.setHidden(isPackageSuspended);
+                    if (isPackageSuspended) {
+                        mUsageStats.registerSuspendedByAdmin(r);
+                    }
                     NotificationRecord old = mNotificationsByKey.get(key);
                     final StatusBarNotification n = r.sbn;
                     final Notification notification = n.getNotification();
@@ -6670,7 +6671,6 @@ public class NotificationManagerService extends SystemService {
                 if (!oldSbnVisible && !sbnVisible) {
                     continue;
                 }
-
                 // If the notification is hidden, don't notifyPosted listeners targeting < P.
                 // Instead, those listeners will receive notifyPosted when the notification is
                 // unhidden.
@@ -7104,7 +7104,7 @@ public class NotificationManagerService extends SystemService {
                 new String[]{pkg});
 
         final String action = suspend ? Intent.ACTION_PACKAGES_SUSPENDED
-            : Intent.ACTION_PACKAGES_UNSUSPENDED;
+                : Intent.ACTION_PACKAGES_UNSUSPENDED;
         final Intent intent = new Intent(action);
         intent.putExtras(extras);
 
