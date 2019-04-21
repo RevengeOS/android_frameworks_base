@@ -115,7 +115,7 @@ public final class TwilightService extends SystemService
 
     @Override
     public void onBootPhase(int phase) {
-        if (phase == PHASE_BOOT_COMPLETED) {
+        if (phase == PHASE_THIRD_PARTY_APPS_CAN_START) {
             final Context c = getContext();
             mAlarmManager = (AlarmManager) c.getSystemService(Context.ALARM_SERVICE);
             mLocationManager = (LocationManager) c.getSystemService(Context.LOCATION_SERVICE);
