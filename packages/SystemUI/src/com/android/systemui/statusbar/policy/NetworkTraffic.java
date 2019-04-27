@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.database.ContentObserver;
+import android.graphics.drawable.Drawable;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.Rect;
 import android.net.ConnectivityManager;
@@ -285,6 +286,7 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
                 lastUpdateTime = SystemClock.elapsedRealtime();
                 mTrafficHandler.sendEmptyMessage(1);
             }
+            updateTrafficDrawable();
             return;
         } else {
             clearHandlerCallbacks();
@@ -310,6 +312,29 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
         mTrafficHandler.removeMessages(1);
     }
 
+    private void updateTrafficDrawable() {
+        int intTrafficDrawable;
+        if (mIsEnabled) {
+          if (mTrafficType == UP) {
+            intTrafficDrawable = R.drawable.stat_sys_network_traffic_up;
+          } else if (mTrafficType == DOWN) {
+            intTrafficDrawable = R.drawable.stat_sys_network_traffic_down;
+          } else {
+            intTrafficDrawable = R.drawable.stat_sys_network_traffic_updown;
+          }
+        } else {
+            intTrafficDrawable = 0;
+        }
+        if (intTrafficDrawable != 0) {
+            Drawable d = getContext().getDrawable(intTrafficDrawable);
+            d.setColorFilter(mTintColor, Mode.MULTIPLY);
+            setCompoundDrawablePadding(txtImgPadding);
+            setCompoundDrawablesWithIntrinsicBounds(null, null, d, null);
+        } else {
+            setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+        }
+    }
+
     public void onDensityOrFontScaleChanged() {
         final Resources resources = getResources();
         txtSize = resources.getDimensionPixelSize((mTrafficType == BOTH)
@@ -327,6 +352,7 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
         }
         mTintColor = DarkIconDispatcher.getTint(area, this, tint);
         setTextColor(mTintColor);
+        updateTrafficDrawable();
     }
 
     @Override
@@ -377,6 +403,7 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
         mColorIsStatic = true;
         mTintColor = color;
         setTextColor(mTintColor);
+        updateTrafficDrawable();
     }
 
     @Override
