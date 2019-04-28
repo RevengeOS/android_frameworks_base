@@ -351,7 +351,7 @@ public class BatteryMeterDrawableBase extends Drawable {
                 drawCircle(c);
                 break;
             default:
-                drawCircle(c);
+                drawRectangle(c);
                 break;
         }
     }

@@ -288,9 +288,9 @@ public class BatteryMeterView extends LinearLayout implements
 
     private void updateShowPercent() {
         final boolean hideText = Settings.Secure.getIntForUser(
-                getContext().getContentResolver(), STATUS_BAR_BATTERY_STYLE, 1, mUser) == 4;
+                getContext().getContentResolver(), STATUS_BAR_BATTERY_STYLE, 0, mUser) == 4;
         final boolean showingText = Settings.Secure.getIntForUser(
-                getContext().getContentResolver(), STATUS_BAR_BATTERY_STYLE, 1, mUser) == 3;
+                getContext().getContentResolver(), STATUS_BAR_BATTERY_STYLE, 0, mUser) == 3;
         final boolean showingInside = Settings.System.getIntForUser(
                 getContext().getContentResolver(), SHOW_BATTERY_PERCENT, 0, mUser) == 2;
         final boolean showingOutside = mBatteryPercentView != null;
@@ -406,7 +406,7 @@ public class BatteryMeterView extends LinearLayout implements
     private void updateBatteryStyle(String styleStr) {
 
         final int style = styleStr == null ?
-                BatteryMeterDrawableBase.BATTERY_STYLE_CIRCLE : Integer.parseInt(styleStr);
+                BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT : Integer.parseInt(styleStr);
         mStyle = style;
 
         switch (style) {
