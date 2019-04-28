@@ -465,9 +465,8 @@ public class VolumeDialogImpl implements VolumeDialog {
     private void cleanExpandRows() {
         for(int i = mRows.size() - 1; i >= 0; i--) {
             final VolumeRow row = mRows.get(i);
-            if ((row.stream == AudioManager.STREAM_RING
-                 || row.stream == AudioManager.STREAM_NOTIFICATION 
-                 || row.stream == AudioManager.STREAM_ALARM) && row.stream != mActiveStream) {
+            if ((row.stream == AudioManager.STREAM_RING ||
+                    row.stream == AudioManager.STREAM_ALARM) && row.stream != mActiveStream) {
                 Util.setVisOrGone(row.view, /* vis */ false);
             }
         }
@@ -489,8 +488,7 @@ public class VolumeDialogImpl implements VolumeDialog {
         // to our "hardcoded" extra elements.
         int watchAllyStream;
         if (mActiveStream != AudioManager.STREAM_RING
-            || mActiveStream != AudioManager.STREAM_NOTIFICATION
-            || mActiveStream != AudioManager.STREAM_ALARM) {
+                || mActiveStream != AudioManager.STREAM_ALARM) {
             watchAllyStream = mActiveStream;
         } else {
             watchAllyStream = -1;
@@ -510,12 +508,6 @@ public class VolumeDialogImpl implements VolumeDialog {
                     updateVolumeRowTintH(row,
                             /* isActive */ row.stream == mActiveStream);
                 }
-                row = findRow(AudioManager.STREAM_NOTIFICATION);
-	            if (row != null) {
-	                Util.setVisOrGone(row.view, /* vis */ true);
-	                updateVolumeRowTintH(row,
-	                        /* isActive */ row.stream == mActiveStream);
-	            }
                 // Track ally stream, basically whatever is active next
                 // to the default one (media stream). e.g call stream.
                 if (watchAllyStream != -1) {
