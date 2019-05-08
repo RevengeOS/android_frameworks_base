@@ -307,6 +307,13 @@ easier.
     <style name="Animation.DeviceDefault.Activity" parent="Animation.Material.Activity"/>
     <style name="Animation.DeviceDefault.Dialog" parent="Animation.Material.Dialog"/>
 
+    <style name="Animation.DeviceDefault.TranslucentActivity" parent="Animation.DeviceDefault.Activity">
+        <item name="wallpaperIntraOpenEnterAnimation">@anim/activity_open_enter</item>
+        <item name="wallpaperIntraOpenExitAnimation">@anim/activity_open_exit</item>
+        <item name="wallpaperIntraCloseEnterAnimation">@anim/activity_close_enter</item>
+        <item name="wallpaperIntraCloseExitAnimation">@anim/activity_close_exit</item>
+    </style>
+
     <!-- DialogWindowTitle Styles -->
     <style name="DialogWindowTitle.DeviceDefault" parent="DialogWindowTitle.Material">
         <item name="textAppearance">@style/TextAppearance.DeviceDefault.DialogWindowTitle</item>
