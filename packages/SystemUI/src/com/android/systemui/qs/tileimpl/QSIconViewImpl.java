@@ -47,6 +47,7 @@ public class QSIconViewImpl extends QSIconView {
     private boolean mAnimationEnabled = true;
     private int mState = -1;
     private int mTint;
+    private boolean mEnableQsTileTinting;
     private QSTile.Icon mLastIcon;
 
     public QSIconViewImpl(Context context) {
@@ -114,7 +115,7 @@ public class QSIconViewImpl extends QSIconView {
 
             if (iv instanceof SlashImageView) {
                 ((SlashImageView) iv).setAnimationEnabled(shouldAnimate);
-                ((SlashImageView) iv).setState(null, d);
+                ((SlashImageView) iv).setState(mEnableQsTileTinting ? state.slash : null, d);
             } else {
                 iv.setImageDrawable(d);
             }
