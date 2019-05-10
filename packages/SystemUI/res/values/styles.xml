@@ -165,6 +165,16 @@
         <item name="android:textColor">@color/status_bar_clock_color</item>
     </style>
 
+    <style name="TextAppearance.StatusBar.ClockBig" parent="TextAppearance.StatusBar.Clock">
+        <item name="android:textSize">@dimen/status_bar_clock_big_size</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+    </style>
+
+    <style name="TextAppearance.StatusBar.WeatherText" parent="TextAppearance.StatusBar.ClockBig">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+    </style>
+
     <style name="TextAppearance.StatusBar.Expanded" parent="@*android:style/TextAppearance.StatusBar">
         <item name="android:textColor">?android:attr/textColorTertiary</item>
     </style>

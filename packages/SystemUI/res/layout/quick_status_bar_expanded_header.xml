@@ -20,7 +20,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/header"
     android:layout_width="match_parent"
-    android:layout_height="@*android:dimen/quick_qs_total_height"
+    android:layout_height="@*android:dimen/revenge_quick_qs_total_height"
     android:layout_gravity="@integer/notification_panel_layout_gravity"
     android:layout_marginStart="@dimen/qs_items_padding"
     android:layout_marginEnd="@dimen/qs_items_padding"
@@ -32,7 +32,8 @@
     android:paddingTop="0dp"
     android:paddingEnd="0dp"
     android:paddingStart="0dp"
-    android:elevation="4dp" >
+    android:elevation="4dp"
+    android:minHeight="@*android:dimen/revenge_quick_qs_total_height" >
 
     <include layout="@layout/quick_status_bar_header_system_icons" />
 

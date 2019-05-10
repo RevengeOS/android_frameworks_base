@@ -348,9 +348,9 @@
     <dimen name="qs_tile_height">106dp</dimen>
     <dimen name="qs_tile_layout_margin_side">6dp</dimen>
     <dimen name="qs_tile_margin_horizontal">18dp</dimen>
-    <dimen name="qs_tile_margin_vertical">24dp</dimen>
+    <dimen name="qs_tile_margin_vertical">@dimen/qs_tile_margin_top</dimen>
     <dimen name="qs_tile_margin_top_bottom">12dp</dimen>
-    <dimen name="qs_tile_margin_top">18dp</dimen>
+    <dimen name="qs_tile_margin_top">12dp</dimen>
     <dimen name="qs_quick_tile_size">48dp</dimen>
     <!-- Width for the spacer, used between QS tiles. -->
     <dimen name="qs_quick_tile_space_width">0dp</dimen>
@@ -372,7 +372,7 @@
     <dimen name="qs_tile_padding_bottom">16dp</dimen>
     <dimen name="qs_tile_spacing">4dp</dimen>
     <dimen name="qs_panel_padding_bottom">0dp</dimen>
-    <dimen name="qs_panel_padding_top">30dp</dimen>
+    <dimen name="qs_panel_padding_top">@dimen/qs_tile_margin_top</dimen>
     <dimen name="qs_detail_header_height">56dp</dimen>
     <dimen name="qs_detail_header_padding">0dp</dimen>
     <dimen name="qs_detail_image_width">56dp</dimen>

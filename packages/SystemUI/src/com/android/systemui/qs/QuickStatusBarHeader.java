@@ -99,7 +99,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     private TouchAnimator mHeaderTextContainerAlphaAnimator;
 
     private View mSystemIconsView;
-    private View mQuickQsStatusIcons;
     private View mHeaderTextContainerView;
     /** View containing the next alarm and ringer mode info. */
     private View mStatusContainer;
@@ -150,7 +149,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
         mHeaderQsPanel = findViewById(R.id.quick_qs_panel);
         mSystemIconsView = findViewById(R.id.quick_status_bar_system_icons);
-        mQuickQsStatusIcons = findViewById(R.id.quick_qs_status_icons);
         StatusIconContainer iconContainer = findViewById(R.id.statusIcons);
         iconContainer.setShouldRestrictIcons(false);
         mIconManager = new TintedIconManager(iconContainer);
@@ -168,15 +166,13 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         updateResources();
 
         Rect tintArea = new Rect(0, 0, 0, 0);
-        int colorForeground = Utils.getColorAttr(getContext(), android.R.attr.colorForeground);
-        float intensity = getColorIntensity(colorForeground);
-        int fillColor = fillColorForIntensity(intensity, getContext());
-
-        // Set light text on the header icons because they will always be on a black background
-        applyDarkness(R.id.clock, tintArea, 0, DarkIconDispatcher.DEFAULT_ICON_TINT);
+        @ColorInt int textColor = Utils.getColorAttr(mContext, R.attr.wallpaperTextColor);
+        @ColorInt int iconColor = Utils.getDefaultColor(mContext, Color.luminance(textColor) < 0.5 ?
+                R.color.dark_mode_icon_color_single_tone :
+                R.color.light_mode_icon_color_single_tone);
 
         // Set the correct tint for the status icons so they contrast
-        mIconManager.setTint(fillColor);
+        mIconManager.setTint(iconColor);
 
         mBatteryMeterView = findViewById(R.id.battery);
         mBatteryMeterView.setIsQuickSbHeaderOrKeyguard(true);
@@ -270,22 +266,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         updateResources();
     }
 
-    /**
-     * The height of QQS should always be the status bar height + 128dp. This is normally easy, but
-     * when there is a notch involved the status bar can remain a fixed pixel size.
-     */
-    private void updateMinimumHeight() {
-        int sbHeight = mContext.getResources().getDimensionPixelSize(
-                com.android.internal.R.dimen.status_bar_height);
-        int qqsHeight = mContext.getResources().getDimensionPixelSize(
-                R.dimen.qs_quick_header_panel_height);
-
-        setMinimumHeight(sbHeight + qqsHeight);
-    }
-
     private void updateResources() {
         Resources resources = mContext.getResources();
-        updateMinimumHeight();
 
         // Update height for a few views, especially due to landscape mode restricting space.
         mHeaderTextContainerView.getLayoutParams().height =
@@ -293,29 +275,22 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mHeaderTextContainerView.setLayoutParams(mHeaderTextContainerView.getLayoutParams());
 
         mSystemIconsView.getLayoutParams().height = resources.getDimensionPixelSize(
-                com.android.internal.R.dimen.quick_qs_offset_height);
+                com.android.internal.R.dimen.extended_status_bar_height);
         mSystemIconsView.setLayoutParams(mSystemIconsView.getLayoutParams());
 
         FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) getLayoutParams();
         if (mQsDisabled) {
             lp.height = resources.getDimensionPixelSize(
-                    com.android.internal.R.dimen.quick_qs_offset_height);
+                    com.android.internal.R.dimen.extended_status_bar_height);
         } else {
             lp.height = Math.max(getMinimumHeight(),
                     resources.getDimensionPixelSize(
-                            com.android.internal.R.dimen.quick_qs_total_height));
+                            com.android.internal.R.dimen.revenge_quick_qs_total_height));
         }
 
         setLayoutParams(lp);
 
-        updateStatusIconAlphaAnimator();
         updateHeaderTextContainerAlphaAnimator();
-    }
-
-    private void updateStatusIconAlphaAnimator() {
-        mStatusIconsAlphaAnimator = new TouchAnimator.Builder()
-                .addFloat(mQuickQsStatusIcons, "alpha", 1, 0)
-                .build();
     }
 
     private void updateHeaderTextContainerAlphaAnimator() {
@@ -381,7 +356,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mQsDisabled = disabled;
         mHeaderQsPanel.setDisabledByPolicy(disabled);
         mHeaderTextContainerView.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
-        mQuickQsStatusIcons.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
         updateResources();
     }
 
@@ -622,7 +596,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     public void setMargins(int sideMargins) {
         for (int i = 0; i < getChildCount(); i++) {
             View v = getChildAt(i);
-            if (v == mSystemIconsView || v == mQuickQsStatusIcons || v == mHeaderQsPanel) {
+            if (v == mSystemIconsView || v == mHeaderQsPanel) {
                 continue;
             }
             RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) v.getLayoutParams();

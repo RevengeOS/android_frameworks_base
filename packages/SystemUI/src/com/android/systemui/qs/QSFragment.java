@@ -234,7 +234,7 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
     private void updateResources() {
         LayoutParams layoutParams = (LayoutParams) mQSDetail.getLayoutParams();
         layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(
-                com.android.internal.R.dimen.quick_qs_offset_height);
+                com.android.internal.R.dimen.extended_status_bar_height);
 
         mQSDetail.setLayoutParams(layoutParams);
     }

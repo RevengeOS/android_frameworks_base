@@ -20,7 +20,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="@*android:dimen/quick_qs_offset_height"
+    android:layout_marginTop="@*android:dimen/extended_status_bar_height"
     android:background="@drawable/qs_detail_background"
     android:clickable="true"
     android:orientation="vertical"
