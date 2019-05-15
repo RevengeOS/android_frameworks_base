@@ -1473,12 +1473,6 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
-
-        <item name="windowBackground">@drawable/translucent_bg</item>
-        <item name="colorBackgroundCacheHint">@null</item>
-        <item name="windowShowWallpaper">true</item>
-        <item name="statusBarColor">@color/transparent</item>
-        <item name="windowAnimationStyle">@style/Animation.DeviceDefault.TranslucentActivity</item>
     </style>
 
     <!-- @hide DeviceDefault theme for a window that should use Settings theme colors
