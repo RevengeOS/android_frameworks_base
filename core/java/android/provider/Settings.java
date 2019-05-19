@@ -4465,12 +4465,6 @@ public final class Settings {
          */
         public static final String USE_EDGE_SERVICE_FOR_GESTURES = "edge_service_for_gestures";
 
-        /**
-         * Three Finger Gesture from Oppo
-         * @hide
-         */
-        public static final String THREE_FINGER_GESTURE = "three_finger_gesture";
-
 	/** Unlock keystore with fingerprint after reboot
          * @hide
          */

@@ -870,7 +870,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     PowerManager.WakeLock mPowerKeyWakeLock;
     boolean mHavePendingMediaKeyRepeatWithWakeLock;
 
-    private boolean haveEnableGesture = false;
     private int mCurrentUserId;
 
     // Maps global key codes to the components that will handle them.
@@ -1177,9 +1176,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     Settings.System.USE_EDGE_SERVICE_FOR_GESTURES), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.THREE_FINGER_GESTURE), false, this,
-                    UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.TORCH_LONG_PRESS_POWER_GESTURE), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
@@ -1296,7 +1292,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     };
 
     private ImmersiveModeConfirmation mImmersiveModeConfirmation;
-    private OPGesturesListener mOPGestures;
 
     @VisibleForTesting
     SystemGesturesPointerEventListener mSystemGestures;
@@ -2355,13 +2350,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     context, minHorizontal, maxHorizontal, minVertical, maxVertical, maxRadius);
         }
 
-        mOPGestures = new OPGesturesListener(context, new OPGesturesListener.Callbacks() {
-            @Override
-            public void onSwipeThreeFinger() {
-                mHandler.post(mScreenshotRunnable);
-            }
-        });
-
         mHandler = new PolicyHandler();
         mCameraManager = (CameraManager) mContext.getSystemService(Context.CAMERA_SERVICE);
         mCameraManager.registerTorchCallback(new TorchModeCallback(), mHandler);
@@ -2759,18 +2747,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 com.android.internal.R.integer.config_navBarOpacityMode);
     }
 
-    private void enableSwipeThreeFingerGesture(boolean enable){
-        if (enable) {
-            if (haveEnableGesture) return;
-            haveEnableGesture = true;
-            mWindowManagerFuncs.registerPointerEventListener(mOPGestures);
-        } else {
-            if (!haveEnableGesture) return;
-            haveEnableGesture = false;
-            mWindowManagerFuncs.unregisterPointerEventListener(mOPGestures);
-        }
-    }
-
     @Override
     public void setInitialDisplaySize(Display display, int width, int height, int density) {
         // This method might be called before the policy has been fully initialized
@@ -2924,11 +2900,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 mWakeGestureEnabledSetting = wakeGestureEnabledSetting;
                 updateWakeGestureListenerLp();
             }
-
-            //Three Finger Gesture
-            boolean threeFingerGesture = Settings.System.getIntForUser(resolver,
-                    Settings.System.THREE_FINGER_GESTURE, 1, UserHandle.USER_CURRENT) == 1;
-            enableSwipeThreeFingerGesture(threeFingerGesture);
 
             // Configure rotation lock.
             int userRotation = Settings.System.getIntForUser(resolver,
