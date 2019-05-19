@@ -116,7 +116,7 @@
     <bool name="config_waitForMpctlOnBoot">false</bool>
 
     <!-- RevengeUI slide animation time -->
-    <integer name="config_slideAnimationTime">580</integer>
+    <integer name="config_slideAnimationTime">510</integer>
 
     <!-- Default values for LiveDisplay -->
     <integer name="config_dayColorTemperature">6500</integer>

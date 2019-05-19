@@ -16,7 +16,7 @@
     android:shareInterpolator="true">
 
     <translate
-        android:duration="1425"
+        android:duration="1385"
         android:fromYDelta="0"
         android:toYDelta="100%" />
 </set>
