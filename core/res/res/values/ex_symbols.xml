@@ -62,12 +62,6 @@
     <java-symbol type="bool" name="config_button_brightness_support" />
     <java-symbol type="integer" name="config_button_brightness_default" />
 
-   <!-- Proximity check on screen on -->
-   <java-symbol type="bool" name="config_proximityCheckOnWake" />
-
-   <!-- Proximity check timeout -->
-   <java-symbol type="integer" name="config_proximityCheckTimeout" />
-
   <java-symbol type="bool" name="config_intrusiveBatteryLed" />
   <java-symbol type="bool" name="config_multiColorBatteryLed" />
   <java-symbol type="bool" name="config_ledCanPulse" />

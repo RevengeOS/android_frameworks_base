@@ -80,12 +80,6 @@
     <java-symbol type="dimen" name="edge_gesture_perpendicular_distance" />
     <java-symbol type="dimen" name="edge_gesture_trigger_thickness" />
 
-    <!-- Default value for proximity check on screen wake
-         NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)
-    -->
-    <bool name="config_proximityCheckOnWake">false</bool>
-    <integer name="config_proximityCheckTimeout">250</integer>
-
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveBatteryLed">true</bool>
 
