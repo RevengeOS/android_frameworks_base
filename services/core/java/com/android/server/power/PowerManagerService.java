@@ -5184,15 +5184,16 @@ public final class PowerManagerService extends SystemService
         mSensorManager.registerListener(new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
-                mSensorManager.unregisterListener(this);
                 if (!mHandler.hasMessages(MSG_WAKE_UP)) {
-                    Slog.w(TAG, "The proximity sensor took too long, wake event already triggered!");
+                    // The sensor took too long to return and
+                    // the wake event already triggered.
                     return;
                 }
                 mHandler.removeMessages(MSG_WAKE_UP);
                 if (event.values[0] == mProximitySensor.getMaximumRange()) {
                     r.run();
                 }
+                mSensorManager.unregisterListener(this);
             }
 
             @Override
