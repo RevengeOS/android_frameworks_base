@@ -50,6 +50,7 @@ import androidx.annotation.VisibleForTesting;
 import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 import com.android.settingslib.Utils;
 import com.android.systemui.BatteryMeterView;
+import com.android.systemui.Dependency;
 import com.android.systemui.DualToneHandler;
 import com.android.systemui.R;
 import com.android.systemui.plugins.ActivityStarter;
@@ -180,6 +181,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mClockView = findViewById(R.id.clock);
         mClockView.setOnClickListener(this);
         mDateView = findViewById(R.id.date);
+        mDateView.setOnClickListener(this);
         mSpace = findViewById(R.id.space);
 
         // Tint for the battery icons are handled in setupHost()
@@ -382,6 +384,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         if (v == mClockView) {
             mActivityStarter.postStartActivityDismissingKeyguard(new Intent(
                     AlarmClock.ACTION_SHOW_ALARMS), 0);
+        } else if (v == mDateView) {
+            Dependency.get(ActivityStarter.class).postStartActivityDismissingKeyguard(new Intent(
+                    Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_APP_CALENDAR),0);
         } else if (v == mPrivacyChip) {
             // Makes sure that the builder is grabbed as soon as the chip is pressed
             PrivacyDialogBuilder builder = mPrivacyChip.getBuilder();
