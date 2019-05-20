@@ -180,6 +180,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mClockView = findViewById(R.id.clock);
         mClockView.setOnClickListener(this);
         mDateView = findViewById(R.id.date);
+        mDateView.setOnClickListener(this);
     }
 
     private void updateStatusText() {
@@ -416,6 +417,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         } else if (v == mBatteryMeterView) {
             Dependency.get(ActivityStarter.class).postStartActivityDismissingKeyguard(new Intent(
                     Intent.ACTION_POWER_USAGE_SUMMARY),0);
+        } else if (v == mDateView) {
+            Dependency.get(ActivityStarter.class).postStartActivityDismissingKeyguard(new Intent(
+                    Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_APP_CALENDAR),0);
         }
     }
 
