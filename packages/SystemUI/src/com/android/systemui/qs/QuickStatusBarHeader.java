@@ -22,21 +22,16 @@ import android.annotation.ColorInt;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.content.BroadcastReceiver;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.database.ContentObserver;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.media.AudioManager;
-import android.net.Uri;
 import android.os.Handler;
-import android.os.UserHandle;
 import android.provider.AlarmClock;
-import android.provider.Settings;
 import android.service.notification.ZenModeConfig;
 import android.support.annotation.VisibleForTesting;
 import android.widget.FrameLayout;
@@ -69,8 +64,6 @@ import com.android.systemui.statusbar.policy.DateView;
 import com.android.systemui.statusbar.policy.NextAlarmController;
 import com.android.systemui.statusbar.policy.ZenModeController;
 
-import com.android.internal.util.weather.WeatherClient;
-
 import java.util.Locale;
 import java.util.Objects;
 
@@ -81,7 +74,7 @@ import java.util.Objects;
  */
 public class QuickStatusBarHeader extends RelativeLayout implements
         View.OnClickListener, NextAlarmController.NextAlarmChangeCallback,
-        ZenModeController.Callback, WeatherClient.WeatherObserver {
+        ZenModeController.Callback {
     private static final String TAG = "QuickStatusBarHeader";
     private static final boolean DEBUG = false;
 
@@ -122,19 +115,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     private View mStatusSeparator;
     private ImageView mRingerModeIcon;
     private TextView mRingerModeTextView;
-    private ImageView mWeatherIcon;
-    private TextView mWeatherTextView;
-    private View mStatusSeparator2;
     private BatteryMeterView mBatteryMeterView;
     private Clock mClockView;
     private DateView mDateView;
-
-    private WeatherClient mWeatherClient;
-    private WeatherClient.WeatherInfo mWeatherInfo;
-    private WeatherSettingsObserver mWeatherSettingsObserver;
-    private boolean useMetricUnit;
-
-    protected ContentResolver mContentResolver;
 
     private NextAlarmController mAlarmController;
     private ZenModeController mZenController;
@@ -159,13 +142,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mAlarmController = Dependency.get(NextAlarmController.class);
         mZenController = Dependency.get(ZenModeController.class);
         mShownCount = getStoredShownCount();
-
-        mContentResolver = getContext().getContentResolver();
-        mWeatherSettingsObserver = new WeatherSettingsObserver(mHandler);
-        mWeatherSettingsObserver.observe();
-        mWeatherSettingsObserver.updateWeatherUnit();
-        mWeatherClient = new WeatherClient(getContext());
-        mWeatherClient.addObserver(this, false /*withQuery*/);
     }
 
     @Override
@@ -188,9 +164,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mNextAlarmTextView = findViewById(R.id.next_alarm_text);
         mRingerModeIcon = findViewById(R.id.ringer_mode_icon);
         mRingerModeTextView = findViewById(R.id.ringer_mode_text);
-        mWeatherIcon = findViewById(R.id.weather_icon);
-        mWeatherTextView = findViewById(R.id.weather_text);
-        mStatusSeparator2 = findViewById(R.id.status_separator_2);
 
         updateResources();
 
@@ -214,15 +187,12 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     }
 
     private void updateStatusText() {
-        boolean changed = updateRingerStatus() || updateAlarmStatus() || updateWeatherStatus();
+        boolean changed = updateRingerStatus() || updateAlarmStatus();
 
         if (changed) {
             boolean alarmVisible = mNextAlarmTextView.getVisibility() == View.VISIBLE;
             boolean ringerVisible = mRingerModeTextView.getVisibility() == View.VISIBLE;
-            boolean weatherVisible = mWeatherTextView.getVisibility() == View.VISIBLE;
             mStatusSeparator.setVisibility(alarmVisible && ringerVisible ? View.VISIBLE
-                    : View.GONE);
-            mStatusSeparator2.setVisibility((alarmVisible || ringerVisible) && weatherVisible ? View.VISIBLE
                     : View.GONE);
             updateTooltipShow();
         }
@@ -250,25 +220,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
         return isOriginalVisible != ringerVisible ||
                 !Objects.equals(originalRingerText, mRingerModeTextView.getText());
-    }
-
-    private boolean updateWeatherStatus() {
-        if (mWeatherInfo == null) {
-            Log.w(TAG, "Weather is not available");
-            return false;
-        }
-        if (mWeatherInfo.getWeatherConditionImage() == 0) {
-            Log.w(TAG, "Weather is not available");
-            return false;
-        }
-        mWeatherIcon.setImageDrawable(getContext().getDrawable(mWeatherInfo.getWeatherConditionImage()));
-        String temperatureText = (mWeatherInfo.getTemperature(useMetricUnit)) + (useMetricUnit ? "°C" : "°F");
-        mWeatherTextView.setText(temperatureText);
-        if (mWeatherTextView.getVisibility() == View.GONE) {
-            mWeatherIcon.setVisibility(View.VISIBLE);
-            mWeatherTextView.setVisibility(View.VISIBLE);
-        }
-        return true;
     }
 
     private boolean updateAlarmStatus() {
@@ -511,12 +462,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         updateStatusText();
     }
 
-    @Override
-    public void onWeatherUpdated(WeatherClient.WeatherInfo weatherInfo) {
-        mWeatherInfo = weatherInfo;
-        updateStatusText();
-    }
-
     private void updateTooltipShow() {
         if (hasStatusText()) {
             hideLongPressTooltip(true /* shouldShowStatusText */);
@@ -528,8 +473,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
     private boolean hasStatusText() {
         return mNextAlarmTextView.getVisibility() == View.VISIBLE
-                || mRingerModeTextView.getVisibility() == View.VISIBLE
-                || mWeatherTextView.getVisibility() == View.VISIBLE;
+                || mRingerModeTextView.getVisibility() == View.VISIBLE;
     }
 
     /**
@@ -684,31 +628,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) v.getLayoutParams();
             lp.leftMargin = sideMargins;
             lp.rightMargin = sideMargins;
-        }
-    }
-
-    private class WeatherSettingsObserver extends ContentObserver {
-        WeatherSettingsObserver(Handler handler) {
-            super(handler);
-        }
-
-        void observe() {
-            mContentResolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.WEATHER_LOCKSCREEN_UNIT),
-                    false, this, UserHandle.USER_ALL);
-        }
-
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
-            super.onChange(selfChange, uri);
-            if (uri.equals(Settings.System.getUriFor(Settings.System.WEATHER_LOCKSCREEN_UNIT))) {
-                updateWeatherUnit();
-                updateWeatherStatus();
-            }
-        }
-
-        public void updateWeatherUnit() {
-            useMetricUnit = Settings.System.getIntForUser(mContentResolver, Settings.System.WEATHER_LOCKSCREEN_UNIT, 0, UserHandle.USER_CURRENT) == 0;
         }
     }
 }
