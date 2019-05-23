@@ -20,6 +20,7 @@ import static com.android.systemui.SwipeHelper.SWIPED_FAR_ENOUGH_SIZE_FRACTION;
 
 import java.util.ArrayList;
 
+import com.android.settingslib.Utils;
 import com.android.systemui.Interpolators;
 import com.android.systemui.R;
 import com.android.systemui.plugins.statusbar.NotificationMenuRowPlugin;
@@ -662,7 +663,7 @@ public class NotificationMenuRow implements NotificationMenuRowPlugin, View.OnCl
         public NotificationMenuItem(Context context, String s, GutsContent content, int iconResId) {
             Resources res = context.getResources();
             int padding = res.getDimensionPixelSize(R.dimen.notification_menu_icon_padding);
-            int tint = res.getColor(R.color.notification_gear_color);
+            int tint = Utils.getColorAttr(context, R.attr.wallpaperTextColor);
             if (iconResId >= 0) {
                 AlphaOptimizedImageView iv = new AlphaOptimizedImageView(context);
                 iv.setPadding(padding, padding, padding, padding);
