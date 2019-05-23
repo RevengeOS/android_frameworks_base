@@ -64,11 +64,31 @@
         android:gravity="center_vertical|end"
         android:orientation="vertical">
 
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/status_bar_clock_big_size">
+
+            <ImageView
+                android:id="@+id/weather_icon"
+                android:layout_width="@dimen/status_bar_clock_big_size"
+                android:layout_height="match_parent"
+                android:paddingEnd="@dimen/signal_cluster_battery_padding"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/weather_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.StatusBar.WeatherText"
+                android:visibility="gone" />
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="@dimen/status_bar_clock_big_size">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"

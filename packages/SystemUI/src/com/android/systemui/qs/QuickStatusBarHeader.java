@@ -21,15 +21,20 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.ColorInt;
 import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.media.AudioManager;
+import android.net.Uri;
 import android.os.Handler;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.provider.AlarmClock;
 import android.support.annotation.VisibleForTesting;
 import android.widget.FrameLayout;
@@ -60,6 +65,8 @@ import com.android.systemui.statusbar.policy.DarkIconDispatcher;
 import com.android.systemui.statusbar.policy.DarkIconDispatcher.DarkReceiver;
 import com.android.systemui.statusbar.policy.DateView;
 
+import com.android.internal.util.weather.WeatherClient;
+
 import java.util.Locale;
 import java.util.Objects;
 
@@ -69,7 +76,7 @@ import java.util.Objects;
  * contents.
  */
 public class QuickStatusBarHeader extends RelativeLayout implements
-        View.OnClickListener {
+        View.OnClickListener, WeatherClient.WeatherObserver {
     private static final String TAG = "QuickStatusBarHeader";
     private static final boolean DEBUG = false;
 
@@ -89,9 +96,25 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     private BatteryMeterView mBatteryMeterView;
     private Clock mClockView;
     private DateView mDateView;
+    private ImageView mWeatherIcon;
+    private TextView mWeatherTextView;
+
+    private WeatherClient mWeatherClient;
+    private WeatherClient.WeatherInfo mWeatherInfo;
+    private WeatherSettingsObserver mWeatherSettingsObserver;
+    private boolean useMetricUnit;
+
+    protected ContentResolver mContentResolver;
 
     public QuickStatusBarHeader(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        mContentResolver = context.getContentResolver();
+        mWeatherSettingsObserver = new WeatherSettingsObserver(new Handler());
+        mWeatherSettingsObserver.observe();
+        mWeatherSettingsObserver.updateWeatherUnit();
+        mWeatherClient = new WeatherClient(context);
+        mWeatherClient.addObserver(this, true /*withQuery*/);
     }
 
     @Override
@@ -113,6 +136,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mClockView.setOnClickListener(this);
         mDateView = findViewById(R.id.date);
         mDateView.setOnClickListener(this);
+        mWeatherIcon = findViewById(R.id.weather_icon);
+        mWeatherTextView = findViewById(R.id.weather_text);
 
         updateExtendedStatusBarTint(mContext);
     }
@@ -253,6 +278,29 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         }
     }
 
+    private boolean updateWeatherStatus() {
+        if (mWeatherInfo == null || mWeatherInfo.getStatus() != WeatherClient.WEATHER_UPDATE_SUCCESS) {
+            mWeatherIcon.setVisibility(View.GONE);
+            mWeatherTextView.setVisibility(View.GONE);
+            Log.w(TAG, "Weather is not available");
+            return false;
+        }
+        mWeatherIcon.setImageDrawable(getContext().getDrawable(mWeatherInfo.getWeatherConditionImage()));
+        String temperatureText = (mWeatherInfo.getTemperature(useMetricUnit)) + (useMetricUnit ? "°C" : "°F");
+        mWeatherTextView.setText(temperatureText);
+        if (mWeatherTextView.getVisibility() == View.GONE) {
+            mWeatherIcon.setVisibility(View.VISIBLE);
+            mWeatherTextView.setVisibility(View.VISIBLE);
+        }
+        return true;
+    }
+
+    @Override
+    public void onWeatherUpdated(WeatherClient.WeatherInfo weatherInfo) {
+        mWeatherInfo = weatherInfo;
+        updateWeatherStatus();
+    }
+
     public void updateExtendedStatusBarTint(Context context) {
         @ColorInt final int wallpaperTextColor = Utils.getColorAttr(context, R.attr.wallpaperTextColor);
         @ColorInt final int wallpaperTextColorSecondary = Utils.getColorAttr(context, R.attr.wallpaperTextColorSecondary);
@@ -260,5 +308,31 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mBatteryMeterView.updateColors(wallpaperTextColor, wallpaperTextColorSecondary, wallpaperTextColor);
         mClockView.setTextColor(wallpaperTextColor);
         mDateView.setTextColor(wallpaperTextColor);
+        mWeatherTextView.setTextColor(wallpaperTextColor);
+    }
+
+    private class WeatherSettingsObserver extends ContentObserver {
+        WeatherSettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.WEATHER_LOCKSCREEN_UNIT),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            super.onChange(selfChange, uri);
+            if (uri.equals(Settings.System.getUriFor(Settings.System.WEATHER_LOCKSCREEN_UNIT))) {
+                updateWeatherUnit();
+                updateWeatherStatus();
+            }
+        }
+
+        public void updateWeatherUnit() {
+            useMetricUnit = Settings.System.getIntForUser(mContentResolver, Settings.System.WEATHER_LOCKSCREEN_UNIT, 0, UserHandle.USER_CURRENT) == 0;
+        }
     }
 }
