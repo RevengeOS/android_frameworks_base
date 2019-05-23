@@ -147,11 +147,6 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
     }
 
     @Override
-    public View getHeader() {
-        return mHeader;
-    }
-
-    @Override
     public void setHasNotifications(boolean hasNotifications) {
     }
 
@@ -471,5 +466,9 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
 
     public QuickQSPanel getQuickQsPanel() {
         return mQuickQSPanel;
+    }
+
+    public QuickStatusBarHeader getHeader() {
+        return mHeader;
     }
 }

@@ -106,15 +106,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
         updateResources();
 
-        Rect tintArea = new Rect(0, 0, 0, 0);
-        @ColorInt int textColor = Utils.getColorAttr(mContext, R.attr.wallpaperTextColor);
-        @ColorInt int iconColor = Utils.getDefaultColor(mContext, Color.luminance(textColor) < 0.5 ?
-                R.color.dark_mode_icon_color_single_tone :
-                R.color.light_mode_icon_color_single_tone);
-
-        // Set the correct tint for the status icons so they contrast
-        mIconManager.setTint(iconColor);
-
         mBatteryMeterView = findViewById(R.id.battery);
         mBatteryMeterView.setIsQuickSbHeaderOrKeyguard(true);
         mBatteryMeterView.setOnClickListener(this);
@@ -122,18 +113,14 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mClockView.setOnClickListener(this);
         mDateView = findViewById(R.id.date);
         mDateView.setOnClickListener(this);
+
+        updateExtendedStatusBarTint(mContext);
     }
 
     @Override
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         updateResources();
-
-        // Update color schemes in landscape to use wallpaperTextColor
-        boolean shouldUseWallpaperTextColor =
-                newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE;
-        mBatteryMeterView.useWallpaperTextColor(shouldUseWallpaperTextColor);
-        mClockView.useWallpaperTextColor(shouldUseWallpaperTextColor);
     }
 
     @Override
@@ -244,10 +231,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         //host.setHeaderView(mExpandIndicator);
         mHeaderQsPanel.setQSPanel(mQsPanel);
         mHeaderQsPanel.setHost(host, null /* No customization in header */);
-
-        // Use SystemUI context to get battery meter colors, and let it use the default tint (white)
-        mBatteryMeterView.setColorsFromContext(mHost.getContext());
-        mBatteryMeterView.onDarkChanged(new Rect(), 0, DarkIconDispatcher.DEFAULT_ICON_TINT);
     }
 
     public void setCallback(Callback qsPanelCallback) {
@@ -268,5 +251,14 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             lp.leftMargin = sideMargins;
             lp.rightMargin = sideMargins;
         }
+    }
+
+    public void updateExtendedStatusBarTint(Context context) {
+        @ColorInt final int wallpaperTextColor = Utils.getColorAttr(context, R.attr.wallpaperTextColor);
+        @ColorInt final int wallpaperTextColorSecondary = Utils.getColorAttr(context, R.attr.wallpaperTextColorSecondary);
+        mIconManager.setTint(wallpaperTextColor);
+        mBatteryMeterView.updateColors(wallpaperTextColor, wallpaperTextColorSecondary, wallpaperTextColor);
+        mClockView.setTextColor(wallpaperTextColor);
+        mDateView.setTextColor(wallpaperTextColor);
     }
 }
