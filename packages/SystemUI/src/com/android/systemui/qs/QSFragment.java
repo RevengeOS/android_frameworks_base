@@ -328,7 +328,6 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
         float panelTranslationY = translationScaleY * heightDiff;
 
         // Let the views animate their contents correctly by giving them the necessary context.
-        mHeader.setExpansion(mKeyguardShowing, expansion, panelTranslationY);
         mFooter.setExpansion(mKeyguardShowing ? 1 : expansion);
         mQSPanel.getQsTileRevealController().setExpansion(expansion);
         mQSPanel.getTileLayout().setExpansion(expansion);
