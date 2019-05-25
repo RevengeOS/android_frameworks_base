@@ -148,4 +148,6 @@
     <!-- Pocket Lock -->
     <bool name="config_pocketModeSupported">true</bool>
 
+    <!-- Value for overriding outdoor capable mode for LiveDisplay tile -->
+    <bool name="config_outdoorCapable">false</bool>
 </resources>

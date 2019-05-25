@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <!-- Our custom clock values -->
+     <dimen name="widget_sammy_accent_font_size">62dp</dimen>
+
+    <!-- the size for all the clock sizes -->
+    <dimen name="widget_clock_shishu_size">175dp</dimen>
+    <dimen name="widget_clock_shishu_nerves_font_size">52dp</dimen>
+
+    <!-- padding for date view -->
+    <dimen name="widget_clock_shishu_date_padding">8dp</dimen>
+
+    <!-- Custom text clock -->
+    <dimen name="customtextclock_fontsize">38dp</dimen>
+    <dimen name="custom_clock_left_padding">55dp</dimen>
+    <dimen name="custom_clock_top_margin">62dp</dimen>
+    <dimen name="customtextclock_fontsize_small">28dp</dimen>
+</resources>
