@@ -34,7 +34,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:letterSpacing="0.03"
-        android:fontFamily="google-sans"
         android:text="@string/custom_text_clock_top_text_default"
         android:textColor="@*android:color/accent_device_default_light" />
 
@@ -45,7 +44,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:letterSpacing="0.03"
-        android:fontFamily="google-sans"
         android:textStyle="bold"
         android:textColor="?attr/wallpaperTextColor" />
 
@@ -57,7 +55,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:letterSpacing="0.03"
-        android:fontFamily="google-sans"
         android:textStyle="bold"
         android:textColor="?attr/wallpaperTextColor" />
 </LinearLayout>
