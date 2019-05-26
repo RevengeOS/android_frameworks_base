@@ -69,11 +69,11 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/status_bar_clock_big_size">
+            android:layout_height="@dimen/status_bar_battery_icon_width">
 
             <ImageView
                 android:id="@+id/weather_icon"
-                android:layout_width="@dimen/status_bar_clock_big_size"
+                android:layout_width="@dimens/status_bar_battery_icon_width"
                 android:layout_height="match_parent"
                 android:paddingEnd="@dimen/signal_cluster_battery_padding"
                 android:visibility="gone" />
