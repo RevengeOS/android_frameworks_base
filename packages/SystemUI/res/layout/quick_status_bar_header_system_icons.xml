@@ -39,6 +39,7 @@
             android:minWidth="48dp"
             android:singleLine="true"
             android:textAppearance="@style/TextAppearance.StatusBar.ClockBig"
+	    android:fontFamily="google-sans"
             systemui:showDark="false" />
 
         <com.android.systemui.statusbar.policy.DateView
@@ -46,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
+	    android:fontFamily="google-sans"
             android:textAppearance="@style/TextAppearance.StatusBar.Clock"
             systemui:datePattern="@string/abbrev_wday_month_day_no_year_alarm" />
 
@@ -81,6 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
+	        android:fontFamily="google-sans"
                 android:textAppearance="@style/TextAppearance.StatusBar.WeatherText"
                 android:visibility="gone" />
         </LinearLayout>
