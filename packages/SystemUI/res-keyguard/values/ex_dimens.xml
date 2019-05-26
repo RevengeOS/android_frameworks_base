@@ -14,5 +14,5 @@
     <dimen name="customtextclock_fontsize">38dp</dimen>
     <dimen name="custom_clock_left_padding">55dp</dimen>
     <dimen name="custom_clock_top_margin">62dp</dimen>
-    <dimen name="customtextclock_fontsize_small">28dp</dimen>
+    <dimen name="customtextclock_fontsize_small">32dp</dimen>
 </resources>
