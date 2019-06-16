@@ -488,7 +488,7 @@ public class KeyguardStatusView extends GridLayout implements
                        View.GONE) : View.VISIBLE);
                 mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
-                mClockView.setLineSpacing(0,1f);
+                mClockView.setLineSpacing(0,1.1f);
                 mCustomClockView.setVisibility(View.GONE);
 		        mClockView.setBackgroundResource(0);
                 mTextClock.setVisibility(View.GONE);
@@ -498,7 +498,7 @@ public class KeyguardStatusView extends GridLayout implements
                        View.GONE) : View.VISIBLE);
                 mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
-                mClockView.setLineSpacing(0,1f);
+                mClockView.setLineSpacing(0,1.1f);
                 mCustomClockView.setVisibility(View.GONE);
                 mClockView.setBackgroundResource(0);
                 mTextClock.setVisibility(View.GONE);
@@ -508,7 +508,7 @@ public class KeyguardStatusView extends GridLayout implements
                        View.GONE) : View.VISIBLE);
                 mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 getResources().getDimensionPixelSize(R.dimen.widget_sammy_accent_font_size));
-                mClockView.setLineSpacing(0,1f);
+                mClockView.setLineSpacing(0,1.1f);
                 mCustomClockView.setVisibility(View.GONE);
 		        mClockView.setBackgroundResource(0);
                 mTextClock.setVisibility(View.GONE);
@@ -518,7 +518,7 @@ public class KeyguardStatusView extends GridLayout implements
                        View.GONE) : View.VISIBLE);
                 mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 getResources().getDimensionPixelSize(R.dimen.widget_sammy_accent_font_size));
-                mClockView.setLineSpacing(0,1f);
+                mClockView.setLineSpacing(0,1.1f);
                 mCustomClockView.setVisibility(View.GONE);
                 mTextClock.setVisibility(View.GONE);
                 break;
