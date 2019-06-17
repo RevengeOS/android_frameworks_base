@@ -43,8 +43,12 @@ import com.android.systemui.qs.tileimpl.QSTileImpl;
 
 /** Quick settings tile: Airplane mode **/
 public class AirplaneModeTile extends QSTileImpl<BooleanState> {
-    private final Icon mIcon =
-            ResourceIcon.get(R.drawable.ic_signal_airplane);
+    private final AnimationIcon mEnable =
+            new AnimationIcon(R.drawable.ic_signal_airplane_enable_animation,
+                    R.drawable.ic_signal_airplane_disable);
+    private final AnimationIcon mDisable =
+            new AnimationIcon(R.drawable.ic_signal_airplane_disable_animation,
+                    R.drawable.ic_signal_airplane_enable);
     private final GlobalSetting mSetting;
 
     private boolean mListening;
@@ -116,11 +120,15 @@ public class AirplaneModeTile extends QSTileImpl<BooleanState> {
         final boolean airplaneMode = value != 0;
         state.value = airplaneMode;
         state.label = mContext.getString(R.string.airplane_mode);
-        state.icon = mIcon;
         if (state.slash == null) {
             state.slash = new SlashState();
         }
         state.slash.isSlashed = !airplaneMode;
+        if (airplaneMode) {
+            state.icon = mEnable;
+        } else {
+            state.icon = mDisable;
+	}
         state.state = airplaneMode ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE;
         state.contentDescription = state.label;
         state.expandedAccessibilityClassName = Switch.class.getName();
