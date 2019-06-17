@@ -37,12 +37,16 @@ import javax.inject.Inject;
 /** Quick settings tile: Location **/
 public class LocationTile extends QSTileImpl<BooleanState> {
 
-    private final Icon mIcon = ResourceIcon.get(R.drawable.ic_location);
-
     private final LocationController mController;
     private final KeyguardMonitor mKeyguard;
     private final ActivityStarter mActivityStarter;
     private final Callback mCallback = new Callback();
+    private final AnimationIcon mEnable =
+            new AnimationIcon(R.drawable.ic_signal_location_enable_animation,
+                    R.drawable.ic_signal_location_disable);
+    private final AnimationIcon mDisable =
+            new AnimationIcon(R.drawable.ic_signal_location_disable_animation,
+                    R.drawable.ic_signal_location_enable);
 
     @Inject
     public LocationTile(QSHost host, LocationController locationController,
@@ -103,16 +107,17 @@ public class LocationTile extends QSTileImpl<BooleanState> {
         if (state.disabledByPolicy == false) {
             checkIfRestrictionEnforcedByAdminOnly(state, UserManager.DISALLOW_CONFIG_LOCATION);
         }
-        state.icon = mIcon;
         state.slash.isSlashed = !state.value;
         if (locationEnabled) {
             state.label = mContext.getString(R.string.quick_settings_location_label);
             state.contentDescription = mContext.getString(
                     R.string.accessibility_quick_settings_location_on);
+            state.icon = mEnable;
         } else {
             state.label = mContext.getString(R.string.quick_settings_location_label);
             state.contentDescription = mContext.getString(
                     R.string.accessibility_quick_settings_location_off);
+            state.icon = mDisable;
         }
         state.state = state.value ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE;
         state.expandedAccessibilityClassName = Switch.class.getName();
