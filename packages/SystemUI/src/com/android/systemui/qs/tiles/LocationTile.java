@@ -37,11 +37,15 @@ import com.android.systemui.statusbar.policy.LocationController.LocationChangeCa
 /** Quick settings tile: Location **/
 public class LocationTile extends QSTileImpl<BooleanState> {
 
-    private final Icon mIcon = ResourceIcon.get(drawable.ic_signal_location);
-
     private final LocationController mController;
     private final KeyguardMonitor mKeyguard;
     private final Callback mCallback = new Callback();
+    private final AnimationIcon mEnable =
+            new AnimationIcon(R.drawable.ic_signal_location_enable_animation,
+                    R.drawable.ic_signal_location_disable);
+    private final AnimationIcon mDisable =
+            new AnimationIcon(R.drawable.ic_signal_location_disable_animation,
+                    R.drawable.ic_signal_location_enable);
 
     public LocationTile(QSHost host) {
         super(host);
@@ -104,16 +108,18 @@ public class LocationTile extends QSTileImpl<BooleanState> {
         if (state.disabledByPolicy == false) {
             checkIfRestrictionEnforcedByAdminOnly(state, UserManager.DISALLOW_CONFIG_LOCATION);
         }
-        state.icon = mIcon;
         state.slash.isSlashed = !state.value;
         if (locationEnabled) {
             state.label = mContext.getString(R.string.quick_settings_location_label);
             state.contentDescription = mContext.getString(
                     R.string.accessibility_quick_settings_location_on);
+            state.icon = mEnable;
+
         } else {
             state.label = mContext.getString(R.string.quick_settings_location_label);
             state.contentDescription = mContext.getString(
                     R.string.accessibility_quick_settings_location_off);
+            state.icon = mDisable;
         }
         state.state = state.value ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE;
         state.expandedAccessibilityClassName = Switch.class.getName();
