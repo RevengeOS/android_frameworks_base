@@ -109,7 +109,11 @@ public class KeyguardStatusBarView extends RelativeLayout
         mBatteryView = mSystemIconsContainer.findViewById(R.id.battery);
         mCutoutSpace = findViewById(R.id.cutout_space_view);
         mStatusIconArea = findViewById(R.id.status_icon_area);
-        mBatteryView.setIsQuickSbHeaderOrKeyguard(true);
+        if (getResources().getBoolean(R.bool.config_AlwaysHideBatteryPercentageOnKeyguard)) {
+            mBatteryView.setForceHideBatteryPercentage(true);
+        } else {
+            mBatteryView.setIsQuickSbHeaderOrKeyguard(true);
+        }
 
         loadDimens();
         updateUserSwitcher();

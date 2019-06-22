@@ -23,4 +23,7 @@
 
     <!-- System icon area layout weight -->
     <item name="system_icon_area_weight" format="float" type="integer">1</item>
+
+    <!-- Hide battery percentage on keyguard -->
+    <bool name="config_AlwaysHideBatteryPercentageOnKeyguard">false</bool>
 </resources>

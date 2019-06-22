@@ -72,6 +72,7 @@ public class BatteryMeterView extends LinearLayout implements
     private int mTextColor;
     private int mLevel;
     private boolean mForceShowPercent;
+    private boolean mForceHidePercentage;
 
     private int mDarkModeSingleToneColor;
     private int mDarkModeBackgroundColor;
@@ -286,6 +287,10 @@ public class BatteryMeterView extends LinearLayout implements
         mQsHeaderOrKeyguard = qs;
     }
 
+    public void setForceHideBatteryPercentage(boolean value) {
+        mForceHidePercentage = value;
+    }
+
     private boolean forcePercentageQsHeader() {
         return (mQsHeaderOrKeyguard || mCharging || mPowerSave)
                 && (mStyle == BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT
@@ -302,8 +307,8 @@ public class BatteryMeterView extends LinearLayout implements
         final boolean showingInside = Settings.System.getIntForUser(
                 getContext().getContentResolver(), SHOW_BATTERY_PERCENT, 0, mUser) == 2;
         final boolean showingOutside = mBatteryPercentView != null;
-        if (0 != Settings.System.getIntForUser(getContext().getContentResolver(),
-                SHOW_BATTERY_PERCENT, 0, mUser) || mForceShowPercent || showingText || hideText || forcePercentageQsHeader()) {
+        if (!mForceHidePercentage && (0 != Settings.System.getIntForUser(getContext().getContentResolver(),
+                SHOW_BATTERY_PERCENT, 0, mUser) || mForceShowPercent || showingText || hideText || forcePercentageQsHeader())) {
             if (!showingOutside) {
                 mDrawable.setShowPercent(false);
                 mBatteryPercentView = loadPercentView();
@@ -319,7 +324,7 @@ public class BatteryMeterView extends LinearLayout implements
                 removeView(mBatteryPercentView);
                 mBatteryPercentView = null;
             }
-            if (hideText && !showingText && !mForceShowPercent && !forcePercentageQsHeader()) {
+            if (hideText && !showingText && !mForceShowPercent && !forcePercentageQsHeader() && mForceHidePercentage) {
                 mDrawable.setShowPercent(false);
                 removeView(mBatteryPercentView);
                 mBatteryPercentView = null;
