@@ -162,4 +162,7 @@
     <java-symbol type="string" name="config_pocketBridgeSysfsInpocket" />
 
     <java-symbol type="color" name="bootleg_accent_gradient_end_color" />
+
+    <!-- Whether to allow sending active app broadcast -->
+    <java-symbol type="bool" name="config_allowActivePackageBroadcast" />
 </resources>

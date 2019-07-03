@@ -57,6 +57,8 @@ import com.android.server.LocalServices;
 import com.android.server.policy.WindowManagerPolicy;
 import com.android.server.statusbar.StatusBarManagerInternal;
 
+import com.android.internal.util.custom.thermal.ThermalController;
+
 /**
  * Sends broadcasts about important power state changes.
  * <p>
@@ -152,6 +154,8 @@ final class Notifier {
     // True if a user activity message should be sent.
     private boolean mUserActivityPending;
 
+    private final boolean mAllowAppBroadcast;
+
     public Notifier(Looper looper, Context context, IBatteryStats batteryStats,
             SuspendBlocker suspendBlocker, WindowManagerPolicy policy) {
         mContext = context;
@@ -182,6 +186,9 @@ final class Notifier {
 
         mSuspendWhenScreenOffDueToProximityConfig = context.getResources().getBoolean(
                 com.android.internal.R.bool.config_suspendWhenScreenOffDueToProximity);
+
+        mAllowAppBroadcast = context.getResources().getBoolean(
+                com.android.internal.R.bool.config_allowActivePackageBroadcast);
 
         // Initialize interactive state for battery stats.
         try {
@@ -717,6 +724,7 @@ final class Notifier {
         }
 
         if (mActivityManagerInternal.isSystemReady()) {
+            if (mAllowAppBroadcast) ThermalController.sendActivePackageChangedBroadcast("", mContext);
             mContext.sendOrderedBroadcastAsUser(mScreenOffIntent, UserHandle.ALL, null,
                     mGoToSleepBroadcastDone, mHandler, 0, null, null);
         } else {
