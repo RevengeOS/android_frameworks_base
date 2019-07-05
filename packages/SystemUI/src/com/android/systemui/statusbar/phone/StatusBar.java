@@ -4062,17 +4062,17 @@ public class StatusBar extends SystemUI implements DemoMode,
         // The system wallpaper defines if QS should be light or dark.
         WallpaperColors systemColors = mColorExtractor
                 .getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
-        final boolean supportsDarkTheme = (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
-        final boolean useDarkTheme = systemColors != null && supportsDarkTheme;
+        final boolean wallpaperWantsDarkTheme = systemColors != null
+                && (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
         final boolean usingDarkTheme = isUsingDarkTheme();
-        final boolean hasDarkThemeChanged = usingDarkTheme != useDarkTheme;
-        final int newUiMode = useDarkTheme ? 2 : 1;
+        final boolean hasDarkThemeChanged = usingDarkTheme != wallpaperWantsDarkTheme;
+        final int newUiMode = wallpaperWantsDarkTheme ? 2 : 1;
         if (mUiModeManager.getNightMode() != newUiMode) {
             mUiModeManager.setNightMode(newUiMode);
         }
         if (hasDarkThemeChanged || (usingDarkTheme != mDarkThemeStyle)) {
-            final boolean useBlackStyle = useDarkTheme && mDarkThemeStyle;
-            final boolean useDarkStyle = useDarkTheme && !mDarkThemeStyle;
+            final boolean useBlackStyle = wallpaperWantsDarkTheme && mDarkThemeStyle;
+            final boolean useDarkStyle = wallpaperWantsDarkTheme && !mDarkThemeStyle;
             mUiOffloadThread.submit(() -> {
                 try {
                     mOverlayManager.setEnabled("com.android.system.theme.black",
