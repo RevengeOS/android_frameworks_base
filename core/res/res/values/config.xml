@@ -360,7 +360,7 @@
 
     <!-- Max number of Bluetooth tethering connections allowed. If this is
          updated config_tether_dhcp_range has to be updated appropriately. -->
-    <integer translateable="false" name="config_max_pan_devices">5</integer>
+    <integer translatable="false" name="config_max_pan_devices">5</integer>
 
     <!-- Dhcp range (min, max) to use for tethering purposes -->
     <string-array translatable="false" name="config_tether_dhcp_range">
@@ -701,6 +701,9 @@
 
     <!-- Wifi driver supports IEEE80211AC for softap -->
     <bool translatable="false" name="config_wifi_softap_ieee80211ac_supported">false</bool>
+
+    <!-- Device supports WPA3 -->
+    <bool translatable="false" name="config_wifi_wpa3_supported">true</bool>
 
     <!-- Flag indicating whether we should enable the automatic brightness.
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
@@ -3318,8 +3321,14 @@
     -->
     <string-array translatable="false" name="config_convert_to_emergency_number_map" />
 
-    <!-- An array of packages for which notifications cannot be blocked. -->
-    <string-array translatable="false" name="config_nonBlockableNotificationPackages" />
+    <!-- An array of packages for which notifications cannot be blocked.
+         Should only be used for core device functionality that must not be
+         rendered inoperative for safety reasons, like the phone dialer and
+         SMS handler. -->
+    <string-array translatable="false" name="config_nonBlockableNotificationPackages">
+        <item>com.android.dialer</item>
+        <item>com.android.messaging</item>
+    </string-array>
 
     <!-- An array of packages which can listen for notifications on low ram devices. -->
     <string-array translatable="false" name="config_allowedManagedServicesOnLowRamDevices" />
