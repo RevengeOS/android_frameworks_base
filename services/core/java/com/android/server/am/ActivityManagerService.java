@@ -518,6 +518,8 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 
+import com.android.internal.util.custom.cutout.CutoutFullscreenController;
+
 public class ActivityManagerService extends IActivityManager.Stub
         implements Watchdog.Monitor, BatteryStatsImpl.BatteryCallback {
 
@@ -2025,6 +2027,8 @@ public class ActivityManagerService extends IActivityManager.Stub
     final SwipeToScreenshotObserver mSwipeToScreenshotObserver;
     private boolean mIsSwipeToScrenshotEnabled;
     final boolean mAllowAppBroadcast;
+    private CutoutFullscreenController mCutoutFullscreenController;
+
 
     /**
      * Current global configuration information. Contains general settings for the entire system,
@@ -13056,6 +13060,9 @@ public class ActivityManagerService extends IActivityManager.Stub
         RescueParty.onSettingsProviderPublished(mContext);
 
         //mUsageStatsService.monitorPackages();
+
+        // Force full screen for devices with cutout
+        mCutoutFullscreenController = new CutoutFullscreenController(mContext);
     }
 
     void startPersistentApps(int matchFlags) {
@@ -27509,6 +27516,13 @@ public class ActivityManagerService extends IActivityManager.Stub
 
     public boolean isAppBroadcastAllowed() {
         return mAllowAppBroadcast;
+    }
+
+    @Override
+    public boolean shouldForceCutoutFullscreen(String packageName) {
+        synchronized (this) {
+            return mCutoutFullscreenController.shouldForceCutoutFullscreen(packageName);
+        }
     }
 
 }
