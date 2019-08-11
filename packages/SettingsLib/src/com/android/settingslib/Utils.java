@@ -32,6 +32,8 @@ import java.text.NumberFormat;
 
 import com.android.internal.util.weather.WeatherClient;
 import com.android.internal.util.custom.thermal.ThermalController;
+import com.android.internal.custom.longshot.LongScreenshotManagerService;
+
 public class Utils {
 
     private static final String CURRENT_MODE_KEY = "CURRENT_MODE";
@@ -290,6 +292,7 @@ public class Utils {
                 || pkg.packageName.equals(PrintManager.PRINT_SPOOLER_PACKAGE_NAME)
                 || pkg.packageName.equals(WeatherClient.SERVICE_PACKAGE)
                 || pkg.packageName.equals(ThermalController.SERVICE_PACKAGE)
+                || pkg.packageName.equals(LongScreenshotManagerService.PACKAGENAME_LONGSHOT)
                 || isDeviceProvisioningPackage(resources, pkg.packageName);
     }
 
