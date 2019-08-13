@@ -762,4 +762,11 @@ interface IWindowManager
      */
     void requestScrollCapture(int displayId, IBinder behindClient, int taskId,
             IScrollCaptureController controller);
+
+    /**
+     * Long screenshot
+     * @hide
+     */
+    void takeAlternativeScreenshot();
+
 }
