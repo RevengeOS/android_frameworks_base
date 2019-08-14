@@ -3393,6 +3393,11 @@ public class AudioService extends IAudioService.Stub
     /** @see AudioManager#startBluetoothSco() */
     public void startBluetoothSco(IBinder cb, int targetSdkVersion) {
         Log.i(TAG, "In startBluetoothSco()");
+        BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+        if ((adapter == null) || (adapter.getState() != BluetoothAdapter.STATE_ON)) {
+             Log.i(TAG, "startBluetoothSco(), BT is not turned ON or adapter is null");
+             return;
+        }
         int scoAudioMode =
                 (targetSdkVersion < Build.VERSION_CODES.JELLY_BEAN_MR2) ?
                         SCO_MODE_VIRTUAL_CALL : SCO_MODE_UNDEFINED;
@@ -3425,6 +3430,11 @@ public class AudioService extends IAudioService.Stub
     /** @see AudioManager#stopBluetoothSco() */
     public void stopBluetoothSco(IBinder cb){
         Log.i(TAG, "In stopBluetoothSco()");
+        BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+        if ((adapter == null) || (adapter.getState() != BluetoothAdapter.STATE_ON)) {
+             Log.i(TAG, "stopBluetoothSco(), BT is not turned ON or adapter is null");
+             return;
+        }
         if (!checkAudioSettingsPermission("stopBluetoothSco()") ||
                 !mSystemReady) {
             return;

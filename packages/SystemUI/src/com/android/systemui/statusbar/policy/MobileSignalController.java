@@ -335,7 +335,7 @@ public class MobileSignalController extends SignalController<
         }
     }
 
-    public int getCurrent5GIconId() {
+    public int getSideCarSignalStrengthIconId() {
         int level = mFiveGState.getSignalLevel();
         if (mConfig.inflateSignalStrengths) {
             level++;
@@ -429,7 +429,8 @@ public class MobileSignalController extends SignalController<
         // Show icon in QS when we are connected or data is disabled.
         boolean showDataIcon = mCurrentState.dataConnected || dataDisabled;
         IconState statusIcon = new IconState(mCurrentState.enabled && !mCurrentState.airplaneMode,
-                is5GConnected() ? getCurrent5GIconId() : getCurrentIconId(), contentDescription);
+                isSideCarSignalStrengthValid() ?
+                        getSideCarSignalStrengthIconId() : getCurrentIconId(), contentDescription);
 
         int qsTypeIcon = 0;
         IconState qsIcon = null;
@@ -770,7 +771,7 @@ public class MobileSignalController extends SignalController<
     }
 
     public void unregisterFiveGStateListener(FiveGServiceClient client) {
-        int phoneId = SubscriptionManager.getPhoneId(mSubscriptionInfo.getSubscriptionId());
+        int phoneId = mSubscriptionInfo.getSimSlotIndex();
         client.unregisterListener(phoneId);
     }
 
@@ -787,6 +788,13 @@ public class MobileSignalController extends SignalController<
     private boolean is5GConnected() {
         return mFiveGState.isConnectedOnSaMode()
                 || mFiveGState.isConnectedOnNsaMode() && isDataRegisteredOnLte();
+    }
+
+    private boolean isSideCarSignalStrengthValid() {
+        return mFiveGState.isConnectedOnSaMode()
+                || mFiveGState.isConnectedOnNsaMode()
+                    && isDataRegisteredOnLte()
+                    && mFiveGState.isSignalStrengthValid();
     }
 
     @Override
