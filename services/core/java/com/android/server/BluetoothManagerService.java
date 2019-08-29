@@ -1178,9 +1178,9 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
                 return;
             }
             Slog.w(TAG, "unbindBluetoothProfileService: calling psc.removeProxy");
-            psc.removeProxy(proxy);
+            boolean removed = psc.removeProxy(proxy);
 
-            if (psc.getProxyCount() == 0) {
+            if (psc.getProxyCount() == 0 && removed) {
                 Slog.w(TAG, "psc.getProxyCount() returned 0, removing psc entry for profile "
                        + bluetoothProfile);
                 mProfileServices.remove(new Integer(bluetoothProfile));
@@ -1329,13 +1329,19 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
             }
         }
 
-        private void removeProxy(IBluetoothProfileServiceConnection proxy) {
+        private boolean removeProxy(IBluetoothProfileServiceConnection proxy) {
             if (proxy != null) {
                 if (mProxies.unregister(proxy)) {
                     try {
                         proxy.onServiceDisconnected(mClassName);
                     } catch (RemoteException e) {
                         Slog.e(TAG, "Unable to disconnect proxy", e);
+                    }
+                } else {
+                    if (mProxies.getRegisteredCallbackCount() == 0 &&
+                            mHandler.hasMessages(MESSAGE_ADD_PROXY_DELAYED)) {
+                        Slog.w(TAG, "removeProxy, adding proxy is pending, return");
+                        return false;
                     }
                 }
 
@@ -1353,6 +1359,7 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
             } else {
                 Slog.w(TAG, "Trying to remove a null proxy");
             }
+            return true;
         }
 
         private void removeAllProxies() {
