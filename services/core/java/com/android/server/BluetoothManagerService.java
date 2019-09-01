@@ -1583,10 +1583,18 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
                    BLUETOOTH_PRIVILEGED_PERM, "Need BLUETOOTH PRIVILEGED permission");
         }
         persistBluetoothSetting(BLUETOOTH_ON_BLUETOOTH);
+        // Clear registered LE apps to force shut-off
+        clearBleApps();
         try {
-            if (mBluetooth != null) {
-                // Clear registered LE apps to force shut-off
-                clearBleApps();
+            if (mBluetooth == null) {
+                mEnable = true;
+                handleEnable(mQuietEnable);
+            } else if (mBluetooth != null &&
+                       (mBluetooth.getState() == BluetoothAdapter.STATE_OFF)) {
+                mEnable = true;
+                mBluetooth.factoryReset();
+                handleEnable(mQuietEnable);
+            } else if (mBluetooth != null){
                 return mBluetooth.factoryReset();
             }
         } catch (RemoteException e) {

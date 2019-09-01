@@ -103,6 +103,7 @@ public class FiveGServiceClient {
         private int mUpperLayerInd;
         private int mDcnr;
         private int mLevel;
+        private int mRsrp;
         private int mNrConfigType;
         private int mNrIconType;
         private MobileIconGroup mIconGroup;
@@ -113,6 +114,7 @@ public class FiveGServiceClient {
             mUpperLayerInd = UpperLayerIndInfo.UPPER_LAYER_IND_INFO_UNAVAILABLE;
             mDcnr = DcParam.DCNR_RESTRICTED;
             mLevel = 0;
+            mRsrp = SignalStrength.INVALID;
             mNrConfigType = NrConfigType.NSA_CONFIGURATION;
             mNrIconType = NrIconType.INVALID;
             mIconGroup = TelephonyIcons.UNKNOWN;
@@ -144,6 +146,10 @@ public class FiveGServiceClient {
         @VisibleForTesting
         public int getSignalLevel() {
             return mLevel;
+        }
+
+        public boolean isSignalStrengthValid() {
+            return mRsrp != SignalStrength.INVALID;
         }
 
         @VisibleForTesting
@@ -182,6 +188,7 @@ public class FiveGServiceClient {
             this.mUpperLayerInd = state.mUpperLayerInd;
             this.mDcnr = state.mDcnr;
             this.mLevel = state.mLevel;
+            this.mRsrp = state.mRsrp;
             this.mNrConfigType = state.mNrConfigType;
             this.mIconGroup = state.mIconGroup;
             this.mNrIconType = state.mNrIconType;
@@ -195,7 +202,8 @@ public class FiveGServiceClient {
                     && this.mLevel == state.mLevel
                     && this.mNrConfigType == state.mNrConfigType
                     && this.mIconGroup == state.mIconGroup
-                    && this.mNrIconType == state.mNrIconType;
+                    && this.mNrIconType == state.mNrIconType
+                    && this.mRsrp == state.mRsrp;
         }
         @Override
         public String toString() {
@@ -206,8 +214,9 @@ public class FiveGServiceClient {
                     append("mUpperLayerInd=").append(mUpperLayerInd).append(", ").
                     append("mDcnr=" + mDcnr).append(", ").
                     append("mLevel=").append(mLevel).append(", ").
+                    append("mRsrp=").append(mRsrp).append(", ").
                     append("mNrConfigType=").append(mNrConfigType).append(", ").
-                    append("mIconGroup=").append(mIconGroup).
+                    append("mIconGroup=").append(mIconGroup).append(", ").
                     append("mNrIconType=").append(mNrIconType);
 
             return builder.toString();
@@ -530,7 +539,8 @@ public class FiveGServiceClient {
 
             if (status.get() == Status.SUCCESS && signalStrength != null) {
                 FiveGServiceState state = getCurrentServiceState(slotId);
-                state.mLevel = getRsrpLevel(signalStrength.getRsrp());
+                state.mRsrp = signalStrength.getRsrp();
+                state.mLevel = getRsrpLevel(state.mRsrp);
                 notifyListenersIfNecessary(slotId);
             }
         }
