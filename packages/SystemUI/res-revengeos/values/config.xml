@@ -28,4 +28,7 @@
     <integer name="config_maxVisibleNotificationIcons">4</integer>
     <integer name="config_maxVisibleNotificationIconsWhenDark">5</integer>
 
+     <!-- Whether SystemUI ignores notch -->
+     <bool name="hide_view_behind_notch">false</bool>
+
 </resources>
