@@ -26,4 +26,7 @@
 
     <!-- Hide battery percentage on keyguard -->
     <bool name="config_AlwaysHideBatteryPercentageOnKeyguard">false</bool>
+
+    <!-- Whether SystemUI ignores notch -->
+     <bool name="hide_view_behind_notch">false</bool>
 </resources>
