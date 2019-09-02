@@ -496,4 +496,7 @@
     <!-- ThemePicker package name for overlaying icons. -->
     <string name="themepicker_overlayable_package" translatable="false">com.android.wallpaper</string>
 
+    <!-- Whether SystemUI ignores notch -->
+    <bool name="hide_view_behind_notch">false</bool>
+
 </resources>
