@@ -157,4 +157,7 @@
     <java-symbol type="dimen" name="qs_status_bar_height" />
     <java-symbol type="dimen" name="qs_status_bar_top_padding" />
     <java-symbol type="dimen" name="custom_quick_qs_total_height" />
+
+    <!-- Post reset runnable for all clients -->
+    <java-symbol type="bool" name="config_fingerprintPostResetRunnableForAllClients" />
 </resources>
