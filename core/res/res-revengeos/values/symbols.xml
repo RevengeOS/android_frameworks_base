@@ -41,4 +41,7 @@
     <java-symbol type="integer" name="config_longPressOnMenuBehaviorHwKeys" />
     <java-symbol type="integer" name="config_longPressOnAppSwitchBehaviorHwKeys" />
     <java-symbol type="integer" name="config_longPressOnAssistBehaviorHwKeys" />
+
+    <!-- Post reset runnable for all clients -->
+    <java-symbol type="bool" name="config_fingerprintPostResetRunnableForAllClients" />
 </resources>

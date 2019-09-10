@@ -117,4 +117,8 @@
          This needs to match the enums in DeviceKeysConstants.java.
     -->
     <integer name="config_longPressOnAssistBehaviorHwKeys">4</integer>
+
+    <!-- Whether to post reset runnable for all clients. Needed for some older
+         vendor fingerprint HAL implementations. -->
+    <bool name="config_fingerprintPostResetRunnableForAllClients">false</bool>
 </resources>
