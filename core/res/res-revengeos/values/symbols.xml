@@ -69,4 +69,7 @@
     <!-- Back gesture bottom inset -->
     <java-symbol type="dimen" name="config_backGestureBottomInset" />
 
+    <!-- Whether device ignores the RSSNR signal implementation -->
+    <java-symbol type="bool" name="config_ignoreRssnrSignalLevel" />
+
 </resources>

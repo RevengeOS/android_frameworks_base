@@ -173,4 +173,7 @@
          avoid conflicting with the navigation gesture area -->
     <dimen name="config_backGestureBottomInset">@dimen/navigation_bar_frame_height</dimen>
 
+    <!-- Whether device ignores the RSSNR signal implementation -->
+    <bool name="config_ignoreRssnrSignalLevel">false</bool>
+
 </resources>
