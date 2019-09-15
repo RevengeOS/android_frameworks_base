@@ -17,7 +17,7 @@
     <item android:id="@android:id/background"
           android:gravity="center_vertical|fill_horizontal">
         <shape android:shape="rectangle"
-               android:tint="?android:attr/colorControlActivated">
+               android:tint="@*android:color/config_progress_background_tint">
             <size android:height="@dimen/seek_bar_height" />
             <solid android:color="@color/white_disabled" />
             <corners android:radius="@dimen/seek_bar_corner_radius" />
