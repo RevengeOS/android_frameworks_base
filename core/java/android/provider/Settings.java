@@ -5083,6 +5083,23 @@ public final class Settings {
         private static final Validator BACK_GESTURE_HEIGHT_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
+         * Number of qs columns on landscape orientation
+         * @hide
+         */
+        public static final String QS_LAYOUT_COLUMNS_LANDSCAPE = "qs_layout_columns_landscape";
+         /** @hide */
+        private static final Validator QS_LAYOUT_COLUMNS_LANDSCAPE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+         /**
+         * @hide
+         */
+        public static final String QS_LAYOUT_COLUMNS = "qs_layout_columns";
+         /** @hide */
+        private static final Validator QS_LAYOUT_COLUMNS_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5167,6 +5184,8 @@ public final class Settings {
             PULSE_AMBIENT_LIGHT,
             PULSE_AMBIENT_LIGHT_COLOR,
             BACK_GESTURE_HEIGHT,
+            QS_LAYOUT_COLUMNS_LANDSCAPE,
+            QS_LAYOUT_COLUMNS,
         };
 
         /**
@@ -5341,6 +5360,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT);
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_COLOR);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HEIGHT);
+            PRIVATE_SETTINGS.add(QS_LAYOUT_COLUMNS_LANDSCAPE);
+            PRIVATE_SETTINGS.add(QS_LAYOUT_COLUMNS);
         }
 
         /**
@@ -5491,6 +5512,9 @@ public final class Settings {
             VALIDATORS.put(PULSE_AMBIENT_LIGHT, PULSE_AMBIENT_LIGHT_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_COLOR, PULSE_AMBIENT_LIGHT_COLOR_VALIDATOR);
             VALIDATORS.put(BACK_GESTURE_HEIGHT, BACK_GESTURE_HEIGHT_VALIDATOR);
+            VALIDATORS.put(QS_LAYOUT_COLUMNS_LANDSCAPE,
+                    QS_LAYOUT_COLUMNS_LANDSCAPE_VALIDATOR);
+            VALIDATORS.put(QS_LAYOUT_COLUMNS, QS_LAYOUT_COLUMNS_VALIDATOR);
         }
 
         /**
