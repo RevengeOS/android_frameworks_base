@@ -7419,7 +7419,7 @@ message MetricsEvent {
     // END OF AOSP CONSTANTS
 
     // RevengeOS constant
-    REVENGEOS_SETTINGS = 1999;
+    REVENGEOS = 1999;
 
   }
 }
