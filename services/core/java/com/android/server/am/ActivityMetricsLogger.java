@@ -604,6 +604,11 @@ class ActivityMetricsLogger {
             final WindowingModeTransitionInfo info = mWindowingModeTransitionInfo.valueAt(index);
             final int type = getTransitionType(info);
             if (type == INVALID_TRANSITION_TYPE) {
+                if (DEBUG_METRICS) {
+                    Slog.i(TAG, "invalid transition type"
+                            + " processRunning=" + info.currentTransitionProcessRunning
+                            + " startResult=" + info.startResult);
+                }
                 return;
             }
 
@@ -859,7 +864,10 @@ class ActivityMetricsLogger {
             } else if (info.startResult == START_TASK_TO_FRONT) {
                 return TYPE_TRANSITION_HOT_LAUNCH;
             }
-        } else if (info.startResult == START_SUCCESS) {
+        } else if (info.startResult == START_SUCCESS
+                || (info.startResult == START_TASK_TO_FRONT)) {
+            // TaskRecord may still exist when cold launching an activity and the start
+            // result will be set to START_TASK_TO_FRONT. Treat this as a COLD launch.
             return TYPE_TRANSITION_COLD_LAUNCH;
         }
         return INVALID_TRANSITION_TYPE;
