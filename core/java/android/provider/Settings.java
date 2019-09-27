@@ -4545,6 +4545,70 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Whether the battery light should be enabled (if hardware supports it)
+         * The value is boolean (1 or 0).
+         * @hide
+         */
+        public static final String BATTERY_LIGHT_ENABLED = "battery_light_enabled";
+        /** @hide */
+        private static final Validator BATTERY_LIGHT_ENABLED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+       /**
+        * Whether to show battery light when DND mode is active
+        * @hide
+        */
+       public static final String BATTERY_LIGHT_ALLOW_ON_DND = "battery_light_allow_on_dnd";
+        /** @hide */
+        private static final Validator BATTERY_LIGHT_ALLOW_ON_DND_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+        * Whether to show blinking light when battery is low
+        * @hide
+        */
+       public static final String BATTERY_LIGHT_LOW_BLINKING = "battery_light_low_blinking";
+        /** @hide */
+        private static final Validator BATTERY_LIGHT_LOW_BLINKING_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+        * Low battery charging color
+        * @hide
+        */
+       public static final String BATTERY_LIGHT_LOW_COLOR = "battery_light_low_color";
+        /** @hide */
+        private static final Validator BATTERY_LIGHT_LOW_COLOR_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
+        /**
+        * Medium battery charging color
+        * @hide
+        */
+       public static final String BATTERY_LIGHT_MEDIUM_COLOR = "battery_light_medium_color";
+        /** @hide */
+        private static final Validator BATTERY_LIGHT_MEDIUM_COLOR_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
+        /**
+        * Full battery charging color
+        * @hide
+        */
+       public static final String BATTERY_LIGHT_FULL_COLOR = "battery_light_full_color";
+        /** @hide */
+        private static final Validator BATTERY_LIGHT_FULL_COLOR_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
+        /**
+        * Really full 100 battery charging color
+        * @hide
+        */
+       public static final String BATTERY_LIGHT_REALLYFULL_COLOR = "battery_light_reallyfull_color";
+        /** @hide */
+        private static final Validator BATTERY_LIGHT_REALLYFULL_COLOR_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
+        /**
          * Action to perform when the home key is long-pressed.
          * (Default can be configured via config_longPressOnHomeBehaviorHwkeys)
          * 0 - Nothing
@@ -4734,70 +4798,6 @@ public final class Settings {
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
          * the setting value. See an example above.
          */
-
-        /**
-         * Whether the battery light should be enabled (if hardware supports it)
-         * The value is boolean (1 or 0).
-         * @hide
-         */
-        public static final String BATTERY_LIGHT_ENABLED = "battery_light_enabled";
-        /** @hide */
-        private static final Validator BATTERY_LIGHT_ENABLED_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-       /**
-        * Whether to show battery light when DND mode is active
-        * @hide
-        */
-       public static final String BATTERY_LIGHT_ALLOW_ON_DND = "battery_light_allow_on_dnd";
-        /** @hide */
-        private static final Validator BATTERY_LIGHT_ALLOW_ON_DND_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-        * Whether to show blinking light when battery is low
-        * @hide
-        */
-       public static final String BATTERY_LIGHT_LOW_BLINKING = "battery_light_low_blinking";
-        /** @hide */
-        private static final Validator BATTERY_LIGHT_LOW_BLINKING_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-        * Low battery charging color
-        * @hide
-        */
-       public static final String BATTERY_LIGHT_LOW_COLOR = "battery_light_low_color";
-        /** @hide */
-        private static final Validator BATTERY_LIGHT_LOW_COLOR_VALIDATOR =
-                ANY_STRING_VALIDATOR;
-
-        /**
-        * Medium battery charging color
-        * @hide
-        */
-       public static final String BATTERY_LIGHT_MEDIUM_COLOR = "battery_light_medium_color";
-        /** @hide */
-        private static final Validator BATTERY_LIGHT_MEDIUM_COLOR_VALIDATOR =
-                ANY_STRING_VALIDATOR;
-
-        /**
-        * Full battery charging color
-        * @hide
-        */
-       public static final String BATTERY_LIGHT_FULL_COLOR = "battery_light_full_color";
-        /** @hide */
-        private static final Validator BATTERY_LIGHT_FULL_COLOR_VALIDATOR =
-                ANY_STRING_VALIDATOR;
-
-        /**
-        * Really full 100 battery charging color
-        * @hide
-        */
-       public static final String BATTERY_LIGHT_REALLYFULL_COLOR = "battery_light_reallyfull_color";
-        /** @hide */
-        private static final Validator BATTERY_LIGHT_REALLYFULL_COLOR_VALIDATOR =
-                ANY_STRING_VALIDATOR;
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
