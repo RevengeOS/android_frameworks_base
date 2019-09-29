@@ -38,6 +38,7 @@ android_library {
     ],
     resource_dirs: [
         "res-keyguard",
+        "res-revengeos",
         "res",
     ],
     static_libs: [
@@ -85,6 +86,7 @@ android_library {
     resource_dirs: [
         "tests/res",
         "res-keyguard",
+        "res-revengeos",
         "res",
     ],
     srcs: [
