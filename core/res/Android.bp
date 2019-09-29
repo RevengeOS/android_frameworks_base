@@ -38,4 +38,9 @@ android_app {
     // Create package-export.apk, which other packages can use to get
     // PRODUCT-agnostic resource data like IDs and type definitions.
     export_package_resources: true,
+
+    resource_dirs: [
+        "res-revengeos",
+        "res",
+    ],
 }
