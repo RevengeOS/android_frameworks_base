@@ -66,4 +66,7 @@
     <!-- Camera key type -->
     <java-symbol type="bool" name="config_singleStageCameraKey" />
 
+    <!-- Back gesture bottom inset -->
+    <java-symbol type="dimen" name="config_backGestureBottomInset" />
+
 </resources>
