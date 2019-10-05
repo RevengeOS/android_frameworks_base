@@ -4893,7 +4893,6 @@ public final class Settings {
             BATTERY_LIGHT_MEDIUM_COLOR,
             BATTERY_LIGHT_FULL_COLOR,
             BATTERY_LIGHT_REALLYFULL_COLOR,
-            NAV_BAR_GESTURAL_HIDE_NAV,
         };
 
         /**
