@@ -4802,15 +4802,6 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
-         * @hide
-         */
-        public static final String NAV_BAR_GESTURAL_HIDE_NAV = "nav_bar_gestural_hide_nav";
-
-        /** @hide */
-        private static final Validator NAV_BAR_GESTURAL_HIDE_NAV_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
          * Whether to use the custom quick unlock screen control
          * @hide
          */
@@ -5067,7 +5058,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
             PRIVATE_SETTINGS.add(SWAP_NAVIGATION_KEYS);
             PRIVATE_SETTINGS.add(SHOW_CPU_OVERLAY);
-            PRIVATE_SETTINGS.add(NAV_BAR_GESTURAL_HIDE_NAV);
             PRIVATE_SETTINGS.add(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
             PRIVATE_SETTINGS.add(FORCE_SHOW_NAVBAR);
         }
@@ -5198,7 +5188,6 @@ public final class Settings {
             VALIDATORS.put(CAMERA_LAUNCH, CAMERA_LAUNCH_VALIDATOR);
             VALIDATORS.put(SWAP_NAVIGATION_KEYS, SWAP_NAVIGATION_KEYS_VALIDATOR);
             VALIDATORS.put(SHOW_CPU_OVERLAY, SHOW_CPU_OVERLAY_VALIDATOR);
-            VALIDATORS.put(NAV_BAR_GESTURAL_HIDE_NAV, NAV_BAR_GESTURAL_HIDE_NAV_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_QUICK_UNLOCK_CONTROL, LOCKSCREEN_QUICK_UNLOCK_CONTROL_VALIDATOR);
             VALIDATORS.put(FORCE_SHOW_NAVBAR, FORCE_SHOW_NAVBAR_VALIDATOR);
         }

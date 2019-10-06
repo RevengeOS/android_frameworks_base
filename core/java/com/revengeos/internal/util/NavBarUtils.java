@@ -19,36 +19,12 @@
 package com.revengeos.internal.util;
 
 import android.content.Context;
-import android.content.om.IOverlayManager;
-import android.os.RemoteException;
-import android.provider.Settings;
-import android.util.Log;
 
 import static com.revengeos.internal.util.hwkeys.DeviceKeysConstants.*;
 
 public class NavBarUtils {
 
     private static final String TAG = "NavBarUtils";
-    public static final String NAV_BAR_GESTURAL_HIDE_NAV_OVERLAY =
-            "com.android.internal.systemui.navbar.gestural.hide_nav";
-
-    public static boolean isGesturalNavBarHidden(Context context, int userId) {
-        return Settings.System.getIntForUser(context.getContentResolver(),
-                Settings.System.NAV_BAR_GESTURAL_HIDE_NAV, 0, userId) == 1;
-    }
-
-    public static boolean setGesturalNavBarHiddenOverlay(IOverlayManager mOverlayManager, int userId, boolean state) {
-        try {
-            if (state) {
-                return mOverlayManager.setEnabledExclusiveInCategory(NAV_BAR_GESTURAL_HIDE_NAV_OVERLAY, userId);
-            } else {
-                return mOverlayManager.setEnabled(NAV_BAR_GESTURAL_HIDE_NAV_OVERLAY, false, userId);
-            }
-        } catch (RemoteException e) {
-               Log.e(TAG, "Failed to update hide gesture navbar overlay for user " + userId);
-               return false;
-        }
-    }
 
     public static boolean canDisableHwKeys(Context context) {
         final int deviceKeys = context.getResources().getInteger(
