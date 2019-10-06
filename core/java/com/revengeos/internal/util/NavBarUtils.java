@@ -24,6 +24,8 @@ import android.os.RemoteException;
 import android.provider.Settings;
 import android.util.Log;
 
+import static com.revengeos.internal.util.hwkeys.DeviceKeysConstants.*;
+
 public class NavBarUtils {
 
     private static final String TAG = "NavBarUtils";
@@ -46,5 +48,13 @@ public class NavBarUtils {
                Log.e(TAG, "Failed to update hide gesture navbar overlay for user " + userId);
                return false;
         }
+    }
+
+    public static boolean canDisableHwKeys(Context context) {
+        final int deviceKeys = context.getResources().getInteger(
+                com.android.internal.R.integer.config_deviceHardwareKeys);
+        final boolean hasHomeKey = (deviceKeys & KEY_MASK_HOME) != 0;
+        final boolean hasBackKey = (deviceKeys & KEY_MASK_BACK) != 0;
+        return hasHomeKey && hasBackKey;
     }
 }
