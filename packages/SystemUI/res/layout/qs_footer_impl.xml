@@ -36,35 +36,12 @@
         android:layout_gravity="center_vertical"
         android:gravity="end" >
 
-        <com.android.keyguard.AlphaOptimizedLinearLayout
-            android:id="@+id/qs_footer_actions_edit_container"
-            android:layout_width="@integer/qs_footer_actions_width"
+        <include layout="@layout/qs_carrier_group"
+            android:id="@+id/carrier_group"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="@integer/qs_footer_actions_weight"
-            android:gravity="center_vertical|start" >
-            <com.android.systemui.statusbar.AlphaOptimizedImageView
-                android:id="@android:id/edit"
-                android:layout_width="@dimen/qs_footer_action_button_size"
-                android:layout_height="@dimen/qs_footer_action_button_size"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:clipToPadding="false"
-                android:contentDescription="@string/accessibility_quick_settings_edit"
-                android:focusable="true"
-                android:padding="@dimen/qs_footer_icon_padding"
-                android:src="@*android:drawable/ic_mode_edit"
-                android:tint="?android:attr/colorForeground"/>
-
-            <TextView
-                android:id="@+id/build"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:clickable="true"
-                android:gravity="center_vertical"
-                android:focusable="true"
-                android:textAppearance="@style/TextAppearance.QS.Status"
-                android:visibility="gone"/>
-         </com.android.keyguard.AlphaOptimizedLinearLayout>
+            android:layout_marginStart="@dimen/qs_footer_icon_padding" />
 
         <com.android.systemui.qs.PageIndicator
             android:id="@+id/footer_page_indicator"
@@ -94,6 +71,19 @@
                     android:layout_gravity="center"
                     android:scaleType="centerInside"/>
             </com.android.systemui.statusbar.phone.MultiUserSwitch>
+
+            <com.android.systemui.statusbar.AlphaOptimizedImageView
+                android:id="@android:id/edit"
+                android:layout_width="@dimen/qs_footer_action_button_size"
+                android:layout_height="@dimen/qs_footer_action_button_size"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:clipToPadding="false"
+                android:contentDescription="@string/accessibility_quick_settings_edit"
+                android:focusable="true"
+                android:padding="@dimen/qs_footer_icon_padding"
+                android:src="@*android:drawable/ic_mode_edit"
+                android:tint="?android:attr/colorForeground"/>
 
             <com.android.systemui.statusbar.AlphaOptimizedFrameLayout
                 android:id="@+id/settings_button_container"
