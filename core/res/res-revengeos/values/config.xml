@@ -234,4 +234,10 @@
     <!-- Whether to post reset runnable for all clients. Needed for some older
          vendor fingerprint HAL implementations. -->
     <bool name="config_fingerprintPostResetRunnableForAllClients">false</bool>
+
+    <!-- Default number of max cached processes -->
+    <integer name="config_defaultMaxCachedProcesses">32</integer>
+
+    <!-- Default number of processes before start trimming. 0 = calc from config_defaultMaxCachedProcesses -->
+    <integer name="config_defaultTrimCachedProcesses">0</integer>
 </resources>
