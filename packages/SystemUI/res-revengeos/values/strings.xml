@@ -20,4 +20,6 @@
 
     <!-- Icon tuner -->
     <string name="statusbar_items_title">Icon tuner</string>
+
+    <string name="clock_title_binary" translatable="false">Binary</string>
 </resources>
