@@ -46,7 +46,7 @@ class ThemeOverlayManager {
     static final String SYSUI_PACKAGE = "com.android.systemui";
 
     @VisibleForTesting
-    static final String OVERLAY_CATEGORY_COLOR = "android.theme.customization.accent_color";
+    static final String OVERLAY_CATEGORY_COLOR = "revengeos.theme.customization.gradient";
     @VisibleForTesting
     static final String OVERLAY_CATEGORY_FONT = "android.theme.customization.font";
     @VisibleForTesting
