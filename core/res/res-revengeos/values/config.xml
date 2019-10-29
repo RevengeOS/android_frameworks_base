@@ -127,4 +127,8 @@
 
     <!-- Workaround to trim baseband version's string of some devices with duplicated baseband string -->
     <bool name="config_trim_baseband_version_string">false</bool>
+
+     <!-- Defines the sysfs attribute path used by pocket bridge
+         to communicate pocket state to the pocket judge kernel driver. -->
+     <string name="config_pocketBridgeSysfsInpocket"></string>
 </resources>
