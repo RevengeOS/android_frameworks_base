@@ -26,6 +26,7 @@ import android.content.res.Resources;
 import android.provider.Settings;
 import android.service.quicksettings.Tile;
 import android.telephony.SubscriptionManager;
+import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,6 +45,7 @@ import com.android.systemui.plugins.qs.QSTile.SignalState;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.statusbar.phone.SystemUIDialog;
+import com.android.systemui.statusbar.phone.UnlockMethodCache;
 import com.android.systemui.statusbar.policy.KeyguardMonitor;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.IconState;
@@ -62,6 +64,7 @@ public class CellularTile extends QSTileImpl<SignalState> {
     private final CellSignalCallback mSignalCallback = new CellSignalCallback();
     private final ActivityStarter mActivityStarter;
     private final KeyguardMonitor mKeyguardMonitor;
+    private final UnlockMethodCache mUnlockMethodCache;
 
     @Inject
     public CellularTile(QSHost host, NetworkController networkController,
@@ -70,6 +73,7 @@ public class CellularTile extends QSTileImpl<SignalState> {
         mController = networkController;
         mActivityStarter = activityStarter;
         mKeyguardMonitor = keyguardMonitor;
+        mUnlockMethodCache = UnlockMethodCache.getInstance(mContext);
         mDataController = mController.getMobileDataController();
         mDetailAdapter = new CellularDetailAdapter();
         mController.observe(getLifecycle(), mSignalCallback);
@@ -140,7 +144,7 @@ public class CellularTile extends QSTileImpl<SignalState> {
             return;
         }
         if (mDataController.isMobileDataSupported()) {
-            if (mKeyguardMonitor.isSecure() && !mKeyguardMonitor.canSkipBouncer()) {
+            if (mKeyguardMonitor.isSecure() && !mUnlockMethodCache.canSkipBouncer()) {
                 mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
                     showDetail(true);
                 });
@@ -212,12 +216,13 @@ public class CellularTile extends QSTileImpl<SignalState> {
 
     private CharSequence appendMobileDataType(CharSequence current, CharSequence dataType) {
         if (TextUtils.isEmpty(dataType)) {
-            return current;
+            return Html.fromHtml(current.toString(), 0);
         }
         if (TextUtils.isEmpty(current)) {
-            return dataType;
+            return Html.fromHtml(dataType.toString(), 0);
         }
-        return mContext.getString(R.string.mobile_carrier_text_format, current, dataType);
+        String concat = mContext.getString(R.string.mobile_carrier_text_format, current, dataType);
+        return Html.fromHtml(concat, 0);
     }
 
     private CharSequence getMobileDataContentName(CallbackInfo cb) {
@@ -258,14 +263,17 @@ public class CellularTile extends QSTileImpl<SignalState> {
 
         @Override
         public void setMobileDataIndicators(IconState statusIcon, IconState qsIcon, int statusType,
-                int qsType, boolean activityIn, boolean activityOut, int stackedVoiceIcon, String typeContentDescription,
-                String description, boolean isWide, int subId, boolean roaming) {
+                int qsType, boolean activityIn, boolean activityOut, int stackedVoiceIcon,
+                CharSequence typeContentDescription,
+                CharSequence typeContentDescriptionHtml, CharSequence description,
+                boolean isWide, int subId, boolean roaming) {
             if (qsIcon == null) {
                 // Not data sim, don't display.
                 return;
             }
             mInfo.dataSubscriptionName = mController.getMobileDataNetworkName();
-            mInfo.dataContentDescription = (description != null) ? typeContentDescription : null;
+            mInfo.dataContentDescription =
+                    (description != null) ? typeContentDescriptionHtml : null;
             mInfo.activityIn = activityIn;
             mInfo.activityOut = activityOut;
             mInfo.roaming = roaming;
