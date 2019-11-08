@@ -8526,7 +8526,6 @@ package android.telephony.ims {
     method public void callSessionResumed(android.telephony.ims.ImsCallProfile);
     method public void callSessionRttAudioIndicatorChanged(@NonNull android.telephony.ims.ImsStreamMediaProfile);
     method public void callSessionRttMessageReceived(String);
-    method public void callSessionPropertyChanged(int);
     method public void callSessionRttModifyRequestReceived(android.telephony.ims.ImsCallProfile);
     method public void callSessionRttModifyResponseReceived(int);
     method public void callSessionSuppServiceReceived(android.telephony.ims.ImsSuppServiceNotification);
@@ -9289,7 +9288,6 @@ package android.telephony.ims.stub {
   public class ImsUtImplBase {
     ctor public ImsUtImplBase();
     method public void close();
-    method public int queryCFForServiceClass(int, java.lang.String, int);
     method public int queryCallBarring(int);
     method public int queryCallBarringForServiceClass(int, int);
     method public int queryCallForward(int, String);
