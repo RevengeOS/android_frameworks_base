@@ -24,5 +24,35 @@
 
     <color name="gradient_start">@color/gradient_start_light</color>
     <color name="gradient_end">@color/gradient_end_light</color>
+
+    <!-- Dashboard/homepage icon background colors -->
+    <color name="homepage_network_gradient_start">#FF2A81D8</color>
+    <color name="homepage_network_gradient_end">#FF00D2FF</color>
+    <color name="homepage_connected_device_gradient_start">#FF17AF96</color>
+    <color name="homepage_connected_device_gradient_end">#FF49EA8B</color>
+    <color name="homepage_app_and_notification_gradient_start">#FFFF512F</color>
+    <color name="homepage_app_and_notification_gradient_end">#FFFF9D33</color>
+    <color name="homepage_battery_gradient_start">#FF00FF8B</color>
+    <color name="homepage_battery_gradient_end">#FFBCFF64</color>
+    <color name="homepage_display_gradient_start">#FF7E52F7</color>
+    <color name="homepage_display_gradient_end">#FF58CFF9</color>
+    <color name="homepage_sound_gradient_start">#FFB965EA</color>
+    <color name="homepage_sound_gradient_end">#FFFF7D9F</color>
+    <color name="homepage_storage_gradient_start">#FF08A1FF</color>
+    <color name="homepage_storage_gradient_end">#FF34F4D3</color>
+    <color name="homepage_security_gradient_start">#FF0575E6</color>
+    <color name="homepage_security_gradient_end">#FF00F260</color>
+    <color name="homepage_accounts_gradient_start">#FFF645FF</color>
+    <color name="homepage_accounts_gradient_end">#FF19DDDD</color>
+    <color name="homepage_accessibility_gradient_start">#FF5023D9</color>
+    <color name="homepage_accessibility_gradient_end">#FFD923BD</color>
+    <color name="homepage_system_gradient_start">#FF00B7FF</color>
+    <color name="homepage_system_gradient_end">#FFE22323</color>
+    <color name="homepage_location_gradient_start">#FFF2709C</color>
+    <color name="homepage_location_gradient_end">#FFFF9472</color>
+    <color name="homepage_about_gradient_start">#FF5B86E5</color>
+    <color name="homepage_about_gradient_end">#FF36D1DC</color>
+    <color name="homepage_privacy_gradient_start">#FF4640FF</color>
+    <color name="homepage_privacy_gradient_end">#FF3D74FF</color>
 </resources>
 

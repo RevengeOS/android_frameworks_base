@@ -8,6 +8,36 @@
     <java-symbol type="color" name="gradient_start" />
     <java-symbol type="color" name="gradient_end" />
 
+    <!-- Dashboard/homepage icon background colors -->
+    <java-symbol type="color" name="homepage_network_gradient_start" />
+    <java-symbol type="color" name="homepage_network_gradient_end" />
+    <java-symbol type="color" name="homepage_connected_device_gradient_start" />
+    <java-symbol type="color" name="homepage_connected_device_gradient_end" />
+    <java-symbol type="color" name="homepage_app_and_notification_gradient_start" />
+    <java-symbol type="color" name="homepage_app_and_notification_gradient_end" />
+    <java-symbol type="color" name="homepage_battery_gradient_start" />
+    <java-symbol type="color" name="homepage_battery_gradient_end" />
+    <java-symbol type="color" name="homepage_display_gradient_start" />
+    <java-symbol type="color" name="homepage_display_gradient_end" />
+    <java-symbol type="color" name="homepage_sound_gradient_start" />
+    <java-symbol type="color" name="homepage_sound_gradient_end" />
+    <java-symbol type="color" name="homepage_storage_gradient_start" />
+    <java-symbol type="color" name="homepage_storage_gradient_end" />
+    <java-symbol type="color" name="homepage_security_gradient_start" />
+    <java-symbol type="color" name="homepage_security_gradient_end" />
+    <java-symbol type="color" name="homepage_accounts_gradient_start" />
+    <java-symbol type="color" name="homepage_accounts_gradient_end" />
+    <java-symbol type="color" name="homepage_accessibility_gradient_start" />
+    <java-symbol type="color" name="homepage_accessibility_gradient_end" />
+    <java-symbol type="color" name="homepage_system_gradient_start" />
+    <java-symbol type="color" name="homepage_system_gradient_end" />
+    <java-symbol type="color" name="homepage_location_gradient_start" />
+    <java-symbol type="color" name="homepage_location_gradient_end" />
+    <java-symbol type="color" name="homepage_about_gradient_start" />
+    <java-symbol type="color" name="homepage_about_gradient_end" />
+    <java-symbol type="color" name="homepage_privacy_gradient_start" />
+    <java-symbol type="color" name="homepage_privacy_gradient_end" />
+
     <!-- Device keyhandlers -->
     <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
     <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
