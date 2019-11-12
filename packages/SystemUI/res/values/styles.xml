@@ -800,7 +800,7 @@
     <style name="Theme.ControlsRequestDialog" parent="@*android:style/Theme.DeviceDefault.Dialog.Alert"/>
 
     <style name="TriStateUiText">
-        <item name="android:textSize">11.0sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
     </style>
 </resources>
