@@ -32,6 +32,7 @@ import android.os.RemoteException;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings.Global;
+import android.provider.Settings;
 import android.service.notification.ZenModeConfig;
 import android.telecom.TelecomManager;
 import android.text.format.DateFormat;
@@ -634,6 +635,8 @@ public class PhoneStatusBarPolicy
     }
 
     private void updatePrivacyItems(List<PrivacyItem> items) {
+        final boolean chipVisibilityDisabled = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.PRIVACY_CHIP_VIEW, 1) == 1;
         boolean showCamera = false;
         boolean showMicrophone = false;
         boolean showLocation = false;
@@ -657,6 +660,11 @@ public class PhoneStatusBarPolicy
                 case TYPE_MICROPHONE:
                     showMicrophone = true;
                     break;
+            }
+            if (chipVisibilityDisabled) {
+                showCamera = false;
+                showLocation = false;
+                showMicrophone = false;
             }
         }
 
