@@ -35,12 +35,7 @@ import javax.inject.Inject;
 public class FlashlightTile extends QSTileImpl<BooleanState> implements
         FlashlightController.FlashlightListener {
 
-    private final AnimationIcon mEnable
-            = new AnimationIcon(R.drawable.ic_signal_flashlight_enable_animation,
-            R.drawable.ic_signal_flashlight_disable);
-    private final AnimationIcon mDisable
-            = new AnimationIcon(R.drawable.ic_signal_flashlight_disable_animation,
-            R.drawable.ic_signal_flashlight_enable);
+    private final Icon mIcon = ResourceIcon.get(com.android.internal.R.drawable.ic_qs_flashlight);
     private final FlashlightController mFlashlightController;
 
     @Inject
@@ -107,6 +102,7 @@ public class FlashlightTile extends QSTileImpl<BooleanState> implements
         }
         state.label = mHost.getContext().getString(R.string.quick_settings_flashlight_label);
         if (!mFlashlightController.isAvailable()) {
+            state.icon = mIcon;
             state.slash.isSlashed = true;
             state.contentDescription = mContext.getString(
                     R.string.accessibility_quick_settings_flashlight_unavailable);
@@ -122,8 +118,7 @@ public class FlashlightTile extends QSTileImpl<BooleanState> implements
         } else {
             state.value = mFlashlightController.isEnabled();
         }
-        final AnimationIcon icon = state.value ? mEnable : mDisable;
-        state.icon = icon;
+        state.icon = mIcon;
         state.slash.isSlashed = !state.value;
         state.contentDescription = mContext.getString(R.string.quick_settings_flashlight_label);
         state.expandedAccessibilityClassName = Switch.class.getName();
