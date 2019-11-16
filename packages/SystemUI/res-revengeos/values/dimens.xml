@@ -37,4 +37,9 @@
     <!-- Weather condition icon  -->
     <dimen name="weather_icon_size">24dp</dimen>
 
+    <!-- Weather tile forecast icons  -->
+    <dimen name="ForecastImageSize">50dp</dimen>
+    <dimen name="TemperatureTextMarginTop">5dp</dimen>
+    <dimen name="ForecastItemsMarginVertical">10dp</dimen>
+
 </resources>
