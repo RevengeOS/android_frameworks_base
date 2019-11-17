@@ -38,7 +38,6 @@ import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.HotspotTile;
-import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.IntentTile;
 import com.android.systemui.qs.tiles.LiveDisplayTile;
 import com.android.systemui.qs.tiles.LocationTile;
@@ -80,7 +79,6 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<GarbageMonitor.MemoryTile> mMemoryTileProvider;
     private final Provider<UiModeNightTile> mUiModeNightTileProvider;
     private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
-    private final Provider<HeadsUpTile> mHeadsUpTileProvider;
     private final Provider<CaffeineTile> mCaffeineTileProvider;
     private final Provider<AlwaysOnDisplayTile> mAlwaysOnDisplayTileProvider;
 
@@ -107,7 +105,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<GarbageMonitor.MemoryTile> memoryTileProvider,
             Provider<UiModeNightTile> uiModeNightTileProvider,
             Provider<LiveDisplayTile> liveDisplayTileProvider,
-            Provider<HeadsUpTile> headsupTileProvider,
             Provider<CaffeineTile> caffeineTileProvider,
             Provider<AlwaysOnDisplayTile> alwaysOnDisplayTileProvider) {
         mWifiTileProvider = wifiTileProvider;
@@ -130,7 +127,6 @@ public class QSFactoryImpl implements QSFactory {
         mMemoryTileProvider = memoryTileProvider;
         mUiModeNightTileProvider = uiModeNightTileProvider;
         mLiveDisplayTileProvider = liveDisplayTileProvider;
-        mHeadsUpTileProvider = headsupTileProvider;
         mCaffeineTileProvider = caffeineTileProvider;
         mAlwaysOnDisplayTileProvider = alwaysOnDisplayTileProvider;
     }
@@ -188,8 +184,6 @@ public class QSFactoryImpl implements QSFactory {
                 return mUiModeNightTileProvider.get();
             case "livedisplay":
                 return mLiveDisplayTileProvider.get();
-            case "heads_up":
-                return mHeadsUpTileProvider.get();
             case "caffeine":
                 return mCaffeineTileProvider.get();
             case "always_on_display":
