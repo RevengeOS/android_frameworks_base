@@ -787,7 +787,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             if (FeatureFlagUtils.isEnabled(mContext, FeatureFlagUtils.SCREENRECORD_LONG_PRESS)) {
                 mScreenRecordHelper.launchRecordPrompt();
             } else {
-                mScreenshotHelper.takeScreenshot(2, true, true, mHandler);
+                mScreenshotHelper.takeScreenshot(2, true, true, mHandler, null);
             }
             return true;
         }
