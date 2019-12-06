@@ -1158,6 +1158,6 @@
     <dimen name="net_traffic_txt_img_padding">1dp</dimen>
 
     <!-- brightness bar margin -->
-    <dimen name="brightnessbar_additional_margin">36dp</dimen>
+    <dimen name="brightnessbar_additional_margin">40dp</dimen>
 
 </resources>
