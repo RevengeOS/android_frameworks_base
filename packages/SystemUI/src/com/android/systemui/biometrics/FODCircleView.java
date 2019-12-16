@@ -29,6 +29,7 @@ import android.hardware.display.DisplayManager;
 import android.os.Handler;
 import android.os.IHwBinder;
 import android.os.Looper;
+import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.provider.Settings;
@@ -83,6 +84,9 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
     private boolean mIsViewAdded;
 
     private Handler mHandler;
+
+    private PowerManager mPowerManager;
+    private PowerManager.WakeLock mWakeLock;
 
     private Timer mBurnInProtectionTimer;
 
@@ -257,6 +261,9 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
         Dependency.get(ConfigurationController.class).addCallback(this);
 
         mDisplayManager = context.getSystemService(DisplayManager.class);
+
+        mPowerManager = context.getSystemService(PowerManager.class);
+        mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "FODCircleView");
     }
 
     @Override
@@ -517,8 +524,14 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
         if (mIsDreaming) {
             mBurnInProtectionTimer = new Timer();
             mBurnInProtectionTimer.schedule(new BurnInProtectionTask(), 0, 60 * 1000);
+            if (!mWakeLock.isHeld()) {
+                mWakeLock.acquire();
+            }
         } else if (mBurnInProtectionTimer != null) {
             mBurnInProtectionTimer.cancel();
+            if (mWakeLock.isHeld()) {
+                mWakeLock.release();
+            }
         }
 
         if (mIsViewAdded) {
