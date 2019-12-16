@@ -5232,6 +5232,12 @@ public final class Settings {
         private static final Validator GESTURE_PILL_TOGGLE_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+        * FOD icon picker
+        * @hide
+        */
+        public static final String FOD_ICON = "fod_icon";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
