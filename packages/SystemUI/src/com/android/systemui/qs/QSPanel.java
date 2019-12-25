@@ -75,7 +75,6 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     protected final Context mContext;
     protected final ArrayList<TileRecord> mRecords = new ArrayList<>();
     protected final View mBrightnessView;
-    protected final ImageView mBrightnessIconView;
     private final H mHandler = new H();
     private final MetricsLogger mMetricsLogger = Dependency.get(MetricsLogger.class);
     private final QSTileRevealController mQsTileRevealController;
@@ -141,8 +140,6 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
                 brightnessIcon,
                 findViewById(R.id.brightness_slider));
         mDumpController = dumpController;
-
-        mBrightnessIconView = findViewById(R.id.brightness_icon_left);
     }
 
     protected void addDivider() {
@@ -221,7 +218,6 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     @Override
     public void onTuningChanged(String key, String newValue) {
         if (QS_SHOW_BRIGHTNESS.equals(key)) {
-            updateViewVisibilityForTuningValue(mBrightnessIconView, newValue);
             updateViewVisibilityForTuningValue(mBrightnessView, newValue);
         }
     }
