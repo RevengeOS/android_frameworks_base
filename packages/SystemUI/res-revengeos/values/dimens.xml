@@ -25,4 +25,10 @@
     <!-- QS tile height -->
     <dimen name="qs_tile_height_wo_label">48dp</dimen>
 
+    <!-- Custom cutout overlay view sizes -->
+    <dimen name="config_customCutoutTopWidth">0.0px</dimen>
+    <dimen name="config_customCutoutTopHeight">0.0px</dimen>
+    <dimen name="config_customCutoutBottomWidth">0.0px</dimen>
+    <dimen name="config_customCutoutBottomHeight">0.0px</dimen>
+
 </resources>

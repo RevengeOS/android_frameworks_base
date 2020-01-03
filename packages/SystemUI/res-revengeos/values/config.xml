@@ -55,4 +55,7 @@
     <bool name="config_statusBarBurnInProtection">false</bool>
     <integer name="config_shift_interval">60</integer>
 
+     <!-- Allow devices to use unordinary cutout overlays -->
+     <bool name="config_customCutout">false</bool>
+
 </resources>
