@@ -46,6 +46,7 @@ public class ClockLayout extends FrameLayout {
     private int mBurnInPreventionOffsetY;
 
     private float mDarkAmount;
+    private boolean mBurnInProtection;
 
     public ClockLayout(Context context) {
         this(context, null);
@@ -92,6 +93,9 @@ public class ClockLayout extends FrameLayout {
     }
 
     private void positionChildren() {
+        if (!mBurnInProtection || mAnalogClock == null) {
+            return;
+        }
         final float offsetX = MathUtils.lerp(0f,
                 getBurnInOffset(mBurnInPreventionOffsetX * 2, true) - mBurnInPreventionOffsetX,
                 mDarkAmount);
@@ -106,12 +110,6 @@ public class ClockLayout extends FrameLayout {
                     + ANALOG_CLOCK_SHIFT_FACTOR * offsetX);
             mAnalogClock.setY(Math.max(0f, 0.5f * (getHeight() - mAnalogClock.getHeight()))
                     + ANALOG_CLOCK_SHIFT_FACTOR * offsetY);
-        }
-
-        // Put the typographic clock part way down the screen.
-        if (mTypeClock != null) {
-            mTypeClock.setX(offsetX);
-            mTypeClock.setY(0.2f * getHeight() + offsetY);
         }
     }
 }
