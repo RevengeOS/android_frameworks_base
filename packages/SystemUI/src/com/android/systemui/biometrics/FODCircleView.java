@@ -204,6 +204,17 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     }
 
     @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+
+        if (mIsCircleShowing) {
+            dispatchPress();
+        } else {
+            dispatchRelease();
+        }
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         float x = event.getAxisValue(MotionEvent.AXIS_X);
         float y = event.getAxisValue(MotionEvent.AXIS_Y);
@@ -288,7 +299,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         setDim(true);
         updateAlpha();
-        dispatchPress();
 
         setImageDrawable(null);
         invalidate();
@@ -299,8 +309,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         setImageResource(R.drawable.fod_icon_default);
         invalidate();
-
-        dispatchRelease();
 
         setDim(false);
         updateAlpha();
