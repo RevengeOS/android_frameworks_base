@@ -199,7 +199,9 @@
     <string name="screenrecord_capture_protected_title">Capture protected content</string>
     <string name="screenrecord_capture_protected_summary">Allow capture of content protected by apps</string>
 
-    <!-- AOD QS tile -->
+    <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD on charge</string>
+    <string name="quick_settings_aod_off_label">AOD off</string>
 
 </resources>
