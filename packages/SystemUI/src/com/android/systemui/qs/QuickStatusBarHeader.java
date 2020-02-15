@@ -233,21 +233,13 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     public void updateExtendedStatusBarTint(Context context) {
         @ColorInt int textColor = Utils.getColorAttrDefaultColor(context,
                 R.attr.wallpaperTextColor);
-        float intensity = textColor == Color.WHITE ? 0 : 1;
         if (mIconManager != null) {
             mIconManager.setTint(textColor);
         }
 
         mClockView.setTextColor(textColor);
         mDateView.setTextColor(textColor);
-        mBatteryRemainingIcon.setColorsFromContext(context);
-        applyDarkness(mBatteryRemainingIcon, mEmptyRect, intensity, textColor);
-    }
-
-    private void applyDarkness(View v, Rect tintArea, float intensity, int color) {
-        if (v instanceof DarkReceiver) {
-            ((DarkReceiver) v).onDarkChanged(tintArea, intensity, color);
-        }
+        mBatteryRemainingIcon.updateColors(textColor, textColor, textColor);
     }
 
     @Override
