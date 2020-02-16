@@ -21,7 +21,6 @@
     android:clipToPadding="false"
     android:clickable="false"
     android:focusable="true"
-    android:visibility="gone"
-    android:theme="@style/QSHeaderTheme">
+    android:visibility="gone">
 
 </LinearLayout>

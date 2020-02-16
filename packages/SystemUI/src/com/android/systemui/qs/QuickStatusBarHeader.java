@@ -25,7 +25,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -42,7 +41,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Pair;
 import android.util.StatsLog;
-import android.view.ContextThemeWrapper;
 import android.view.DisplayCutout;
 import android.view.View;
 import android.view.WindowInsets;
@@ -59,7 +57,6 @@ import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 import com.android.settingslib.Utils;
 import com.android.systemui.BatteryMeterView;
 import com.android.systemui.Dependency;
-import com.android.systemui.DualToneHandler;
 import com.android.systemui.R;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.DarkIconDispatcher;
@@ -118,7 +115,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     private TouchAnimator mStatusIconsAlphaAnimator;
     private TouchAnimator mHeaderTextContainerAlphaAnimator;
     private TouchAnimator mPrivacyChipAlphaAnimator;
-    private DualToneHandler mDualToneHandler;
 
     private View mSystemIconsView;
 
@@ -167,8 +163,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mStatusBarIconController = statusBarIconController;
         mActivityStarter = activityStarter;
         mPrivacyItemController = privacyItemController;
-        mDualToneHandler = new DualToneHandler(
-                new ContextThemeWrapper(context, R.style.QSHeaderTheme));
     }
 
     @Override
