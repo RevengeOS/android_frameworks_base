@@ -209,6 +209,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                 com.android.internal.R.string.status_bar_microphone));
         ignored.add(mContext.getResources().getString(
                 com.android.internal.R.string.status_bar_mobile));
+        ignored.add(mContext.getResources().getString(
+                com.android.internal.R.string.status_bar_vpn));
         if (mPermissionsHubEnabled) {
             ignored.add(mContext.getResources().getString(
                     com.android.internal.R.string.status_bar_location));
