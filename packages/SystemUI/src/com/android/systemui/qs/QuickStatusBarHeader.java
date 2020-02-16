@@ -197,6 +197,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         // QS will always show the estimate, and BatteryMeterView handles the case where
         // it's unavailable or charging
         mBatteryRemainingIcon.setPercentShowMode(BatteryMeterView.MODE_ESTIMATE);
+        mBatteryRemainingIcon.setOnClickListener(this);
 
         updateExtendedStatusBarTint(mContext);
 
@@ -407,6 +408,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                         new Intent(Intent.ACTION_REVIEW_ONGOING_PERMISSION_USAGE), 0);
                 mHost.collapsePanels();
             });
+        } else if (v == mBatteryRemainingIcon) {
+            Dependency.get(ActivityStarter.class).postStartActivityDismissingKeyguard(new Intent(
+                    Intent.ACTION_POWER_USAGE_SUMMARY),0);
         }
     }
 
