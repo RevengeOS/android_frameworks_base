@@ -44,21 +44,24 @@
             android:paddingEnd="2dp"
             android:visibility="gone"
             />
+
+        <ImageView
+            android:id="@+id/mobile_type"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingStart="@dimen/qs_carrier_margin_width"
+            android:paddingEnd="@dimen/qs_carrier_margin_width"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/mobile_volte"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:visibility="gone"
+            android:paddingStart="@dimen/qs_carrier_margin_width"/>
     </FrameLayout>
-    <ImageView
-        android:id="@+id/mobile_type"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:paddingStart="1dp"
-        android:paddingEnd="2dp"
-        android:visibility="gone" />
-    <Space
-        android:id="@+id/mobile_roaming_space"
-        android:layout_height="match_parent"
-        android:layout_width="@dimen/roaming_icon_start_padding"
-        android:visibility="gone"
-    />
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,6 +70,7 @@
             android:id="@+id/mobile_signal"
             android:layout_height="@dimen/qs_header_mobile_icon_size"
             android:layout_width="@dimen/qs_header_mobile_icon_size"
+            android:layout_marginStart="3dp"
             systemui:hasOverlappingRendering="false"
             />
         <ImageView

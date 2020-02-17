@@ -224,6 +224,8 @@ public class QSCarrierGroup extends LinearLayout implements
         mInfos[slotIndex].contentDescription = statusIcon.contentDescription;
         mInfos[slotIndex].typeContentDescription = typeContentDescription.toString();
         mInfos[slotIndex].roaming = roaming;
+        mInfos[slotIndex].typeId = statusType;
+        mInfos[slotIndex].volteId = stackedVoiceId;
         handleUpdateState();
     }
 
@@ -243,5 +245,7 @@ public class QSCarrierGroup extends LinearLayout implements
         String contentDescription;
         String typeContentDescription;
         boolean roaming;
+        int typeId;
+        int volteId;
     }
 }

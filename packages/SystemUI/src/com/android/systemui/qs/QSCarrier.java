@@ -35,6 +35,8 @@ public class QSCarrier extends LinearLayout {
     private TextView mCarrierText;
     private ImageView mMobileSignal;
     private ImageView mMobileRoaming;
+    private ImageView mMobileType;
+    private ImageView mVolte;
     private ColorStateList mColorForegroundStateList;
     private float mColorForegroundIntensity;
 
@@ -60,6 +62,8 @@ public class QSCarrier extends LinearLayout {
         mMobileGroup = findViewById(R.id.mobile_combo);
         mMobileSignal = findViewById(R.id.mobile_signal);
         mMobileRoaming = findViewById(R.id.mobile_roaming);
+        mMobileType = findViewById(R.id.mobile_type);
+        mVolte = findViewById(R.id.mobile_volte);
         mCarrierText = findViewById(R.id.qs_carrier_text);
 
         int colorForeground = Utils.getColorAttrDefaultColor(mContext,
@@ -71,6 +75,7 @@ public class QSCarrier extends LinearLayout {
     public void updateState(QSCarrierGroup.CellSignalState state) {
         mMobileGroup.setVisibility(state.visible ? View.VISIBLE : View.GONE);
         if (state.visible) {
+            mMobileType.setImageTintList(mColorForegroundStateList);
             mMobileRoaming.setVisibility(state.roaming ? View.VISIBLE : View.GONE);
             mMobileRoaming.setImageTintList(mColorForegroundStateList);
             mMobileSignal.setImageDrawable(new SignalDrawable(mContext));
@@ -81,6 +86,22 @@ public class QSCarrier extends LinearLayout {
             if (state.contentDescription != null) {
                 contentDescription.append(state.contentDescription).append(", ");
             }
+
+            if (state.typeId != 0) {
+                mMobileType.setContentDescription(state.typeContentDescription);
+                mMobileType.setImageResource(state.typeId);
+                mMobileType.setVisibility(View.VISIBLE);
+            } else {
+                mMobileType.setVisibility(View.GONE);
+            }
+
+            if (state.volteId != 0) {
+                mVolte.setImageResource(state.volteId);
+                mVolte.setVisibility(View.VISIBLE);
+            } else {
+                mVolte.setVisibility(View.GONE);
+            }
+
             if (state.roaming) {
                 contentDescription
                         .append(mContext.getString(R.string.data_connection_roaming))
