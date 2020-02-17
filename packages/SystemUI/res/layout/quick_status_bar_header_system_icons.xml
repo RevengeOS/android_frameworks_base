@@ -97,6 +97,18 @@
                 android:text=""
                 android:textAppearance="@style/TextAppearance.QS.ClockBig" />
 
+            <com.android.systemui.statusbar.phone.StatusIconContainer
+                android:id="@+id/statusIcons"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingEnd="@dimen/signal_cluster_battery_padding" />
+
+            <com.android.systemui.BatteryMeterView
+                android:id="@+id/batteryRemainingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
             <include layout="@layout/ongoing_privacy_chip" />
         </LinearLayout>
 
@@ -113,17 +125,11 @@
                 android:text=""
                 android:textAppearance="@style/TextAppearance.QS.Clock" />
 
-            <com.android.systemui.statusbar.phone.StatusIconContainer
-                android:id="@+id/statusIcons"
+            <include layout="@layout/qs_carrier_group"
+                android:id="@+id/carrier_group"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:paddingEnd="@dimen/signal_cluster_battery_padding" />
-
-            <com.android.systemui.BatteryMeterView
-                android:id="@+id/batteryRemainingIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
+                android:layout_weight="1" />
 
         </LinearLayout>
     </LinearLayout>
