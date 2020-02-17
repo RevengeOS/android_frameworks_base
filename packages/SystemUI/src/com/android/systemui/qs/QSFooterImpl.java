@@ -79,7 +79,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
 
     private boolean mListening;
 
-    private QSCarrierGroup mCarrierGroup;
     protected MultiUserSwitch mMultiUserSwitch;
     private ImageView mMultiUserAvatar;
 
@@ -125,8 +124,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         mSettingsButton = findViewById(R.id.settings_button);
         mSettingsContainer = findViewById(R.id.settings_button_container);
         mSettingsButton.setOnClickListener(this);
-
-        mCarrierGroup = findViewById(R.id.carrier_group);
 
         mMultiUserSwitch = findViewById(R.id.multi_user_switch);
         mMultiUserAvatar = mMultiUserSwitch.findViewById(R.id.multi_user_avatar);
@@ -186,7 +183,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     private TouchAnimator createFooterAnimator() {
         return new TouchAnimator.Builder()
                 .addFloat(mActionsContainer, "alpha", 0, 1)
-                .addFloat(mCarrierGroup, "alpha", 0, 1)
                 .addFloat(mDragHandle, "alpha", 1, 0, 0)
                 .addFloat(mPageIndicator, "alpha", 0, 1)
                 .setStartDelay(0.15f)
@@ -299,7 +295,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         } else {
             mUserInfoController.removeCallback(this);
         }
-        mCarrierGroup.setListening(mListening);
     }
 
     @Override

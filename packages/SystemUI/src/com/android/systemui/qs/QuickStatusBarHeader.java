@@ -96,6 +96,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     private final ActivityStarter mActivityStarter;
 
     private QSPanel mQsPanel;
+    private QSCarrierGroup mCarrierGroup;
 
     private boolean mExpanded;
     private boolean mListening;
@@ -177,6 +178,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mDateView = findViewById(R.id.date);
         mDateView.setOnClickListener(this);
         mSpace = findViewById(R.id.space);
+        mCarrierGroup = findViewById(R.id.carrier_group);
 
         // Tint for the battery icons are handled in setupHost()
         mBatteryRemainingIcon = findViewById(R.id.batteryRemainingIcon);
@@ -368,6 +370,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         } else {
             mPrivacyChipLogged = false;
         }
+        mCarrierGroup.setListening(listening);
     }
 
     @Override

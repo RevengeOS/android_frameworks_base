@@ -36,8 +36,7 @@
         android:layout_gravity="center_vertical"
         android:gravity="end" >
 
-        <include layout="@layout/qs_carrier_group"
-            android:id="@+id/carrier_group"
+        <Space
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="@integer/qs_footer_actions_weight"
