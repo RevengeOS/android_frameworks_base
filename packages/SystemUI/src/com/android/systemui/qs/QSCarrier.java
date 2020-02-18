@@ -16,6 +16,7 @@
 
 package com.android.systemui.qs;
 
+import android.annotation.ColorInt;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.text.TextUtils;
@@ -37,8 +38,6 @@ public class QSCarrier extends LinearLayout {
     private ImageView mMobileRoaming;
     private ImageView mMobileType;
     private ImageView mVolte;
-    private ColorStateList mColorForegroundStateList;
-    private float mColorForegroundIntensity;
 
     public QSCarrier(Context context) {
         super(context);
@@ -65,21 +64,13 @@ public class QSCarrier extends LinearLayout {
         mMobileType = findViewById(R.id.mobile_type);
         mVolte = findViewById(R.id.mobile_volte);
         mCarrierText = findViewById(R.id.qs_carrier_text);
-
-        int colorForeground = Utils.getColorAttrDefaultColor(mContext,
-                android.R.attr.colorForeground);
-        mColorForegroundStateList = ColorStateList.valueOf(colorForeground);
-
     }
 
     public void updateState(QSCarrierGroup.CellSignalState state) {
         mMobileGroup.setVisibility(state.visible ? View.VISIBLE : View.GONE);
         if (state.visible) {
-            mMobileType.setImageTintList(mColorForegroundStateList);
             mMobileRoaming.setVisibility(state.roaming ? View.VISIBLE : View.GONE);
-            mMobileRoaming.setImageTintList(mColorForegroundStateList);
             mMobileSignal.setImageDrawable(new SignalDrawable(mContext));
-            mMobileSignal.setImageTintList(mColorForegroundStateList);
             mMobileSignal.setImageLevel(state.mobileSignalIconId);
 
             StringBuilder contentDescription = new StringBuilder();
@@ -126,5 +117,14 @@ public class QSCarrier extends LinearLayout {
 
     public void setCarrierText(CharSequence text) {
         mCarrierText.setText(text);
+    }
+
+    void setTint(@ColorInt int tintColor) {
+        ColorStateList colorForegroundStateList = ColorStateList.valueOf(tintColor);
+        mMobileType.setImageTintList(colorForegroundStateList);
+        mVolte.setImageTintList(colorForegroundStateList);
+        mMobileRoaming.setImageTintList(colorForegroundStateList);
+        mMobileSignal.setImageTintList(colorForegroundStateList);
+        mCarrierText.setTextColor(tintColor);
     }
 }

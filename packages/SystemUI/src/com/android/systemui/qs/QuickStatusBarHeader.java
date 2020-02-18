@@ -237,6 +237,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             mIconManager.setTint(textColor);
         }
 
+        mCarrierGroup.setTint(textColor);
         mClockView.setTextColor(textColor);
         mDateView.setTextColor(textColor);
         mBatteryRemainingIcon.updateColors(textColor, textColor, textColor);

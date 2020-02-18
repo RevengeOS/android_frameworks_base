@@ -18,6 +18,7 @@ package com.android.systemui.qs;
 
 import static com.android.systemui.util.InjectionInflationController.VIEW_CONTEXT;
 
+import android.annotation.ColorInt;
 import android.content.Context;
 import android.content.Intent;
 import android.provider.Settings;
@@ -247,5 +248,12 @@ public class QSCarrierGroup extends LinearLayout implements
         boolean roaming;
         int typeId;
         int volteId;
+    }
+
+    public void setTint(@ColorInt int tintColor) {
+        for (QSCarrier carrierGroup : mCarrierGroups) {
+            carrierGroup.setTint(tintColor);
+        }
+        mNoSimTextView.setTextColor(tintColor);
     }
 }
