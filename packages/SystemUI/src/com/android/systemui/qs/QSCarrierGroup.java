@@ -223,7 +223,8 @@ public class QSCarrierGroup extends LinearLayout implements
         mInfos[slotIndex].visible = statusIcon.visible;
         mInfos[slotIndex].mobileSignalIconId = statusIcon.icon;
         mInfos[slotIndex].contentDescription = statusIcon.contentDescription;
-        mInfos[slotIndex].typeContentDescription = typeContentDescription.toString();
+        mInfos[slotIndex].typeContentDescription = (description != null) ? 
+                typeContentDescriptionHtml.toString() : null;
         mInfos[slotIndex].roaming = roaming;
         mInfos[slotIndex].typeId = statusType;
         mInfos[slotIndex].volteId = stackedVoiceId;

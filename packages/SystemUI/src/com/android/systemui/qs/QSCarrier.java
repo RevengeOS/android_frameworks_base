@@ -36,7 +36,9 @@ public class QSCarrier extends LinearLayout {
     private TextView mCarrierText;
     private ImageView mMobileSignal;
     private ImageView mMobileRoaming;
-    private ImageView mMobileType;
+    private TextView mMobileType;
+    // A View with just a space to separate the carrier label and type of signal
+    private TextView mSpacer;
     private ImageView mVolte;
 
     public QSCarrier(Context context) {
@@ -62,6 +64,7 @@ public class QSCarrier extends LinearLayout {
         mMobileSignal = findViewById(R.id.mobile_signal);
         mMobileRoaming = findViewById(R.id.mobile_roaming);
         mMobileType = findViewById(R.id.mobile_type);
+        mSpacer = findViewById(R.id.spacer);
         mVolte = findViewById(R.id.mobile_volte);
         mCarrierText = findViewById(R.id.qs_carrier_text);
     }
@@ -78,12 +81,14 @@ public class QSCarrier extends LinearLayout {
                 contentDescription.append(state.contentDescription).append(", ");
             }
 
-            if (state.typeId != 0) {
+            if (state.typeId != 0 && state.typeContentDescription != null) {
+                mMobileType.setText(state.typeContentDescription);
                 mMobileType.setContentDescription(state.typeContentDescription);
-                mMobileType.setImageResource(state.typeId);
                 mMobileType.setVisibility(View.VISIBLE);
+                mSpacer.setVisibility(View.VISIBLE);
             } else {
                 mMobileType.setVisibility(View.GONE);
+                mSpacer.setVisibility(View.GONE);
             }
 
             if (state.volteId != 0) {
@@ -121,7 +126,7 @@ public class QSCarrier extends LinearLayout {
 
     void setTint(@ColorInt int tintColor) {
         ColorStateList colorForegroundStateList = ColorStateList.valueOf(tintColor);
-        mMobileType.setImageTintList(colorForegroundStateList);
+        mMobileType.setTextColor(colorForegroundStateList);
         mVolte.setImageTintList(colorForegroundStateList);
         mMobileRoaming.setImageTintList(colorForegroundStateList);
         mMobileSignal.setImageTintList(colorForegroundStateList);
