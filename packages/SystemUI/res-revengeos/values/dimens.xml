@@ -42,4 +42,19 @@
     <dimen name="TemperatureTextMarginTop">5dp</dimen>
     <dimen name="ForecastItemsMarginVertical">10dp</dimen>
 
+    <!-- The font size for the clock in the QS -->
+    <dimen name="qs_clock_size">14sp</dimen>
+
+    <!-- The font size for the big clock in the QS -->
+    <dimen name="qs_big_clock_size">24sp</dimen>
+
+    <!-- The minimum size for the clock container in the QS -->
+    <dimen name="min_qs_clock_container_size">14dp</dimen>
+
+    <!-- The minimum size for the big clock container in the QS -->
+    <dimen name="min_qs_big_clock_container_size">24dp</dimen>
+
+    <!-- The margin between clock and date in QS -->
+    <dimen name="qs_clock_date_margin">3dp</dimen>
+
 </resources>
