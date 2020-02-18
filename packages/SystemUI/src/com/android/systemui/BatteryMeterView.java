@@ -252,7 +252,7 @@ public class BatteryMeterView extends LinearLayout implements
      * @param shouldUseWallpaperTextColor whether we should use wallpaperTextColor for all
      *                                    components
      */
-    public void useWallpaperTextColor(boolean shouldUseWallpaperTextColor) {
+    private void useWallpaperTextColor(boolean shouldUseWallpaperTextColor) {
         if (shouldUseWallpaperTextColor == mUseWallpaperTextColors) {
             return;
         }

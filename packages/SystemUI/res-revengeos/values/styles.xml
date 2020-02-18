@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Design made by Naomi Calabretta
+    Copyright (C) 2020. All rights reserved
+    Please refer to the DESIGN_LICENSE file for details.
+-->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="TextAppearance.QS.Clock" parent="@*android:style/TextAppearance.StatusBar.Icon">
+        <item name="android:textSize">@dimen/qs_clock_size</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+        <item name="android:textColor">@color/status_bar_clock_color</item>
+    </style>
+
+    <style name="TextAppearance.QS.ClockBig" parent="TextAppearance.StatusBar.Clock">
+        <item name="android:textSize">@dimen/qs_big_clock_size</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+    </style>
+</resources>

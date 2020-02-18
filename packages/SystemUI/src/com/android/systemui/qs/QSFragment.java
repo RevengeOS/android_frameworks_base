@@ -174,11 +174,6 @@ public class QSFragment extends LifecycleFragment implements QS, CommandQueue.Ca
     }
 
     @Override
-    public View getHeader() {
-        return mHeader;
-    }
-
-    @Override
     public void setHasNotifications(boolean hasNotifications) {
     }
 
@@ -272,6 +267,10 @@ public class QSFragment extends LifecycleFragment implements QS, CommandQueue.Ca
         // We want the freshest state here since otherwise we'll have some weirdness if earlier
         // listeners trigger updates
         return mStatusBarStateController.getState() == StatusBarState.KEYGUARD;
+    }
+
+    public QuickStatusBarHeader getHeader() {
+        return mHeader;
     }
 
     @Override

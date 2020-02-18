@@ -1,0 +1,82 @@
+Copyright (C) 2020 AryToNeX/Naomi Calabretta
+All Rights Reserved unless otherwise explicitly stated.
+ 
+Parts of RevengeOS' UI are licensed under the terms and conditions below
+
+                       TERMS AND CONDITIONS
+
+  0. Definitions.
+  
+  "Copyright" also means copyright-like laws that apply to other kinds of
+works, such as semiconductor masks.
+
+  "Design" and its plural form refer to any copyrightable work licensed
+under this License. Each licensee is addressed as "you". "Licensees",
+"users" and "recipients" may be individuals or organizations.
+
+  "Project" refers to any work which can make use of the design.
+
+  "The Author" refers to the original creator of this design and it's
+source code. 
+
+  To "modify" a work means to copy from or adapt all or part of the work
+in a fashion requiring copyright permission, other than the making of an
+exact copy. The resulting work is called a "modified version" of the
+earlier work or a work "based on" the earlier work.
+
+  A "covered work" means either the unmodified Design or a work based
+on the Design.
+
+  To "propagate" a work means to do anything with it that, without
+permission, would make you directly or secondarily liable for infringement
+under applicable copyright law, except executing it on a computer or
+modifying a private copy.  Propagation includes copying, distribution
+(with or without modification), making available to the public, and in
+some countries other activities as well.
+
+  To "convey" a work means any kind of propagation that enables other
+parties to make or receive copies. Mere interaction with a user through a
+computer network, with no transfer of a copy, is not conveying.
+
+
+  1. Redistribution
+
+  Public propagation of the designs or parts of them are only allowed
+following explicit permission by the Author of the original design.
+
+
+  2. Private and Public Modifications
+
+  Private and public modifications of this design require explicit permission
+from the original author. In order for the modification to be applicable for
+redistribution, it has to contain a certain amount of original work by the user.
+This modified version has to use the same license as the original design.
+  Furthermore the original design and its author have to be clearly
+credited. Any means of monetization through this modified version is
+strictly prohibited unless explicit permission by the original design's
+author is given.
+
+
+  3. Usage of this design or parts of it as part of another, original design or project
+
+  Using this design or parts of its source code as part of another, original
+design or project requires explicit permission from the original author.
+  Furthermore this design, its author and the parts used have to be
+clearly credited. Additionally, any means of monetization on this modified
+version are prohibited unless explicit permission is given.
+
+
+  4. Liability
+
+  The design is provided "as is", without warranty of any kind, express
+or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+author or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the design or the use or other dealings in the
+design.
+
+  5. Disclaimer
+
+  This License and its terms are subject to change and review at any time
+by this design's author.

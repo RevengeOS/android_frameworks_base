@@ -141,7 +141,7 @@ public class QSContainerImpl extends FrameLayout {
     private void updateResources() {
         LayoutParams layoutParams = (LayoutParams) mQSPanel.getLayoutParams();
         layoutParams.topMargin = mContext.getResources().getDimensionPixelSize(
-                com.android.internal.R.dimen.quick_qs_offset_height);
+                com.android.internal.R.dimen.qs_status_bar_height);
 
         mQSPanel.setLayoutParams(layoutParams);
     }
