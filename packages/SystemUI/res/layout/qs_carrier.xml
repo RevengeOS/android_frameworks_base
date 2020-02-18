@@ -39,6 +39,26 @@
         android:singleLine="true"
         android:maxEms="7"/>
 
+    <TextView
+        android:id="@+id/spacer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.StatusBar.Clock"
+        android:singleLine="true"
+        android:visibility="gone"
+        android:text=" "/>
+
+    <com.android.systemui.util.AutoMarqueeTextView
+        android:id="@+id/mobile_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.StatusBar.Clock"
+        android:textDirection="locale"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:maxEms="7"
+        android:visibility="gone"/>
+
     <include
         layout="@layout/mobile_signal_group"
         android:layout_width="wrap_content"
