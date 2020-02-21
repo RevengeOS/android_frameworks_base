@@ -35,6 +35,7 @@ import android.util.Pair;
 import android.util.StatsLog;
 import android.view.DisplayCutout;
 import android.view.View;
+import android.view.ViewGroup.MarginLayoutParams;
 import android.view.WindowInsets;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -257,18 +258,22 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
     private void updateResources() {
         Resources resources = mContext.getResources();
+        final int mTopMargin = resources.getDimensionPixelSize(
+                com.android.internal.R.dimen.qs_status_bar_top_padding);
 
         FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) getLayoutParams();
         if (mQsDisabled) {
             lp.height = resources.getDimensionPixelSize(
-                    com.android.internal.R.dimen.qs_status_bar_height);
+                    com.android.internal.R.dimen.qs_status_bar_height) + mTopMargin;
         } else {
+            //MarginLayoutParams systemIconsViewLp = mSystemIconsView;
             lp.height = Math.max(getMinimumHeight(),
                     resources.getDimensionPixelSize(
-                            com.android.internal.R.dimen.custom_quick_qs_total_height));
+                            com.android.internal.R.dimen.custom_quick_qs_total_height) + mTopMargin);
         }
 
         setLayoutParams(lp);
+        setPadding(0, mTopMargin, 0, 0);
         updatePrivacyChipAlphaAnimator();
     }
 
@@ -318,37 +323,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         super.onAttachedToWindow();
         mStatusBarIconController.addIconGroup(mIconManager);
         requestApplyInsets();
-    }
-
-    @Override
-    public WindowInsets onApplyWindowInsets(WindowInsets insets) {
-        DisplayCutout cutout = insets.getDisplayCutout();
-        Pair<Integer, Integer> padding = PhoneStatusBarView.cornerCutoutMargins(
-                cutout, getDisplay());
-        if (padding == null) {
-            mSystemIconsView.setPaddingRelative(
-                    getResources().getDimensionPixelSize(R.dimen.status_bar_padding_start), 0,
-                    getResources().getDimensionPixelSize(R.dimen.status_bar_padding_end), 0);
-        } else {
-            mSystemIconsView.setPadding(padding.first, 0, padding.second, 0);
-
-        }
-        LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) mSpace.getLayoutParams();
-        if (cutout != null) {
-            Rect topCutout = cutout.getBoundingRectTop();
-            if (topCutout.isEmpty()) {
-                mHasTopCutout = false;
-                lp.width = 0;
-                mSpace.setVisibility(View.GONE);
-            } else {
-                mHasTopCutout = true;
-                lp.width = topCutout.width();
-                mSpace.setVisibility(View.VISIBLE);
-            }
-        }
-        mSpace.setLayoutParams(lp);
-        setChipVisibility(mPrivacyChip.getVisibility() == View.VISIBLE);
-        return super.onApplyWindowInsets(insets);
     }
 
     @Override
