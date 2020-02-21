@@ -75,8 +75,6 @@
 <resources>
     <!-- QS status bar in QS panel -->
     <dimen name="qs_status_bar_height">75dp</dimen>
-    <!-- Quick QS height offset -->
-    <dimen name="custom_quick_qs_offset_height_extra">18dp</dimen>
     <!-- Total height of RevengeOS Quick QS (qs_status_bar_height + 91) -->
     <dimen name="custom_quick_qs_total_height">166dp</dimen>
 </resources>
