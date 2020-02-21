@@ -20,7 +20,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/header"
     android:layout_width="match_parent"
-    android:layout_height="@*android:dimen/custom_quick_qs_total_height"
+    android:layout_height="0dp"
     android:layout_gravity="@integer/notification_panel_layout_gravity"
     android:layout_marginStart="@dimen/qs_items_padding"
     android:layout_marginEnd="@dimen/qs_items_padding"
@@ -29,9 +29,6 @@
     android:clickable="false"
     android:clipChildren="false"
     android:clipToPadding="false"
-    android:paddingTop="0dp"
-    android:paddingEnd="0dp"
-    android:paddingStart="0dp"
     android:elevation="4dp" >
 
     <include layout="@layout/quick_status_bar_header_system_icons" />
