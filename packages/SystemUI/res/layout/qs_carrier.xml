@@ -18,7 +18,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/linear_carrier"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:minWidth="48dp"
     android:orientation="horizontal"
     android:gravity="center_vertical|start"
@@ -33,31 +33,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textAppearance="@style/TextAppearance.StatusBar.Clock"
         android:textDirection="locale"
         android:marqueeRepeatLimit="marquee_forever"
         android:singleLine="true"
-        android:maxEms="7"/>
+        android:maxEms="7"
+        style="@style/TextAppearance.StatusBar.Clock"/>
 
     <TextView
         android:id="@+id/spacer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.StatusBar.Clock"
         android:singleLine="true"
         android:visibility="gone"
-        android:text=" "/>
+        android:text=" "
+        style="@style/TextAppearance.StatusBar.Clock"/>
 
     <com.android.systemui.util.AutoMarqueeTextView
         android:id="@+id/mobile_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.StatusBar.Clock"
         android:textDirection="locale"
         android:marqueeRepeatLimit="marquee_forever"
         android:singleLine="true"
         android:maxEms="7"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        style="@style/TextAppearance.StatusBar.Clock"/>
 
     <include
         layout="@layout/mobile_signal_group"
