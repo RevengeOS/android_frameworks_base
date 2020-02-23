@@ -55,7 +55,7 @@
     <dimen name="min_qs_big_clock_container_size">26dp</dimen>
 
     <!-- The margin between clock and date in QS -->
-    <dimen name="qs_clock_date_margin">3sp</dimen>
+    <dimen name="qs_clock_date_margin">2sp</dimen>
 
     <!-- Quick QS height offset -->
     <dimen name="custom_quick_qs_offset_height_extra">18dp</dimen>
