@@ -19,10 +19,14 @@
         <item name="android:textSize">@dimen/qs_clock_size</item>
         <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
         <item name="android:textColor">@color/status_bar_clock_color</item>
+        <item name="android:minHeight">@dimen/min_qs_clock_container_size</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:singleLine">true</item>
     </style>
 
     <style name="TextAppearance.QS.ClockBig" parent="TextAppearance.StatusBar.Clock">
         <item name="android:textSize">@dimen/qs_big_clock_size</item>
         <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+        <item name="android:minHeight">@dimen/min_qs_big_clock_container_size</item>
     </style>
 </resources>
