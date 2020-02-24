@@ -11,38 +11,23 @@ import static android.app.StatusBarManager.DISABLE2_QUICK_SETTINGS;
 import static com.android.systemui.util.InjectionInflationController.VIEW_CONTEXT;
 
 import android.annotation.ColorInt;
-import android.app.ActivityManager;
-import android.app.AlarmManager;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.Rect;
-import android.media.AudioManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.AlarmClock;
 import android.provider.DeviceConfig;
 import android.provider.Settings;
-import android.service.notification.ZenModeConfig;
-import android.text.format.DateUtils;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.util.Pair;
 import android.util.StatsLog;
-import android.view.DisplayCutout;
 import android.view.View;
-import android.view.ViewGroup.MarginLayoutParams;
-import android.view.WindowInsets;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Space;
-import android.widget.TextView;
 
 import androidx.annotation.VisibleForTesting;
 
@@ -52,15 +37,12 @@ import com.android.systemui.BatteryMeterView;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.plugins.ActivityStarter;
-import com.android.systemui.plugins.DarkIconDispatcher;
-import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
 import com.android.systemui.privacy.OngoingPrivacyChip;
 import com.android.systemui.privacy.PrivacyDialogBuilder;
 import com.android.systemui.privacy.PrivacyItem;
 import com.android.systemui.privacy.PrivacyItemController;
 import com.android.systemui.privacy.PrivacyItemControllerKt;
 import com.android.systemui.qs.QSDetail.Callback;
-import com.android.systemui.statusbar.phone.PhoneStatusBarView;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.phone.StatusBarIconController.TintedIconManager;
 import com.android.systemui.statusbar.phone.StatusIconContainer;
@@ -68,8 +50,6 @@ import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.statusbar.policy.DateView;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.Objects;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -84,15 +64,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     private static final String TAG = "QuickStatusBarHeader";
     private static final boolean DEBUG = false;
 
-    /** Delay for auto fading out the long press tooltip after it's fully visible (in ms). */
-    private static final long AUTO_FADE_OUT_DELAY_MS = DateUtils.SECOND_IN_MILLIS * 6;
-    private static final int FADE_ANIMATION_DURATION_MS = 300;
-    private static final int TOOLTIP_NOT_YET_SHOWN_COUNT = 0;
-    public static final int MAX_TOOLTIP_SHOWN_COUNT = 2;
-
-    private final Rect mEmptyRect = new Rect(0, 0, 0, 0);
-
-    private final Handler mHandler = new Handler();
     private final StatusBarIconController mStatusBarIconController;
     private final ActivityStarter mActivityStarter;
 
@@ -106,16 +77,10 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     protected QuickQSPanel mHeaderQsPanel;
     protected QSTileHost mHost;
     private TintedIconManager mIconManager;
-    private TouchAnimator mStatusIconsAlphaAnimator;
-    private TouchAnimator mHeaderTextContainerAlphaAnimator;
     private TouchAnimator mPrivacyChipAlphaAnimator;
 
     private View mSystemIconsView;
 
-    private int mRingerMode = AudioManager.RINGER_MODE_NORMAL;
-    private AlarmManager.AlarmClockInfo mNextAlarm;
-
-    /** {@link TextView} containing the actual text indicating when the next alarm will go off. */
     private Clock mClockView;
     private DateView mDateView;
     private OngoingPrivacyChip mPrivacyChip;
@@ -124,7 +89,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     private boolean mPermissionsHubEnabled;
 
     private PrivacyItemController mPrivacyItemController;
-    private boolean mHasTopCutout = false;
     private boolean mPrivacyChipLogged = false;
 
     private final DeviceConfig.OnPropertyChangedListener mPropertyListener =
@@ -266,7 +230,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             lp.height = resources.getDimensionPixelSize(
                     com.android.internal.R.dimen.qs_status_bar_height) + mTopMargin;
         } else {
-            //MarginLayoutParams systemIconsViewLp = mSystemIconsView;
             lp.height = Math.max(getMinimumHeight(),
                     resources.getDimensionPixelSize(
                             com.android.internal.R.dimen.custom_quick_qs_total_height) + mTopMargin);
@@ -301,9 +264,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     public void setExpansion(boolean forceExpanded, float expansionFraction,
                              float panelTranslationY) {
         final float keyguardExpansionFraction = forceExpanded ? 1f : expansionFraction;
-        if (mStatusIconsAlphaAnimator != null) {
-            mStatusIconsAlphaAnimator.setPosition(keyguardExpansionFraction);
-        }
         if (mPrivacyChipAlphaAnimator != null) {
             mPrivacyChip.setExpanded(expansionFraction > 0.5);
             mPrivacyChipAlphaAnimator.setPosition(keyguardExpansionFraction);
@@ -392,21 +352,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
     public void setCallback(Callback qsPanelCallback) {
         mHeaderQsPanel.setCallback(qsPanelCallback);
-    }
-
-    private String formatNextAlarm(AlarmManager.AlarmClockInfo info) {
-        if (info == null) {
-            return "";
-        }
-        String skeleton = android.text.format.DateFormat
-                .is24HourFormat(mContext, ActivityManager.getCurrentUser()) ? "EHm" : "Ehma";
-        String pattern = android.text.format.DateFormat
-                .getBestDateTimePattern(Locale.getDefault(), skeleton);
-        return android.text.format.DateFormat.format(pattern, info.getTriggerTime()).toString();
-    }
-
-    public static float getColorIntensity(@ColorInt int color) {
-        return color == Color.WHITE ? 0 : 1;
     }
 
     public void setMargins(int sideMargins) {
