@@ -25,16 +25,9 @@
     android:orientation="horizontal"
     android:focusable="true" >
 
-        <FrameLayout
-            android:id="@+id/background"
-            android:layout_height="match_parent"
-            android:minWidth="48dp"
-            android:layout_width="wrap_content" >
-                <LinearLayout
-                    android:id="@+id/icons_container"
-                    android:layout_height="match_parent"
-                    android:layout_width="wrap_content"
-                    android:gravity="center_vertical"
-                    />
-          </FrameLayout>
+    <LinearLayout
+        android:id="@+id/icons_container"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:gravity="center_vertical" />
 </com.android.systemui.privacy.OngoingPrivacyChip>

@@ -27,8 +27,13 @@ import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.UserManager;
+import android.provider.DeviceConfig;
+import android.provider.Settings;
 import android.util.AttributeSet;
+import android.util.StatsLog;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.accessibility.AccessibilityNodeInfo;
@@ -40,6 +45,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
+import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.keyguard.KeyguardUpdateMonitor;
@@ -49,6 +55,11 @@ import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.R.dimen;
 import com.android.systemui.plugins.ActivityStarter;
+import com.android.systemui.privacy.OngoingPrivacyChip;
+import com.android.systemui.privacy.PrivacyDialogBuilder;
+import com.android.systemui.privacy.PrivacyItem;
+import com.android.systemui.privacy.PrivacyItemController;
+import com.android.systemui.privacy.PrivacyItemControllerKt;
 import com.android.systemui.qs.TouchAnimator.Builder;
 import com.android.systemui.statusbar.phone.MultiUserSwitch;
 import com.android.systemui.statusbar.phone.SettingsButton;
@@ -56,6 +67,8 @@ import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.UserInfoController;
 import com.android.systemui.statusbar.policy.UserInfoController.OnUserInfoChangedListener;
 import com.android.systemui.tuner.TunerService;
+
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -93,14 +106,33 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
 
     private OnClickListener mExpandClickListener;
 
+    private OngoingPrivacyChip mPrivacyChip;
+    private PrivacyItemController mPrivacyItemController;
+    private boolean mPermissionsHubEnabled;
+    private boolean mPrivacyChipLogged = false;
+
+    private final DeviceConfig.OnPropertyChangedListener mPropertyListener =
+            new DeviceConfig.OnPropertyChangedListener() {
+                @Override
+                public void onPropertyChanged(String namespace, String name, String value) {
+                    if (DeviceConfig.NAMESPACE_PRIVACY.equals(namespace)
+                            && SystemUiDeviceConfigFlags.PROPERTY_PERMISSIONS_HUB_ENABLED.equals(
+                            name)) {
+                        mPermissionsHubEnabled = Boolean.valueOf(value);
+                    }
+                }
+            };
+
     @Inject
     public QSFooterImpl(@Named(VIEW_CONTEXT) Context context, AttributeSet attrs,
             ActivityStarter activityStarter, UserInfoController userInfoController,
-            DeviceProvisionedController deviceProvisionedController) {
+            DeviceProvisionedController deviceProvisionedController,
+            PrivacyItemController privacyItemController) {
         super(context, attrs);
         mActivityStarter = activityStarter;
         mUserInfoController = userInfoController;
         mDeviceProvisionedController = deviceProvisionedController;
+        mPrivacyItemController = privacyItemController;
     }
 
     @VisibleForTesting
@@ -108,7 +140,8 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         this(context, attrs,
                 Dependency.get(ActivityStarter.class),
                 Dependency.get(UserInfoController.class),
-                Dependency.get(DeviceProvisionedController.class));
+                Dependency.get(DeviceProvisionedController.class),
+                Dependency.get(PrivacyItemController.class));
     }
 
     @Override
@@ -130,6 +163,14 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
 
         mDragHandle = findViewById(R.id.qs_drag_handle_view);
         mActionsContainer = findViewById(R.id.qs_footer_actions_container);
+
+        mPermissionsHubEnabled = PrivacyItemControllerKt.isPermissionsHubEnabled();
+        // Change the ignored slots when DeviceConfig flag changes
+        DeviceConfig.addOnPropertyChangedListener(DeviceConfig.NAMESPACE_PRIVACY,
+                mContext.getMainExecutor(), mPropertyListener);
+
+        mPrivacyChip = findViewById(R.id.privacy_chip);
+        mPrivacyChip.setOnClickListener(this);
 
         // RenderThread is doing more harm than good when touching the header (to expand quick
         // settings), so disable it for this view
@@ -185,6 +226,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
                 .addFloat(mActionsContainer, "alpha", 0, 1)
                 .addFloat(mDragHandle, "alpha", 1, 0, 0)
                 .addFloat(mPageIndicator, "alpha", 0, 1)
+                .addFloat(mPrivacyChip, "alpha", 0, 1)
                 .setStartDelay(0.15f)
                 .build();
     }
@@ -292,8 +334,10 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     private void updateListeners() {
         if (mListening) {
             mUserInfoController.addCallback(this);
+            mPrivacyItemController.addCallback(mPICCallback);
         } else {
             mUserInfoController.removeCallback(this);
+            mPrivacyChipLogged = false;
         }
     }
 
@@ -341,6 +385,17 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
             } else {
                 startSettingsActivity();
             }
+        } else if (v == mPrivacyChip) {
+            // Makes sure that the builder is grabbed as soon as the chip is pressed
+            PrivacyDialogBuilder builder = mPrivacyChip.getBuilder();
+            if (builder.getAppsAndTypes().size() == 0) return;
+            Handler mUiHandler = new Handler(Looper.getMainLooper());
+            StatsLog.write(StatsLog.PRIVACY_INDICATORS_INTERACTED,
+                    StatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__CHIP_CLICKED);
+            mUiHandler.post(() -> {
+                mActivityStarter.postStartActivityDismissingKeyguard(
+                        new Intent(Intent.ACTION_REVIEW_ONGOING_PERMISSION_USAGE), 0);
+            });
         }
     }
 
@@ -360,5 +415,30 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
                     Mode.SRC_IN);
         }
         mMultiUserAvatar.setImageDrawable(picture);
+    }
+
+    private PrivacyItemController.Callback mPICCallback = new PrivacyItemController.Callback() {
+        @Override
+        public void privacyChanged(List<PrivacyItem> privacyItems) {
+            mPrivacyChip.setPrivacyList(privacyItems);
+            setChipVisibility(!privacyItems.isEmpty());
+        }
+    };
+
+    private void setChipVisibility(boolean chipVisible) {
+        final boolean chipVisibilityDisabled = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.PRIVACY_CHIP_VIEW, 1) == 1;
+        if (chipVisible && mPermissionsHubEnabled && !chipVisibilityDisabled) {
+            mPrivacyChip.setVisibility(View.VISIBLE);
+            // Makes sure that the chip is logged as viewed at most once each time QS is opened
+            // mListening makes sure that the callback didn't return after the user closed QS
+            if (!mPrivacyChipLogged && mListening) {
+                mPrivacyChipLogged = true;
+                StatsLog.write(StatsLog.PRIVACY_INDICATORS_INTERACTED,
+                        StatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__CHIP_VIEWED);
+            }
+        } else {
+            mPrivacyChip.setVisibility(View.GONE);
+        }
     }
 }
