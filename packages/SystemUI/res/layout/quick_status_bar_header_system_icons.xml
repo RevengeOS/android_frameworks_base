@@ -74,8 +74,6 @@
                 android:id="@+id/batteryRemainingIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
-
-            <include layout="@layout/ongoing_privacy_chip" />
         </LinearLayout>
 
         <include layout="@layout/qs_carrier_group"
