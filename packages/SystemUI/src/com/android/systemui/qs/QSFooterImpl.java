@@ -102,7 +102,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     private TouchAnimator mSettingsCogAnimator;
 
     private View mActionsContainer;
-    private View mDragHandle;
 
     private OnClickListener mExpandClickListener;
 
@@ -161,7 +160,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         mMultiUserSwitch = findViewById(R.id.multi_user_switch);
         mMultiUserAvatar = mMultiUserSwitch.findViewById(R.id.multi_user_avatar);
 
-        mDragHandle = findViewById(R.id.qs_drag_handle_view);
         mActionsContainer = findViewById(R.id.qs_footer_actions_container);
 
         mPermissionsHubEnabled = PrivacyItemControllerKt.isPermissionsHubEnabled();
@@ -224,7 +222,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     private TouchAnimator createFooterAnimator() {
         return new TouchAnimator.Builder()
                 .addFloat(mActionsContainer, "alpha", 0, 1)
-                .addFloat(mDragHandle, "alpha", 1, 0, 0)
                 .addFloat(mPageIndicator, "alpha", 0, 1)
                 .addFloat(mPrivacyChip, "alpha", 0, 1)
                 .setStartDelay(0.15f)
