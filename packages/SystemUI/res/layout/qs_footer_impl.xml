@@ -36,11 +36,18 @@
         android:layout_gravity="center_vertical"
         android:gravity="end" >
 
-        <Space
-            android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="@integer/qs_footer_actions_weight"
+        android:gravity="start" >
+
+        <include layout="@layout/ongoing_privacy_chip"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="@integer/qs_footer_actions_weight"
             android:layout_marginStart="@dimen/qs_footer_icon_padding" />
+    </LinearLayout>
 
         <com.android.systemui.qs.PageIndicator
             android:id="@+id/footer_page_indicator"
