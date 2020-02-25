@@ -47,10 +47,6 @@ import com.android.systemui.BatteryMeterView;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.plugins.ActivityStarter;
-import com.android.systemui.privacy.OngoingPrivacyChip;
-import com.android.systemui.privacy.PrivacyDialogBuilder;
-import com.android.systemui.privacy.PrivacyItem;
-import com.android.systemui.privacy.PrivacyItemController;
 import com.android.systemui.privacy.PrivacyItemControllerKt;
 import com.android.systemui.qs.QSDetail.Callback;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
@@ -87,7 +83,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     protected QuickQSPanel mHeaderQsPanel;
     protected QSTileHost mHost;
     private TintedIconManager mIconManager;
-    private TouchAnimator mPrivacyChipAlphaAnimator;
 
     private View mSystemIconsView;
 
@@ -95,13 +90,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
     private Clock mClockView;
     private DateView mDateView;
-    private OngoingPrivacyChip mPrivacyChip;
     private Space mSpace;
     private BatteryMeterView mBatteryRemainingIcon;
     private boolean mPermissionsHubEnabled;
-
-    private PrivacyItemController mPrivacyItemController;
-    private boolean mPrivacyChipLogged = false;
 
     private final DeviceConfig.OnPropertyChangedListener mPropertyListener =
             new DeviceConfig.OnPropertyChangedListener() {
@@ -117,22 +108,13 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                 }
             };
 
-    private PrivacyItemController.Callback mPICCallback = new PrivacyItemController.Callback() {
-        @Override
-        public void privacyChanged(List<PrivacyItem> privacyItems) {
-            mPrivacyChip.setPrivacyList(privacyItems);
-            setChipVisibility(!privacyItems.isEmpty());
-        }
-    };
-
     @Inject
     public QuickStatusBarHeader(@Named(VIEW_CONTEXT) Context context, AttributeSet attrs,
             StatusBarIconController statusBarIconController,
-            ActivityStarter activityStarter, PrivacyItemController privacyItemController) {
+            ActivityStarter activityStarter) {
         super(context, attrs);
         mStatusBarIconController = statusBarIconController;
         mActivityStarter = activityStarter;
-        mPrivacyItemController = privacyItemController;
     }
 
     @Override
@@ -157,12 +139,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         });
 
         StatusIconContainer iconContainer = findViewById(R.id.statusIcons);
-        // Ignore privacy icons because they show in the space above QQS
         iconContainer.addIgnoredSlots(getIgnoredIconSlots());
         iconContainer.setShouldRestrictIcons(false);
         mIconManager = new TintedIconManager(iconContainer);
-        mPrivacyChip = findViewById(R.id.privacy_chip);
-        mPrivacyChip.setOnClickListener(this::onClick);
         updateResources();
 
         mClockView = findViewById(R.id.clock);
@@ -203,23 +182,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         }
 
         return ignored;
-    }
-
-    private void setChipVisibility(boolean chipVisible) {
-        final boolean chipVisibilityDisabled = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.PRIVACY_CHIP_VIEW, 1) == 1;
-        if (chipVisible && mPermissionsHubEnabled && !chipVisibilityDisabled) {
-            mPrivacyChip.setVisibility(View.VISIBLE);
-            // Makes sure that the chip is logged as viewed at most once each time QS is opened
-            // mListening makes sure that the callback didn't return after the user closed QS
-            if (!mPrivacyChipLogged && mListening) {
-                mPrivacyChipLogged = true;
-                StatsLog.write(StatsLog.PRIVACY_INDICATORS_INTERACTED,
-                        StatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__CHIP_VIEWED);
-            }
-        } else {
-            mPrivacyChip.setVisibility(View.GONE);
-        }
     }
 
     public void updateExtendedStatusBarTint(Context context) {
@@ -264,13 +226,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
         setLayoutParams(lp);
         setPadding(0, mTopMargin, 0, 0);
-        updatePrivacyChipAlphaAnimator();
-    }
-
-    private void updatePrivacyChipAlphaAnimator() {
-        mPrivacyChipAlphaAnimator = new TouchAnimator.Builder()
-                .addFloat(mPrivacyChip, "alpha", 1, 0, 1)
-                .build();
     }
 
     public void setExpanded(boolean expanded) {
@@ -291,10 +246,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     public void setExpansion(boolean forceExpanded, float expansionFraction,
                              float panelTranslationY) {
         final float keyguardExpansionFraction = forceExpanded ? 1f : expansionFraction;
-        if (mPrivacyChipAlphaAnimator != null) {
-            mPrivacyChip.setExpanded(expansionFraction > 0.5);
-            mPrivacyChipAlphaAnimator.setPosition(keyguardExpansionFraction);
-        }
     }
 
     public void disable(int state1, int state2, boolean animate) {
@@ -326,12 +277,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         }
         mHeaderQsPanel.setListening(listening);
         mListening = listening;
-
-        if (listening) {
-            mPrivacyItemController.addCallback(mPICCallback);
-        } else {
-            mPrivacyChipLogged = false;
-        }
         mCarrierGroup.setListening(listening);
     }
 
@@ -343,18 +288,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         } else if (v == mDateView) {
             Dependency.get(ActivityStarter.class).postStartActivityDismissingKeyguard(new Intent(
                     Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_APP_CALENDAR),0);
-        } else if (v == mPrivacyChip) {
-            // Makes sure that the builder is grabbed as soon as the chip is pressed
-            PrivacyDialogBuilder builder = mPrivacyChip.getBuilder();
-            if (builder.getAppsAndTypes().size() == 0) return;
-            Handler mUiHandler = new Handler(Looper.getMainLooper());
-            StatsLog.write(StatsLog.PRIVACY_INDICATORS_INTERACTED,
-                    StatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__CHIP_CLICKED);
-            mUiHandler.post(() -> {
-                mActivityStarter.postStartActivityDismissingKeyguard(
-                        new Intent(Intent.ACTION_REVIEW_ONGOING_PERMISSION_USAGE), 0);
-                mHost.collapsePanels();
-            });
         } else if (v == mBatteryRemainingIcon) {
             Dependency.get(ActivityStarter.class).postStartActivityDismissingKeyguard(new Intent(
                     Intent.ACTION_POWER_USAGE_SUMMARY),0);
