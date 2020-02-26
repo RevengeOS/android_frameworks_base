@@ -40,7 +40,6 @@ import android.os.Message;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Display;
-import android.view.OrientationEventListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager.LayoutParams;
@@ -123,8 +122,6 @@ public class TriStateUiControllerImpl implements ConfigurationListener, TriState
     private ViewGroup mDialogView;
     private final H mHandler;
     private UserActivityListener mListener;
-    OrientationEventListener mOrientationListener;
-    private int mOrientationType = 0;
     private boolean mShowing = false;
     private int mBackgroundColor = 0;
     private int mThemeMode = 0;
@@ -194,12 +191,6 @@ public class TriStateUiControllerImpl implements ConfigurationListener, TriState
     public TriStateUiControllerImpl(Context context) {
         mContext = context;
         mHandler = new H(this);
-        mOrientationListener = new OrientationEventListener(mContext, 3) {
-            @Override
-            public void onOrientationChanged(int orientation) {
-                checkOrientationType();
-            }
-        };
         mVolumeDialogController = (VolumeDialogController) Dependency.get(VolumeDialogController.class);
         mIntentAction = mContext.getResources().getString(com.android.internal.R.string.config_alertSliderIntent);
         mIntentActionSupported = mIntentAction != null && !mIntentAction.isEmpty();
@@ -209,17 +200,6 @@ public class TriStateUiControllerImpl implements ConfigurationListener, TriState
         if (mIntentActionSupported)
             filter.addAction(mIntentAction);
         mContext.registerReceiver(mRingerStateReceiver, filter);
-    }
-
-    private void checkOrientationType() {
-        Display display = DisplayManagerGlobal.getInstance().getRealDisplay(0);
-        if (display != null) {
-            int rotation = display.getRotation();
-            if (rotation != mOrientationType) {
-                mOrientationType = rotation;
-                updateTriStateLayout();
-            }
-        }
     }
 
     public void init(int windowType, UserActivityListener listener) {
@@ -266,16 +246,6 @@ public class TriStateUiControllerImpl implements ConfigurationListener, TriState
         updateTheme();
     }
 
-    private void registerOrientationListener(boolean enable) {
-        if (mOrientationListener.canDetectOrientation() && enable) {
-            Log.v(TAG, "Can detect orientation");
-            mOrientationListener.enable();
-            return;
-        }
-        Log.v(TAG, "Cannot detect orientation");
-        mOrientationListener.disable();
-    }
-
     private void updateTriStateLayout() {
         if (mContext != null) {
             int iconId = 0;
@@ -308,7 +278,14 @@ public class TriStateUiControllerImpl implements ConfigurationListener, TriState
                 } else if (triStatePos == TRI_STATE_UI_POSITION_RIGHT) {
                     isTsKeyRight = true;
                 }
-                switch (mOrientationType) {
+
+                Display display = DisplayManagerGlobal.getInstance().getRealDisplay(0);
+                int orientationType = -1;
+                if (display != null) {
+                    orientationType = display.getRotation();
+                }
+
+                switch (orientationType) {
                     case ROTATION_90:
                         if (isTsKeyRight) {
                             gravity = 51;
@@ -424,9 +401,7 @@ public class TriStateUiControllerImpl implements ConfigurationListener, TriState
     private void handleShow() {
         mHandler.removeMessages(MSG_DIALOG_SHOW);
         if (!mShowing) {
-            updateTheme();
-            registerOrientationListener(true);
-            checkOrientationType();
+            updateTriStateLayout();
             mShowing = true;
             mDialog.show();
             if (mListener != null) {
@@ -439,7 +414,6 @@ public class TriStateUiControllerImpl implements ConfigurationListener, TriState
     private void handleDismiss() {
         mHandler.removeMessages(MSG_DIALOG_DISMISS);
         if (mShowing) {
-            registerOrientationListener(false);
             mShowing = false;
             mDialog.dismiss();
         }
