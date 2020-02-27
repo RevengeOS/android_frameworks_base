@@ -37,6 +37,7 @@ import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 import com.android.settingslib.Utils;
 import com.android.systemui.BatteryMeterView;
 import com.android.systemui.Dependency;
+import com.android.systemui.omni.CurrentWeatherView;
 import com.android.systemui.R;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.privacy.PrivacyItemControllerKt;
@@ -82,6 +83,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
     private Clock mClockView;
     private DateView mDateView;
+    private CurrentWeatherView mWeatherView;
     private Space mSpace;
     private BatteryMeterView mBatteryRemainingIcon;
     private boolean mPermissionsHubEnabled;
@@ -140,6 +142,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mClockView.setOnClickListener(this);
         mDateView = findViewById(R.id.date);
         mDateView.setOnClickListener(this);
+        mWeatherView = findViewById(R.id.weather_container);
+        mWeatherView.enableUpdates();
         mSpace = findViewById(R.id.space);
         mCarrierGroup = findViewById(R.id.carrier_group);
 
@@ -186,6 +190,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mCarrierGroup.setTint(textColor);
         mClockView.setTextColor(textColor);
         mDateView.setTextColor(textColor);
+        mWeatherView.setTint(textColor, textColor == Color.WHITE ? 1 : 0);
         mBatteryRemainingIcon.updateColors(textColor, textColor, textColor);
     }
 
