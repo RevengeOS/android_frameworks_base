@@ -35,13 +35,13 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/qs_clock_date_margin">
 
             <com.android.systemui.statusbar.policy.DateView
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/qs_clock_date_margin"
                 style="@style/TextAppearance.QS.Clock"
                 systemui:datePattern="@string/abbrev_wday_month_day_no_year_alarm" />
 
@@ -49,8 +49,7 @@
                     android:id="@+id/weather_container"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/qs_bottom_line_item_margin"
-                    android:gravity="bottom">
+                    android:layout_marginStart="@dimen/qs_bottom_line_item_margin">
 
                     <TextView
                         android:id="@+id/left_text"
