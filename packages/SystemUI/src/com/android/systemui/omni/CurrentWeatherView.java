@@ -45,7 +45,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -58,7 +57,7 @@ import java.util.Date;
 
 import org.omnirom.omni.OmniJawsClient;
 
-public class CurrentWeatherView extends FrameLayout implements OmniJawsClient.OmniJawsObserver {
+public class CurrentWeatherView extends LinearLayout implements OmniJawsClient.OmniJawsObserver {
 
     static final String TAG = "SystemUI:CurrentWeatherView";
     static final boolean DEBUG = false;
