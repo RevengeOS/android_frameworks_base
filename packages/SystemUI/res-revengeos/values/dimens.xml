@@ -57,6 +57,9 @@
     <!-- The margin between clock and date in QS -->
     <dimen name="qs_clock_date_margin">2sp</dimen>
 
+     <!-- The margin between the items in the bottom line of expanded status bar -->
+    <dimen name="qs_bottom_line_item_margin">5sp</dimen>
+
     <!-- Quick QS height offset -->
     <dimen name="custom_quick_qs_offset_height_extra">18dp</dimen>
 

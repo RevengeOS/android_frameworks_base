@@ -193,10 +193,21 @@ public class CurrentWeatherView extends LinearLayout implements OmniJawsClient.O
     }
 
     private void updateTint(Drawable d) {
-        if (mDarkAmount == 1) {
-            mCurrentImage.setImageTintList(ColorStateList.valueOf(Color.WHITE));
-        } else {
+        if (mDarkAmount != 1) {
             mCurrentImage.setImageTintList((d instanceof VectorDrawable) ? ColorStateList.valueOf(getTintColor()) : null);
+        }
+    }
+
+    public void setTint(int color, float darkAmount) {
+        mTextColor = color;
+        mDarkAmount = darkAmount;
+        mLeftText.setTextColor(color);
+        mRightText.setTextColor(color);
+
+        if (mWeatherClient != null) {
+            // update image with correct tint
+            OmniJawsClient.WeatherInfo weatherData = mWeatherClient.getWeatherInfo();
+            updateWeatherData(weatherData);
         }
     }
 
