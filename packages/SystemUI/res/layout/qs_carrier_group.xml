@@ -19,7 +19,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/qs_mobile"
     android:layout_width="0dp"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_weight="1"
     android:gravity="start|center_vertical"
     android:orientation="horizontal">
@@ -29,12 +29,12 @@
         android:id="@+id/no_carrier_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.QS.Status"
         android:textDirection="locale"
         android:marqueeRepeatLimit="marquee_forever"
         android:singleLine="true"
         android:maxEms="7"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        style="@style/TextAppearance.StatusBar.Clock"/>
 
     <include
         layout="@layout/qs_carrier"

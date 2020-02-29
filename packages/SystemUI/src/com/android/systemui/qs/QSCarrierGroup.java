@@ -18,6 +18,7 @@ package com.android.systemui.qs;
 
 import static com.android.systemui.util.InjectionInflationController.VIEW_CONTEXT;
 
+import android.annotation.ColorInt;
 import android.content.Context;
 import android.content.Intent;
 import android.provider.Settings;
@@ -222,8 +223,11 @@ public class QSCarrierGroup extends LinearLayout implements
         mInfos[slotIndex].visible = statusIcon.visible;
         mInfos[slotIndex].mobileSignalIconId = statusIcon.icon;
         mInfos[slotIndex].contentDescription = statusIcon.contentDescription;
-        mInfos[slotIndex].typeContentDescription = typeContentDescription.toString();
+        mInfos[slotIndex].typeContentDescription = (description != null) ? 
+                typeContentDescriptionHtml.toString() : null;
         mInfos[slotIndex].roaming = roaming;
+        mInfos[slotIndex].typeId = statusType;
+        mInfos[slotIndex].volteId = stackedVoiceId;
         handleUpdateState();
     }
 
@@ -243,5 +247,14 @@ public class QSCarrierGroup extends LinearLayout implements
         String contentDescription;
         String typeContentDescription;
         boolean roaming;
+        int typeId;
+        int volteId;
+    }
+
+    public void setTint(@ColorInt int tintColor) {
+        for (QSCarrier carrierGroup : mCarrierGroups) {
+            carrierGroup.setTint(tintColor);
+        }
+        mNoSimTextView.setTextColor(tintColor);
     }
 }

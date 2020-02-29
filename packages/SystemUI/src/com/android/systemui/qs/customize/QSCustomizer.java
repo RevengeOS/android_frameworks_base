@@ -172,7 +172,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
     private void updateResources() {
         LayoutParams lp = (LayoutParams) mTransparentView.getLayoutParams();
         lp.height = mContext.getResources().getDimensionPixelSize(
-                com.android.internal.R.dimen.quick_qs_offset_height);
+                com.android.internal.R.dimen.qs_status_bar_height);
         mTransparentView.setLayoutParams(lp);
     }
 

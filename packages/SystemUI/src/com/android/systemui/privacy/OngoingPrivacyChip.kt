@@ -18,7 +18,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import com.android.systemui.R
@@ -38,11 +37,7 @@ class OngoingPrivacyChip @JvmOverloads constructor(
             context.resources.getDimensionPixelSize(R.dimen.ongoing_appops_chip_icon_size)
     private val iconColor = context.resources.getColor(
             R.color.status_bar_clock_color, context.theme)
-    private val sidePadding =
-            context.resources.getDimensionPixelSize(R.dimen.ongoing_appops_chip_side_padding)
-    private val backgroundDrawable = context.getDrawable(R.drawable.privacy_chip_bg)
     private lateinit var iconsContainer: LinearLayout
-    private lateinit var back: FrameLayout
     var expanded = false
         set(value) {
             if (value != field) {
@@ -62,15 +57,11 @@ class OngoingPrivacyChip @JvmOverloads constructor(
     override fun onFinishInflate() {
         super.onFinishInflate()
 
-        back = findViewById(R.id.background)
         iconsContainer = findViewById(R.id.icons_container)
     }
 
     // Should only be called if the builder icons or app changed
     private fun updateView() {
-        back.background = if (expanded) backgroundDrawable else null
-        val padding = if (expanded) sidePadding else 0
-        back.setPaddingRelative(padding, 0, padding, 0)
         fun setIcons(dialogBuilder: PrivacyDialogBuilder, iconsContainer: ViewGroup) {
             iconsContainer.removeAllViews()
             dialogBuilder.generateIcons().forEachIndexed { i, it ->
@@ -92,7 +83,7 @@ class OngoingPrivacyChip @JvmOverloads constructor(
         if (!privacyList.isEmpty()) {
             generateContentDescription()
             setIcons(builder, iconsContainer)
-            val lp = iconsContainer.layoutParams as FrameLayout.LayoutParams
+            val lp = iconsContainer.layoutParams as LinearLayout.LayoutParams
             lp.gravity = Gravity.CENTER_VERTICAL or
                     (if (expanded) Gravity.CENTER_HORIZONTAL else Gravity.END)
             iconsContainer.layoutParams = lp

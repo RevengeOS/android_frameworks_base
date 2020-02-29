@@ -53,7 +53,6 @@ import com.android.settingslib.RestrictedLockUtilsInternal;
 import com.android.settingslib.Utils;
 import com.android.systemui.Dependency;
 import com.android.systemui.Dumpable;
-import com.android.systemui.Prefs;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.qs.DetailAdapter;
 import com.android.systemui.plugins.qs.QSIconView;
@@ -220,11 +219,6 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                 .addTaggedData(FIELD_STATUS_BAR_STATE,
                         mStatusBarStateController.getState())));
         mHandler.sendEmptyMessage(H.LONG_CLICK);
-
-        Prefs.putInt(
-                mContext,
-                Prefs.Key.QS_LONG_PRESS_TOOLTIP_SHOWN_COUNT,
-                QuickStatusBarHeader.MAX_TOOLTIP_SHOWN_COUNT);
     }
 
     public LogMaker populate(LogMaker logMaker) {

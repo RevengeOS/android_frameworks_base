@@ -19,50 +19,111 @@
     xmlns:systemui="http://schemas.android.com/apk/res-auto"
     android:id="@+id/quick_status_bar_system_icons"
     android:layout_width="match_parent"
-    android:layout_height="@*android:dimen/quick_qs_offset_height"
+    android:layout_height="@*android:dimen/qs_status_bar_height"
     android:clipChildren="false"
     android:clipToPadding="false"
-    android:gravity="center"
-    android:orientation="horizontal"
     android:clickable="true"
     android:paddingStart="@dimen/status_bar_padding_start"
     android:paddingEnd="@dimen/status_bar_padding_end" >
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:gravity="center_vertical|start" >
-
-    <com.android.systemui.statusbar.policy.Clock
-        android:id="@+id/clock"
+        android:id="@+id/clock_date_container"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:minWidth="48dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical|start"
-        android:paddingStart="@dimen/status_bar_left_clock_starting_padding"
-        android:paddingEnd="@dimen/status_bar_left_clock_end_padding"
-        android:singleLine="true"
-        android:textAppearance="@style/TextAppearance.StatusBar.Clock"
-        systemui:showDark="false" />
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+
+        <com.android.systemui.statusbar.policy.Clock
+            android:id="@+id/clock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            style="@style/TextAppearance.QS.ClockBig"
+            systemui:showDark="false" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/qs_clock_date_margin">
+
+            <com.android.systemui.statusbar.policy.DateView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextAppearance.QS.Clock"
+                systemui:datePattern="@string/abbrev_wday_month_day_no_year_alarm" />
+
+                <com.android.systemui.omni.CurrentWeatherView
+                    android:id="@+id/weather_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/qs_bottom_line_item_margin">
+
+                    <TextView
+                        android:id="@+id/left_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/current_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="2sp"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"/>
+
+                    <TextView
+                        android:id="@+id/right_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        style="@style/TextAppearance.QS.Clock" />
+
+                </com.android.systemui.omni.CurrentWeatherView>
+        </LinearLayout>
     </LinearLayout>
 
     <android.widget.Space
         android:id="@+id/space"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:visibility="gone" />
+        android:layout_weight="1"
+        android:gravity="center_vertical|center_horizontal" />
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:gravity="center_vertical|end" >
+        android:id="@+id/status_icons_container"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:gravity="center_vertical|end"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
 
-    <include layout="@layout/ongoing_privacy_chip" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <com.android.systemui.statusbar.phone.StatusIconContainer
+                android:id="@+id/statusIcons"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingEnd="@dimen/signal_cluster_battery_padding" />
+
+            <com.android.systemui.BatteryMeterView
+                android:id="@+id/batteryRemainingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <include layout="@layout/qs_carrier_group"
+            android:id="@+id/carrier_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/qs_clock_date_margin"
+            android:layout_weight="0" />
 
     </LinearLayout>
 </LinearLayout>

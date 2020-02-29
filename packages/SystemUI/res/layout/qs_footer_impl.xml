@@ -36,12 +36,18 @@
         android:layout_gravity="center_vertical"
         android:gravity="end" >
 
-        <include layout="@layout/qs_carrier_group"
-            android:id="@+id/carrier_group"
-            android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="@integer/qs_footer_actions_weight"
+        android:gravity="start" >
+
+        <include layout="@layout/ongoing_privacy_chip"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="@integer/qs_footer_actions_weight"
             android:layout_marginStart="@dimen/qs_footer_icon_padding" />
+    </LinearLayout>
 
         <com.android.systemui.qs.PageIndicator
             android:id="@+id/footer_page_indicator"
@@ -118,12 +124,5 @@
             </com.android.systemui.statusbar.AlphaOptimizedFrameLayout>
         </com.android.keyguard.AlphaOptimizedLinearLayout>
     </LinearLayout>
-    <View
-        android:id="@+id/qs_drag_handle_view"
-        android:layout_width="24dp"
-        android:layout_height="4dp"
-        android:layout_marginBottom="16dp"
-        android:layout_gravity="center_horizontal|bottom"
-        android:background="@drawable/qs_footer_drag_handle" />
 
 </com.android.systemui.qs.QSFooterImpl>

@@ -21,21 +21,13 @@
     android:id="@+id/privacy_chip"
     android:layout_height="match_parent"
     android:layout_width="wrap_content"
-    android:layout_gravity="center_vertical|end"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:focusable="true" >
 
-        <FrameLayout
-            android:id="@+id/background"
-            android:layout_height="@dimen/ongoing_appops_chip_height"
-            android:minWidth="48dp"
-            android:layout_width="wrap_content" >
-                <LinearLayout
-                    android:id="@+id/icons_container"
-                    android:layout_height="match_parent"
-                    android:layout_width="wrap_content"
-                    android:gravity="center_vertical"
-                    />
-          </FrameLayout>
+    <LinearLayout
+        android:id="@+id/icons_container"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:gravity="center_vertical" />
 </com.android.systemui.privacy.OngoingPrivacyChip>

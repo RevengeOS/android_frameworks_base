@@ -47,6 +47,7 @@ public class QSContainerImpl extends FrameLayout {
     private View mBackground;
 
     private int mSideMargins;
+    private int mTopMargin;
     private boolean mQsDisabled;
 
     public QSContainerImpl(Context context, AttributeSet attrs) {
@@ -66,12 +67,15 @@ public class QSContainerImpl extends FrameLayout {
 
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_NO);
         setMargins();
+        updateResources();
     }
 
     @Override
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         updateResources();
+        setTopMargin(mQSDetail);
+        setTopMargin(mQSCustomizer);
         mSizePoint.set(0, 0); // Will be retrieved on next measure pass.
     }
 
@@ -139,9 +143,11 @@ public class QSContainerImpl extends FrameLayout {
     }
 
     private void updateResources() {
+        mTopMargin = mContext.getResources().getDimensionPixelSize(
+                com.android.internal.R.dimen.qs_status_bar_top_padding);
         LayoutParams layoutParams = (LayoutParams) mQSPanel.getLayoutParams();
         layoutParams.topMargin = mContext.getResources().getDimensionPixelSize(
-                com.android.internal.R.dimen.quick_qs_offset_height);
+                com.android.internal.R.dimen.qs_status_bar_height) + mTopMargin;
 
         mQSPanel.setLayoutParams(layoutParams);
     }
@@ -191,6 +197,12 @@ public class QSContainerImpl extends FrameLayout {
         FrameLayout.LayoutParams lp = (LayoutParams) view.getLayoutParams();
         lp.rightMargin = mSideMargins;
         lp.leftMargin = mSideMargins;
+    }
+
+    private void setTopMargin(View view) {
+        FrameLayout.LayoutParams lp = (LayoutParams) view.getLayoutParams();
+        lp.topMargin = mTopMargin;
+        view.setLayoutParams(lp);
     }
 
     private int getDisplayHeight() {

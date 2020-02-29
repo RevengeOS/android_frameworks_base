@@ -474,7 +474,7 @@
     <dimen name="qs_tile_padding_bottom">16dp</dimen>
     <dimen name="qs_tile_spacing">4dp</dimen>
     <dimen name="qs_panel_padding_bottom">0dp</dimen>
-    <dimen name="qs_panel_padding_top">@dimen/qs_header_tooltip_height</dimen>
+    <dimen name="qs_panel_padding_top">12dp</dimen>
     <dimen name="qs_detail_header_height">56dp</dimen>
     <dimen name="qs_detail_header_padding">0dp</dimen>
     <dimen name="qs_detail_image_width">56dp</dimen>
@@ -503,9 +503,9 @@
     <dimen name="qs_header_mobile_icon_size">@dimen/status_bar_icon_drawing_size</dimen>
     <dimen name="qs_header_alarm_text_margin_start">6dp</dimen>
     <dimen name="qs_header_separator_width">8dp</dimen>
-    <dimen name="qs_header_carrier_separator_width">6dp</dimen>
+    <dimen name="qs_header_carrier_separator_width">10dp</dimen>
     <dimen name="qs_status_separator">32dp</dimen>
-    <dimen name="qs_carrier_margin_width">4dp</dimen>
+    <dimen name="qs_carrier_margin_width">5dp</dimen>
     <dimen name="qs_footer_padding_start">16dp</dimen>
     <dimen name="qs_footer_padding_end">16dp</dimen>
     <dimen name="qs_footer_icon_size">16dp</dimen>
@@ -1163,6 +1163,7 @@
     <!-- Size of the RAT type for CellularTile -->
     <dimen name="celltile_rat_type_size">10sp</dimen>
 
-     <!-- Network traffic monitor -->
+    <!-- Network traffic monitor -->
     <dimen name="net_traffic_txt_img_padding">1dp</dimen>
+
 </resources>

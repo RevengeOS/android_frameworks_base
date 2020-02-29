@@ -153,4 +153,8 @@
 
     <!-- Whether to send camera status intent -->
     <java-symbol type="bool" name="config_sendCameraStatusIntent" />
+
+    <java-symbol type="dimen" name="qs_status_bar_height" />
+    <java-symbol type="dimen" name="qs_status_bar_top_padding" />
+    <java-symbol type="dimen" name="custom_quick_qs_total_height" />
 </resources>
