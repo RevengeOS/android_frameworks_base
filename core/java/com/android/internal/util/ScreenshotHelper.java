@@ -1,7 +1,5 @@
 package com.android.internal.util;
 
-import static android.view.WindowManager.TAKE_SCREENSHOT_SELECTED_REGION;
-
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.content.ComponentName;
@@ -191,9 +189,7 @@ public class ScreenshotHelper {
                     Context.BIND_AUTO_CREATE | Context.BIND_FOREGROUND_SERVICE_WHILE_AWAKE,
                     UserHandle.CURRENT)) {
                 mScreenshotConnection = conn;
-                if (screenshotType != TAKE_SCREENSHOT_SELECTED_REGION) {
-                    handler.postDelayed(mScreenshotTimeout, timeoutMs);
-                }
+                handler.postDelayed(mScreenshotTimeout, timeoutMs);
             }
         }
     }
