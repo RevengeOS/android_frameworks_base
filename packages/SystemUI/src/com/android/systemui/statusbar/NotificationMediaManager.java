@@ -78,6 +78,7 @@ import com.android.systemui.SysUiServiceProvider;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+import java.lang.Math;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -797,6 +798,6 @@ public class NotificationMediaManager implements Dumpable {
         float level = (float) Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.LOCKSCREEN_MEDIA_BLUR, 100,
                 UserHandle.USER_CURRENT) / 4;
-        return level;
+        return Math.min(level, 25);
     }
 }
