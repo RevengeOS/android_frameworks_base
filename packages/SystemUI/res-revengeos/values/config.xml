@@ -58,4 +58,7 @@
      <!-- Allow devices to use unordinary cutout overlays -->
      <bool name="config_customCutout">false</bool>
 
+    <!-- Whether to show biometric help only when failed -->
+    <bool name="config_biometricHelpShowOnlyWhenFailed">false</bool>
+
 </resources>
