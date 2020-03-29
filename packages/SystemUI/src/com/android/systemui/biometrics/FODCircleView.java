@@ -74,6 +74,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
     private boolean mIsBouncer;
     private boolean mIsDreaming;
+    private boolean mIsKeyguard;
     private boolean mIsShowing;
     private boolean mIsCircleShowing;
 
@@ -114,12 +115,17 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         }
 
         @Override
+        public void onKeyguardVisibilityChanged(boolean showing) {
+            mIsKeyguard = showing;
+        }
+
+        @Override
         public void onKeyguardBouncerChanged(boolean isBouncer) {
             mIsBouncer = isBouncer;
 
             if (isBouncer) {
                 hide();
-            } else if (mUpdateMonitor.isFingerprintDetectionRunning()) {
+            } else if (mIsKeyguard && mUpdateMonitor.isFingerprintDetectionRunning()) {
                 show();
             }
         }
