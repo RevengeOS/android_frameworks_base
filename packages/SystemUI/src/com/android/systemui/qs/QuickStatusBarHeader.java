@@ -15,7 +15,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.AlarmClock;
@@ -190,7 +189,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mCarrierGroup.setTint(textColor);
         mClockView.setTextColor(textColor);
         mDateView.setTextColor(textColor);
-        mWeatherView.setTint(textColor, textColor == Color.WHITE ? 1 : 0);
+        mWeatherView.setTint(textColor, 0);
         mBatteryRemainingIcon.updateColors(textColor, textColor, textColor);
     }
 
