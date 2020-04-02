@@ -4890,12 +4890,6 @@ public final class Settings {
         public static final String SCREENRECORD_SHOW_TAPS = "screenrecord_show_taps";
 
         /**
-         * Screenrecord: show stop dot
-         * @hide
-         */
-        public static final String SCREENRECORD_STOP_DOT = "screenrecord_stop_dot";
-
-        /**
          * Screenrecord: low quality
          * @hide
          */

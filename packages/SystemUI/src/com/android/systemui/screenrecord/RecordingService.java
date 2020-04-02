@@ -47,11 +47,9 @@ import android.util.Size;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Surface;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -78,7 +76,6 @@ public class RecordingService extends Service {
     private static final String EXTRA_PATH = "extra_path";
     private static final String EXTRA_USE_AUDIO = "extra_useAudio";
     private static final String EXTRA_SHOW_TAPS = "extra_showTaps";
-    private static final String EXTRA_SHOW_DOT = "extra_showDot";
     private static final String EXTRA_LOW_QUALITY = "extra_lowQuality";
     private static final int REQUEST_CODE = 2;
 
@@ -107,12 +104,7 @@ public class RecordingService extends Service {
 
     private boolean mUseAudio;
     private boolean mShowTaps;
-    private boolean mShowDot;
-    private boolean mIsDotAtRight;
-    private boolean mDotShowing;
     private boolean mLowQuality;
-    private FrameLayout mFrameLayout;
-    private LayoutInflater mInflater;
     private WindowManager mWindowManager;
     private File mTempFile;
 
@@ -128,14 +120,13 @@ public class RecordingService extends Service {
      * @param showTaps   True to make touches visible while recording
      */
     public static Intent getStartIntent(Context context, int resultCode, Intent data,
-            boolean useAudio, boolean showTaps, boolean showDot, boolean lowQuality) {
+            boolean useAudio, boolean showTaps, boolean lowQuality) {
         return new Intent(context, RecordingService.class)
                 .setAction(ACTION_START)
                 .putExtra(EXTRA_RESULT_CODE, resultCode)
                 .putExtra(EXTRA_DATA, data)
                 .putExtra(EXTRA_USE_AUDIO, useAudio)
                 .putExtra(EXTRA_SHOW_TAPS, showTaps)
-                .putExtra(EXTRA_SHOW_DOT, showDot)
                 .putExtra(EXTRA_LOW_QUALITY, lowQuality);
     }
 
@@ -155,7 +146,6 @@ public class RecordingService extends Service {
                 int resultCode = intent.getIntExtra(EXTRA_RESULT_CODE, Activity.RESULT_CANCELED);
                 mUseAudio = intent.getBooleanExtra(EXTRA_USE_AUDIO, false);
                 mShowTaps = intent.getBooleanExtra(EXTRA_SHOW_TAPS, false);
-                mShowDot = intent.getBooleanExtra(EXTRA_SHOW_DOT, false);
                 mLowQuality = intent.getBooleanExtra(EXTRA_LOW_QUALITY, false);
                 Intent data = intent.getParcelableExtra(EXTRA_DATA);
                 if (data != null) {
@@ -246,8 +236,6 @@ public class RecordingService extends Service {
     public void onCreate() {
         super.onCreate();
 
-        mInflater =
-                (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mMediaProjectionManager =
                 (MediaProjectionManager) getSystemService(Context.MEDIA_PROJECTION_SERVICE);
         mWindowManager =
@@ -266,9 +254,6 @@ public class RecordingService extends Service {
                 e.printStackTrace();
             }
             setTapsVisible(mShowTaps);
-            if (mShowDot) {
-                showDot();
-            }
 
             // Set up media recorder
             mMediaRecorder = new MediaRecorder();
@@ -428,9 +413,6 @@ public class RecordingService extends Service {
 
     private void stopRecording() {
         setTapsVisible(false);
-        if (mDotShowing) {
-            stopDot();
-        }
         try {
             mMediaRecorder.stop();
             mMediaRecorder.release();
@@ -479,70 +461,6 @@ public class RecordingService extends Service {
         int value = turnOn ? 1 : 0;
         Settings.System.putInt(getApplicationContext().getContentResolver(),
                 Settings.System.SHOW_TOUCHES, value);
-    }
-
-    private void showDot() {
-        mDotShowing = true;
-        mIsDotAtRight = true;
-        final int size = (int) (this.getResources()
-                .getDimensionPixelSize(R.dimen.screenrecord_dot_size));
-        WindowManager.LayoutParams params = new WindowManager.LayoutParams(
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.TYPE_PHONE,
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE // don't get softkey inputs
-                | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL, // allow outside inputs
-                PixelFormat.TRANSLUCENT);
-        params.gravity = Gravity.TOP | Gravity.RIGHT;
-        params.width = size;
-        params.height = size;
-
-        mFrameLayout = new FrameLayout(this);
-
-        mWindowManager.addView(mFrameLayout, params);
-        mInflater.inflate(R.layout.screenrecord_dot, mFrameLayout);
-
-        final ImageView dot = (ImageView) mFrameLayout.findViewById(R.id.dot);
-        dot.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                try {
-                    getStopPendingIntent().send();
-                } catch (PendingIntent.CanceledException e) {}
-            }
-        });
-
-        dot.setOnLongClickListener(new View.OnLongClickListener() {
-            public boolean onLongClick(View v) {
-                dot.setAnimation(null);
-                WindowManager.LayoutParams params =
-                        (WindowManager.LayoutParams) mFrameLayout.getLayoutParams();
-                params.gravity = Gravity.TOP | (mIsDotAtRight? Gravity.LEFT : Gravity.RIGHT);
-                mIsDotAtRight = !mIsDotAtRight;
-                mWindowManager.updateViewLayout(mFrameLayout, params);
-                dot.startAnimation(getDotAnimation());
-                return true;
-            }
-        });
-
-        dot.startAnimation(getDotAnimation());
-    }
-
-    private void stopDot() {
-        mDotShowing = false;
-        final ImageView dot = (ImageView) mFrameLayout.findViewById(R.id.dot);
-        if (dot != null) {
-            dot.setAnimation(null);
-            mWindowManager.removeView(mFrameLayout);
-        }
-    }
-
-    private Animation getDotAnimation() {
-        Animation anim = new AlphaAnimation(0.0f, 1.0f);
-        anim.setDuration(500);
-        anim.setStartOffset(100);
-        anim.setRepeatMode(Animation.REVERSE);
-        anim.setRepeatCount(Animation.INFINITE);
-        return anim;
     }
 
     private PendingIntent getStopPendingIntent() {

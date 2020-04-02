@@ -63,7 +63,4 @@
     <!-- Quick QS height offset -->
     <dimen name="custom_quick_qs_offset_height_extra">21.5dp</dimen>
 
-    <!-- screenrecord -->
-    <dimen name="screenrecord_dot_size">48dp</dimen>
-
 </resources>
