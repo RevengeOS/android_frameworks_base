@@ -96,7 +96,6 @@ import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.TelephonyProperties;
 import com.android.internal.util.EmergencyAffordanceManager;
-import com.android.internal.util.ScreenRecordHelper;
 import com.android.internal.util.UserIcons;
 import com.android.internal.view.RotationPolicy;
 import com.android.internal.widget.LockPatternUtils;
@@ -164,7 +163,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     private boolean mHasLockdownButton;
     private final boolean mShowSilentToggle;
     private final EmergencyAffordanceManager mEmergencyAffordanceManager;
-    private final ScreenRecordHelper mScreenRecordHelper;
     private final ActivityStarter mActivityStarter;
     private GlobalActionsPanelPlugin mPanelPlugin;
 
@@ -215,7 +213,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 R.bool.config_useFixedVolume);
 
         mEmergencyAffordanceManager = new EmergencyAffordanceManager(context);
-        mScreenRecordHelper = new ScreenRecordHelper(context);
 
         Dependency.get(ConfigurationController.class).addCallback(this);
 
@@ -786,11 +783,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
         @Override
         public boolean onLongPress() {
-            //if (FeatureFlagUtils.isEnabled(mContext, FeatureFlagUtils.SCREENRECORD_LONG_PRESS)) {
-                mScreenRecordHelper.launchRecordPrompt();
-            /*} else {
-                onPress();
-            }*/
             return true;
         }
     }
