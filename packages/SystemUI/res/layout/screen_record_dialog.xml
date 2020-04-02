@@ -45,9 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:layout_gravity="center"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="?android:attr/textColorPrimary"
-                android:textStyle="bold"
+                android:textAppearance="@*android:style/TextAppearance.DeviceDefault.DialogWindowTitle"
                 android:text="@string/screenrecord_dialog_title" />
 
             <TextView
@@ -57,9 +55,7 @@
                 android:layout_marginBottom="24dp"
                 android:paddingStart="?android:attr/dialogPreferredPadding"
                 android:paddingEnd="?android:attr/dialogPreferredPadding"
-                android:gravity="start"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="?android:attr/textColorSecondary"
+                android:gravity="center"
                 android:text="@string/screenrecord_dialog_summary" />
 
             <FrameLayout
@@ -80,9 +76,7 @@
                         android:id="@android:id/title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textStyle="bold"
-                        android:textColor="?android:attr/textColorSecondary"
+                        android:textAppearance="@*android:style/TextAppearance.DeviceDefault.ListItem"
                         android:text="@string/screenrecord_audio_title" />
 
                     <TextView
@@ -92,8 +86,6 @@
                         android:layout_below="@android:id/title"
                         android:layout_alignStart="@android:id/title"
                         android:layout_marginEnd="90dp"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="?android:attr/textColorSecondary"
                         android:text="@string/screenrecord_audio_summary" />
 
                 </RelativeLayout>
@@ -109,7 +101,7 @@
                     android:id="@+id/switch_mic"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
-                    android:layout_gravity="top|end" />
+                    android:layout_gravity="center|end" />
 
             </FrameLayout>
 
@@ -131,9 +123,7 @@
                         android:id="@android:id/title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textStyle="bold"
-                        android:textColor="?android:attr/textColorSecondary"
+                        android:textAppearance="@*android:style/TextAppearance.DeviceDefault.ListItem"
                         android:text="@string/screenrecord_taps_title" />
 
                     <TextView
@@ -143,8 +133,6 @@
                         android:layout_below="@android:id/title"
                         android:layout_alignStart="@android:id/title"
                         android:layout_marginEnd="90dp"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="?android:attr/textColorSecondary"
                         android:text="@string/screenrecord_taps_summary" />
 
                 </RelativeLayout>
@@ -160,7 +148,7 @@
                     android:id="@+id/switch_taps"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
-                    android:layout_gravity="top|end" />
+                    android:layout_gravity="center|end" />
 
             </FrameLayout>
 
@@ -176,15 +164,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="24dp">
+                    android:layout_marginBottom="12dp">
 
                     <TextView
                         android:id="@android:id/title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textStyle="bold"
-                        android:textColor="?android:attr/textColorSecondary"
+                        android:textAppearance="@*android:style/TextAppearance.DeviceDefault.ListItem"
                         android:text="@string/screenrecord_low_quality_title" />
 
                     <TextView
@@ -194,8 +180,6 @@
                         android:layout_below="@android:id/title"
                         android:layout_alignStart="@android:id/title"
                         android:layout_marginEnd="90dp"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="?android:attr/textColorSecondary"
                         android:text="@string/screenrecord_low_quality_summary" />
 
                 </RelativeLayout>
@@ -211,19 +195,14 @@
                     android:id="@+id/switch_low_quality"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
-                    android:layout_gravity="top|end" />
+                    android:layout_gravity="center|end" />
 
             </FrameLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="10dp"
-                android:background="#e3e3e3"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="?android:attr/dialogPreferredPadding"
                 android:paddingStart="?android:attr/dialogPreferredPadding"
                 android:paddingEnd="?android:attr/dialogPreferredPadding"
                 android:paddingBottom="?android:attr/dialogPreferredPadding">
@@ -233,7 +212,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/screenrecord_dialog_cancel"
-                    android:textAllCaps="false"
                     style="@*android:style/Widget.DeviceDefault.Button.Borderless.Colored" />
 
                 <Button
@@ -241,10 +219,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:backgroundTint="?android:attr/colorAccent"
-                    android:textColor="?android:textColorPrimaryInverse"
                     android:text="@string/screenrecord_dialog_start"
-                    android:textAllCaps="false" />
+                    style="@*android:style/Widget.DeviceDefault.Button.Colored" />
 
             </RelativeLayout>
 

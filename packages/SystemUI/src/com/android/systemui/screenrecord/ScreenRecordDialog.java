@@ -77,12 +77,9 @@ public class ScreenRecordDialog extends Activity {
         Window window = getWindow();
         assert window != null;
 
-        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        lp.copyFrom(window.getAttributes());
-        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        lp.gravity = Gravity.BOTTOM;
-        window.setAttributes(lp);
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setGravity(Gravity.BOTTOM);
 
         final Switch micSwitch = findViewById(R.id.switch_mic);
         final Switch tapsSwitch = findViewById(R.id.switch_taps);
