@@ -4903,6 +4903,26 @@ public final class Settings {
         public static final String MEDIAPROJECTION_SYSUI_OK = "mediaprojection_sysui_ok";
 
         /**
+         * Whether to turn on the notification light when the state of the front camera changes
+         * 0 = 0ff, 1 = on
+         */
+        public static final String POPUP_CAMERA_LED_ENABLED = "popup_camera_led_enabled";
+
+        /** @hide */
+        public static final Validator POPUP_CAMERA_LED_ENABLED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether battery led is temporarily blocked
+         * 0 = 0ff, 1 = on
+         */
+        public static final String POPUP_CAMERA_BATTERY_LED_BLOCKED = "popup_camera_battery_led_blocked";
+
+        /** @hide */
+        public static final Validator POPUP_CAMERA_BATTERY_LED_BLOCKED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -5480,6 +5500,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNI_LOCKSCREEN_WEATHER_ENABLED);
             PRIVATE_SETTINGS.add(AICP_LOCKSCREEN_WEATHER_STYLE);
             PRIVATE_SETTINGS.add(GESTURE_PILL_TOGGLE);
+            PRIVATE_SETTINGS.add(POPUP_CAMERA_LED_ENABLED);
+            PRIVATE_SETTINGS.add(POPUP_CAMERA_BATTERY_LED_BLOCKED);
         }
 
         /**
@@ -5640,6 +5662,8 @@ public final class Settings {
                     OMNI_LOCKSCREEN_WEATHER_ENABLED_VALIDATOR);
             VALIDATORS.put(AICP_LOCKSCREEN_WEATHER_STYLE,AICP_LOCKSCREEN_WEATHER_STYLE_VALIDATOR);
             VALIDATORS.put(GESTURE_PILL_TOGGLE, GESTURE_PILL_TOGGLE_VALIDATOR);
+            VALIDATORS.put(POPUP_CAMERA_LED_ENABLED, POPUP_CAMERA_LED_ENABLED_VALIDATOR);
+            VALIDATORS.put(POPUP_CAMERA_BATTERY_LED_BLOCKED, POPUP_CAMERA_BATTERY_LED_BLOCKED_VALIDATOR);
         }
 
         /**
