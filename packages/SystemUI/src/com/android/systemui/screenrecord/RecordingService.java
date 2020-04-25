@@ -87,13 +87,13 @@ public class RecordingService extends Service {
     private static final String ACTION_SHARE = "com.android.systemui.screenrecord.SHARE";
     private static final String ACTION_DELETE = "com.android.systemui.screenrecord.DELETE";
 
-    private static final int TOTAL_NUM_TRACKS = 1;
     private static final int VIDEO_BIT_RATE = 6000000;
     private static final int VIDEO_FRAME_RATE = 30;
-    private static final int AUDIO_BIT_RATE = 16;
+    private static final int AUDIO_BIT_RATE = 256000;
     private static final int AUDIO_SAMPLE_RATE = 44100;
     private static final int LOW_VIDEO_FRAME_RATE = 25;
     private static final int LOW_VIDEO_BIT_RATE = 1500000;
+    private static final int LOW_AUDIO_BIT_RATE = 128000;
 
     private MediaProjectionManager mMediaProjectionManager;
     private MediaProjection mMediaProjection;
@@ -259,8 +259,10 @@ public class RecordingService extends Service {
             mMediaRecorder = new MediaRecorder();
             if (mAudioSource == 1) {
                 mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+                mMediaRecorder.setAudioChannels(1);
             } else if (mAudioSource == 2) {
                 mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.REMOTE_SUBMIX);
+                mMediaRecorder.setAudioChannels(2);
             }
             mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
             mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
@@ -276,10 +278,9 @@ public class RecordingService extends Service {
             mMediaRecorder.setVideoEncodingBitRate(mLowQuality ? LOW_VIDEO_BIT_RATE : VIDEO_BIT_RATE);
 
             // Set up audio
-            if (mAudioSource > 0) {
-                mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-                mMediaRecorder.setAudioChannels(TOTAL_NUM_TRACKS);
-                mMediaRecorder.setAudioEncodingBitRate(AUDIO_BIT_RATE);
+            if (mAudioSource == 1 || mAudioSource == 2) {
+                mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+                mMediaRecorder.setAudioEncodingBitRate(mLowQuality ? LOW_AUDIO_BIT_RATE : AUDIO_BIT_RATE);
                 mMediaRecorder.setAudioSamplingRate(AUDIO_SAMPLE_RATE);
             }
 
