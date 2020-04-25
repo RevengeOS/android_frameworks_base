@@ -74,7 +74,7 @@ public class RecordingService extends Service {
     private static final String EXTRA_RESULT_CODE = "extra_resultCode";
     private static final String EXTRA_DATA = "extra_data";
     private static final String EXTRA_PATH = "extra_path";
-    private static final String EXTRA_USE_AUDIO = "extra_useAudio";
+    private static final String EXTRA_USE_AUDIO = "extra_audioSource";
     private static final String EXTRA_SHOW_TAPS = "extra_showTaps";
     private static final String EXTRA_LOW_QUALITY = "extra_lowQuality";
     private static final int REQUEST_CODE = 2;
@@ -102,7 +102,7 @@ public class RecordingService extends Service {
     private MediaRecorder mMediaRecorder;
     private Notification.Builder mRecordingNotificationBuilder;
 
-    private boolean mUseAudio;
+    private int mAudioSource;
     private boolean mShowTaps;
     private boolean mLowQuality;
     private WindowManager mWindowManager;
@@ -116,16 +116,16 @@ public class RecordingService extends Service {
      *                   android.content.Intent)}
      * @param data       The data from {@link android.app.Activity#onActivityResult(int, int,
      *                   android.content.Intent)}
-     * @param useAudio   True to enable microphone input while recording
+     * @param audioSource The audio source to record
      * @param showTaps   True to make touches visible while recording
      */
     public static Intent getStartIntent(Context context, int resultCode, Intent data,
-            boolean useAudio, boolean showTaps, boolean lowQuality) {
+            int audioSource, boolean showTaps, boolean lowQuality) {
         return new Intent(context, RecordingService.class)
                 .setAction(ACTION_START)
                 .putExtra(EXTRA_RESULT_CODE, resultCode)
                 .putExtra(EXTRA_DATA, data)
-                .putExtra(EXTRA_USE_AUDIO, useAudio)
+                .putExtra(EXTRA_USE_AUDIO, audioSource)
                 .putExtra(EXTRA_SHOW_TAPS, showTaps)
                 .putExtra(EXTRA_LOW_QUALITY, lowQuality);
     }
@@ -144,7 +144,7 @@ public class RecordingService extends Service {
         switch (action) {
             case ACTION_START:
                 int resultCode = intent.getIntExtra(EXTRA_RESULT_CODE, Activity.RESULT_CANCELED);
-                mUseAudio = intent.getBooleanExtra(EXTRA_USE_AUDIO, false);
+                mAudioSource = intent.getIntExtra(EXTRA_USE_AUDIO, 0);
                 mShowTaps = intent.getBooleanExtra(EXTRA_SHOW_TAPS, false);
                 mLowQuality = intent.getBooleanExtra(EXTRA_LOW_QUALITY, false);
                 Intent data = intent.getParcelableExtra(EXTRA_DATA);
@@ -257,8 +257,10 @@ public class RecordingService extends Service {
 
             // Set up media recorder
             mMediaRecorder = new MediaRecorder();
-            if (mUseAudio) {
+            if (mAudioSource == 1) {
                 mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+            } else if (mAudioSource == 2) {
+                mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.REMOTE_SUBMIX);
             }
             mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
             mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
@@ -274,7 +276,7 @@ public class RecordingService extends Service {
             mMediaRecorder.setVideoEncodingBitRate(mLowQuality ? LOW_VIDEO_BIT_RATE : VIDEO_BIT_RATE);
 
             // Set up audio
-            if (mUseAudio) {
+            if (mAudioSource > 0) {
                 mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
                 mMediaRecorder.setAudioChannels(TOTAL_NUM_TRACKS);
                 mMediaRecorder.setAudioEncodingBitRate(AUDIO_BIT_RATE);

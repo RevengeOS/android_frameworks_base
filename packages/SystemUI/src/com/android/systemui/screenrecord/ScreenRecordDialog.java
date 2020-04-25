@@ -30,7 +30,10 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -38,7 +41,7 @@ import com.android.systemui.R;
 import com.android.systemui.shared.system.ActivityManagerWrapper;
 
 import static com.android.systemui.statusbar.phone.StatusBar.SYSTEM_DIALOG_REASON_SCREENSHOT;
-import static android.provider.Settings.System.SCREENRECORD_ENABLE_MIC;
+import static android.provider.Settings.System.SCREENRECORD_AUDIO_SOURCE;
 import static android.provider.Settings.System.SCREENRECORD_SHOW_TAPS;
 import static android.provider.Settings.System.SCREENRECORD_LOW_QUALITY;
 
@@ -66,6 +69,7 @@ public class ScreenRecordDialog extends Activity {
     private static final int REQUEST_CODE_VIDEO_AUDIO_TAPS_LOW = 406;
 
     private boolean mUseAudio;
+    private int mAudioSource;
     private boolean mShowTaps;
     private boolean mLowQuality;
 
@@ -81,15 +85,34 @@ public class ScreenRecordDialog extends Activity {
                 WindowManager.LayoutParams.WRAP_CONTENT);
         window.setGravity(Gravity.BOTTOM);
 
-        final Switch micSwitch = findViewById(R.id.switch_mic);
         final Switch tapsSwitch = findViewById(R.id.switch_taps);
         final Switch qualitySwitch = findViewById(R.id.switch_low_quality);
 
-        initialCheckSwitch(micSwitch, SCREENRECORD_ENABLE_MIC);
+        final Spinner audioOptions = findViewById(R.id.audio_options);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.screen_record_audio_choices, R.layout.screenrecord_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        audioOptions.setAdapter(adapter);
+        mAudioSource = Settings.System.getIntForUser(getContentResolver(),
+                SCREENRECORD_AUDIO_SOURCE, 0, UserHandle.USER_CURRENT);
+        audioOptions.setSelection(mAudioSource);
+        audioOptions.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mAudioSource = position;
+                mUseAudio = position > 0;
+                Settings.System.putIntForUser(getContentResolver(),
+                        SCREENRECORD_AUDIO_SOURCE, position, UserHandle.USER_CURRENT);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
         initialCheckSwitch(tapsSwitch, SCREENRECORD_SHOW_TAPS);
         initialCheckSwitch(qualitySwitch, SCREENRECORD_LOW_QUALITY);
 
-        setSwitchListener(micSwitch, SCREENRECORD_ENABLE_MIC);
         setSwitchListener(tapsSwitch, SCREENRECORD_SHOW_TAPS);
         setSwitchListener(qualitySwitch, SCREENRECORD_LOW_QUALITY);
 
@@ -97,10 +120,9 @@ public class ScreenRecordDialog extends Activity {
         recordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mUseAudio = micSwitch.isChecked();
                 mShowTaps = tapsSwitch.isChecked();
                 mLowQuality = qualitySwitch.isChecked();
-                Log.d(TAG, "Record button clicked: audio " + mUseAudio + ", taps " + mShowTaps + ", quality " + mLowQuality);
+                Log.d(TAG, "Record button clicked: audio " + mAudioSource + ", taps " + mShowTaps + ", quality " + mLowQuality);
 
                 if (mUseAudio && ScreenRecordDialog.this.checkSelfPermission(Manifest.permission.RECORD_AUDIO)
                         != PackageManager.PERMISSION_GRANTED) {
@@ -202,8 +224,11 @@ public class ScreenRecordDialog extends Activity {
             default:
                 if (resultCode == RESULT_OK) {
                     mUseAudio = requestCode > 400 && requestCode < 409;
+                    if (mUseAudio == false) {
+                        mAudioSource = 0;
+                    }
                     startForegroundService(
-                            RecordingService.getStartIntent(this, resultCode, data, mUseAudio,
+                            RecordingService.getStartIntent(this, resultCode, data, mAudioSource,
                                     mShowTaps, mLowQuality));
                 } else {
                     Toast.makeText(this,
