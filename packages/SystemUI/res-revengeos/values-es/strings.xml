@@ -34,18 +34,18 @@
     </plurals>
     <!-- Hour displayed in words on the typographic clock face. [CHAR LIMIT=12] -->
     <string-array name="type_clock_hours">
-        <item>Twelve</item>
-        <item>One</item>
-        <item>Two</item>
-        <item>Three</item>
-        <item>Four</item>
-        <item>Five</item>
-        <item>Six</item>
-        <item>Seven</item>
-        <item>Eight</item>
-        <item>Nine</item>
-        <item>Ten</item>
-        <item>Eleven</item>
+        <item>Doce</item>
+        <item>Uno</item>
+        <item>Dos</item>
+        <item>Tres</item>
+        <item>Cuatro</item>
+        <item>Cinco</item>
+        <item>Seis</item>
+        <item>Siete</item>
+        <item>Ocho</item>
+        <item>Nueve</item>
+        <item>Diez</item>
+        <item>Once</item>
     </string-array>
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
     <string-array name="type_clock_minutes">
@@ -59,61 +59,61 @@
         <item>Oh Seven</item>
         <item>Oh Eight</item>
         <item>Oh Nine</item>
-        <item>Ten</item>
-        <item>Eleven</item>
-        <item>Twelve</item>
-        <item>Thirteen</item>
-        <item>Fourteen</item>
-        <item>Fifteen</item>
-        <item>Sixteen</item>
-        <item>Seventeen</item>
-        <item>Eighteen</item>
-        <item>Nineteen</item>
-        <item>Twenty</item>
-        <item>Twenty\nOne</item>
-        <item>Twenty\nTwo</item>
-        <item>Twenty\nThree</item>
-        <item>Twenty\nFour</item>
-        <item>Twenty\nFive</item>
-        <item>Twenty\nSix</item>
-        <item>Twenty\nSeven</item>
-        <item>Twenty\nEight</item>
-        <item>Twenty\nNine</item>
-        <item>Thirty</item>
-        <item>Thirty\nOne</item>
-        <item>Thirty\nTwo</item>
-        <item>Thirty\nThree</item>
-        <item>Thirty\nFour</item>
-        <item>Thirty\nFive</item>
-        <item>Thirty\nSix</item>
-        <item>Thirty\nSeven</item>
-        <item>Thirty\nEight</item>
-        <item>Thirty\nNine</item>
-        <item>Forty</item>
-        <item>Forty\nOne</item>
-        <item>Forty\nTwo</item>
-        <item>Forty\nThree</item>
-        <item>Forty\nFour</item>
-        <item>Forty\nFive</item>
-        <item>Forty\nSix</item>
-        <item>Forty\nSeven</item>
-        <item>Forty\nEight</item>
-        <item>Forty\nNine</item>
-        <item>Fifty</item>
-        <item>Fifty\nOne</item>
-        <item>Fifty\nTwo</item>
-        <item>Fifty\nThree</item>
-        <item>Fifty\nFour</item>
-        <item>Fifty\nFive</item>
-        <item>Fifty\nSix</item>
-        <item>Fifty\nSeven</item>
-        <item>Fifty\nEight</item>
-        <item>Fifty\nNine</item>
+        <item>Diez</item>
+        <item>Once</item>
+        <item>Doce</item>
+        <item>Trece</item>
+        <item>Catorce</item>
+        <item>Quince</item>
+        <item>Dieciséis</item>
+        <item>Diecisiete</item>
+        <item>Dieciocho</item>
+        <item>Diecinueve</item>
+        <item>Veinte</item>
+        <item>Veintiuno</item>
+        <item>Veintidos</item>
+        <item>Veintitres</item>
+        <item>Veinticuatro</item>
+        <item>Veinticinco</item>
+        <item>Veintiseis</item>
+        <item>Veintisiete</item>
+        <item>Veintiocho</item>
+        <item>Veintinueve</item>
+        <item>Treinta</item>
+        <item>Treinta y\nUno</item>
+        <item>Treinta y\nDos</item>
+        <item>Treinta y\nTres</item>
+        <item>Treinta y\nCuatro</item>
+        <item>Treinta y\nCinco</item>
+        <item>Treinta y\nSeis</item>
+        <item>Treinta y\nSiete</item>
+        <item>Treinta y\nOcho</item>
+        <item>Treinta y\nNueve</item>
+        <item>Cuarenta</item>
+        <item>Cuarenta y\nUno</item>
+        <item>Cuarenta y\nDos</item>
+        <item>Cuarenta y\nTres</item>
+        <item>Cuarenta y\nCuatro</item>
+        <item>Cuarenta y\nCinco</item>
+        <item>Cuarenta y\nSeis</item>
+        <item>Cuarenta y\nSiete</item>
+        <item>Cuarenta y\nOcho</item>
+        <item>Cuarenta y\nNueve</item>
+        <item>Cincuenta</item>
+        <item>Cincuenta y\nUno</item>
+        <item>Cincuenta y\nDos</item>
+        <item>Cincuenta y\nTres</item>
+        <item>Cincuenta y\nCuatro</item>
+        <item>Cincuenta y\nCinco</item>
+        <item>Cincuenta y\nSeis</item>
+        <item>Cincuenta y\nSiete</item>
+        <item>Cincuenta y\nOcho</item>
+        <item>Cincuenta y\nNueve</item>
     </string-array>
     <!-- Title for Typographic clock face that will appear in the picker app next to a preview image of
          the clock face. [CHAR LIMIT=8] -->
     <!-- Title for statusbar items -->
-    <string name="statusbar_items_title">Statusbar items</string>
+    <string name="statusbar_items_title">Objetos en la barra de estado</string>
     <!-- Name of the volte status bar icon. -->
     <string name="status_bar_volte">VoLTE</string>
     <!-- Caffeine QS Tile -->
@@ -121,39 +121,39 @@
     <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
     <!-- Always on Display Tile -->
-    <string name="quick_settings_always_on_display_label">Always on display</string>
-    <string name="accessibility_quick_settings_always_on_display_off">Always on display off.</string>
-    <string name="accessibility_quick_settings_always_on_display_on">Always on display on.</string>
-    <string name="accessibility_quick_settings_always_on_display_changed_off">Always on display turned off.</string>
-    <string name="accessibility_quick_settings_always_on_display_changed_on">Always on display turned on.</string>
+    <string name="quick_settings_always_on_display_label">Pantalla ambiente</string>
+    <string name="accessibility_quick_settings_always_on_display_off">Pantalla ambiente apagada.</string>
+    <string name="accessibility_quick_settings_always_on_display_on">Pantalla ambiente encendida.</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_off">Pantalla ambiente deshabilitada.</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_on">Pantalla ambiente habilitada.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+    <string name="quick_settings_heads_up_label">Notificaciones</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificaciones apagadas.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificaciones encendidas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notificaciones deshabilitadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notificaciones habilitadas.</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device, within the Restart Options dialog -->
-    <string name="global_action_restart_system">System</string>
+    <string name="global_action_restart_system">Sistema</string>
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_recovery">Recuperación</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_bootloader">Gestor de arranque</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-    <string name="global_action_restart_download">Download</string>
+    <string name="global_action_restart_download">Descarga</string>
     <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_progress">Restarting\u2026</string>
+    <string name="global_action_restart_progress">Reiniciando\u2026</string>
     <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_recovery_progress">Restarting to recovery mode\u2026</string>
+    <string name="global_action_restart_recovery_progress">Reiniciando en modo recuperación\u2026</string>
     <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_bootloader_progress">Restarting to bootloader mode\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Reiniciando en modo de gestion de arranque\u2026</string>
     <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_download_progress">Restarting to download mode\u2026</string>
+    <string name="global_action_restart_download_progress">Reiniciando en modo de descarga\u2026</string>
     <!-- Label for current user in power menu options dialog -->
-    <string name="global_action_current_user">Current</string>
+    <string name="global_action_current_user">Actual</string>
     <!-- QS Config -->
-    <string name="qs_menu_item_columns">Columns</string>
-    <string name="qs_menu_item_columns_landscape">Columns landscape</string>
+    <string name="qs_menu_item_columns">Columnas</string>
+    <string name="qs_menu_item_columns_landscape">Columnas en horizontal</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
     <string name="qs_menu_item_columns_five">5</string>
@@ -161,27 +161,27 @@
     <string name="qs_menu_item_columns_seven">7</string>
     <string name="qs_menu_item_columns_eight">8</string>
     <string name="qs_menu_item_columns_nine">9</string>
-    <string name="qs_menu_item_titles">Show labels</string>
+    <string name="qs_menu_item_titles">Mostrar etiquetas</string>
     <!--  Omnijaws -->
     <string name="omnijaws_service_error">Error</string>
-    <string name="omnijaws_service_unkown">No weather data</string>
-    <string name="omnijaws_service_error_long">Error loading weather data</string>
-    <string name="omnijaws_service_disabled">Service is disabled</string>
-    <string name="omnijaws_detail_header">Weather</string>
-    <string name="omnijaws_label_default">Weather</string>
-    <string name="omnijaws_current_text">Now</string>
-    <string name="omnijaws_package_not_available">OmniJaws not available</string>
-    <string name="omnijaws_service_last_update">Last update:</string>
+    <string name="omnijaws_service_unkown">Sin datos meteorológicos</string>
+    <string name="omnijaws_service_error_long">Error al cargar datos meteorológicos</string>
+    <string name="omnijaws_service_disabled">El servicio está desactivado</string>
+    <string name="omnijaws_detail_header">Clima</string>
+    <string name="omnijaws_label_default">Clima</string>
+    <string name="omnijaws_current_text">Ahora</string>
+    <string name="omnijaws_package_not_available">OmniJaws no disponible</string>
+    <string name="omnijaws_service_last_update">Última actualización:</string>
     <!-- Screen record -->
-    <string name="screenrecord_dialog_title">Screen Record</string>
-    <string name="screenrecord_dialog_summary">While recording, Android system can capture any sensitive information that\'s visible on your screen or played on your device. This includes passwords, payment info, photos, messages, and audio.</string>
-    <string name="screenrecord_dialog_start">Start</string>
-    <string name="screenrecord_dialog_cancel">Cancel</string>
-    <string name="screenrecord_audio_title">Audio source</string>
-    <string name="screenrecord_audio_summary">Record audio while recording</string>
-    <string name="screenrecord_no_audio">No audio</string>
-    <string name="screenrecord_microphone">Microphone</string>
-    <string name="screenrecord_system_audio">System audio</string>
+    <string name="screenrecord_dialog_title">Grabar pantalla</string>
+    <string name="screenrecord_dialog_summary">Durante la grabación, el sistema Android puede capturar cualquier información sensible que sea visible en su pantalla o reproducida en su dispositivo. Esto incluye contraseñas, información de pagos, fotos, mensajes y audio.</string>
+    <string name="screenrecord_dialog_start">Iniciar</string>
+    <string name="screenrecord_dialog_cancel">Cancelar</string>
+    <string name="screenrecord_audio_title">Origen del audio</string>
+    <string name="screenrecord_audio_summary">Grabar audio durante la grabación</string>
+    <string name="screenrecord_no_audio">Sin audio</string>
+    <string name="screenrecord_microphone">Micrófono</string>
+    <string name="screenrecord_system_audio">Audio del sistema</string>
     <string name="screenrecord_taps_title">Show touches on screen</string>
     <string name="screenrecord_taps_summary">Show visual feedback while recording</string>
     <string name="screenrecord_low_quality_title">Low quality</string>
