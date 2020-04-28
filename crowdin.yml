@@ -1,3 +1,5 @@
 files:
   - source: /**/res-revengeos/values/strings.xml
     translation: /**/res-revengeos/values%two_letters_code%/%original_file_name%
+    translatable_elements:
+      - '/*/string/[@name]'
