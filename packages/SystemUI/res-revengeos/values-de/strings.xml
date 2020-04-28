@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2019 RevengeOS
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Time displayed on typographic clock face, which displays the time in words.
+             Example:
+
+                 It's
+                 Four
+                 Twenty
+                 Nine
+
+         This string requires two arguments: the first in the hours of the time and
+         the second is the minutes of the time. The hours string is obtained from
+         string-array type_clock_hours below and the minutes string is obtained
+         from string-array type_clock_minutes below.
+
+    [CHAR LIMIT=8] -->
+    <plurals name="type_clock_header">
+        <item quantity="one"><annotation name="color">Es</annotation>\n^1\n^2</item>
+        <item quantity="other"><annotation name="color">Ist</annotation>\n^1\n^2</item>
+    </plurals>
+    <!-- Hour displayed in words on the typographic clock face. [CHAR LIMIT=12] -->
+    <string-array name="type_clock_hours">
+        <item>Zwölf</item>
+        <item>Eins</item>
+        <item>Zwei</item>
+        <item>Drei</item>
+        <item>Vier</item>
+        <item>Fünf</item>
+        <item>Sechs</item>
+        <item>Sieben</item>
+        <item>Acht</item>
+        <item>Neun</item>
+        <item>Zehn</item>
+        <item>Elf</item>
+    </string-array>
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes">
+        <item>Uhr</item>
+        <item>Oh One</item>
+        <item>Oh Two</item>
+        <item>Oh Three</item>
+        <item>Oh Four</item>
+        <item>Oh Five</item>
+        <item>Oh Six</item>
+        <item>Oh Seven</item>
+        <item>Oh Eight</item>
+        <item>Oh Nine</item>
+        <item>Zehn</item>
+        <item>Elf</item>
+        <item>Zwölf</item>
+        <item>Dreizehn</item>
+        <item>Vierzehn</item>
+        <item>Fünfzehn</item>
+        <item>Sechzehn</item>
+        <item>Siebzehn</item>
+        <item>Achtzehn</item>
+        <item>Neunzehn</item>
+        <item>Zwanzig</item>
+        <item>Twenty\nOne</item>
+        <item>Twenty\nTwo</item>
+        <item>Twenty\nThree</item>
+        <item>Twenty\nFour</item>
+        <item>Twenty\nFive</item>
+        <item>Twenty\nSix</item>
+        <item>Twenty\nSeven</item>
+        <item>Twenty\nEight</item>
+        <item>Twenty\nNine</item>
+        <item>Dreißig</item>
+        <item>Thirty\nOne</item>
+        <item>Thirty\nTwo</item>
+        <item>Thirty\nThree</item>
+        <item>Thirty\nFour</item>
+        <item>Thirty\nFive</item>
+        <item>Thirty\nSix</item>
+        <item>Thirty\nSeven</item>
+        <item>Thirty\nEight</item>
+        <item>Thirty\nNine</item>
+        <item>Vierzig</item>
+        <item>Forty\nOne</item>
+        <item>Forty\nTwo</item>
+        <item>Forty\nThree</item>
+        <item>Forty\nFour</item>
+        <item>Forty\nFive</item>
+        <item>Forty\nSix</item>
+        <item>Forty\nSeven</item>
+        <item>Forty\nEight</item>
+        <item>Forty\nNine</item>
+        <item>Fünfzig</item>
+        <item>Fifty\nOne</item>
+        <item>Fifty\nTwo</item>
+        <item>Fifty\nThree</item>
+        <item>Fifty\nFour</item>
+        <item>Fifty\nFive</item>
+        <item>Fifty\nSix</item>
+        <item>Fifty\nSeven</item>
+        <item>Fifty\nEight</item>
+        <item>Fifty\nNine</item>
+    </string-array>
+    <!-- Title for Typographic clock face that will appear in the picker app next to a preview image of
+         the clock face. [CHAR LIMIT=8] -->
+    <!-- Title for statusbar items -->
+    <string name="statusbar_items_title">Statusleisten-Elemente</string>
+    <!-- Name of the volte status bar icon. -->
+    <string name="status_bar_volte">VoLTE</string>
+    <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine aus</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine an</string>
+    <!-- Always on Display Tile -->
+    <string name="quick_settings_always_on_display_label">Always-On Bildschirm</string>
+    <string name="accessibility_quick_settings_always_on_display_off">Always-On Bildschirm aus.</string>
+    <string name="accessibility_quick_settings_always_on_display_on">Always-On Bildschirm an.</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_off">Always-On Bildschirm deaktiviert.</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_on">Always-On Bildschirm aktiviert.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Heads-Up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads-Up aus.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads-Up an.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads-Up deaktiviert.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads-Up aktiviert.</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <string name="global_action_restart_system">System</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">Wiederherstellung</string>
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">Download</string>
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_progress">Wird neu gestartet\u2026</string>
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_recovery_progress">Neustart in Wiederherstellungsmodus\u2026</string>
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_bootloader_progress">Neustart in Bootloader-Modus\u2026</string>
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_download_progress">Neustart in Download-Modus\u2026</string>
+    <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">Derzeit</string>
+    <!-- QS Config -->
+    <string name="qs_menu_item_columns">Spalten</string>
+    <string name="qs_menu_item_columns_landscape">Spalten Querformat</string>
+    <string name="qs_menu_item_columns_three">3</string>
+    <string name="qs_menu_item_columns_four">4</string>
+    <string name="qs_menu_item_columns_five">5</string>
+    <string name="qs_menu_item_columns_six">6</string>
+    <string name="qs_menu_item_columns_seven">7</string>
+    <string name="qs_menu_item_columns_eight">8</string>
+    <string name="qs_menu_item_columns_nine">9</string>
+    <string name="qs_menu_item_titles">Labels anzeigen</string>
+    <!--  Omnijaws -->
+    <string name="omnijaws_service_error">Fehler</string>
+    <string name="omnijaws_service_unkown">Keine Wetterdaten</string>
+    <string name="omnijaws_service_error_long">Fehler beim Laden der Wetterdaten</string>
+    <string name="omnijaws_service_disabled">Dienst ist deaktiviert</string>
+    <string name="omnijaws_detail_header">Wetter</string>
+    <string name="omnijaws_label_default">Wetter</string>
+    <string name="omnijaws_current_text">Jetzt</string>
+    <string name="omnijaws_package_not_available">OmniJaws nicht verfügbar</string>
+    <string name="omnijaws_service_last_update">Letzte Aktualisierung:</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Bildschirmaufnahme</string>
+    <string name="screenrecord_dialog_summary">Während der Aufnahme kann Android-System alle sensiblen Informationen erfassen, die auf Ihrem Bildschirm sichtbar oder auf Ihrem Gerät abgespielt werden. Dazu gehören Passwörter, Zahlungsinformationen, Fotos, Nachrichten und Audio.</string>
+    <string name="screenrecord_dialog_start">Start</string>
+    <string name="screenrecord_dialog_cancel">Abbrechen</string>
+    <string name="screenrecord_audio_title">Audioquelle</string>
+    <string name="screenrecord_audio_summary">Audio während der Aufnahme aufnehmen</string>
+    <string name="screenrecord_no_audio">Kein Audio</string>
+    <string name="screenrecord_microphone">Mikrofon</string>
+    <string name="screenrecord_system_audio">System-Audio</string>
+    <string name="screenrecord_taps_title">Berührungen auf dem Bildschirm anzeigen</string>
+    <string name="screenrecord_taps_summary">Visuelles Feedback während der Aufnahme anzeigen</string>
+    <string name="screenrecord_low_quality_title">Niedrige Qualität</string>
+    <string name="screenrecord_low_quality_summary">In geringerer Qualität aufnehmen, um Speicherplatz auf Ihrem Gerät zu sparen</string>
+</resources>

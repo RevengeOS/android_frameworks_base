@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (C) 2019 RevengeOS
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">Paketsignatur Spoof</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">Ermöglicht der App, sich als eine andere App vorzugeben. Böswillige Anwendungen können dies für den Zugriff auf private Anwendungsdaten verwenden. Diese Berechtigung nur mit Vorsicht erteilen!</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automatisch</string>
+    <string name="live_display_auto_summary">Automatisch die Farbtemperatur des Bildschirms nach Sonnenuntergang und Sonnenaufgang anpassen</string>
+    <string name="live_display_off">Aus</string>
+    <string name="live_display_off_summary">Alle Anpassungen deaktivieren</string>
+    <string name="live_display_day">Tag</string>
+    <string name="live_display_day_summary">Nur Tag-Einstellungen verwenden</string>
+    <string name="live_display_night">Nacht</string>
+    <string name="live_display_night_summary">Nur Nacht-Einstellungen verwenden</string>
+    <string name="live_display_outdoor">Im Freien (helle Sonne)</string>
+    <string name="live_display_outdoor_summary">Nur Außen-Einstellungen verwenden</string>
+    <string name="live_display_hint">LiveDisplay kann die Augenbelastung reduzieren und dem guten Schlaf beitragen. Klicke hier um es auszuprobieren!</string>
+    <string name="accessibility_quick_settings_live_display_off">Livedisplay aus.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: automatischer Modus.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: Tag-Modus.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: Nacht-Modus.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: Außen-Modus.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay ausgeschaltet.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay zu Auto-Modus gewechselt.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay zu Tag-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay zu Nacht-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay zu Außen-Modus geändert.</string>
+</resources>
