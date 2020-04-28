@@ -50,35 +50,35 @@
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
     <string-array name="type_clock_minutes">
         <item>Uur</item>
-        <item>Over één</item>
-        <item>Over twee</item>
-        <item>Over drie</item>
-        <item>Over vier</item>
-        <item>Over vijf</item>
-        <item>Over zes</item>
-        <item>Over zeven</item>
-        <item>Over acht</item>
-        <item>Over negen</item>
-        <item>Tien</item>
-        <item>Elf</item>
-        <item>Twaalf</item>
-        <item>Dertien</item>
-        <item>Veertien</item>
-        <item>Kwart</item>
-        <item>Zestien</item>
-        <item>Zeventien</item>
-        <item>Achtien</item>
-        <item>Negentien</item>
-        <item>Twintig</item>
-        <item>Een en \n Twintig</item>
-        <item>Twee en \n Twintig</item>
-        <item>Drie en \n Twintig</item>
-        <item>Vier en \n Twintig</item>
-        <item>Vijf en \n Twintig</item>
-        <item>Zes en \n Twintig</item>
-        <item>Zeven en \n Twintig</item>
-        <item>Acht en \n Twintig</item>
-        <item>Negen en \n Twintig</item>
+        <item>Één over</item>
+        <item>Twee over</item>
+        <item>Drie over</item>
+        <item>Vier over</item>
+        <item>Vijf over</item>
+        <item>Zes over</item>
+        <item>Zeven over</item>
+        <item>Acht over</item>
+        <item>Negen over</item>
+        <item>Tien over</item>
+        <item>Elf over</item>
+        <item>Twaalf over</item>
+        <item>Dertien over</item>
+        <item>Veertien over</item>
+        <item>Kwart over</item>
+        <item>Veertien voor\nHalf</item>
+        <item>Dertien voor\nHalf</item>
+        <item>Twaalf voor\nHalf</item>
+        <item>Elf voor\nHalf</item>
+        <item>Tien voor\nhalf</item>
+        <item>Negen voor\nHalf</item>
+        <item>Acht voor\nHalf</item>
+        <item>Zeven voor\nHalf</item>
+        <item>Zes voor\nHalf</item>
+        <item>Vijf voor\nHalf</item>
+        <item>Vier voor\nHalf</item>
+        <item>Drie voor\nHalf</item>
+        <item>2 voor\nHalf</item>
+        <item>Één voor\nHalf</item>
         <item>Half</item>
         <item>Een over\nHalf</item>
         <item>Twee over\nHalf</item>
@@ -92,23 +92,23 @@
         <item>Tien over\nHalf</item>
         <item>Elf over\nHalf</item>
         <item>Twaalf over\nHalf</item>
-        <item>Forty\nThree</item>
-        <item>Forty\nFour</item>
+        <item>Dertien over\nHalf</item>
+        <item>Veertien over\nHalf</item>
         <item>Kwart\nVoor</item>
-        <item>Forty\nSix</item>
-        <item>Forty\nSeven</item>
-        <item>Forty\nEight</item>
-        <item>Forty\nNine</item>
-        <item>Fifty</item>
-        <item>Fifty\nOne</item>
-        <item>Fifty\nTwo</item>
-        <item>Fifty\nThree</item>
-        <item>Fifty\nFour</item>
-        <item>Fifty\nFive</item>
-        <item>Fifty\nSix</item>
-        <item>Fifty\nSeven</item>
-        <item>Fifty\nEight</item>
-        <item>Fifty\nNine</item>
+        <item>Veertien\nVoor</item>
+        <item>Dertien\nVoor</item>
+        <item>Twaalf\nVoor</item>
+        <item>Elf\nVoor</item>
+        <item>Tien\nVoor</item>
+        <item>Negen\nVoor</item>
+        <item>Acht\nVoor</item>
+        <item>Zeven\nVoor</item>
+        <item>Zes\nVoor</item>
+        <item>Vijf\nVoor</item>
+        <item>Vier\nVoor</item>
+        <item>Drie\nVoor</item>
+        <item>2\nVoor</item>
+        <item>1\nVoor</item>
     </string-array>
     <!-- Title for Typographic clock face that will appear in the picker app next to a preview image of
          the clock face. [CHAR LIMIT=8] -->
