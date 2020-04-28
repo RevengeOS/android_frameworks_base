@@ -30,41 +30,41 @@
     [CHAR LIMIT=8] -->
     <plurals name="type_clock_header">
         <item quantity="one"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
-        <item quantity="other"><annotation name="color">São\u2019s</annotation>\n^1\n^2</item>
+        <item quantity="other"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
     </plurals>
     <!-- Hour displayed in words on the typographic clock face. [CHAR LIMIT=12] -->
     <string-array name="type_clock_hours">
-        <item>Doze</item>
-        <item>Um</item>
-        <item>Dois</item>
-        <item>Três</item>
-        <item>Quatro</item>
-        <item>Cinco</item>
-        <item>Seis</item>
-        <item>Sete</item>
-        <item>Oito</item>
-        <item>Nove</item>
-        <item>Dez</item>
-        <item>Onze</item>
+        <item>Twelve</item>
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Five</item>
+        <item>Six</item>
+        <item>Seven</item>
+        <item>Eight</item>
+        <item>Nine</item>
+        <item>Ten</item>
+        <item>Eleven</item>
     </string-array>
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
     <string-array name="type_clock_minutes">
         <item>O\u2019Clock</item>
-        <item>E Um</item>
-        <item>E Dois</item>
-        <item>E Três</item>
-        <item>E Quatro</item>
-        <item>E Cinco</item>
-        <item>E Seis</item>
-        <item>E Sete</item>
-        <item>E Oito</item>
-        <item>E Nove</item>
-        <item>Dez</item>
-        <item>Onze</item>
-        <item>Doze</item>
-        <item>Treze</item>
-        <item>Quatorze</item>
-        <item>Quinze</item>
+        <item>Oh One</item>
+        <item>Oh Two</item>
+        <item>Oh Three</item>
+        <item>Oh Four</item>
+        <item>Oh Five</item>
+        <item>Oh Six</item>
+        <item>Oh Seven</item>
+        <item>Oh Eight</item>
+        <item>Oh Nine</item>
+        <item>Ten</item>
+        <item>Eleven</item>
+        <item>Twelve</item>
+        <item>Thirteen</item>
+        <item>Fourteen</item>
+        <item>Fifteen</item>
         <item>Sixteen</item>
         <item>Seventeen</item>
         <item>Eighteen</item>
