@@ -29,8 +29,8 @@
 
     [CHAR LIMIT=8] -->
     <plurals name="type_clock_header">
-        <item quantity="one">&lt;nome da anotação="color"&gt;It\u2019s&lt;/anotação&gt;\n^1\n^2</item>
-        <item quantity="other"><annotation name="color">São\u2019s</annotation>\n^1\n^2</item>
+        <item quantity="one">&lt;nome da anotação="cor"&gt;É\u2019s&lt;/anotação&gt;\n^1\n^2</item>
+        <item quantity="other">&lt;nome da anotação="cor"&gt;É\u2019s&lt;/anotação&gt;\n^1\n^2</item>
     </plurals>
     <!-- Hour displayed in words on the typographic clock face. [CHAR LIMIT=12] -->
     <string-array name="type_clock_hours">
@@ -163,9 +163,9 @@
     <string name="qs_menu_item_columns_nine">9</string>
     <string name="qs_menu_item_titles">Mostrar rótulos</string>
     <!--  Omnijaws -->
-    <string name="omnijaws_service_error">Erro</string>
+    <string name="omnijaws_service_error">Erro:</string>
     <string name="omnijaws_service_unkown">Sem informações meteorológicas</string>
-    <string name="omnijaws_service_error_long">Erro ao carregar as informações meteorológicas</string>
+    <string name="omnijaws_service_error_long">Erro ao carregar informações meteorológicas</string>
     <string name="omnijaws_service_disabled">Serviço desativado</string>
     <string name="omnijaws_detail_header">Clima</string>
     <string name="omnijaws_label_default">Tempo</string>
@@ -174,7 +174,7 @@
     <string name="omnijaws_service_last_update">Última atualização:</string>
     <!-- Screen record -->
     <string name="screenrecord_dialog_title">Gravação de tela</string>
-    <string name="screenrecord_dialog_summary">Durante a gravação, o sistema Android pode capturar quaisquer informações confidenciais visíveis na sua tela ou reproduzidas no seu dispositivo. Isso inclui senhas, informações de pagamento, fotos, mensagens e áudio.</string>
+    <string name="screenrecord_dialog_summary">Durante a gravação, o sistema Android pode capturar qualquer informação sensível visível na tela ou reproduzida no dispositivo.  Isso inclui senhas, informações de pagamento, fotos, mensagens e áudio.</string>
     <string name="screenrecord_dialog_start">Iniciar</string>
     <string name="screenrecord_dialog_cancel">Cancelar</string>
     <string name="screenrecord_audio_title">Fonte de áudio</string>
@@ -185,5 +185,5 @@
     <string name="screenrecord_taps_title">Mostrar toques na tela</string>
     <string name="screenrecord_taps_summary">Mostrar feedback visual durante a gravação</string>
     <string name="screenrecord_low_quality_title">Baixa qualidade</string>
-    <string name="screenrecord_low_quality_summary">Grave em uma qualidade inferior para economizar espaço no seu dispositivo</string>
+    <string name="screenrecord_low_quality_summary">Grave em baixa qualidade para economizar espaço no seu dispositivo</string>
 </resources>
