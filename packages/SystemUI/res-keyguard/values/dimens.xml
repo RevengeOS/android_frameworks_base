@@ -22,6 +22,9 @@
     <!-- Size of the generic status lines keyguard's status view  -->
     <dimen name="kg_status_line_font_size">14sp</dimen>
 
+    <!-- The minimum bottom margin of the keyguard security container -->
+    <dimen name="kg_security_container_min_bottom_margin">0dp</dimen>
+
     <!-- Maximum width of the sliding KeyguardSecurityContainer -->
     <dimen name="keyguard_security_width">420dp</dimen>
 
