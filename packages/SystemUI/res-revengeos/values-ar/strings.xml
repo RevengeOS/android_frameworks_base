@@ -29,44 +29,44 @@
 
     [CHAR LIMIT=8] -->
     <plurals name="type_clock_header">
-        <item quantity="zero"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
-        <item quantity="one"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
-        <item quantity="two"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
-        <item quantity="few"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
-        <item quantity="many"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
-        <item quantity="other"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
+        <item quantity="zero"><annotation name="color">هو\u2019s</annotation>\n^1\n^2</item>
+        <item quantity="one"><annotation name="color">هو\u2019s</annotation>\n^1\n^2</item>
+        <item quantity="two"><annotation name="color">هو\u2019s</annotation>\n^1\n^2</item>
+        <item quantity="few"><annotation name="color">هو\u2019s</annotation>\n^1\n^2</item>
+        <item quantity="many"><annotation name="color">هو\u2019s</annotation>\n^1\n^2</item>
+        <item quantity="other"><annotation name="color">هو\u2019s</annotation>\n^1\n^2</item>
     </plurals>
     <!-- Hour displayed in words on the typographic clock face. [CHAR LIMIT=12] -->
     <string-array name="type_clock_hours">
-        <item>Twelve</item>
-        <item>One</item>
-        <item>Two</item>
-        <item>Three</item>
-        <item>Four</item>
-        <item>Five</item>
-        <item>Six</item>
-        <item>Seven</item>
-        <item>Eight</item>
-        <item>Nine</item>
-        <item>Ten</item>
-        <item>Eleven</item>
+        <item>اثنا عشر</item>
+        <item>واحدة</item>
+        <item>إثنان</item>
+        <item>ثلاثة</item>
+        <item>أربعة</item>
+        <item>خمسة</item>
+        <item>ستة</item>
+        <item>سبعة</item>
+        <item>ثمانية</item>
+        <item>تسعة</item>
+        <item>عشرة</item>
+        <item>إحدى عشرة</item>
     </string-array>
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
     <string-array name="type_clock_minutes">
-        <item>O\u2019Clock</item>
-        <item>Oh One</item>
-        <item>Oh Two</item>
-        <item>Oh Three</item>
-        <item>Oh Four</item>
-        <item>Oh Five</item>
-        <item>Oh Six</item>
-        <item>Oh Seven</item>
-        <item>Oh Eight</item>
-        <item>Oh Nine</item>
-        <item>Ten</item>
-        <item>Eleven</item>
-        <item>Twelve</item>
-        <item>Thirteen</item>
+        <item>O\u2019ساعة</item>
+        <item>و واحد</item>
+        <item>و اثنتان</item>
+        <item>و ثلاثة</item>
+        <item>و أربعة</item>
+        <item>و خمسة</item>
+        <item>و ستة</item>
+        <item>و سبعة</item>
+        <item>و ثمانية</item>
+        <item>و تسعة</item>
+        <item>عشرة</item>
+        <item>إحدى عشر</item>
+        <item>اثنا عشر</item>
+        <item>ثلاثة عشر</item>
         <item>Fourteen</item>
         <item>Fifteen</item>
         <item>Sixteen</item>
@@ -123,41 +123,41 @@
     <!-- Caffeine QS Tile -->
     <string name="quick_settings_caffeine_label">Caffeine</string>
     <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+    <string name="accessibility_quick_settings_caffeine_on">تشغيل وضع الكافئين</string>
     <!-- Always on Display Tile -->
-    <string name="quick_settings_always_on_display_label">Always on display</string>
-    <string name="accessibility_quick_settings_always_on_display_off">Always on display off.</string>
-    <string name="accessibility_quick_settings_always_on_display_on">Always on display on.</string>
-    <string name="accessibility_quick_settings_always_on_display_changed_off">Always on display turned off.</string>
-    <string name="accessibility_quick_settings_always_on_display_changed_on">Always on display turned on.</string>
+    <string name="quick_settings_always_on_display_label">دائماً على الشاشة</string>
+    <string name="accessibility_quick_settings_always_on_display_off">دائماً على الشاشة متوقفة.</string>
+    <string name="accessibility_quick_settings_always_on_display_on">دائماً على الشاشة مفعلة.</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_off">دائماً على الشاشة متوقفة.</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_on">دائماً على الشاشة مفعلة.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+    <string name="quick_settings_heads_up_label">التنبيهات العلوية</string>
+    <string name="accessibility_quick_settings_heads_up_off">إيقاف الإشعارات العلوية.</string>
+    <string name="accessibility_quick_settings_heads_up_on">تشغيل التنبيهات العلوية.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">تم إيقاف التنبيهات العلوية.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل التنبيهات العلوية.</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device, within the Restart Options dialog -->
-    <string name="global_action_restart_system">System</string>
+    <string name="global_action_restart_system">النظام</string>
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_recovery">الاسترداد</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_bootloader">بوتلودر</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-    <string name="global_action_restart_download">Download</string>
+    <string name="global_action_restart_download">التنزيل</string>
     <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_progress">Restarting\u2026</string>
+    <string name="global_action_restart_progress">جارٍ إعادة التشغيل\u2026</string>
     <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_recovery_progress">Restarting to recovery mode\u2026</string>
+    <string name="global_action_restart_recovery_progress">جار إعادة التشغيل إلى وضع الاسترداد\u2026</string>
     <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_bootloader_progress">Restarting to bootloader mode\u2026</string>
+    <string name="global_action_restart_bootloader_progress">جار إعادة التشغيل إلى وضع البوتلودر\u2026</string>
     <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_download_progress">Restarting to download mode\u2026</string>
+    <string name="global_action_restart_download_progress">جار إعادة التشغيل لوضع التنزيل\u2026</string>
     <!-- Label for current user in power menu options dialog -->
-    <string name="global_action_current_user">Current</string>
+    <string name="global_action_current_user">الحالي</string>
     <!-- QS Config -->
-    <string name="qs_menu_item_columns">Columns</string>
-    <string name="qs_menu_item_columns_landscape">Columns landscape</string>
+    <string name="qs_menu_item_columns">الأعمدة</string>
+    <string name="qs_menu_item_columns_landscape">الأعمدة في الوضع الافقي</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
     <string name="qs_menu_item_columns_five">5</string>
@@ -165,29 +165,29 @@
     <string name="qs_menu_item_columns_seven">7</string>
     <string name="qs_menu_item_columns_eight">8</string>
     <string name="qs_menu_item_columns_nine">9</string>
-    <string name="qs_menu_item_titles">Show labels</string>
+    <string name="qs_menu_item_titles">إظهار التسميات</string>
     <!--  Omnijaws -->
-    <string name="omnijaws_service_error">Error</string>
-    <string name="omnijaws_service_unkown">No weather data</string>
-    <string name="omnijaws_service_error_long">Error loading weather data</string>
-    <string name="omnijaws_service_disabled">Service is disabled</string>
-    <string name="omnijaws_detail_header">Weather</string>
-    <string name="omnijaws_label_default">Weather</string>
-    <string name="omnijaws_current_text">Now</string>
-    <string name="omnijaws_package_not_available">OmniJaws not available</string>
-    <string name="omnijaws_service_last_update">Last update:</string>
+    <string name="omnijaws_service_error">خطأ</string>
+    <string name="omnijaws_service_unkown">لا توجد بيانات طقس</string>
+    <string name="omnijaws_service_error_long">خطأ في تحميل بيانات الطقس</string>
+    <string name="omnijaws_service_disabled">الخدمة معطلة</string>
+    <string name="omnijaws_detail_header">الطقس</string>
+    <string name="omnijaws_label_default">الطقس</string>
+    <string name="omnijaws_current_text">الآن</string>
+    <string name="omnijaws_package_not_available">OmniJaws غير متوفر</string>
+    <string name="omnijaws_service_last_update">آخر تحديث:</string>
     <!-- Screen record -->
-    <string name="screenrecord_dialog_title">Screen Record</string>
-    <string name="screenrecord_dialog_summary">While recording, Android system can capture any sensitive information that\'s visible on your screen or played on your device. This includes passwords, payment info, photos, messages, and audio.</string>
-    <string name="screenrecord_dialog_start">Start</string>
-    <string name="screenrecord_dialog_cancel">Cancel</string>
-    <string name="screenrecord_audio_title">Audio source</string>
-    <string name="screenrecord_audio_summary">Record audio while recording</string>
-    <string name="screenrecord_no_audio">No audio</string>
-    <string name="screenrecord_microphone">Microphone</string>
-    <string name="screenrecord_system_audio">System audio</string>
-    <string name="screenrecord_taps_title">Show touches on screen</string>
-    <string name="screenrecord_taps_summary">Show visual feedback while recording</string>
+    <string name="screenrecord_dialog_title">تسجيل الشاشة</string>
+    <string name="screenrecord_dialog_summary">أثناء التسجيل، يمكن لنظام الأندرويد التقاط أي معلومات حساسة مرئية على شاشتك أو مشغلة على جهازك. وهذا يشمل كلمات المرور، ومعلومات الدفع، والصور، والرسائل، والصوت.</string>
+    <string name="screenrecord_dialog_start">ابدأ</string>
+    <string name="screenrecord_dialog_cancel">إلغاء</string>
+    <string name="screenrecord_audio_title">مصدر الصوت</string>
+    <string name="screenrecord_audio_summary">تسجيل الصوت أثناء التسجيل</string>
+    <string name="screenrecord_no_audio">لا صوت</string>
+    <string name="screenrecord_microphone">الميكروفون</string>
+    <string name="screenrecord_system_audio">صوت النظام</string>
+    <string name="screenrecord_taps_title">إظهار اللمس على الشاشة</string>
+    <string name="screenrecord_taps_summary">إظهار اللمسات المرئية أثناء التسجيل</string>
     <string name="screenrecord_low_quality_title">Low quality</string>
     <string name="screenrecord_low_quality_summary">Record in a lower quality to save space on your device</string>
 </resources>
