@@ -18,15 +18,15 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_fakePackageSignature">Spoof package signature</string>
+    <string name="permlab_fakePackageSignature">Offusca firma del pacchetto</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Allows the app to pretend to be a different app. Malicious applications might be able to use this to access private application data. Grant this permission with caution only!</string>
+    <string name="permdesc_fakePackageSignature">Consente all\'applicazione di fingere di essere un\'altra app. Le applicazioni dannose potrebbero essere in grado di utilizzare questo permesso per accedere ai dati privati dell\'applicazione. Concedi questo permesso con cautela!</string>
     <!-- LiveDisplay strings -->
-    <string name="live_display_auto">Automatic</string>
-    <string name="live_display_auto_summary">Automatically adjust color temperature of screen after sunset and sunrise</string>
-    <string name="live_display_off">Off</string>
-    <string name="live_display_off_summary">Disable all adjustments</string>
-    <string name="live_display_day">Day</string>
+    <string name="live_display_auto">Automatico</string>
+    <string name="live_display_auto_summary">Regola automaticamente la temperatura del colore dello schermo dopo il tramonto e l\'alba</string>
+    <string name="live_display_off">Spento</string>
+    <string name="live_display_off_summary">Disabilita tutte le regolazioni</string>
+    <string name="live_display_day">Giorno</string>
     <string name="live_display_day_summary">Use day settings only</string>
     <string name="live_display_night">Night</string>
     <string name="live_display_night_summary">Use night settings only</string>
