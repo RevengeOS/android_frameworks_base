@@ -29,23 +29,23 @@
 
     [CHAR LIMIT=8] -->
     <plurals name="type_clock_header">
-        <item quantity="one"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
-        <item quantity="other"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
+        <item quantity="one"><annotation name="color">Sono le\u2019s</annotation>\n^1\n^2</item>
+        <item quantity="other"><annotation name="color">Sono le\u2019s</annotation>\n^1\n^2</item>
     </plurals>
     <!-- Hour displayed in words on the typographic clock face. [CHAR LIMIT=12] -->
     <string-array name="type_clock_hours">
-        <item>Twelve</item>
-        <item>One</item>
-        <item>Two</item>
-        <item>Three</item>
-        <item>Four</item>
-        <item>Five</item>
-        <item>Six</item>
-        <item>Seven</item>
-        <item>Eight</item>
-        <item>Nine</item>
-        <item>Ten</item>
-        <item>Eleven</item>
+        <item>Dodici</item>
+        <item>Una</item>
+        <item>Due</item>
+        <item>Tre</item>
+        <item>Quattro</item>
+        <item>Cinque</item>
+        <item>Sei</item>
+        <item>Sette</item>
+        <item>Otto</item>
+        <item>Nove</item>
+        <item>Dieci</item>
+        <item>Undici</item>
     </string-array>
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
     <string-array name="type_clock_minutes">
@@ -113,12 +113,12 @@
     <!-- Title for Typographic clock face that will appear in the picker app next to a preview image of
          the clock face. [CHAR LIMIT=8] -->
     <!-- Title for statusbar items -->
-    <string name="statusbar_items_title">Statusbar items</string>
+    <string name="statusbar_items_title">Elementi barra di stato</string>
     <!-- Name of the volte status bar icon. -->
     <string name="status_bar_volte">VoLTE</string>
     <!-- Caffeine QS Tile -->
     <string name="quick_settings_caffeine_label">Caffeine</string>
-    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeina disattivata</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
     <!-- Always on Display Tile -->
     <string name="quick_settings_always_on_display_label">Always on display</string>
