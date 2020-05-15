@@ -86,29 +86,29 @@
         <item>e trentaquattro</item>
         <item>e trentacinque</item>
         <item>e trentasei</item>
-        <item>Thirty\nSeven</item>
-        <item>Thirty\nEight</item>
-        <item>Thirty\nNine</item>
-        <item>Forty</item>
-        <item>Forty\nOne</item>
-        <item>Forty\nTwo</item>
-        <item>Forty\nThree</item>
-        <item>Forty\nFour</item>
-        <item>Forty\nFive</item>
-        <item>Forty\nSix</item>
-        <item>Forty\nSeven</item>
-        <item>Forty\nEight</item>
-        <item>Forty\nNine</item>
-        <item>Fifty</item>
-        <item>Fifty\nOne</item>
-        <item>Fifty\nTwo</item>
-        <item>Fifty\nThree</item>
-        <item>Fifty\nFour</item>
-        <item>Fifty\nFive</item>
-        <item>Fifty\nSix</item>
-        <item>Fifty\nSeven</item>
-        <item>Fifty\nEight</item>
-        <item>Fifty\nNine</item>
+        <item>e trentasette</item>
+        <item>e trentotto</item>
+        <item>e trentanove</item>
+        <item>e quaranta</item>
+        <item>e quarantuno</item>
+        <item>e quarantadue</item>
+        <item>e quarantatre</item>
+        <item>e quarantaquattro</item>
+        <item>e quarantacinque</item>
+        <item>e quarantasei</item>
+        <item>e quarantasette</item>
+        <item>e quarantotto</item>
+        <item>e quarantanove</item>
+        <item>e cinquanta</item>
+        <item>e cinquantuno</item>
+        <item>e cinquantadue</item>
+        <item>e cinquantatre</item>
+        <item>e cinquantaquattro</item>
+        <item>e cinquantacinque</item>
+        <item>e cinquantasei</item>
+        <item>e cinquantasette</item>
+        <item>e cinquantotto</item>
+        <item>e cinquantanove</item>
     </string-array>
     <!-- Title for Typographic clock face that will appear in the picker app next to a preview image of
          the clock face. [CHAR LIMIT=8] -->
