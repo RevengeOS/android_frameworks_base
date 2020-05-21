@@ -36,26 +36,26 @@
     </plurals>
     <!-- Hour displayed in words on the typographic clock face. [CHAR LIMIT=12] -->
     <string-array name="type_clock_hours">
-        <item>Twelve</item>
+        <item>Dvanáct</item>
         <item>One</item>
         <item>Two</item>
         <item>Three</item>
         <item>Four</item>
         <item>Five</item>
         <item>Six</item>
-        <item>Seven</item>
+        <item>Sedm</item>
         <item>Eight</item>
-        <item>Nine</item>
-        <item>Ten</item>
-        <item>Eleven</item>
+        <item>Devět</item>
+        <item>Deset</item>
+        <item>Jedenáct</item>
     </string-array>
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
     <string-array name="type_clock_minutes">
         <item>O\u2019Clock</item>
-        <item>Oh One</item>
-        <item>Oh Two</item>
-        <item>Oh Three</item>
-        <item>Oh Four</item>
+        <item>Jedna Hodina</item>
+        <item>Dvě Hodiny</item>
+        <item>Tři Hodiny</item>
+        <item>Čtyři Hodiny</item>
         <item>Oh Five</item>
         <item>Oh Six</item>
         <item>Oh Seven</item>
