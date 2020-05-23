@@ -29,37 +29,36 @@
 
     [CHAR LIMIT=8] -->
     <plurals name="type_clock_header">
-        <item quantity="one"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
         <item quantity="other"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
     </plurals>
     <!-- Hour displayed in words on the typographic clock face. [CHAR LIMIT=12] -->
     <string-array name="type_clock_hours">
-        <item>Douze</item>
-        <item>Un</item>
-        <item>Deux</item>
-        <item>Trois</item>
-        <item>Quatre</item>
-        <item>Cinq</item>
+        <item>Twelve</item>
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Five</item>
         <item>Six</item>
-        <item>Sept</item>
-        <item>Huit</item>
-        <item>Neuf</item>
-        <item>Dix</item>
-        <item>Onze</item>
+        <item>Seven</item>
+        <item>Eight</item>
+        <item>Nine</item>
+        <item>Ten</item>
+        <item>Eleven</item>
     </string-array>
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
     <string-array name="type_clock_minutes">
         <item>O\u2019Clock</item>
-        <item>Oh Un</item>
-        <item>Oh Deux</item>
-        <item>Oh Trois</item>
-        <item>Oh Quatre</item>
-        <item>Oh Cinq</item>
+        <item>Oh One</item>
+        <item>Oh Two</item>
+        <item>Oh Three</item>
+        <item>Oh Four</item>
+        <item>Oh Five</item>
         <item>Oh Six</item>
-        <item>Oh Sept</item>
-        <item>Oh Huit</item>
-        <item>Oh Neuf</item>
-        <item>Dix</item>
+        <item>Oh Seven</item>
+        <item>Oh Eight</item>
+        <item>Oh Nine</item>
+        <item>Ten</item>
         <item>Eleven</item>
         <item>Twelve</item>
         <item>Thirteen</item>
@@ -144,15 +143,15 @@
     <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_progress">Restarting\u2026</string>
     <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_recovery_progress">Redémarrage en mode recovery\u2026</string>
+    <string name="global_action_restart_recovery_progress">Restarting to recovery mode\u2026</string>
     <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_bootloader_progress">Redémarrage en mode bootloader\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Restarting to bootloader mode\u2026</string>
     <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_download_progress">Redémarrage en mode téléchargement\u2026</string>
+    <string name="global_action_restart_download_progress">Restarting to download mode\u2026</string>
     <!-- Label for current user in power menu options dialog -->
-    <string name="global_action_current_user">Actuel</string>
+    <string name="global_action_current_user">Current</string>
     <!-- QS Config -->
-    <string name="qs_menu_item_columns">Colonnes</string>
+    <string name="qs_menu_item_columns">Columns</string>
     <string name="qs_menu_item_columns_landscape">Columns landscape</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
@@ -161,29 +160,29 @@
     <string name="qs_menu_item_columns_seven">7</string>
     <string name="qs_menu_item_columns_eight">8</string>
     <string name="qs_menu_item_columns_nine">9</string>
-    <string name="qs_menu_item_titles">Afficher les étiquettes</string>
+    <string name="qs_menu_item_titles">Show labels</string>
     <!--  Omnijaws -->
-    <string name="omnijaws_service_error">Erreur</string>
-    <string name="omnijaws_service_unkown">Aucune donnée météo</string>
-    <string name="omnijaws_service_error_long">Erreur lors du chargement des données météo</string>
-    <string name="omnijaws_service_disabled">Service désactivé</string>
-    <string name="omnijaws_detail_header">Météo</string>
-    <string name="omnijaws_label_default">Météo</string>
-    <string name="omnijaws_current_text">Maintenant</string>
-    <string name="omnijaws_package_not_available">OmniJaws non disponible</string>
-    <string name="omnijaws_service_last_update">Dernière mise à jour :</string>
+    <string name="omnijaws_service_error">Error</string>
+    <string name="omnijaws_service_unkown">No weather data</string>
+    <string name="omnijaws_service_error_long">Error loading weather data</string>
+    <string name="omnijaws_service_disabled">Service is disabled</string>
+    <string name="omnijaws_detail_header">Weather</string>
+    <string name="omnijaws_label_default">Weather</string>
+    <string name="omnijaws_current_text">Now</string>
+    <string name="omnijaws_package_not_available">OmniJaws not available</string>
+    <string name="omnijaws_service_last_update">Last update:</string>
     <!-- Screen record -->
-    <string name="screenrecord_dialog_title">Enregistrement d\'écran</string>
-    <string name="screenrecord_dialog_summary">Lors de l\'enregistrement, le système Android peut capturer toutes les informations sensibles visibles sur votre écran ou jouées sur votre appareil. Cela inclut les mots de passe, les infos de paiement, les photos, les messages et l\'audio.</string>
-    <string name="screenrecord_dialog_start">Lancer</string>
-    <string name="screenrecord_dialog_cancel">Annuler</string>
-    <string name="screenrecord_audio_title">Source audio</string>
-    <string name="screenrecord_audio_summary">Enregistrer le son pendant l\'enregistrement</string>
-    <string name="screenrecord_no_audio">Pas de son</string>
+    <string name="screenrecord_dialog_title">Screen Record</string>
+    <string name="screenrecord_dialog_summary">While recording, Android system can capture any sensitive information that\'s visible on your screen or played on your device. This includes passwords, payment info, photos, messages, and audio.</string>
+    <string name="screenrecord_dialog_start">Start</string>
+    <string name="screenrecord_dialog_cancel">Cancel</string>
+    <string name="screenrecord_audio_title">Audio source</string>
+    <string name="screenrecord_audio_summary">Record audio while recording</string>
+    <string name="screenrecord_no_audio">No audio</string>
     <string name="screenrecord_microphone">Microphone</string>
-    <string name="screenrecord_system_audio">Audio du système</string>
-    <string name="screenrecord_taps_title">Afficher les touches à l\'écran</string>
-    <string name="screenrecord_taps_summary">Afficher les retours visuels lors de l\'enregistrement</string>
-    <string name="screenrecord_low_quality_title">Basse qualité</string>
-    <string name="screenrecord_low_quality_summary">Enregistrez en qualité inférieure pour économiser de l\'espace sur votre appareil</string>
+    <string name="screenrecord_system_audio">System audio</string>
+    <string name="screenrecord_taps_title">Show touches on screen</string>
+    <string name="screenrecord_taps_summary">Show visual feedback while recording</string>
+    <string name="screenrecord_low_quality_title">Low quality</string>
+    <string name="screenrecord_low_quality_summary">Record in a lower quality to save space on your device</string>
 </resources>

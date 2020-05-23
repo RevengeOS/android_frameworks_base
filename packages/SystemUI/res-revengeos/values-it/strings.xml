@@ -29,112 +29,112 @@
 
     [CHAR LIMIT=8] -->
     <plurals name="type_clock_header">
-        <item quantity="one"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
-        <item quantity="other"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
+        <item quantity="one"><annotation name="color">Sono le\u2019s</annotation>\n^1\n^2</item>
+        <item quantity="other"><annotation name="color">Sono le\u2019s</annotation>\n^1\n^2</item>
     </plurals>
     <!-- Hour displayed in words on the typographic clock face. [CHAR LIMIT=12] -->
     <string-array name="type_clock_hours">
-        <item>Twelve</item>
-        <item>One</item>
-        <item>Two</item>
-        <item>Three</item>
-        <item>Four</item>
-        <item>Five</item>
-        <item>Six</item>
-        <item>Seven</item>
-        <item>Eight</item>
-        <item>Nine</item>
-        <item>Ten</item>
-        <item>Eleven</item>
+        <item>Dodici</item>
+        <item>Una</item>
+        <item>Due</item>
+        <item>Tre</item>
+        <item>Quattro</item>
+        <item>Cinque</item>
+        <item>Sei</item>
+        <item>Sette</item>
+        <item>Otto</item>
+        <item>Nove</item>
+        <item>Dieci</item>
+        <item>Undici</item>
     </string-array>
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
     <string-array name="type_clock_minutes">
-        <item>O\u2019Clock</item>
-        <item>Oh One</item>
-        <item>Oh Two</item>
-        <item>Oh Three</item>
-        <item>Oh Four</item>
-        <item>Oh Five</item>
-        <item>Oh Six</item>
-        <item>Oh Seven</item>
-        <item>Oh Eight</item>
-        <item>Oh Nine</item>
-        <item>Ten</item>
-        <item>Eleven</item>
-        <item>Twelve</item>
-        <item>Thirteen</item>
-        <item>Fourteen</item>
-        <item>Fifteen</item>
-        <item>Sixteen</item>
-        <item>Seventeen</item>
-        <item>Eighteen</item>
-        <item>Nineteen</item>
-        <item>Twenty</item>
-        <item>Twenty\nOne</item>
-        <item>Twenty\nTwo</item>
-        <item>Twenty\nThree</item>
-        <item>Twenty\nFour</item>
-        <item>Twenty\nFive</item>
-        <item>Twenty\nSix</item>
-        <item>Twenty\nSeven</item>
-        <item>Twenty\nEight</item>
-        <item>Twenty\nNine</item>
-        <item>Thirty</item>
-        <item>Thirty\nOne</item>
-        <item>Thirty\nTwo</item>
-        <item>Thirty\nThree</item>
-        <item>Thirty\nFour</item>
-        <item>Thirty\nFive</item>
-        <item>Thirty\nSix</item>
-        <item>Thirty\nSeven</item>
-        <item>Thirty\nEight</item>
-        <item>Thirty\nNine</item>
-        <item>Forty</item>
-        <item>Forty\nOne</item>
-        <item>Forty\nTwo</item>
-        <item>Forty\nThree</item>
-        <item>Forty\nFour</item>
-        <item>Forty\nFive</item>
-        <item>Forty\nSix</item>
-        <item>Forty\nSeven</item>
-        <item>Forty\nEight</item>
-        <item>Forty\nNine</item>
-        <item>Fifty</item>
-        <item>Fifty\nOne</item>
-        <item>Fifty\nTwo</item>
-        <item>Fifty\nThree</item>
-        <item>Fifty\nFour</item>
-        <item>Fifty\nFive</item>
-        <item>Fifty\nSix</item>
-        <item>Fifty\nSeven</item>
-        <item>Fifty\nEight</item>
-        <item>Fifty\nNine</item>
+        <item>In punto</item>
+        <item>e uno</item>
+        <item>e due</item>
+        <item>e tre</item>
+        <item>e quattro</item>
+        <item>e cinque</item>
+        <item>e sei</item>
+        <item>e sette</item>
+        <item>e otto</item>
+        <item>e nove</item>
+        <item>e dieci</item>
+        <item>e undici</item>
+        <item>e dodici</item>
+        <item>e tredici</item>
+        <item>e quattordici</item>
+        <item>e quindici</item>
+        <item>e sedici</item>
+        <item>e diciassette</item>
+        <item>e diciotto</item>
+        <item>e diciannove</item>
+        <item>e venti</item>
+        <item>e ventuno</item>
+        <item>e ventidue</item>
+        <item>e ventitre</item>
+        <item>e ventiquattro</item>
+        <item>e venticinque</item>
+        <item>e ventisei</item>
+        <item>e ventisette</item>
+        <item>e ventotto</item>
+        <item>e ventinove</item>
+        <item>e trenta</item>
+        <item>e trentuno</item>
+        <item>e trentadue</item>
+        <item>e trentatre</item>
+        <item>e trentaquattro</item>
+        <item>e trentacinque</item>
+        <item>e trentasei</item>
+        <item>e trentasette</item>
+        <item>e trentotto</item>
+        <item>e trentanove</item>
+        <item>e quaranta</item>
+        <item>e quarantuno</item>
+        <item>e quarantadue</item>
+        <item>e quarantatre</item>
+        <item>e quarantaquattro</item>
+        <item>e quarantacinque</item>
+        <item>e quarantasei</item>
+        <item>e quarantasette</item>
+        <item>e quarantotto</item>
+        <item>e quarantanove</item>
+        <item>e cinquanta</item>
+        <item>e cinquantuno</item>
+        <item>e cinquantadue</item>
+        <item>e cinquantatre</item>
+        <item>e cinquantaquattro</item>
+        <item>e cinquantacinque</item>
+        <item>e cinquantasei</item>
+        <item>e cinquantasette</item>
+        <item>e cinquantotto</item>
+        <item>e cinquantanove</item>
     </string-array>
     <!-- Title for Typographic clock face that will appear in the picker app next to a preview image of
          the clock face. [CHAR LIMIT=8] -->
     <!-- Title for statusbar items -->
-    <string name="statusbar_items_title">Statusbar items</string>
+    <string name="statusbar_items_title">Elementi barra di stato</string>
     <!-- Name of the volte status bar icon. -->
     <string name="status_bar_volte">VoLTE</string>
     <!-- Caffeine QS Tile -->
     <string name="quick_settings_caffeine_label">Caffeine</string>
-    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine disattivata</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine attivata</string>
     <!-- Always on Display Tile -->
     <string name="quick_settings_always_on_display_label">Always on display</string>
-    <string name="accessibility_quick_settings_always_on_display_off">Always on display off.</string>
-    <string name="accessibility_quick_settings_always_on_display_on">Always on display on.</string>
-    <string name="accessibility_quick_settings_always_on_display_changed_off">Always on display turned off.</string>
-    <string name="accessibility_quick_settings_always_on_display_changed_on">Always on display turned on.</string>
+    <string name="accessibility_quick_settings_always_on_display_off">Always on display spento.</string>
+    <string name="accessibility_quick_settings_always_on_display_on">Always on display acceso.</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_off">Always on display disattivato.</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_on">Always on display attivato.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+    <string name="quick_settings_heads_up_label">Notifiche fluttuanti</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifiche fluttuanti spente.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifiche a comparsa attive.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notifiche fluttuanti disattivate.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notifiche fluttuanti attivate.</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device, within the Restart Options dialog -->
-    <string name="global_action_restart_system">System</string>
+    <string name="global_action_restart_system">Sistema</string>
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">Recovery</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
@@ -142,18 +142,18 @@
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Download</string>
     <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_progress">Restarting\u2026</string>
+    <string name="global_action_restart_progress">Riavvio in corso\u2026</string>
     <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_recovery_progress">Restarting to recovery mode\u2026</string>
+    <string name="global_action_restart_recovery_progress">Riavvio in modalità recovery\u2026</string>
     <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_bootloader_progress">Restarting to bootloader mode\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Riavvio in modalità bootloader\u2026</string>
     <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_download_progress">Restarting to download mode\u2026</string>
+    <string name="global_action_restart_download_progress">Riavvio in modalità download\u2026</string>
     <!-- Label for current user in power menu options dialog -->
-    <string name="global_action_current_user">Current</string>
+    <string name="global_action_current_user">Attuale</string>
     <!-- QS Config -->
-    <string name="qs_menu_item_columns">Columns</string>
-    <string name="qs_menu_item_columns_landscape">Columns landscape</string>
+    <string name="qs_menu_item_columns">Colonne</string>
+    <string name="qs_menu_item_columns_landscape">Colonne modalità panorama</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
     <string name="qs_menu_item_columns_five">5</string>
@@ -161,29 +161,29 @@
     <string name="qs_menu_item_columns_seven">7</string>
     <string name="qs_menu_item_columns_eight">8</string>
     <string name="qs_menu_item_columns_nine">9</string>
-    <string name="qs_menu_item_titles">Show labels</string>
+    <string name="qs_menu_item_titles">Mostra etichette</string>
     <!--  Omnijaws -->
-    <string name="omnijaws_service_error">Error</string>
-    <string name="omnijaws_service_unkown">No weather data</string>
-    <string name="omnijaws_service_error_long">Error loading weather data</string>
-    <string name="omnijaws_service_disabled">Service is disabled</string>
-    <string name="omnijaws_detail_header">Weather</string>
-    <string name="omnijaws_label_default">Weather</string>
-    <string name="omnijaws_current_text">Now</string>
-    <string name="omnijaws_package_not_available">OmniJaws not available</string>
-    <string name="omnijaws_service_last_update">Last update:</string>
+    <string name="omnijaws_service_error">Errore</string>
+    <string name="omnijaws_service_unkown">Dati meteo non disponibili</string>
+    <string name="omnijaws_service_error_long">Errore durante il caricamento dei dati meteo</string>
+    <string name="omnijaws_service_disabled">Il servizio è disabilitato</string>
+    <string name="omnijaws_detail_header">Meteo</string>
+    <string name="omnijaws_label_default">Meteo</string>
+    <string name="omnijaws_current_text">Adesso</string>
+    <string name="omnijaws_package_not_available">OmniJaws non disponibile</string>
+    <string name="omnijaws_service_last_update">Ultimo aggiornamento:</string>
     <!-- Screen record -->
-    <string name="screenrecord_dialog_title">Screen Record</string>
-    <string name="screenrecord_dialog_summary">While recording, Android system can capture any sensitive information that\'s visible on your screen or played on your device. This includes passwords, payment info, photos, messages, and audio.</string>
-    <string name="screenrecord_dialog_start">Start</string>
-    <string name="screenrecord_dialog_cancel">Cancel</string>
-    <string name="screenrecord_audio_title">Audio source</string>
-    <string name="screenrecord_audio_summary">Record audio while recording</string>
-    <string name="screenrecord_no_audio">No audio</string>
-    <string name="screenrecord_microphone">Microphone</string>
-    <string name="screenrecord_system_audio">System audio</string>
-    <string name="screenrecord_taps_title">Show touches on screen</string>
-    <string name="screenrecord_taps_summary">Show visual feedback while recording</string>
-    <string name="screenrecord_low_quality_title">Low quality</string>
-    <string name="screenrecord_low_quality_summary">Record in a lower quality to save space on your device</string>
+    <string name="screenrecord_dialog_title">Registrazione schermo</string>
+    <string name="screenrecord_dialog_summary">Durante la registrazione, il sistema Android può acquisire qualsiasi informazione sensibile visibile sullo schermo o riprodotta sul tuo dispositivo. Questo include password, informazioni di pagamento, foto, messaggi e audio.</string>
+    <string name="screenrecord_dialog_start">Avvia</string>
+    <string name="screenrecord_dialog_cancel">Annulla</string>
+    <string name="screenrecord_audio_title">Sorgente audio</string>
+    <string name="screenrecord_audio_summary">Registra audio durante la registrazione</string>
+    <string name="screenrecord_no_audio">Nessun audio</string>
+    <string name="screenrecord_microphone">Microfono</string>
+    <string name="screenrecord_system_audio">Audio di sistema</string>
+    <string name="screenrecord_taps_title">Mostra tocchi sullo schermo</string>
+    <string name="screenrecord_taps_summary">Mostra feedback visivo durante la registrazione</string>
+    <string name="screenrecord_low_quality_title">Bassa qualità</string>
+    <string name="screenrecord_low_quality_summary">Registra in qualità inferiore per risparmiare spazio sul tuo dispositivo</string>
 </resources>

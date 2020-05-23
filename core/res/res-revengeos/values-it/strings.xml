@@ -18,29 +18,29 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_fakePackageSignature">Spoof package signature</string>
+    <string name="permlab_fakePackageSignature">Offusca firma del pacchetto</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Allows the app to pretend to be a different app. Malicious applications might be able to use this to access private application data. Grant this permission with caution only!</string>
+    <string name="permdesc_fakePackageSignature">Consente all\'applicazione di fingere di essere un\'altra app. Le applicazioni dannose potrebbero essere in grado di utilizzare questo permesso per accedere ai dati privati dell\'applicazione. Concedi questo permesso con cautela!</string>
     <!-- LiveDisplay strings -->
-    <string name="live_display_auto">Automatic</string>
-    <string name="live_display_auto_summary">Automatically adjust color temperature of screen after sunset and sunrise</string>
-    <string name="live_display_off">Off</string>
-    <string name="live_display_off_summary">Disable all adjustments</string>
-    <string name="live_display_day">Day</string>
-    <string name="live_display_day_summary">Use day settings only</string>
-    <string name="live_display_night">Night</string>
-    <string name="live_display_night_summary">Use night settings only</string>
-    <string name="live_display_outdoor">Outdoor (bright sun)</string>
-    <string name="live_display_outdoor_summary">Use outdoor settings only</string>
-    <string name="live_display_hint">LiveDisplay can help reduce eyestrain and help you sleep at night. Click here to try it out!</string>
-    <string name="accessibility_quick_settings_live_display_off">LiveDisplay off.</string>
-    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: auto mode.</string>
-    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: day mode.</string>
-    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: night mode.</string>
-    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: outdoor mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay turned off.</string>
-    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay changed to auto mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay changed to day mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay changed to night mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay changed to outdoor mode.</string>
+    <string name="live_display_auto">Automatico</string>
+    <string name="live_display_auto_summary">Regola automaticamente la temperatura del colore dello schermo dopo il tramonto e l\'alba</string>
+    <string name="live_display_off">Spento</string>
+    <string name="live_display_off_summary">Disabilita tutte le regolazioni</string>
+    <string name="live_display_day">Giorno</string>
+    <string name="live_display_day_summary">Utilizza soltanto le impostazioni diurne</string>
+    <string name="live_display_night">Notte</string>
+    <string name="live_display_night_summary">Utilizza soltanto le impostazioni notturne</string>
+    <string name="live_display_outdoor">All\'aperto (sole luminoso)</string>
+    <string name="live_display_outdoor_summary">Utilizza soltanto le impostazioni all\'aperto</string>
+    <string name="live_display_hint">LiveDisplay aiuta a ridurre l\'affaticamento degli occhi e aiuta a dormire di notte. Clicca per provarlo!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay disattivato.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modalità automatica.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modalità giorno.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modalità notte.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modalità all\'aperto.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay disattivato.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay cambiato in modalità automatica.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay cambiato in modalità giorno.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay cambiato in modalità notte.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay cambiato in modalità all\'aperto.</string>
 </resources>

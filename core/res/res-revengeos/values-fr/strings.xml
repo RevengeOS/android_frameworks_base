@@ -18,11 +18,11 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_fakePackageSignature">Spoof package signature</string>
+    <string name="permlab_fakePackageSignature">Falsifier la signature du paquet</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_fakePackageSignature">Allows the app to pretend to be a different app. Malicious applications might be able to use this to access private application data. Grant this permission with caution only!</string>
     <!-- LiveDisplay strings -->
-    <string name="live_display_auto">Automatic</string>
+    <string name="live_display_auto">Automatique</string>
     <string name="live_display_auto_summary">Automatically adjust color temperature of screen after sunset and sunrise</string>
     <string name="live_display_off">Off</string>
     <string name="live_display_off_summary">Disable all adjustments</string>
