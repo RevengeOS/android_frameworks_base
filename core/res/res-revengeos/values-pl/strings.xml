@@ -18,15 +18,15 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_fakePackageSignature">Spoof package signature</string>
+    <string name="permlab_fakePackageSignature">Podpis pakietu</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Allows the app to pretend to be a different app. Malicious applications might be able to use this to access private application data. Grant this permission with caution only!</string>
+    <string name="permdesc_fakePackageSignature">Pozwala aplikacji na udawanie innej aplikacji. Złośliwe aplikacje mogą mieć dostęp do prywatnych danych aplikacji. Udziel tego uprawnienia tylko ostrożnie!</string>
     <!-- LiveDisplay strings -->
-    <string name="live_display_auto">Automatic</string>
-    <string name="live_display_auto_summary">Automatically adjust color temperature of screen after sunset and sunrise</string>
-    <string name="live_display_off">Off</string>
-    <string name="live_display_off_summary">Disable all adjustments</string>
-    <string name="live_display_day">Day</string>
+    <string name="live_display_auto">Automatycznie</string>
+    <string name="live_display_auto_summary">Automatycznie dostosuj temperaturę kolorów ekranu po zachodzie słońca i wschodzie słońca</string>
+    <string name="live_display_off">Wyłączony</string>
+    <string name="live_display_off_summary">Wyłącz wszystkie korekty</string>
+    <string name="live_display_day">Dzień</string>
     <string name="live_display_day_summary">Use day settings only</string>
     <string name="live_display_night">Night</string>
     <string name="live_display_night_summary">Use night settings only</string>
