@@ -29,111 +29,111 @@
 
     [CHAR LIMIT=8] -->
     <plurals name="type_clock_header">
-        <item quantity="one"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
-        <item quantity="few"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
+        <item quantity="one"><annotation name="color">To\u2019s</annotation>\n^1\n^2</item>
+        <item quantity="few"><annotation name="color">To\u2019s</annotation>\n^1\n^2</item>
         <item quantity="many"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
         <item quantity="other"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
     </plurals>
     <!-- Hour displayed in words on the typographic clock face. [CHAR LIMIT=12] -->
     <string-array name="type_clock_hours">
-        <item>Twelve</item>
-        <item>One</item>
-        <item>Two</item>
-        <item>Three</item>
-        <item>Four</item>
-        <item>Five</item>
-        <item>Six</item>
-        <item>Seven</item>
-        <item>Eight</item>
-        <item>Nine</item>
-        <item>Ten</item>
-        <item>Eleven</item>
+        <item>Dwanaście</item>
+        <item>Jeden</item>
+        <item>Dwa</item>
+        <item>Trzy</item>
+        <item>Cztery</item>
+        <item>Pięć</item>
+        <item>Sześć</item>
+        <item>Siedem</item>
+        <item>Osiem</item>
+        <item>Dziewięć</item>
+        <item>Dziesięć</item>
+        <item>Jedenaście</item>
     </string-array>
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
     <string-array name="type_clock_minutes">
-        <item>O\u2019Clock</item>
-        <item>Oh One</item>
-        <item>Oh Two</item>
-        <item>Oh Three</item>
-        <item>Oh Four</item>
-        <item>Oh Five</item>
-        <item>Oh Six</item>
-        <item>Oh Seven</item>
-        <item>Oh Eight</item>
-        <item>Oh Nine</item>
-        <item>Ten</item>
-        <item>Eleven</item>
-        <item>Twelve</item>
-        <item>Thirteen</item>
-        <item>Fourteen</item>
-        <item>Fifteen</item>
-        <item>Sixteen</item>
-        <item>Seventeen</item>
-        <item>Eighteen</item>
-        <item>Nineteen</item>
-        <item>Twenty</item>
-        <item>Twenty\nOne</item>
-        <item>Twenty\nTwo</item>
-        <item>Twenty\nThree</item>
-        <item>Twenty\nFour</item>
-        <item>Twenty\nFive</item>
-        <item>Twenty\nSix</item>
-        <item>Twenty\nSeven</item>
-        <item>Twenty\nEight</item>
-        <item>Twenty\nNine</item>
-        <item>Thirty</item>
-        <item>Thirty\nOne</item>
-        <item>Thirty\nTwo</item>
-        <item>Thirty\nThree</item>
-        <item>Thirty\nFour</item>
-        <item>Thirty\nFive</item>
-        <item>Thirty\nSix</item>
-        <item>Thirty\nSeven</item>
-        <item>Thirty\nEight</item>
-        <item>Thirty\nNine</item>
-        <item>Forty</item>
-        <item>Forty\nOne</item>
-        <item>Forty\nTwo</item>
-        <item>Forty\nThree</item>
-        <item>Forty\nFour</item>
-        <item>Forty\nFive</item>
-        <item>Forty\nSix</item>
-        <item>Forty\nSeven</item>
-        <item>Forty\nEight</item>
-        <item>Forty\nNine</item>
-        <item>Fifty</item>
-        <item>Fifty\nOne</item>
-        <item>Fifty\nTwo</item>
-        <item>Fifty\nThree</item>
-        <item>Fifty\nFour</item>
-        <item>Fifty\nFive</item>
-        <item>Fifty\nSix</item>
-        <item>Fifty\nSeven</item>
-        <item>Fifty\nEight</item>
-        <item>Fifty\nNine</item>
+        <item>O\u2019Zegar</item>
+        <item>O jeden</item>
+        <item>O Dwa</item>
+        <item>O Trzy</item>
+        <item>O Cztery</item>
+        <item>O Pięć</item>
+        <item>O Sześć</item>
+        <item>O Siedem</item>
+        <item>O Osiem</item>
+        <item>O Dziewięć</item>
+        <item>Dziesięć</item>
+        <item>Jedenaście</item>
+        <item>Dwanaście</item>
+        <item>Trzynaście</item>
+        <item>Czternaście</item>
+        <item>Piętnaście</item>
+        <item>Szesnaście</item>
+        <item>Siedemnaście</item>
+        <item>osiemnaście</item>
+        <item>Dziewiętnaście</item>
+        <item>Dwadzieścia</item>
+        <item>Dwadzieścia Jeden</item>
+        <item>Dwadzieścia Jeden</item>
+        <item>Dwadzieścia Trzy</item>
+        <item>Dwadzieścia cztery</item>
+        <item>Dwadzieścia pięć</item>
+        <item>Dwadzieścia sześć</item>
+        <item>Dwadzieścia siedem</item>
+        <item>Dwadzieścia Osiem</item>
+        <item>Dwadzieścia dziewięć</item>
+        <item>Trzydzieści</item>
+        <item>Trzydzieści Jeden</item>
+        <item>Trzydzieści Dwa</item>
+        <item>Trzydzieści Trzy</item>
+        <item>Trzydzieści Cztery</item>
+        <item>Trzydzieści Pięć</item>
+        <item>Trzydzieści Sześć</item>
+        <item>Trzydzieści Siedem</item>
+        <item>Trzydzieści Osiem</item>
+        <item>Trzydzieści Dziewięć</item>
+        <item>Czterdzieści</item>
+        <item>Czterdzieści Jeden</item>
+        <item>Czterdzieści Dwa</item>
+        <item>Czterdzieści Trzy</item>
+        <item>Czterdzieści Cztery</item>
+        <item>Czterdzieści Pięć</item>
+        <item>Czterdzieści Sześć</item>
+        <item>Czterdzieści Siedem</item>
+        <item>Czterdzieści Osiem</item>
+        <item>Czterdzieści Dziewięć</item>
+        <item>Pięćdziesiąt</item>
+        <item>Pięćdziesiąt Jeden</item>
+        <item>Pięćdziesiąt Dwa</item>
+        <item>Pięćdziesiąt Trzy</item>
+        <item>Pięćdziesiąt Cztery</item>
+        <item>Pięćdziesiąt Pięć</item>
+        <item>Pięćdziesiąt Sześć</item>
+        <item>Pięćdziesiąt Siedem</item>
+        <item>Pięćdziesiąt Osiem</item>
+        <item>Pięćdziesiąt Dziewięć</item>
     </string-array>
     <!-- Title for Typographic clock face that will appear in the picker app next to a preview image of
          the clock face. [CHAR LIMIT=8] -->
     <!-- Title for statusbar items -->
-    <string name="statusbar_items_title">Statusbar items</string>
+    <string name="statusbar_items_title">Elementy paska stanu</string>
     <!-- Name of the volte status bar icon. -->
     <string name="status_bar_volte">VoLTE</string>
     <!-- Caffeine QS Tile -->
     <string name="quick_settings_caffeine_label">Caffeine</string>
-    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine wyłączona</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine włączona</string>
     <!-- Always on Display Tile -->
-    <string name="quick_settings_always_on_display_label">Always on display</string>
-    <string name="accessibility_quick_settings_always_on_display_off">Always on display off.</string>
-    <string name="accessibility_quick_settings_always_on_display_on">Always on display on.</string>
-    <string name="accessibility_quick_settings_always_on_display_changed_off">Always on display turned off.</string>
-    <string name="accessibility_quick_settings_always_on_display_changed_on">Always on display turned on.</string>
+    <string name="quick_settings_always_on_display_label">Zawsze na wyświetlaczu</string>
+    <string name="accessibility_quick_settings_always_on_display_off">Zawsze na ekranie wyłączone.</string>
+    <string name="accessibility_quick_settings_always_on_display_on">Zawsze na ekranie włączony.</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_off">Aktywny wyświetlacz wyłączony.</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_on">Aktywny wyświetlacz włączony.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+    <string name="quick_settings_heads_up_label">Wyskakujące powiadomienia</string>
+    <string name="accessibility_quick_settings_heads_up_off">Wyskakujące powiadomienia wyłączone</string>
+    <string name="accessibility_quick_settings_heads_up_on">Wyskakujące powiadomienia włączone</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Wyskakujące powiadomienia zawsze wyłączone</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Wyskakujące powiadomienia zawsze włączone.</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">System</string>
@@ -142,20 +142,20 @@
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-    <string name="global_action_restart_download">Download</string>
+    <string name="global_action_restart_download">Pobierz</string>
     <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_progress">Restarting\u2026</string>
+    <string name="global_action_restart_progress">Ponowne uruchamianie\u2026</string>
     <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_recovery_progress">Restarting to recovery mode\u2026</string>
+    <string name="global_action_restart_recovery_progress">Restartowanie do trybu recovery\u2026</string>
     <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_bootloader_progress">Restarting to bootloader mode\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Restartowanie do trybu bootloadera\u2026</string>
     <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_download_progress">Restarting to download mode\u2026</string>
+    <string name="global_action_restart_download_progress">Restartowanie do trybu download mode\u2026</string>
     <!-- Label for current user in power menu options dialog -->
-    <string name="global_action_current_user">Current</string>
+    <string name="global_action_current_user">Bieżący</string>
     <!-- QS Config -->
-    <string name="qs_menu_item_columns">Columns</string>
-    <string name="qs_menu_item_columns_landscape">Columns landscape</string>
+    <string name="qs_menu_item_columns">Kolumny</string>
+    <string name="qs_menu_item_columns_landscape">Widok kolumn</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
     <string name="qs_menu_item_columns_five">5</string>
@@ -163,29 +163,29 @@
     <string name="qs_menu_item_columns_seven">7</string>
     <string name="qs_menu_item_columns_eight">8</string>
     <string name="qs_menu_item_columns_nine">9</string>
-    <string name="qs_menu_item_titles">Show labels</string>
+    <string name="qs_menu_item_titles">Pokaż etykiety</string>
     <!--  Omnijaws -->
-    <string name="omnijaws_service_error">Error</string>
-    <string name="omnijaws_service_unkown">No weather data</string>
-    <string name="omnijaws_service_error_long">Error loading weather data</string>
-    <string name="omnijaws_service_disabled">Service is disabled</string>
-    <string name="omnijaws_detail_header">Weather</string>
-    <string name="omnijaws_label_default">Weather</string>
-    <string name="omnijaws_current_text">Now</string>
-    <string name="omnijaws_package_not_available">OmniJaws not available</string>
-    <string name="omnijaws_service_last_update">Last update:</string>
+    <string name="omnijaws_service_error">Błąd</string>
+    <string name="omnijaws_service_unkown">Brak danych pogody</string>
+    <string name="omnijaws_service_error_long">Błąd ładowania danych pogodowych</string>
+    <string name="omnijaws_service_disabled">Usługa jest wyłączona</string>
+    <string name="omnijaws_detail_header">Pogoda</string>
+    <string name="omnijaws_label_default">Pogoda</string>
+    <string name="omnijaws_current_text">Teraz</string>
+    <string name="omnijaws_package_not_available">OmniJaws nie jest dostępny</string>
+    <string name="omnijaws_service_last_update">Ostatnia aktualizacja:</string>
     <!-- Screen record -->
-    <string name="screenrecord_dialog_title">Screen Record</string>
-    <string name="screenrecord_dialog_summary">While recording, Android system can capture any sensitive information that\'s visible on your screen or played on your device. This includes passwords, payment info, photos, messages, and audio.</string>
-    <string name="screenrecord_dialog_start">Start</string>
-    <string name="screenrecord_dialog_cancel">Cancel</string>
-    <string name="screenrecord_audio_title">Audio source</string>
-    <string name="screenrecord_audio_summary">Record audio while recording</string>
-    <string name="screenrecord_no_audio">No audio</string>
-    <string name="screenrecord_microphone">Microphone</string>
-    <string name="screenrecord_system_audio">System audio</string>
-    <string name="screenrecord_taps_title">Show touches on screen</string>
-    <string name="screenrecord_taps_summary">Show visual feedback while recording</string>
-    <string name="screenrecord_low_quality_title">Low quality</string>
-    <string name="screenrecord_low_quality_summary">Record in a lower quality to save space on your device</string>
+    <string name="screenrecord_dialog_title">Nagrywanie ekranu</string>
+    <string name="screenrecord_dialog_summary">Podczas nagrywania, system Android może przechwytywać wrażliwe informacje, które są widoczne na ekranie lub odtwarzane na twoim urządzeniu. Zawiera hasła, informacje o płatności, zdjęciach, wiadomościach i audio.</string>
+    <string name="screenrecord_dialog_start">Rozpocznij</string>
+    <string name="screenrecord_dialog_cancel">Anuluj</string>
+    <string name="screenrecord_audio_title">Źródło dźwięku</string>
+    <string name="screenrecord_audio_summary">Nagraj dźwięk podczas nagrywania</string>
+    <string name="screenrecord_no_audio">Brak dźwięku</string>
+    <string name="screenrecord_microphone">Mikrofon</string>
+    <string name="screenrecord_system_audio">Dźwięk systemu</string>
+    <string name="screenrecord_taps_title">Pokaż dotknięcia na ekranie</string>
+    <string name="screenrecord_taps_summary">Pokaż wizualną informację zwrotną podczas nagrywania</string>
+    <string name="screenrecord_low_quality_title">Niska jakość</string>
+    <string name="screenrecord_low_quality_summary">Nagrywaj w niższej jakości, aby zaoszczędzić miejsce na urządzeniu</string>
 </resources>
