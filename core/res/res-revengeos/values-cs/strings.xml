@@ -38,8 +38,8 @@
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: day mode.</string>
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay: noční režim.</string>
     <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: outdoor mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay turned off.</string>
-    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay changed to auto mode.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay vypnutý.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay změněn na automatický režim.</string>
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay changed to day mode.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay changed to night mode.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay changed to outdoor mode.</string>
