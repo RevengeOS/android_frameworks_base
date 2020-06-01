@@ -37,41 +37,41 @@
     <!-- Hour displayed in words on the typographic clock face. [CHAR LIMIT=12] -->
     <string-array name="type_clock_hours">
         <item>Dvanáct</item>
-        <item>One</item>
-        <item>Two</item>
-        <item>Three</item>
-        <item>Four</item>
-        <item>Five</item>
-        <item>Six</item>
+        <item>Jedna</item>
+        <item>Dvě</item>
+        <item>Tři</item>
+        <item>Čtyři</item>
+        <item>Pět</item>
+        <item>Šest</item>
         <item>Sedm</item>
-        <item>Eight</item>
+        <item>Osm</item>
         <item>Devět</item>
         <item>Deset</item>
         <item>Jedenáct</item>
     </string-array>
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
     <string-array name="type_clock_minutes">
-        <item>O\u2019Clock</item>
+        <item>Je\u2019hodina</item>
         <item>Jedna Hodina</item>
         <item>Dvě Hodiny</item>
         <item>Tři Hodiny</item>
         <item>Čtyři Hodiny</item>
-        <item>Oh Five</item>
-        <item>Oh Six</item>
-        <item>Oh Seven</item>
-        <item>Oh Eight</item>
-        <item>Oh Nine</item>
-        <item>Ten</item>
-        <item>Eleven</item>
-        <item>Twelve</item>
-        <item>Thirteen</item>
-        <item>Fourteen</item>
-        <item>Fifteen</item>
-        <item>Sixteen</item>
-        <item>Seventeen</item>
-        <item>Eighteen</item>
-        <item>Nineteen</item>
-        <item>Twenty</item>
+        <item>Pět</item>
+        <item>Šest</item>
+        <item>Sedm</item>
+        <item>Osm</item>
+        <item>Jedenáct</item>
+        <item>Deset</item>
+        <item>Jedenáct</item>
+        <item>Dvanáct</item>
+        <item>Třináct</item>
+        <item>Čtrnáct</item>
+        <item>Patnáct</item>
+        <item>Šestnáct</item>
+        <item>Sedmnáct</item>
+        <item>Osmnáct</item>
+        <item>Devatenáct</item>
+        <item>Dvacet</item>
         <item>Twenty\nOne</item>
         <item>Twenty\nTwo</item>
         <item>Twenty\nThree</item>
