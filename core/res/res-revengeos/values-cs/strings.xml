@@ -18,29 +18,29 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_fakePackageSignature">Spoof package signature</string>
+    <string name="permlab_fakePackageSignature">Kontrolovat podpis balíku</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Allows the app to pretend to be a different app. Malicious applications might be able to use this to access private application data. Grant this permission with caution only!</string>
+    <string name="permdesc_fakePackageSignature">Umožňuje aplikaci předstírat, že jsou jiná aplikace. Škodlivé aplikace by mohly zneužít tento přístup k soukromým informacím aplikací. Udělte toto oprávnění pouze s opatrností!</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automaticky</string>
-    <string name="live_display_auto_summary">Automatically adjust color temperature of screen after sunset and sunrise</string>
+    <string name="live_display_auto_summary">Automaticky nastavit teplotu barev obrazovky po západu slunce a východu slunce</string>
     <string name="live_display_off">Vypnuto</string>
-    <string name="live_display_off_summary">Disable all adjustments</string>
+    <string name="live_display_off_summary">Zakázat všechny úpravy</string>
     <string name="live_display_day">Den</string>
-    <string name="live_display_day_summary">Use day settings only</string>
+    <string name="live_display_day_summary">Použít pouze denní nastavení</string>
     <string name="live_display_night">Noc</string>
-    <string name="live_display_night_summary">Use night settings only</string>
+    <string name="live_display_night_summary">Použít pouze noční nastavení</string>
     <string name="live_display_outdoor">Venku (Jasné Slunce)</string>
     <string name="live_display_outdoor_summary">Použít pouze venkovní nastavení</string>
-    <string name="live_display_hint">LiveDisplay can help reduce eyestrain and help you sleep at night. Click here to try it out!</string>
+    <string name="live_display_hint">LiveDisplay může pomoci snížit námahu očí a pomoct vám s lepším usínáním. Kliknutím sem to vyzkoušíte!</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay vypnutý.</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: automatický režim.</string>
-    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: day mode.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: denní režim.</string>
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay: noční režim.</string>
-    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: outdoor mode.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: venkovní režim.</string>
     <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay vypnutý.</string>
     <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay změněn na automatický režim.</string>
-    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay changed to day mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay changed to night mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay changed to outdoor mode.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay změněn na denní režim.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay změněn na noční režim.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay změněn na venkovní režim.</string>
 </resources>
