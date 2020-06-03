@@ -135,7 +135,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
             if (isBouncer) {
                 hide();
-            } else if (mIsKeyguard && mUpdateMonitor.isFingerprintDetectionRunning()) {
+            } else if (mUpdateMonitor.isFingerprintDetectionRunning()) {
                 show();
             }
         }
