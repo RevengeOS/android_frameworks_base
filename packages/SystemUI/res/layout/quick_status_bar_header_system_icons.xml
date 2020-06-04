@@ -15,7 +15,8 @@
     android:clipToPadding="false"
     android:clickable="true"
     android:paddingStart="@dimen/status_bar_padding_start"
-    android:paddingEnd="@dimen/status_bar_padding_end" >
+    android:paddingEnd="@dimen/status_bar_padding_end"
+    android:paddingTop="@dimen/status_bar_padding_top" >
 
     <LinearLayout
         android:id="@+id/clock_date_container"
