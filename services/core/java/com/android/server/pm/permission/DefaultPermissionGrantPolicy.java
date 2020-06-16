@@ -585,7 +585,7 @@ public final class DefaultPermissionGrantPolicy {
                 userId, ALWAYS_LOCATION_PERMISSIONS);
 
         // OmniJaws
-        grantPermissionsToSystemPackage(SERVICE_PACKAGE, userId, ALWAYS_LOCATION_PERMISSIONS);
+        grantPermissionsToSystemPackage(SERVICE_PACKAGE, userId, ALWAYS_LOCATION_PERMISSIONS, CALENDAR_PERMISSIONS, CONTACTS_PERMISSIONS);
 
         // Gallery
         grantPermissionsToSystemPackage(
