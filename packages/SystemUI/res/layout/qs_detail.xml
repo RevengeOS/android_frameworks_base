@@ -22,7 +22,6 @@
     android:layout_marginTop="@*android:dimen/qs_status_bar_top_padding"
     android:clickable="true"
     android:orientation="vertical"
-    android:paddingBottom="8dp"
     android:visibility="invisible"
     android:elevation="4dp"
     android:importantForAccessibility="no" >
