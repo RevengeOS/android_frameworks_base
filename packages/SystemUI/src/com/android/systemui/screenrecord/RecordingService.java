@@ -255,6 +255,9 @@ public class RecordingService extends Service {
             }
             setTapsVisible(mShowTaps);
 
+            // Check if the device allows to use h265 for lighter recordings
+            boolean useH265 = getResources().getBoolean(R.bool.config_useNewScreenRecEncoder);
+
             // Set up media recorder
             mMediaRecorder = new MediaRecorder();
             if (mAudioSource == 1) {
@@ -272,7 +275,7 @@ public class RecordingService extends Service {
             mWindowManager.getDefaultDisplay().getRealMetrics(metrics);
             int screenWidth = metrics.widthPixels;
             int screenHeight = metrics.heightPixels;
-            mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.HEVC);
+            mMediaRecorder.setVideoEncoder(useH265 ? MediaRecorder.VideoEncoder.HEVC : MediaRecorder.VideoEncoder.H264);
             mMediaRecorder.setVideoSize(screenWidth, screenHeight);
             mMediaRecorder.setVideoFrameRate(mLowQuality ? LOW_VIDEO_FRAME_RATE : VIDEO_FRAME_RATE);
             mMediaRecorder.setVideoEncodingBitRate(mLowQuality ? LOW_VIDEO_BIT_RATE : VIDEO_BIT_RATE);
