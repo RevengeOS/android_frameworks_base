@@ -188,4 +188,6 @@
     <string name="screenrecord_taps_summary">Zobrazit vizuální zpětnou vazbu při nahrávání</string>
     <string name="screenrecord_low_quality_title">Nízká kvalita</string>
     <string name="screenrecord_low_quality_summary">Nahrát v nižší kvalitě pro ušetření místa na vašem zařízení</string>
+    <string name="screenrecord_capture_protected_title">Capture protected content</string>
+    <string name="screenrecord_capture_protected_summary">Allow capture of content protected by apps</string>
 </resources>
