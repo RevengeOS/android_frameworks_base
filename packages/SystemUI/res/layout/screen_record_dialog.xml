@@ -146,6 +146,53 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/capture_protected_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="?android:attr/dialogPreferredPadding"
+                android:paddingEnd="?android:attr/dialogPreferredPadding">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:id="@android:id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@*android:style/TextAppearance.DeviceDefault.ListItem"
+                        android:text="@string/screenrecord_capture_protected_title" />
+
+                    <TextView
+                        android:id="@android:id/summary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@android:id/title"
+                        android:layout_alignStart="@android:id/title"
+                        android:layout_marginEnd="90dp"
+                        android:text="@string/screenrecord_capture_protected_summary" />
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/capture_protected_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:src="@drawable/ic_screenrecord_capture_protected" />
+
+                <Switch
+                    android:id="@+id/switch_capture_protected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center|end" />
+
+            </FrameLayout>
+
+            <FrameLayout
                 android:id="@+id/low_quality_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

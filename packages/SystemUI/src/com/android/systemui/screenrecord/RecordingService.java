@@ -77,6 +77,7 @@ public class RecordingService extends Service {
     private static final String EXTRA_USE_AUDIO = "extra_audioSource";
     private static final String EXTRA_SHOW_TAPS = "extra_showTaps";
     private static final String EXTRA_LOW_QUALITY = "extra_lowQuality";
+    private static final String EXTRA_CATPURE_PROTECTED = "extra_captureProtected";
     private static final int REQUEST_CODE = 2;
 
     private static final String ACTION_START = "com.android.systemui.screenrecord.START";
@@ -105,6 +106,7 @@ public class RecordingService extends Service {
     private int mAudioSource;
     private boolean mShowTaps;
     private boolean mLowQuality;
+    private boolean mCaptureProtected;
     private WindowManager mWindowManager;
     private File mTempFile;
 
@@ -120,14 +122,15 @@ public class RecordingService extends Service {
      * @param showTaps   True to make touches visible while recording
      */
     public static Intent getStartIntent(Context context, int resultCode, Intent data,
-            int audioSource, boolean showTaps, boolean lowQuality) {
+            int audioSource, boolean showTaps, boolean lowQuality, boolean captureProtected) {
         return new Intent(context, RecordingService.class)
                 .setAction(ACTION_START)
                 .putExtra(EXTRA_RESULT_CODE, resultCode)
                 .putExtra(EXTRA_DATA, data)
                 .putExtra(EXTRA_USE_AUDIO, audioSource)
                 .putExtra(EXTRA_SHOW_TAPS, showTaps)
-                .putExtra(EXTRA_LOW_QUALITY, lowQuality);
+                .putExtra(EXTRA_LOW_QUALITY, lowQuality)
+                .putExtra(EXTRA_CATPURE_PROTECTED, captureProtected);
     }
 
     @Override
@@ -147,6 +150,7 @@ public class RecordingService extends Service {
                 mAudioSource = intent.getIntExtra(EXTRA_USE_AUDIO, 0);
                 mShowTaps = intent.getBooleanExtra(EXTRA_SHOW_TAPS, false);
                 mLowQuality = intent.getBooleanExtra(EXTRA_LOW_QUALITY, false);
+                mCaptureProtected = intent.getBooleanExtra(EXTRA_CATPURE_PROTECTED, false);
                 Intent data = intent.getParcelableExtra(EXTRA_DATA);
                 if (data != null) {
                     mMediaProjection = mMediaProjectionManager.getMediaProjection(resultCode, data);
@@ -297,7 +301,8 @@ public class RecordingService extends Service {
                     screenWidth,
                     screenHeight,
                     metrics.densityDpi,
-                    DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
+                    (mCaptureProtected ? DisplayManager.VIRTUAL_DISPLAY_FLAG_SECURE : 0)
+                    | DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
                     mInputSurface,
                     null,
                     null);

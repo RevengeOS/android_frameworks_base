@@ -44,6 +44,7 @@ import static com.android.systemui.statusbar.phone.StatusBar.SYSTEM_DIALOG_REASO
 import static android.provider.Settings.System.SCREENRECORD_AUDIO_SOURCE;
 import static android.provider.Settings.System.SCREENRECORD_SHOW_TAPS;
 import static android.provider.Settings.System.SCREENRECORD_LOW_QUALITY;
+import static android.provider.Settings.System.SCREENRECORD_CAPTURE_PROTECTED;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -60,18 +61,27 @@ public class ScreenRecordDialog extends Activity {
 
     private static final int REQUEST_CODE_VIDEO = 301;
     private static final int REQUEST_CODE_VIDEO_TAPS = 302;
+    private static final int REQUEST_CODE_VIDEO_TAPS_CAPTURE_PROTECTED = 303;
+    private static final int REQUEST_CODE_VIDEO_CAPTURE_PROTECTED = 304;
     private static final int REQUEST_CODE_VIDEO_LOW = 305;
+    private static final int REQUEST_CODE_VIDEO_CAPTURE_PROTECTED_LOW = 306;
     private static final int REQUEST_CODE_VIDEO_TAPS_LOW = 307;
+    private static final int REQUEST_CODE_VIDEO_TAPS_CAPTURE_PROTECTED_LOW = 308;
 
     private static final int REQUEST_CODE_VIDEO_AUDIO = 401;
     private static final int REQUEST_CODE_VIDEO_AUDIO_TAPS = 402;
+    private static final int REQUEST_CODE_VIDEO_AUDIO_CAPTURE_PROTECTED = 403;
+    private static final int REQUEST_CODE_VIDEO_AUDIO_TAPS_CAPTURE_PROTECTED = 404;
     private static final int REQUEST_CODE_VIDEO_AUDIO_LOW = 405;
     private static final int REQUEST_CODE_VIDEO_AUDIO_TAPS_LOW = 406;
+    private static final int REQUEST_CODE_VIDEO_AUDIO_TAPS_CAPTURE_PROTECTED_LOW = 407;
+    private static final int REQUEST_CODE_VIDEO_AUDIO_CAPTURE_PROTECTED_LOW = 408;
 
     private boolean mUseAudio;
     private int mAudioSource;
     private boolean mShowTaps;
     private boolean mLowQuality;
+    private boolean mCaptureProtected;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -87,6 +97,7 @@ public class ScreenRecordDialog extends Activity {
 
         final Switch tapsSwitch = findViewById(R.id.switch_taps);
         final Switch qualitySwitch = findViewById(R.id.switch_low_quality);
+        final Switch captureProtected = findViewById(R.id.switch_capture_protected);
 
         final Spinner audioOptions = findViewById(R.id.audio_options);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -112,9 +123,11 @@ public class ScreenRecordDialog extends Activity {
 
         initialCheckSwitch(tapsSwitch, SCREENRECORD_SHOW_TAPS);
         initialCheckSwitch(qualitySwitch, SCREENRECORD_LOW_QUALITY);
+        initialCheckSwitch(captureProtected, SCREENRECORD_CAPTURE_PROTECTED);
 
         setSwitchListener(tapsSwitch, SCREENRECORD_SHOW_TAPS);
         setSwitchListener(qualitySwitch, SCREENRECORD_LOW_QUALITY);
+        setSwitchListener(captureProtected, SCREENRECORD_CAPTURE_PROTECTED);
 
         final Button recordButton = findViewById(R.id.record_button);
         recordButton.setOnClickListener(new View.OnClickListener() {
@@ -122,7 +135,8 @@ public class ScreenRecordDialog extends Activity {
             public void onClick(View v) {
                 mShowTaps = tapsSwitch.isChecked();
                 mLowQuality = qualitySwitch.isChecked();
-                Log.d(TAG, "Record button clicked: audio " + mAudioSource + ", taps " + mShowTaps + ", quality " + mLowQuality);
+                mCaptureProtected = captureProtected.isChecked();
+                Log.d(TAG, "Record button clicked: audio " + mAudioSource + ", taps " + mShowTaps + ", quality " + mLowQuality + ", capture protected " + mCaptureProtected);
 
                 if (mUseAudio && ScreenRecordDialog.this.checkSelfPermission(Manifest.permission.RECORD_AUDIO)
                         != PackageManager.PERMISSION_GRANTED) {
@@ -171,18 +185,22 @@ public class ScreenRecordDialog extends Activity {
         if (mLowQuality) {
             if (mUseAudio) {
                 startActivityForResult(permissionIntent,
-                        mShowTaps ? REQUEST_CODE_VIDEO_AUDIO_TAPS_LOW : REQUEST_CODE_VIDEO_AUDIO_LOW);
+                        mShowTaps ? (mCaptureProtected ? REQUEST_CODE_VIDEO_AUDIO_TAPS_CAPTURE_PROTECTED_LOW : REQUEST_CODE_VIDEO_AUDIO_TAPS_LOW)
+                        : (mCaptureProtected ? REQUEST_CODE_VIDEO_AUDIO_CAPTURE_PROTECTED_LOW : REQUEST_CODE_VIDEO_AUDIO_LOW));
             } else {
                 startActivityForResult(permissionIntent,
-                        mShowTaps ? REQUEST_CODE_VIDEO_TAPS_LOW : REQUEST_CODE_VIDEO_LOW);
+                        mShowTaps ? (mCaptureProtected ? REQUEST_CODE_VIDEO_TAPS_CAPTURE_PROTECTED_LOW : REQUEST_CODE_VIDEO_TAPS_LOW)
+                        : (mCaptureProtected ? REQUEST_CODE_VIDEO_CAPTURE_PROTECTED_LOW : REQUEST_CODE_VIDEO_LOW));
             }
         } else {
             if (mUseAudio) {
                 startActivityForResult(permissionIntent,
-                        mShowTaps ? REQUEST_CODE_VIDEO_AUDIO_TAPS : REQUEST_CODE_VIDEO_AUDIO);
+                        mShowTaps ? (mCaptureProtected ? REQUEST_CODE_VIDEO_AUDIO_TAPS_CAPTURE_PROTECTED : REQUEST_CODE_VIDEO_AUDIO_TAPS)
+                        : (mCaptureProtected ? REQUEST_CODE_VIDEO_AUDIO_CAPTURE_PROTECTED : REQUEST_CODE_VIDEO_AUDIO));
             } else {
                 startActivityForResult(permissionIntent,
-                        mShowTaps ? REQUEST_CODE_VIDEO_TAPS : REQUEST_CODE_VIDEO);
+                        mShowTaps ? (mCaptureProtected ? REQUEST_CODE_VIDEO_TAPS_CAPTURE_PROTECTED : REQUEST_CODE_VIDEO_TAPS)
+                        : (mCaptureProtected ? REQUEST_CODE_VIDEO_CAPTURE_PROTECTED : REQUEST_CODE_VIDEO));
             }
         }
     }
@@ -191,8 +209,20 @@ public class ScreenRecordDialog extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         mShowTaps = requestCode == REQUEST_CODE_VIDEO_TAPS
                 || requestCode == REQUEST_CODE_VIDEO_AUDIO_TAPS
+                || requestCode == REQUEST_CODE_VIDEO_TAPS_CAPTURE_PROTECTED
+                || requestCode == REQUEST_CODE_VIDEO_AUDIO_TAPS_CAPTURE_PROTECTED
                 || requestCode == REQUEST_CODE_VIDEO_TAPS_LOW
-                || requestCode == REQUEST_CODE_VIDEO_AUDIO_TAPS_LOW;
+                || requestCode == REQUEST_CODE_VIDEO_AUDIO_TAPS_LOW
+                || requestCode == REQUEST_CODE_VIDEO_TAPS_CAPTURE_PROTECTED_LOW
+                || requestCode == REQUEST_CODE_VIDEO_AUDIO_TAPS_CAPTURE_PROTECTED_LOW;
+        mCaptureProtected = requestCode == REQUEST_CODE_VIDEO_AUDIO_CAPTURE_PROTECTED
+                || requestCode == REQUEST_CODE_VIDEO_CAPTURE_PROTECTED
+                || requestCode == REQUEST_CODE_VIDEO_TAPS_CAPTURE_PROTECTED
+                || requestCode == REQUEST_CODE_VIDEO_AUDIO_TAPS_CAPTURE_PROTECTED
+                || requestCode == REQUEST_CODE_VIDEO_AUDIO_CAPTURE_PROTECTED_LOW
+                || requestCode == REQUEST_CODE_VIDEO_CAPTURE_PROTECTED_LOW
+                || requestCode == REQUEST_CODE_VIDEO_TAPS_CAPTURE_PROTECTED_LOW
+                || requestCode == REQUEST_CODE_VIDEO_AUDIO_TAPS_CAPTURE_PROTECTED_LOW;
         mLowQuality = ((requestCode > 304 && requestCode < 309)
                 || (requestCode > 404 && requestCode < 409));
         switch (requestCode) {
@@ -229,7 +259,7 @@ public class ScreenRecordDialog extends Activity {
                     }
                     startForegroundService(
                             RecordingService.getStartIntent(this, resultCode, data, mAudioSource,
-                                    mShowTaps, mLowQuality));
+                                    mShowTaps, mLowQuality, mCaptureProtected));
                 } else {
                     Toast.makeText(this,
                             getResources().getString(R.string.screenrecord_permission_error),

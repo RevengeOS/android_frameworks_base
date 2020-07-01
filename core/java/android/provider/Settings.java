@@ -4895,6 +4895,12 @@ public final class Settings {
          */
         public static final String SCREENRECORD_LOW_QUALITY = "screenrecord_low_quality";
 
+        /**
+         * Screenrecord: capture protected content
+         * @hide
+         */
+        public static final String SCREENRECORD_CAPTURE_PROTECTED = "screenrecord_capture_protected";
+
 
         /**
          * Whether the user has already accepted MediaProjection permission for the built-in screenrecorder
