@@ -186,4 +186,6 @@
     <string name="screenrecord_taps_summary">Visuelles Feedback während der Aufnahme anzeigen</string>
     <string name="screenrecord_low_quality_title">Niedrige Qualität</string>
     <string name="screenrecord_low_quality_summary">In geringerer Qualität aufnehmen, um Speicherplatz auf Ihrem Gerät zu sparen</string>
+    <string name="screenrecord_capture_protected_title">Capture protected content</string>
+    <string name="screenrecord_capture_protected_summary">Allow capture of content protected by apps</string>
 </resources>
