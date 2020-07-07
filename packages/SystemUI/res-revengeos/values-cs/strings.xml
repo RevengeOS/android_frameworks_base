@@ -74,33 +74,33 @@
         <item>Dvacet</item>
         <item>Dvacet\njedna</item>
         <item>Dvacet\njdva</item>
-        <item>Twenty\nThree</item>
-        <item>Twenty\nFour</item>
-        <item>Twenty\nFive</item>
-        <item>Twenty\nSix</item>
-        <item>Twenty\nSeven</item>
-        <item>Twenty\nEight</item>
-        <item>Twenty\nNine</item>
-        <item>Thirty</item>
-        <item>Thirty\nOne</item>
-        <item>Thirty\nTwo</item>
-        <item>Thirty\nThree</item>
-        <item>Thirty\nFour</item>
-        <item>Thirty\nFive</item>
-        <item>Thirty\nSix</item>
-        <item>Thirty\nSeven</item>
-        <item>Thirty\nEight</item>
-        <item>Thirty\nNine</item>
-        <item>Forty</item>
-        <item>Forty\nOne</item>
-        <item>Forty\nTwo</item>
-        <item>Forty\nThree</item>
-        <item>Forty\nFour</item>
-        <item>Forty\nFive</item>
-        <item>Forty\nSix</item>
-        <item>Forty\nSeven</item>
-        <item>Forty\nEight</item>
-        <item>Forty\nNine</item>
+        <item>Dvacet\ntři</item>
+        <item>Dvacet\nČtyři</item>
+        <item>Dvacet\npět</item>
+        <item>Dvacet\nšest</item>
+        <item>Dvacet\nsedm</item>
+        <item>Dvacet\nosm</item>
+        <item>Dvacet\ndevět</item>
+        <item>Třicet</item>
+        <item>Třicet\njedna</item>
+        <item>Třicet\ndva</item>
+        <item>Třicet\ntři</item>
+        <item>Třicet\nčtyři</item>
+        <item>Třicet\npět</item>
+        <item>Třicet\nšest</item>
+        <item>Třicet\nsedm</item>
+        <item>Třicet\nosm</item>
+        <item>Třicet\ndevět</item>
+        <item>Čtyřicet</item>
+        <item>Čtyřicet\njedna</item>
+        <item>Čtyřicet\ndva</item>
+        <item>Čtyřicet\ntři</item>
+        <item>Čtyřicet\nčtyři</item>
+        <item>Čtyřicet\npět</item>
+        <item>Čtyřicet\nšest</item>
+        <item>Čtyřicet\nsedm</item>
+        <item>Čtyřicet\nosm</item>
+        <item>Čtyřicet\ndevět</item>
         <item>Padesát</item>
         <item>Padesát\njedna</item>
         <item>Padesát\ndva</item>
@@ -155,7 +155,7 @@
     <string name="global_action_current_user">Aktuální</string>
     <!-- QS Config -->
     <string name="qs_menu_item_columns">Položky</string>
-    <string name="qs_menu_item_columns_landscape">Columns landscape</string>
+    <string name="qs_menu_item_columns_landscape">Odřádkovaní sloupců</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
     <string name="qs_menu_item_columns_five">5</string>
