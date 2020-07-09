@@ -5248,6 +5248,12 @@ public final class Settings {
         public static final String LOGGING_ID = Secure.LOGGING_ID;
 
         /**
+         * Screen off fod
+         * @hide
+         */
+        public static final String FOD_GESTURE = "fod_gesture";
+
+        /**
          * @deprecated Use {@link android.provider.Settings.Global#NETWORK_PREFERENCE} instead
          */
         @Deprecated

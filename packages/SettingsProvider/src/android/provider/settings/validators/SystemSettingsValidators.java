@@ -229,5 +229,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.KEY_APP_SWITCH_ACTION, new InclusiveIntegerRangeValidator(0, 9));
         VALIDATORS.put(System.KEY_APP_SWITCH_LONG_PRESS_ACTION, new InclusiveIntegerRangeValidator(0, 9));
         VALIDATORS.put(System.LOCKSCREEN_MEDIA_ART, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.FOD_GESTURE, BOOLEAN_VALIDATOR);
     }
 }
