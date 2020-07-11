@@ -318,8 +318,8 @@ public class StatusBar extends SystemUI implements DemoMode,
             .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
             .build();
 
-    public static final int FADE_KEYGUARD_START_DELAY = 100;
-    public static final int FADE_KEYGUARD_DURATION = 300;
+    public static final int FADE_KEYGUARD_START_DELAY = 10;
+    public static final int FADE_KEYGUARD_DURATION = 10;
     public static final int FADE_KEYGUARD_DURATION_PULSING = 96;
 
     /** If true, the system is in the half-boot-to-decryption-screen state.
@@ -503,7 +503,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     private boolean mWallpaperSupported;
 
     private boolean mWallpaperSupportsAmbientMode;
-    
+
     private VisualizerView mVisualizerView;
     private ImageView mQSBlurView;
     private boolean blurperformed = false;
