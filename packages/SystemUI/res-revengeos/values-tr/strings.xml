@@ -34,18 +34,18 @@
     </plurals>
     <!-- Hour displayed in words on the typographic clock face. [CHAR LIMIT=12] -->
     <string-array name="type_clock_hours">
-        <item>Twelve</item>
-        <item>One</item>
-        <item>Two</item>
-        <item>Three</item>
-        <item>Four</item>
-        <item>Five</item>
-        <item>Six</item>
-        <item>Seven</item>
-        <item>Eight</item>
-        <item>Nine</item>
-        <item>Ten</item>
-        <item>Eleven</item>
+        <item>On iki</item>
+        <item>Bir</item>
+        <item>İki</item>
+        <item>Üç</item>
+        <item>Dört</item>
+        <item>Beş</item>
+        <item>Altı</item>
+        <item>Yedi</item>
+        <item>Sekiz</item>
+        <item>Dokuz</item>
+        <item>On</item>
+        <item>On bir</item>
     </string-array>
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
     <string-array name="type_clock_minutes">
@@ -59,101 +59,101 @@
         <item>Oh Seven</item>
         <item>Oh Eight</item>
         <item>Oh Nine</item>
-        <item>Ten</item>
-        <item>Eleven</item>
-        <item>Twelve</item>
-        <item>Thirteen</item>
-        <item>Fourteen</item>
-        <item>Fifteen</item>
-        <item>Sixteen</item>
-        <item>Seventeen</item>
-        <item>Eighteen</item>
-        <item>Nineteen</item>
-        <item>Twenty</item>
-        <item>Twenty\nOne</item>
-        <item>Twenty\nTwo</item>
-        <item>Twenty\nThree</item>
-        <item>Twenty\nFour</item>
-        <item>Twenty\nFive</item>
-        <item>Twenty\nSix</item>
-        <item>Twenty\nSeven</item>
-        <item>Twenty\nEight</item>
-        <item>Twenty\nNine</item>
-        <item>Thirty</item>
-        <item>Thirty\nOne</item>
-        <item>Thirty\nTwo</item>
-        <item>Thirty\nThree</item>
-        <item>Thirty\nFour</item>
-        <item>Thirty\nFive</item>
-        <item>Thirty\nSix</item>
-        <item>Thirty\nSeven</item>
-        <item>Thirty\nEight</item>
-        <item>Thirty\nNine</item>
-        <item>Forty</item>
-        <item>Forty\nOne</item>
-        <item>Forty\nTwo</item>
-        <item>Forty\nThree</item>
-        <item>Forty\nFour</item>
-        <item>Forty\nFive</item>
-        <item>Forty\nSix</item>
-        <item>Forty\nSeven</item>
-        <item>Forty\nEight</item>
-        <item>Forty\nNine</item>
-        <item>Fifty</item>
-        <item>Fifty\nOne</item>
-        <item>Fifty\nTwo</item>
-        <item>Fifty\nThree</item>
-        <item>Fifty\nFour</item>
-        <item>Fifty\nFive</item>
-        <item>Fifty\nSix</item>
-        <item>Fifty\nSeven</item>
-        <item>Fifty\nEight</item>
-        <item>Fifty\nNine</item>
+        <item>On</item>
+        <item>On bir</item>
+        <item>On iki</item>
+        <item>On üç</item>
+        <item>On dört</item>
+        <item>On beş</item>
+        <item>On altı</item>
+        <item>On yedi</item>
+        <item>On sekiz</item>
+        <item>On dokuz</item>
+        <item>Yirmi</item>
+        <item>Yirmi\nbir</item>
+        <item>Yirmi\niki</item>
+        <item>Yirmi\nüç</item>
+        <item>Yirmi\ndört</item>
+        <item>Yirmi\nbeş</item>
+        <item>Yirmi\naltı</item>
+        <item>Yirmi\nyedi</item>
+        <item>Yirmi\nsekiz</item>
+        <item>Yirmi\ndokuz</item>
+        <item>Otuz</item>
+        <item>Otuz\nbir</item>
+        <item>Otuz\niki</item>
+        <item>Otuz\nüç</item>
+        <item>Otuz\ndört</item>
+        <item>Otuz\nbeş</item>
+        <item>Otuz\naltı</item>
+        <item>Otuz\nyedi</item>
+        <item>Otuz\nsekiz</item>
+        <item>Otuz\ndokuz</item>
+        <item>Kırk</item>
+        <item>Kırk\nbir</item>
+        <item>Kırk\niki</item>
+        <item>Kırk\nüç</item>
+        <item>Kırk\ndört</item>
+        <item>Kırk\nbeş</item>
+        <item>Kırk\naltı</item>
+        <item>Kırk\nyedi</item>
+        <item>Kırk\nsekiz</item>
+        <item>Kırk\ndokuz</item>
+        <item>Elli</item>
+        <item>Elli\nbir</item>
+        <item>Elli\niki</item>
+        <item>Elli\nüç</item>
+        <item>Elli\ndört</item>
+        <item>Elli\nbeş</item>
+        <item>Elli\naltı</item>
+        <item>Elli\nyedi</item>
+        <item>Elli\nsekiz</item>
+        <item>Elli\ndokuz</item>
     </string-array>
     <!-- Title for Typographic clock face that will appear in the picker app next to a preview image of
          the clock face. [CHAR LIMIT=8] -->
     <!-- Title for statusbar items -->
-    <string name="statusbar_items_title">Statusbar items</string>
+    <string name="statusbar_items_title">Durum çubuğu öğeleri</string>
     <!-- Name of the volte status bar icon. -->
     <string name="status_bar_volte">VoLTE</string>
     <!-- Caffeine QS Tile -->
-    <string name="quick_settings_caffeine_label">Caffeine</string>
-    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+    <string name="quick_settings_caffeine_label">Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafein kapalı</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafein açık</string>
     <!-- Always on Display Tile -->
-    <string name="quick_settings_always_on_display_label">Always on display</string>
-    <string name="accessibility_quick_settings_always_on_display_off">Always on display off.</string>
-    <string name="accessibility_quick_settings_always_on_display_on">Always on display on.</string>
-    <string name="accessibility_quick_settings_always_on_display_changed_off">Always on display turned off.</string>
-    <string name="accessibility_quick_settings_always_on_display_changed_on">Always on display turned on.</string>
+    <string name="quick_settings_always_on_display_label">Her zaman ekranda</string>
+    <string name="accessibility_quick_settings_always_on_display_off">Her zaman ekranda kapalı.</string>
+    <string name="accessibility_quick_settings_always_on_display_on">Her zaman ekranda açık.</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_off">Her zaman açık ekran kapalı.</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_on">Her zaman açık ekran açık.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+    <string name="quick_settings_heads_up_label">Bildirim pencereleri</string>
+    <string name="accessibility_quick_settings_heads_up_off">Bildirim pencereleri kapalı.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Bildirim pencereleri açık.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Bildirim penceleri kapatıldı.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Bildirim pencereleri açıldı.</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device, within the Restart Options dialog -->
-    <string name="global_action_restart_system">System</string>
+    <string name="global_action_restart_system">Sistem</string>
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_recovery">Kurtarma</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_bootloader">Ön yükleyici</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-    <string name="global_action_restart_download">Download</string>
+    <string name="global_action_restart_download">İndirme</string>
     <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_progress">Restarting\u2026</string>
+    <string name="global_action_restart_progress">Yeniden başlat\u2026</string>
     <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_recovery_progress">Restarting to recovery mode\u2026</string>
+    <string name="global_action_restart_recovery_progress">Kurtarma modunda yeniden başlat\u2026</string>
     <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_bootloader_progress">Restarting to bootloader mode\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Ön yükleme modunda yeniden başlat\u2026</string>
     <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_download_progress">Restarting to download mode\u2026</string>
+    <string name="global_action_restart_download_progress">İndirme modunda yeniden başlat\u2026</string>
     <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Current</string>
     <!-- QS Config -->
-    <string name="qs_menu_item_columns">Columns</string>
-    <string name="qs_menu_item_columns_landscape">Columns landscape</string>
+    <string name="qs_menu_item_columns">Sütunlar</string>
+    <string name="qs_menu_item_columns_landscape">Yatay sütunlar</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
     <string name="qs_menu_item_columns_five">5</string>
@@ -161,31 +161,31 @@
     <string name="qs_menu_item_columns_seven">7</string>
     <string name="qs_menu_item_columns_eight">8</string>
     <string name="qs_menu_item_columns_nine">9</string>
-    <string name="qs_menu_item_titles">Show labels</string>
+    <string name="qs_menu_item_titles">Etiketleri göster</string>
     <!--  Omnijaws -->
-    <string name="omnijaws_service_error">Error</string>
-    <string name="omnijaws_service_unkown">No weather data</string>
-    <string name="omnijaws_service_error_long">Error loading weather data</string>
-    <string name="omnijaws_service_disabled">Service is disabled</string>
-    <string name="omnijaws_detail_header">Weather</string>
-    <string name="omnijaws_label_default">Weather</string>
-    <string name="omnijaws_current_text">Now</string>
-    <string name="omnijaws_package_not_available">OmniJaws not available</string>
-    <string name="omnijaws_service_last_update">Last update:</string>
+    <string name="omnijaws_service_error">Hata</string>
+    <string name="omnijaws_service_unkown">Hava durumu verileri alınamadı</string>
+    <string name="omnijaws_service_error_long">Hava durumu verileri yüklenirken hata oluştu</string>
+    <string name="omnijaws_service_disabled">Hizmet devre dışı</string>
+    <string name="omnijaws_detail_header">Hava Durumu</string>
+    <string name="omnijaws_label_default">Hava Durumu</string>
+    <string name="omnijaws_current_text">Şimdi</string>
+    <string name="omnijaws_package_not_available">OmniJaws mevcut değil</string>
+    <string name="omnijaws_service_last_update">Son güncelleme:</string>
     <!-- Screen record -->
-    <string name="screenrecord_dialog_title">Screen Record</string>
-    <string name="screenrecord_dialog_summary">While recording, Android system can capture any sensitive information that\'s visible on your screen or played on your device. This includes passwords, payment info, photos, messages, and audio.</string>
-    <string name="screenrecord_dialog_start">Start</string>
-    <string name="screenrecord_dialog_cancel">Cancel</string>
-    <string name="screenrecord_audio_title">Audio source</string>
-    <string name="screenrecord_audio_summary">Record audio while recording</string>
-    <string name="screenrecord_no_audio">No audio</string>
-    <string name="screenrecord_microphone">Microphone</string>
-    <string name="screenrecord_system_audio">System audio</string>
-    <string name="screenrecord_taps_title">Show touches on screen</string>
-    <string name="screenrecord_taps_summary">Show visual feedback while recording</string>
-    <string name="screenrecord_low_quality_title">Low quality</string>
-    <string name="screenrecord_low_quality_summary">Record in a lower quality to save space on your device</string>
-    <string name="screenrecord_capture_protected_title">Capture protected content</string>
-    <string name="screenrecord_capture_protected_summary">Allow capture of content protected by apps</string>
+    <string name="screenrecord_dialog_title">Ekran Kaydedici</string>
+    <string name="screenrecord_dialog_summary">Kayıt sırasında Android sistemi, ekranınızda görünen veya cihazınızda oynatılan tüm hassas bilgileri yakalayabilir. Buna şifreler, ödeme bilgileri, fotoğraflar, mesajlar ve ses dahildir.</string>
+    <string name="screenrecord_dialog_start">Başlat</string>
+    <string name="screenrecord_dialog_cancel">İptal et</string>
+    <string name="screenrecord_audio_title">Ses kaynağı</string>
+    <string name="screenrecord_audio_summary">Kayıt sırasında ses kaydetme</string>
+    <string name="screenrecord_no_audio">Ses yok</string>
+    <string name="screenrecord_microphone">Mikrofon</string>
+    <string name="screenrecord_system_audio">Sistem sesi</string>
+    <string name="screenrecord_taps_title">Ekrandaki dokunuşları göster</string>
+    <string name="screenrecord_taps_summary">Kayıt sırasında görsel geri bildirim göster</string>
+    <string name="screenrecord_low_quality_title">Düşük kalite</string>
+    <string name="screenrecord_low_quality_summary">Cihazınızda yer kazanmak için daha düşük kalitede kayıt yapabilirsiniz</string>
+    <string name="screenrecord_capture_protected_title">Korumalı içerik yakalama</string>
+    <string name="screenrecord_capture_protected_summary">Uygulamalar tarafından korunan içeriğin yakalanmasına izin veriliri</string>
 </resources>
