@@ -30,17 +30,17 @@
     <string name="live_display_day_summary">Gündüz ayarları kullanılır</string>
     <string name="live_display_night">Gece</string>
     <string name="live_display_night_summary">Gece ayarları kullanılır</string>
-    <string name="live_display_outdoor">Dış mekan (Parlak güneş)</string>
-    <string name="live_display_outdoor_summary">Dış mekan ayarları kullanılır</string>
+    <string name="live_display_outdoor">Açık alan (Parlak güneş)</string>
+    <string name="live_display_outdoor_summary">Açık alan ayarları kullanılır</string>
     <string name="live_display_hint">LiveDisplay, göz yorgunluğunuzu azaltmanıza ve gece daha rahat uyumanıza yardımcı olabilir. Denemek için dokununuz!</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay kapalı.</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: otomatik mod.</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: gündüz modu.</string>
-    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: night mode.</string>
-    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: outdoor mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay turned off.</string>
-    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay changed to auto mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay changed to day mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay changed to night mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay changed to outdoor mode.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: gece modu.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: açık alan modu.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay kapatıldı.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay otomatik mod olarak değiştirildi.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay gündüz modu olarak değiştirildi.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay gece modu olarak değiştirildi.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay açık alan modu olarak değiştirildi.</string>
 </resources>
