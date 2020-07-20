@@ -188,4 +188,6 @@
     <string name="screenrecord_taps_summary">Показывать визуальный отклик при записи</string>
     <string name="screenrecord_low_quality_title">Низкое качество</string>
     <string name="screenrecord_low_quality_summary">Записывайте в сниженном качестве, чтобы сохранить память</string>
+    <string name="screenrecord_capture_protected_title">Capture protected content</string>
+    <string name="screenrecord_capture_protected_summary">Allow capture of content protected by apps</string>
 </resources>

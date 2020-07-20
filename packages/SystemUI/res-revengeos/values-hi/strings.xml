@@ -186,4 +186,6 @@
     <string name="screenrecord_taps_summary">रिकॉर्डिंग करते समय दृश्य प्रतिक्रिया दिखाएं</string>
     <string name="screenrecord_low_quality_title">खराब क्वालिटी</string>
     <string name="screenrecord_low_quality_summary">अपने डिवाइस पर स्थान बचाने के लिए कम गुणवत्ता में रिकॉर्ड करें</string>
+    <string name="screenrecord_capture_protected_title">Capture protected content</string>
+    <string name="screenrecord_capture_protected_summary">Allow capture of content protected by apps</string>
 </resources>

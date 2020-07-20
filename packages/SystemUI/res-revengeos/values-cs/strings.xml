@@ -72,50 +72,50 @@
         <item>Osmnáct</item>
         <item>Devatenáct</item>
         <item>Dvacet</item>
-        <item>Twenty\nOne</item>
-        <item>Twenty\nTwo</item>
-        <item>Twenty\nThree</item>
-        <item>Twenty\nFour</item>
-        <item>Twenty\nFive</item>
-        <item>Twenty\nSix</item>
-        <item>Twenty\nSeven</item>
-        <item>Twenty\nEight</item>
-        <item>Twenty\nNine</item>
-        <item>Thirty</item>
-        <item>Thirty\nOne</item>
-        <item>Thirty\nTwo</item>
-        <item>Thirty\nThree</item>
-        <item>Thirty\nFour</item>
-        <item>Thirty\nFive</item>
-        <item>Thirty\nSix</item>
-        <item>Thirty\nSeven</item>
-        <item>Thirty\nEight</item>
-        <item>Thirty\nNine</item>
-        <item>Forty</item>
-        <item>Forty\nOne</item>
-        <item>Forty\nTwo</item>
-        <item>Forty\nThree</item>
-        <item>Forty\nFour</item>
-        <item>Forty\nFive</item>
-        <item>Forty\nSix</item>
-        <item>Forty\nSeven</item>
-        <item>Forty\nEight</item>
-        <item>Forty\nNine</item>
-        <item>Fifty</item>
-        <item>Fifty\nOne</item>
-        <item>Fifty\nTwo</item>
-        <item>Fifty\nThree</item>
-        <item>Fifty\nFour</item>
-        <item>Fifty\nFive</item>
+        <item>Dvacet\njedna</item>
+        <item>Dvacet\njdva</item>
+        <item>Dvacet\ntři</item>
+        <item>Dvacet\nČtyři</item>
+        <item>Dvacet\npět</item>
+        <item>Dvacet\nšest</item>
+        <item>Dvacet\nsedm</item>
+        <item>Dvacet\nosm</item>
+        <item>Dvacet\ndevět</item>
+        <item>Třicet</item>
+        <item>Třicet\njedna</item>
+        <item>Třicet\ndva</item>
+        <item>Třicet\ntři</item>
+        <item>Třicet\nčtyři</item>
+        <item>Třicet\npět</item>
+        <item>Třicet\nšest</item>
+        <item>Třicet\nsedm</item>
+        <item>Třicet\nosm</item>
+        <item>Třicet\ndevět</item>
+        <item>Čtyřicet</item>
+        <item>Čtyřicet\njedna</item>
+        <item>Čtyřicet\ndva</item>
+        <item>Čtyřicet\ntři</item>
+        <item>Čtyřicet\nčtyři</item>
+        <item>Čtyřicet\npět</item>
+        <item>Čtyřicet\nšest</item>
+        <item>Čtyřicet\nsedm</item>
+        <item>Čtyřicet\nosm</item>
+        <item>Čtyřicet\ndevět</item>
+        <item>Padesát</item>
+        <item>Padesát\njedna</item>
+        <item>Padesát\ndva</item>
+        <item>Padesát\ntři</item>
+        <item>Padesát\nčtyři</item>
+        <item>Padesát\npět</item>
         <item>Padesát\šest</item>
         <item>Padesát\sedm</item>
         <item>Padesát\osm</item>
-        <item>Fifty\nNine</item>
+        <item>Padesát\ndevět</item>
     </string-array>
     <!-- Title for Typographic clock face that will appear in the picker app next to a preview image of
          the clock face. [CHAR LIMIT=8] -->
     <!-- Title for statusbar items -->
-    <string name="statusbar_items_title">Statusbar items</string>
+    <string name="statusbar_items_title">Položky stavové lišty</string>
     <!-- Name of the volte status bar icon. -->
     <string name="status_bar_volte">VoLTE</string>
     <!-- Caffeine QS Tile -->
@@ -129,33 +129,33 @@
     <string name="accessibility_quick_settings_always_on_display_changed_off">Vždy zapnutý displej je vypnutý.</string>
     <string name="accessibility_quick_settings_always_on_display_changed_on">Vždy zapnutý displej je zapnut.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+    <string name="quick_settings_heads_up_label">Plovoucí upozornění zapnuto</string>
+    <string name="accessibility_quick_settings_heads_up_off">Plovoucí upozornění vypnuto.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Plovoucí upozornění zapnuto.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Plovoucí upozornění vypnuto.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Plovoucí upozornění zapnuto.</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device, within the Restart Options dialog -->
-    <string name="global_action_restart_system">System</string>
+    <string name="global_action_restart_system">Systém</string>
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_recovery">Obnovení</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_bootloader">Zavaděč</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-    <string name="global_action_restart_download">Download</string>
+    <string name="global_action_restart_download">Stáhnout</string>
     <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_progress">Restarting\u2026</string>
+    <string name="global_action_restart_progress">Restartování\u2026</string>
     <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_recovery_progress">Restarting to recovery mode\u2026</string>
+    <string name="global_action_restart_recovery_progress">Restartování do režimu obnovení\u2026</string>
     <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_bootloader_progress">Restarting to bootloader mode\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Restartování do režimu zavaděče\u2026</string>
     <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_download_progress">Restartování do režimu download mode\u2026</string>
     <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Aktuální</string>
     <!-- QS Config -->
     <string name="qs_menu_item_columns">Položky</string>
-    <string name="qs_menu_item_columns_landscape">Columns landscape</string>
+    <string name="qs_menu_item_columns_landscape">Odřádkovaní sloupců</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
     <string name="qs_menu_item_columns_five">5</string>
@@ -188,4 +188,6 @@
     <string name="screenrecord_taps_summary">Zobrazit vizuální zpětnou vazbu při nahrávání</string>
     <string name="screenrecord_low_quality_title">Nízká kvalita</string>
     <string name="screenrecord_low_quality_summary">Nahrát v nižší kvalitě pro ušetření místa na vašem zařízení</string>
+    <string name="screenrecord_capture_protected_title">Zachytit chráněný obsah</string>
+    <string name="screenrecord_capture_protected_summary">Povolit zachycování obsahu chráněného aplikacemi</string>
 </resources>
