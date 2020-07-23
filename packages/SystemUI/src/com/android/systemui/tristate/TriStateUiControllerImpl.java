@@ -240,6 +240,10 @@ public class TriStateUiControllerImpl implements ConfigurationListener, TriState
     }
 
     private void initDialog() {
+        if (mDialog != null) {
+            mDialog.dismiss();
+            mDialog = null;
+        }
         mDialog = new Dialog(mContext, R.style.qs_theme);
         mShowing = false;
         mWindow = mDialog.getWindow();
