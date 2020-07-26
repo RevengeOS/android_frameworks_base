@@ -1226,8 +1226,8 @@ public class DeviceIdleController extends SystemService
                     // with defaults.
                     Slog.e(TAG, "Bad device idle settings", e);
 
-                    // Setting not found, assume false
-                    mAggressiveIdle = false;
+                    // Setting not found, assume true
+                    mAggressiveIdle = true;
                 }
 
                 LIGHT_IDLE_AFTER_INACTIVE_TIMEOUT = getDurationWeighted(
