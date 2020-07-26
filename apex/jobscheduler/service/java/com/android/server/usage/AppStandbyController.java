@@ -2333,8 +2333,8 @@ public class AppStandbyController implements AppStandbyInternal {
                 mAggressiveStandby = Global.getInt(mContext.getContentResolver(),
                         Global.AGGRESSIVE_STANDBY_ENABLED) == 1;
             } catch (Exception e) {
-                // Setting not found, assume false
-                mAggressiveStandby = false;
+                // Setting not found, assume true
+                mAggressiveStandby = true;
             }
 
             // Look at global settings for this.
