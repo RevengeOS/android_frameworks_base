@@ -120,12 +120,6 @@
     <string name="quick_settings_caffeine_label">Caffeine</string>
     <string name="accessibility_quick_settings_caffeine_off">Caffeine disattivata</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine attivata</string>
-    <!-- Always on Display Tile -->
-    <string name="quick_settings_always_on_display_label">Always on display</string>
-    <string name="accessibility_quick_settings_always_on_display_off">Always on display spento.</string>
-    <string name="accessibility_quick_settings_always_on_display_on">Always on display acceso.</string>
-    <string name="accessibility_quick_settings_always_on_display_changed_off">Always on display disattivato.</string>
-    <string name="accessibility_quick_settings_always_on_display_changed_on">Always on display attivato.</string>
     <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Notifiche fluttuanti</string>
     <string name="accessibility_quick_settings_heads_up_off">Notifiche fluttuanti spente.</string>
@@ -188,4 +182,9 @@
     <string name="screenrecord_low_quality_summary">Registra in qualità inferiore per risparmiare spazio sul tuo dispositivo</string>
     <string name="screenrecord_capture_protected_title">Cattura contenuti protetti</string>
     <string name="screenrecord_capture_protected_summary">Consenti la cattura di contenuti protetti dalle app</string>
+    <!-- AOD QS tile states -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD on charge</string>
+    <string name="quick_settings_aod_off_label">AOD off</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD off\nBattery Saver</string>
 </resources>
