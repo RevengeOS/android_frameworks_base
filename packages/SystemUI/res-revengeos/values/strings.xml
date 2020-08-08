@@ -130,13 +130,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
 
-    <!-- Always on Display Tile -->
-    <string name="quick_settings_always_on_display_label">Always on display</string>
-    <string name="accessibility_quick_settings_always_on_display_off">Always on display off.</string>
-    <string name="accessibility_quick_settings_always_on_display_on">Always on display on.</string>
-    <string name="accessibility_quick_settings_always_on_display_changed_off">Always on display turned off.</string>
-    <string name="accessibility_quick_settings_always_on_display_changed_on">Always on display turned on.</string>
-
     <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Heads up</string>
     <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
