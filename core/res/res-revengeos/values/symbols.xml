@@ -100,7 +100,7 @@
 
     <!-- Whether to allow process with media UID to access CameraServiceProxy -->
     <java-symbol type="bool" name="config_allowMediaUidForCameraServiceProxy" />
-    
+
     <!-- LiveDisplay -->
     <java-symbol type="string" name="live_display_title" />
     <java-symbol type="string" name="live_display_hint" />
@@ -160,6 +160,12 @@
 
     <!-- In-display Fingerprint -->
     <java-symbol type="bool" name="config_supportsInDisplayFingerprint" />
+
+    <!-- Library path of screen off fod handler -->
+    <java-symbol type="string" name="config_fodScreenOffHandlerLib" />
+
+    <!-- Class name of screen off fod handler -->
+    <java-symbol type="string" name="config_fodScreenOffHandlerClass" />
 
     <!-- Component name of popup camera service -->
     <java-symbol type="string" name="config_popUpCameraServiceComponentName" />
