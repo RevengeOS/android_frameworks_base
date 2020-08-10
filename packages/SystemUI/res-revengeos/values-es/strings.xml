@@ -120,12 +120,6 @@
     <string name="quick_settings_caffeine_label">Cafeína</string>
     <string name="accessibility_quick_settings_caffeine_off">Cafeína desactivada</string>
     <string name="accessibility_quick_settings_caffeine_on">Cafeína activada</string>
-    <!-- Always on Display Tile -->
-    <string name="quick_settings_always_on_display_label">Pantalla ambiente</string>
-    <string name="accessibility_quick_settings_always_on_display_off">Pantalla ambiente apagada.</string>
-    <string name="accessibility_quick_settings_always_on_display_on">Pantalla ambiente encendida.</string>
-    <string name="accessibility_quick_settings_always_on_display_changed_off">Pantalla ambiente deshabilitada.</string>
-    <string name="accessibility_quick_settings_always_on_display_changed_on">Pantalla ambiente habilitada.</string>
     <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Notificaciones</string>
     <string name="accessibility_quick_settings_heads_up_off">Notificaciones apagadas.</string>
@@ -188,4 +182,9 @@
     <string name="screenrecord_low_quality_summary">Grabar en una menor calidad para ahorrar espacio en el dispositivo</string>
     <string name="screenrecord_capture_protected_title">Capturar contenido protegido</string>
     <string name="screenrecord_capture_protected_summary">Permitir la captura de contenido protegido por aplicaciones</string>
+    <!-- AOD QS tile states -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD on charge</string>
+    <string name="quick_settings_aod_off_label">AOD off</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD off\nBattery Saver</string>
 </resources>
