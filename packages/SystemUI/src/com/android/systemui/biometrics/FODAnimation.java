@@ -66,7 +66,10 @@ public class FODAnimation extends ImageView {
     }
 
     public void update() {
-        setBackgroundResource(R.drawable.fod_op_ripple_recognizing_anim);
+        mSelectedAnim = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.FOD_ANIM, 0);
+
+        setBackgroundResource(ANIMATION_STYLES[mSelectedAnim]);
         recognizingAnim = (AnimationDrawable) getBackground();
     }
 
