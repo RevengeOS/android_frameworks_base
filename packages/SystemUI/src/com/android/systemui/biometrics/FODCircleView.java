@@ -375,6 +375,7 @@ public class FODCircleView extends ImageView {
 
     private void updateStyle() {
       mSelectedIcon = 1; //set second icon from array
+      // you can select from 3 icon right now
     }
 
     private void updatePosition() {
