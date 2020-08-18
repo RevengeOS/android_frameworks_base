@@ -22,9 +22,12 @@ import android.provider.DeviceConfig;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.Pair;
 import android.util.StatsLog;
+import android.view.DisplayCutout;
 import android.view.View;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
+import android.view.WindowInsets;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -41,6 +44,7 @@ import com.android.systemui.R;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.privacy.PrivacyItemControllerKt;
 import com.android.systemui.qs.QSDetail.Callback;
+import com.android.systemui.statusbar.phone.PhoneStatusBarView;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.phone.StatusBarIconController.TintedIconManager;
 import com.android.systemui.statusbar.phone.StatusIconContainer;
@@ -257,6 +261,27 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         super.onAttachedToWindow();
         mStatusBarIconController.addIconGroup(mIconManager);
         requestApplyInsets();
+    }
+
+    @Override
+    public WindowInsets onApplyWindowInsets(WindowInsets insets) {
+        DisplayCutout cutout = insets.getDisplayCutout();
+        Pair<Integer, Integer> padding = PhoneStatusBarView.cornerCutoutMargins(
+                cutout, getDisplay());
+        if (padding == null) {
+            mSystemIconsView.setPaddingRelative(
+                    getResources().getDimensionPixelSize(R.dimen.status_bar_padding_start),
+                    getResources().getDimensionPixelSize(R.dimen.status_bar_padding_top),
+                    getResources().getDimensionPixelSize(R.dimen.status_bar_padding_end),
+                    0);
+        } else {
+            mSystemIconsView.setPadding(
+                    padding.first != 0 ? padding.first : getResources().getDimensionPixelSize(R.dimen.status_bar_padding_start),
+                    getResources().getDimensionPixelSize(R.dimen.status_bar_padding_top),
+                    padding.second != 0 ? padding.second : getResources().getDimensionPixelSize(R.dimen.status_bar_padding_end), 0);
+
+        }
+        return super.onApplyWindowInsets(insets);
     }
 
     @Override
