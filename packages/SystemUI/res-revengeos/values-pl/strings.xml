@@ -186,7 +186,7 @@
     <string name="screenrecord_capture_protected_summary">Zezwól na przechwytywanie treści chronionych przez aplikacje</string>
     <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
-    <string name="quick_settings_aod_on_charge_label">AOD on charge</string>
-    <string name="quick_settings_aod_off_label">AOD off</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD off\nBattery Saver</string>
+    <string name="quick_settings_aod_on_charge_label">AOD gdy ładuje</string>
+    <string name="quick_settings_aod_off_label">AOD wyłączony</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD wył.\nOszczędzanie baterii</string>
 </resources>
