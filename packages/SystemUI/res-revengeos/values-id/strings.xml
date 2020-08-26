@@ -97,56 +97,56 @@
         <item>Empatpuluh\nEnam</item>
         <item>Empatpuluh\nTujuh</item>
         <item>Empatpuluh\nDelapan</item>
-        <item>Forty\nNine</item>
-        <item>Fifty</item>
-        <item>Fifty\nOne</item>
-        <item>Fifty\nTwo</item>
-        <item>Fifty\nThree</item>
-        <item>Fifty\nFour</item>
-        <item>Fifty\nFive</item>
-        <item>Fifty\nSix</item>
-        <item>Fifty\nSeven</item>
-        <item>Fifty\nEight</item>
-        <item>Fifty\nNine</item>
+        <item>Empatpuluh\nSembilan</item>
+        <item>Limapuluh</item>
+        <item>Limapuluh\nSatu</item>
+        <item>Limapuluh\nDua</item>
+        <item>Limapuluh\nTiga</item>
+        <item>Limapuluh\nEmpat</item>
+        <item>Limapuluh\nLima</item>
+        <item>Limapuluh\nEnam</item>
+        <item>Limapuluh\nTujuh</item>
+        <item>Limapuluh\nDelapan</item>
+        <item>Limapuluh\nSembilan</item>
     </string-array>
     <!-- Title for Typographic clock face that will appear in the picker app next to a preview image of
          the clock face. [CHAR LIMIT=8] -->
     <!-- Title for statusbar items -->
-    <string name="statusbar_items_title">Statusbar items</string>
+    <string name="statusbar_items_title">Item Statusbar</string>
     <!-- Name of the volte status bar icon. -->
     <string name="status_bar_volte">VoLTE</string>
     <!-- Caffeine QS Tile -->
-    <string name="quick_settings_caffeine_label">Caffeine</string>
-    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+    <string name="quick_settings_caffeine_label">Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafein Mati</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafein Hidup</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+    <string name="quick_settings_heads_up_label">Muncul</string>
+    <string name="accessibility_quick_settings_heads_up_off">Muncul Mati.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Muncul Hidup.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Muncul dimatikan.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Muncul dihidupkan.</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device, within the Restart Options dialog -->
-    <string name="global_action_restart_system">System</string>
+    <string name="global_action_restart_system">Sistem</string>
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_recovery">Pemulihan</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-    <string name="global_action_restart_download">Download</string>
+    <string name="global_action_restart_download">Unduh</string>
     <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_progress">Restarting\u2026</string>
+    <string name="global_action_restart_progress">Memulai ulang\u2026</string>
     <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_recovery_progress">Restarting to recovery mode\u2026</string>
+    <string name="global_action_restart_recovery_progress">Memulai ulang ke mode pemulihan\u2026</string>
     <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_bootloader_progress">Restarting to bootloader mode\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Memulai ulang ke mode bootloader\u2026</string>
     <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_download_progress">Restarting to download mode\u2026</string>
+    <string name="global_action_restart_download_progress">Memulai ulang ke mode unduh\u2026</string>
     <!-- Label for current user in power menu options dialog -->
-    <string name="global_action_current_user">Current</string>
+    <string name="global_action_current_user">Saat ini</string>
     <!-- QS Config -->
-    <string name="qs_menu_item_columns">Columns</string>
-    <string name="qs_menu_item_columns_landscape">Columns landscape</string>
+    <string name="qs_menu_item_columns">Kolom</string>
+    <string name="qs_menu_item_columns_landscape">Kolom pandangan</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
     <string name="qs_menu_item_columns_five">5</string>
@@ -154,36 +154,36 @@
     <string name="qs_menu_item_columns_seven">7</string>
     <string name="qs_menu_item_columns_eight">8</string>
     <string name="qs_menu_item_columns_nine">9</string>
-    <string name="qs_menu_item_titles">Show labels</string>
+    <string name="qs_menu_item_titles">Perlihatkan Nama</string>
     <!--  Omnijaws -->
-    <string name="omnijaws_service_error">Error</string>
-    <string name="omnijaws_service_unkown">No weather data</string>
-    <string name="omnijaws_service_error_long">Error loading weather data</string>
-    <string name="omnijaws_service_disabled">Service is disabled</string>
-    <string name="omnijaws_detail_header">Weather</string>
-    <string name="omnijaws_label_default">Weather</string>
-    <string name="omnijaws_current_text">Now</string>
-    <string name="omnijaws_package_not_available">OmniJaws not available</string>
-    <string name="omnijaws_service_last_update">Last update:</string>
+    <string name="omnijaws_service_error">Salah</string>
+    <string name="omnijaws_service_unkown">Tidak ada data cuaca</string>
+    <string name="omnijaws_service_error_long">Kesalahan saat memuat data cuaca</string>
+    <string name="omnijaws_service_disabled">Layanan Tidak bisa</string>
+    <string name="omnijaws_detail_header">Cuaca</string>
+    <string name="omnijaws_label_default">Cuaca</string>
+    <string name="omnijaws_current_text">Sekarang</string>
+    <string name="omnijaws_package_not_available">OmniJaws tidak tersedia</string>
+    <string name="omnijaws_service_last_update">Pembaruan terakhir:</string>
     <!-- Screen record -->
-    <string name="screenrecord_dialog_title">Screen Record</string>
-    <string name="screenrecord_dialog_summary">While recording, Android system can capture any sensitive information that\'s visible on your screen or played on your device. This includes passwords, payment info, photos, messages, and audio.</string>
-    <string name="screenrecord_dialog_start">Start</string>
-    <string name="screenrecord_dialog_cancel">Cancel</string>
-    <string name="screenrecord_audio_title">Audio source</string>
-    <string name="screenrecord_audio_summary">Record audio while recording</string>
-    <string name="screenrecord_no_audio">No audio</string>
-    <string name="screenrecord_microphone">Microphone</string>
-    <string name="screenrecord_system_audio">System audio</string>
-    <string name="screenrecord_taps_title">Show touches on screen</string>
-    <string name="screenrecord_taps_summary">Show visual feedback while recording</string>
-    <string name="screenrecord_low_quality_title">Low quality</string>
-    <string name="screenrecord_low_quality_summary">Record in a lower quality to save space on your device</string>
-    <string name="screenrecord_capture_protected_title">Capture protected content</string>
-    <string name="screenrecord_capture_protected_summary">Allow capture of content protected by apps</string>
+    <string name="screenrecord_dialog_title">Rekam Layar</string>
+    <string name="screenrecord_dialog_summary">Ketika merekam, System android dapat menangkap semua informasi sensitif yang terlihat di layar anda atau yang sedang dimainkam di perangkat anda. Hal ini termasuk kata sandi, informasi pembayaran, gambar foto, pesan, dan suara.</string>
+    <string name="screenrecord_dialog_start">Mulai</string>
+    <string name="screenrecord_dialog_cancel">Batal</string>
+    <string name="screenrecord_audio_title">Sumber pendengaran</string>
+    <string name="screenrecord_audio_summary">Rekam suara ketika merekam</string>
+    <string name="screenrecord_no_audio">Tidak ada Suara</string>
+    <string name="screenrecord_microphone">Mik</string>
+    <string name="screenrecord_system_audio">Sistem Suara</string>
+    <string name="screenrecord_taps_title">Tampilkan sentuhan di layar</string>
+    <string name="screenrecord_taps_summary">Tampilkan umpan balik visual ketika merekam</string>
+    <string name="screenrecord_low_quality_title">Kualitas Rendah</string>
+    <string name="screenrecord_low_quality_summary">Rekam dengan kualitas rendah untuk menghemat ruang penyimpanan di perangkat anda</string>
+    <string name="screenrecord_capture_protected_title">Menangkap konten yang dilindungi</string>
+    <string name="screenrecord_capture_protected_summary">Izinkan menangkap konten yang dilindungi oleh aplikasi</string>
     <!-- AOD QS tile states -->
-    <string name="quick_settings_aod_label">AOD</string>
-    <string name="quick_settings_aod_on_charge_label">AOD on charge</string>
-    <string name="quick_settings_aod_off_label">AOD off</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD off\nBattery Saver</string>
+    <string name="quick_settings_aod_label">LNT</string>
+    <string name="quick_settings_aod_on_charge_label">LNT saat dicas</string>
+    <string name="quick_settings_aod_off_label">LNT mati</string>
+    <string name="quick_settings_aod_off_powersave_label">LNT mati\nMenghemat Batre</string>
 </resources>
