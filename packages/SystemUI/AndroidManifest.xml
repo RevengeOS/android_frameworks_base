@@ -253,7 +253,7 @@
 
     <!-- QS Tiles -->
     <uses-permission android:name="lineageos.permission.MANAGE_LIVEDISPLAY" />
-    
+
     <!-- OmniJaws -->
     <uses-permission android:name="org.omnirom.omnijaws.READ_WEATHER" />
 
@@ -263,6 +263,13 @@
     <protected-broadcast android:name="com.android.settingslib.action.REGISTER_SLICE_RECEIVER" />
     <protected-broadcast android:name="com.android.settingslib.action.UNREGISTER_SLICE_RECEIVER" />
     <protected-broadcast android:name="com.android.settings.flashlight.action.FLASHLIGHT_CHANGED" />
+    <!-- DataSwitch tile -->
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
+
+    <!-- Sync tile -->
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+
 
     <application
         android:name=".SystemUIApplication"

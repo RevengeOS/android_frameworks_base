@@ -35,6 +35,7 @@ import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.CaffeineTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
+import com.android.systemui.qs.tiles.DataSwitchTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
@@ -48,6 +49,7 @@ import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenRecordTile;
 import com.android.systemui.qs.tiles.UiModeNightTile;
 import com.android.systemui.qs.tiles.UserTile;
+import com.android.systemui.qs.tiles.SyncTile;
 import com.android.systemui.qs.tiles.WeatherTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
@@ -87,6 +89,10 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<WeatherTile> mWeatherTileProvider;
     private final Provider<ScreenRecordTile> mScreenRecordTileProvider;
     private final Provider<AODTile> mAODTileProvider;
+    private final Provider<SyncTile> mSyncTileProvider;
+    private final Provider<DataSwitchTile> mDataSwitchTileProvider;
+
+
 
     private QSTileHost mHost;
 
@@ -115,6 +121,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<HeadsUpTile> headsUpTileProvider,
             Provider<WeatherTile> weatherTileProvider,
             Provider<ScreenRecordTile> screenRecordTileProvider,
+            Provider<SyncTile> syncTileProvider,
+            Provider<DataSwitchTile> dataSwitchTileProvider,
             Provider<AODTile> aodTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
@@ -141,6 +149,9 @@ public class QSFactoryImpl implements QSFactory {
         mWeatherTileProvider = weatherTileProvider;
         mScreenRecordTileProvider = screenRecordTileProvider;
         mAODTileProvider = aodTileProvider;
+        mSyncTileProvider = syncTileProvider;
+        mDataSwitchTileProvider = dataSwitchTileProvider;
+
     }
 
     public void setHost(QSTileHost host) {
@@ -206,6 +217,10 @@ public class QSFactoryImpl implements QSFactory {
                 return mScreenRecordTileProvider.get();
             case "aod":
                 return mAODTileProvider.get();
+            case "sync":
+                return mSyncTileProvider.get();
+            case "dataswitch":
+                return mDataSwitchTileProvider.get();
         }
 
         // Intent tiles.

@@ -117,7 +117,7 @@
 
     <!-- Tiles native to System UI. Order should match "quick_settings_tiles_default" -->
     <string name="quick_settings_tiles_stock" translatable="false">
-        wifi,cell,battery,dnd,flashlight,rotation,bt,airplane,nfc,location,hotspot,inversion,saver,dark,work,cast,night,livedisplay,caffeine,heads_up,weather,screenrecord,aod
+        wifi,cell,battery,dnd,flashlight,rotation,bt,airplane,nfc,location,hotspot,inversion,saver,dark,work,cast,night,livedisplay,caffeine,heads_up,weather,screenrecord,aod,sync,dataswitch
     </string>
 
     <!-- The tiles to display in QuickSettings -->
@@ -494,7 +494,7 @@
 
     <!-- Whether to show VoLTE icon in the status bar -->
     <bool name="config_display_volte">true</bool>
-    
+
     <!-- Respect the drawable/rounded.xml that allow to customize as multiple radius corner path -->
     <bool name="config_roundedCornerMultipleRadius">false</bool>
 
