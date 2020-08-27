@@ -183,10 +183,10 @@
     <string name="screenrecord_capture_protected_title">Menangkap konten yang dilindungi</string>
     <string name="screenrecord_capture_protected_summary">Izinkan menangkap konten yang dilindungi oleh aplikasi</string>
     <!-- AOD QS tile states -->
-    <string name="quick_settings_aod_label">LNT</string>
-    <string name="quick_settings_aod_on_charge_label">LNT saat dicas</string>
-    <string name="quick_settings_aod_off_label">LNT mati</string>
-    <string name="quick_settings_aod_off_powersave_label">LNT mati\nMenghemat Batre</string>
+    <string name="quick_settings_aod_label">LSH</string>
+    <string name="quick_settings_aod_on_charge_label">LSD saat dicas</string>
+    <string name="quick_settings_aod_off_label">LSD mati</string>
+    <string name="quick_settings_aod_off_powersave_label">LSD mati\nMenghemat Batre</string>
     <!-- QS for sync on/off -->
     <string name="quick_settings_sync_label">Sinkronisasi</string>
     <string name="accessibility_quick_settings_sync_off">Sinkronisasi mati.</string>
