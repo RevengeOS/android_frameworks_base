@@ -182,15 +182,15 @@
     <string name="screenrecord_taps_summary">Показывать визуальный отклик при записи</string>
     <string name="screenrecord_low_quality_title">Низкое качество</string>
     <string name="screenrecord_low_quality_summary">Записывайте в сниженном качестве, чтобы сохранить память</string>
-    <string name="screenrecord_capture_protected_title">Capture protected content</string>
-    <string name="screenrecord_capture_protected_summary">Allow capture of content protected by apps</string>
+    <string name="screenrecord_capture_protected_title">Захват защищенного контента</string>
+    <string name="screenrecord_capture_protected_summary">Разрешить захват контента, защищенного приложениями</string>
     <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
-    <string name="quick_settings_aod_on_charge_label">AOD on charge</string>
-    <string name="quick_settings_aod_off_label">AOD off</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD off\nBattery Saver</string>
+    <string name="quick_settings_aod_on_charge_label">AOD при зарядке</string>
+    <string name="quick_settings_aod_off_label">AOD выкл</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD выкл\nЭкономия заряда батареи</string>
     <!-- QS for sync on/off -->
-    <string name="quick_settings_sync_label">Sync</string>
+    <string name="quick_settings_sync_label">Синхронизация</string>
     <string name="accessibility_quick_settings_sync_off">Sync off.</string>
     <string name="accessibility_quick_settings_sync_on">Sync on.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sync turned off.</string>
