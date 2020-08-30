@@ -191,14 +191,14 @@
     <string name="quick_settings_aod_off_powersave_label">AOD выкл\nЭкономия заряда батареи</string>
     <!-- QS for sync on/off -->
     <string name="quick_settings_sync_label">Синхронизация</string>
-    <string name="accessibility_quick_settings_sync_off">Sync off.</string>
-    <string name="accessibility_quick_settings_sync_on">Sync on.</string>
-    <string name="accessibility_quick_settings_sync_changed_off">Sync turned off.</string>
-    <string name="accessibility_quick_settings_sync_changed_on">Sync turned on.</string>
+    <string name="accessibility_quick_settings_sync_off">Синхр выкл.</string>
+    <string name="accessibility_quick_settings_sync_on">Синхр вкл.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Синхр отключена.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Синхр включена.</string>
     <!-- QS for switch data card data -->
-    <string name="qs_data_switch_label">Switch data card</string>
-    <string name="qs_data_switch_toast_0">Currently no SIM card is inserted</string>
-    <string name="qs_data_switch_toast_1">Currently only one SIM card is inserted</string>
-    <string name="qs_data_switch_changed_1">Using SIM 1 for Mobile data</string>
-    <string name="qs_data_switch_changed_2">Using SIM 2 for Mobile data</string>
+    <string name="qs_data_switch_label">Сменить карту данных</string>
+    <string name="qs_data_switch_toast_0">В настоящее время SIM-карта не вставлена</string>
+    <string name="qs_data_switch_toast_1">В настоящее время вставлена только одна SIM-карта</string>
+    <string name="qs_data_switch_changed_1">Использование SIM 1 для передачи данных</string>
+    <string name="qs_data_switch_changed_2">Использование SIM 2 для передачи данных</string>
 </resources>
