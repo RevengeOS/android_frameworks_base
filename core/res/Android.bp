@@ -39,6 +39,11 @@ android_app {
     // PRODUCT-agnostic resource data like IDs and type definitions.
     export_package_resources: true,
 
+    resource_dirs: [
+        "res-revengeos",
+        "res",
+    ],
+
     dist: {
         targets: [
             "simulated_device_launcher",
