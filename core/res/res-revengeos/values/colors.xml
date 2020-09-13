@@ -16,15 +16,12 @@
  * limitations under the License.
  */
 -->
-<resources>
-    <!-- RevengeOS gradients -->
-    <java-symbol type="color" name="gradient_start_light" />
-    <java-symbol type="color" name="gradient_start_dark" />
-    <java-symbol type="color" name="gradient_end_light" />
-    <java-symbol type="color" name="gradient_end_dark" />
-    <java-symbol type="color" name="gradient_start" />
-    <java-symbol type="color" name="gradient_end" />
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <color name="gradient_start_light">?attr/colorAccent</color>
+    <color name="gradient_start_dark">?attr/colorAccent</color>
+    <color name="gradient_end_light">?attr/colorAccent</color>
+    <color name="gradient_end_dark">?attr/colorAccent</color>
 
-    <!-- In-display Fingerprint -->
-    <java-symbol type="bool" name="config_supportsInDisplayFingerprint" />
+    <color name="gradient_start">@color/gradient_start_light</color>
+    <color name="gradient_end">@color/gradient_end_light</color> 
 </resources>

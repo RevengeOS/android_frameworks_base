@@ -17,14 +17,5 @@
  */
 -->
 <resources>
-    <!-- RevengeOS gradients -->
-    <java-symbol type="color" name="gradient_start_light" />
-    <java-symbol type="color" name="gradient_start_dark" />
-    <java-symbol type="color" name="gradient_end_light" />
-    <java-symbol type="color" name="gradient_end_dark" />
-    <java-symbol type="color" name="gradient_start" />
-    <java-symbol type="color" name="gradient_end" />
-
-    <!-- In-display Fingerprint -->
-    <java-symbol type="bool" name="config_supportsInDisplayFingerprint" />
+    <dimen name="seekbar_track_background_height_revengeos">2.5dp</dimen>
 </resources>
