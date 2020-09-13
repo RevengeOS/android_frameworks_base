@@ -14,34 +14,83 @@
      limitations under the License.
 -->
 
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<animated-selector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <item android:state_enabled="false">
+        <shape
+            android:shape="ring"
+            android:innerRadius="2dp"
+            android:thickness="2dp"
+            android:useLevel="false"
+            android:tint="?attr/colorControlNormal"
+            android:opticalInsetLeft="3dp"
+            android:opticalInsetRight="3dp">
+            <solid
+                android:color="@color/white" />
+            <size
+                android:width="18dp"
+                android:height="18dp" />
+        </shape>
+    </item>
     <item
-        android:width="22dp"
-        android:height="22dp">
-        <shape android:shape="oval">
-            <solid android:color="@color/transparent" />
-        </shape>
-    </item>
-    <item android:top="1.75dp" android:right="0.875dp" android:left="0.875dp">
-        <shape android:shape="oval">
-            <gradient
-                android:endColor="#00000000"
-                android:gradientRadius="10dp"
-                android:startColor="#FF000000"
-                android:type="radial" />
-        </shape>
-    </item>
+        android:id="@+id/pressed"
+        android:state_pressed="true"
+        android:drawable="@drawable/seekbar_thumb_pressed_revengeos" />
     <item
-        android:top="3dp"
-        android:left="3dp"
-        android:right="3dp"
-        android:bottom="3dp">
-        <shape android:shape="oval">
-            <solid android:color="@color/white" />
-        </shape>
-    </item>
-</layer-list>
-
-
-
-
+        android:id="@+id/unpressed"
+        android:drawable="@drawable/seekbar_thumb_unpressed_revengeos" />
+    <transition
+        android:fromId="@+id/unpressed"
+        android:toId="@+id/pressed">
+        <animated-vector
+            android:drawable="@drawable/seekbar_thumb_unpressed_revengeos" >
+            <target android:name="thumb_unpressed">
+                <aapt:attr name="android:animation">
+                    <set>
+                        <objectAnimator
+                            android:duration="533"
+                            android:propertyName="scaleX"
+                            android:valueFrom="1.0"
+                            android:valueTo="1.25"
+                            android:valueType="floatType"
+                            android:interpolator="@interpolator/fast_out_slow_in" />
+                        <objectAnimator
+                            android:duration="533"
+                            android:propertyName="scaleY"
+                            android:valueFrom="1.0"
+                            android:valueTo="1.25"
+                            android:valueType="floatType"
+                            android:interpolator="@interpolator/fast_out_slow_in" />
+                    </set>
+                </aapt:attr>
+            </target>
+        </animated-vector>
+    </transition>
+    <transition
+        android:fromId="@+id/pressed"
+        android:toId="@+id/unpressed">
+        <animated-vector
+            android:drawable="@drawable/seekbar_thumb_pressed_revengeos" >
+            <target android:name="thumb_pressed">
+                <aapt:attr name="android:animation">
+                    <set>
+                        <objectAnimator
+                            android:duration="133"
+                            android:propertyName="scaleX"
+                            android:valueFrom="1.25"
+                            android:valueTo="1.0"
+                            android:valueType="floatType"
+                            android:interpolator="@interpolator/fast_out_slow_in" />
+                        <objectAnimator
+                            android:duration="133"
+                            android:propertyName="scaleY"
+                            android:valueFrom="1.25"
+                            android:valueTo="1.0"
+                            android:valueType="floatType"
+                            android:interpolator="@interpolator/fast_out_slow_in" />
+                    </set>
+                </aapt:attr>
+            </target>
+        </animated-vector>
+    </transition>
+</animated-selector>
