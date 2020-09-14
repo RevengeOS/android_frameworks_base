@@ -1109,7 +1109,6 @@ public class VolumeDialogImpl implements VolumeDialog,
                 : getAlphaAttr(android.R.attr.secondaryContentAlpha);
         if (tint == row.cachedTint) return;
         row.slider.setProgressTintList(tint);
-        row.slider.setThumbTintList(tint);
         row.slider.setProgressBackgroundTintList(tint);
         row.slider.setAlpha(((float) alpha) / 255);
         row.icon.setImageTintList(tint);
