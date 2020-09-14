@@ -469,7 +469,7 @@ class MediaDataManager(
     }
 
     private fun computeBackgroundColor(artworkBitmap: Bitmap?): Int {
-        var color = Color.WHITE
+        var color = Color.DKGRAY
         if (artworkBitmap != null) {
             // If we have art, get colors from that
             val p = MediaNotificationProcessor.generateArtworkPaletteBuilder(artworkBitmap)
@@ -477,21 +477,6 @@ class MediaDataManager(
             val swatch = MediaNotificationProcessor.findBackgroundSwatch(p)
             color = swatch.rgb
         }
-        // Adapt background color, so it's always subdued and text is legible
-        val tmpHsl = floatArrayOf(0f, 0f, 0f)
-        ColorUtils.colorToHSL(color, tmpHsl)
-
-        val l = tmpHsl[2]
-        // Colors with very low luminosity can have any saturation. This means that changing the
-        // luminosity can make a black become red. Let's remove the saturation of very light or
-        // very dark colors to avoid this issue.
-        if (l < LUMINOSITY_THRESHOLD || l > 1f - LUMINOSITY_THRESHOLD) {
-            tmpHsl[1] = 0f
-        }
-        tmpHsl[1] *= SATURATION_MULTIPLIER
-        tmpHsl[2] = DEFAULT_LUMINOSITY
-
-        color = ColorUtils.HSLToColor(tmpHsl)
         return color
     }
 
