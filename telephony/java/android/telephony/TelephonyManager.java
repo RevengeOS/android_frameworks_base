@@ -10103,8 +10103,12 @@ public class TelephonyManager {
     @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.P, trackingBug = 115609023)
     public void setBasebandVersionForPhone(int phoneId, String version) {
         if (SubscriptionManager.isValidPhoneId(phoneId)) {
-            List<String> newList = Arrays.asList(updateTelephonyProperty(
-                    TelephonyProperties.baseband_version(), phoneId, version).get(0));
+            List<String> newList = updateTelephonyProperty(
+                    TelephonyProperties.baseband_version(), phoneId, version);
+            if (mContext.getResources().getBoolean(
+                    com.android.internal.R.bool.config_trim_baseband_version_string)) {
+                newList = Arrays.asList(newList.get(0));
+            }
             TelephonyProperties.baseband_version(newList);
         }
     }
