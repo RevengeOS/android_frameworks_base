@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019 RevengeOS
+     Copyright 2018-2019 Syberia Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,9 +15,9 @@
      limitations under the License.
 -->
 <resources>
-    <!-- AOD QS tile -->
-    <string name="quick_settings_aod_label">AOD</string>
 
-    <!-- Icon tuner -->
-    <string name="statusbar_items_title">Icon tuner</string>
+    <!-- Pure Tuner Theme-->
+    <style name="ExTunerSettings" parent="@android:style/Theme.DeviceDefault.Settings">
+        <item name="preferenceTheme">@style/TunerPreferenceTheme</item>
+    </style>
 </resources>
