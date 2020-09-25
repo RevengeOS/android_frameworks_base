@@ -41,10 +41,10 @@ Mô tả về quyền ứng dụng, được liệt kê để người dùng có
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay : chế độ tự động</string>
     <string name="accessibility_quick_settings_live_display_day">Live Display : Chế độ ban ngày.</string>
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay : chế độ ban đêm</string>
-    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: outdoor mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay turned off.</string>
-    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay changed to auto mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay changed to day mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay changed to night mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay changed to outdoor mode.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay : chế độ ngoài trời</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay đã tắt.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay đã thay đổi thành chế độ tự động.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay đã thay đổi thành chế độ ngày.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay đã thay đổi thành chế độ ban đêm.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay đã thay đổi thành chế độ ngoài trời.</string>
 </resources>
