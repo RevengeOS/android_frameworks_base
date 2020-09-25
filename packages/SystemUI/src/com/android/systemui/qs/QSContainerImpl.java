@@ -290,7 +290,7 @@ public class QSContainerImpl extends FrameLayout {
             lp.leftMargin = mSideMargins;
             if (view == mQSPanelContainer) {
                 // QS panel lays out some of its content full width
-                mQSPanel.setContentMargins(0, 0);
+                mQSPanel.setContentMargins(mContentPaddingStart, mContentPaddingEnd);
             } else if (view == mHeader) {
                 // The header contains the QQS panel which needs to have special padding, to
                 // visually align them.
