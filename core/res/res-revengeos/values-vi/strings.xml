@@ -18,25 +18,29 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_fakePackageSignature">Spoof package signature</string>
+    <string name="permlab_fakePackageSignature">Chữ ký gói giả mạo
+permlab_fakePackageSignature
+Tiêu đề của một quyền ứng dụng, được liệt kê để người dùng có thể chọn xem họ có muốn cho phép ứng dụng làm điều này hay không.</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Allows the app to pretend to be a different app. Malicious applications might be able to use this to access private application data. Grant this permission with caution only!</string>
+    <string name="permdesc_fakePackageSignature">Cho phép ứng dụng giả vờ là một ứng dụng khác. Các ứng dụng độc hại có thể sử dụng quyền này để truy cập dữ liệu ứng dụng riêng tư. Chỉ cấp quyền này một cách thận trọng!
+permdesc_fakePackageSignature
+Mô tả về quyền ứng dụng, được liệt kê để người dùng có thể chọn xem họ có muốn cho phép ứng dụng làm điều này hay không.</string>
     <!-- LiveDisplay strings -->
-    <string name="live_display_auto">Automatic</string>
-    <string name="live_display_auto_summary">Automatically adjust color temperature of screen after sunset and sunrise</string>
-    <string name="live_display_off">Off</string>
-    <string name="live_display_off_summary">Disable all adjustments</string>
-    <string name="live_display_day">Day</string>
-    <string name="live_display_day_summary">Use day settings only</string>
-    <string name="live_display_night">Night</string>
-    <string name="live_display_night_summary">Use night settings only</string>
-    <string name="live_display_outdoor">Outdoor (bright sun)</string>
-    <string name="live_display_outdoor_summary">Use outdoor settings only</string>
-    <string name="live_display_hint">LiveDisplay can help reduce eyestrain and help you sleep at night. Click here to try it out!</string>
-    <string name="accessibility_quick_settings_live_display_off">LiveDisplay off.</string>
-    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: auto mode.</string>
-    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: day mode.</string>
-    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: night mode.</string>
+    <string name="live_display_auto">Tự động</string>
+    <string name="live_display_auto_summary">Tự động điều chỉnh nhiệt độ màu của màn hình sau khi mặt trời lặn và mặt trời mọc</string>
+    <string name="live_display_off">Tắt</string>
+    <string name="live_display_off_summary">Tắt tất cả các điều chỉnh</string>
+    <string name="live_display_day">Ngày</string>
+    <string name="live_display_day_summary">Chỉ sử dụng cài đặt ban ngày</string>
+    <string name="live_display_night">Đêm</string>
+    <string name="live_display_night_summary">Chỉ sử dụng cài đặt ban đêm</string>
+    <string name="live_display_outdoor">Ngoài trời (nắng chói chang)</string>
+    <string name="live_display_outdoor_summary">Chỉ sử dụng cài đặt ngoài trời</string>
+    <string name="live_display_hint">LiveDisplay có thể giúp giảm mỏi mắt và giúp bạn dễ ngủ vào ban đêm. Nhấn vào đây để thử!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay Tắt</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay : chế độ tự động</string>
+    <string name="accessibility_quick_settings_live_display_day">Live Display : Chế độ ban ngày.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay : chế độ ban đêm</string>
     <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: outdoor mode.</string>
     <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay turned off.</string>
     <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay changed to auto mode.</string>
