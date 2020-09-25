@@ -4802,6 +4802,11 @@ public final class Settings {
         public static final String VOLUME_BUTTON_MUSIC_CONTROL = "volume_button_music_control";
 
         /**
+         * @hide
+         */
+        public static final String LOCKSCREEN_MEDIA_ART = "lockscreen_media_art";
+
+        /**
          * Action to perform when the home key is long-pressed.
          * (Default can be configured via config_longPressOnHomeBehaviorHwkeys)
          * 0 - Nothing
@@ -5007,6 +5012,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(KEY_ASSIST_LONG_PRESS_ACTION);
             PRIVATE_SETTINGS.add(KEY_APP_SWITCH_ACTION);
             PRIVATE_SETTINGS.add(KEY_APP_SWITCH_LONG_PRESS_ACTION);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_ART);
         }
 
         /**
