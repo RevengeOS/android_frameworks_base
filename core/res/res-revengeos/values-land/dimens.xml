@@ -61,12 +61,6 @@
    My respects to Lucchetto and RevengeOS team!
 -->
 <resources>
-    <dimen name="seekbar_track_background_height_revengeos">2.5dp</dimen>
-
-    <!-- QS status bar in QS panel -->
-    <dimen name="qs_status_bar_height">75dp</dimen>
-    <!-- Total height of RevengeOS Quick QS (qs_status_bar_height + 91) -->
-    <dimen name="custom_quick_qs_total_height">166dp</dimen>
     <!-- Top padding for devices with a very wide cutout which may clip out a part of the QS status bar -->
     <dimen name="qs_status_bar_top_padding">0px</dimen>
 </resources>
