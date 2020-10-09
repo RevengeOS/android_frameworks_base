@@ -4819,6 +4819,12 @@ public final class Settings {
         public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
 
         /**
+         * Three Finger Gesture from Oppo
+         * @hide
+         */
+        public static final String THREE_FINGER_GESTURE = "three_finger_gesture";
+
+        /**
          * @hide
          */
         public static final String VOLUME_BUTTON_MUSIC_CONTROL = "volume_button_music_control";
