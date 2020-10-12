@@ -1659,7 +1659,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         flagdbg.append(0 != ((state2 & StatusBarManager.DISABLE2_NOTIFICATION_SHADE))   ? 'N' : 'n');
         flagdbg.append(0 != ((diff2  & StatusBarManager.DISABLE2_NOTIFICATION_SHADE))   ? '!' : ' ');
         flagdbg.append('>');
-        Log.d(TAG, flagdbg.toString());
+        if (DEBUG) Log.d(TAG, flagdbg.toString());
 
         if ((diff1 & StatusBarManager.DISABLE_EXPAND) != 0) {
             if ((state1 & StatusBarManager.DISABLE_EXPAND) != 0) {
@@ -3627,6 +3627,8 @@ public class StatusBar extends SystemUI implements DemoMode,
             // the closing
             mNotificationShadeWindowController.setNotificationShadeFocusable(true);
         }
+        // It's closed; no need to leave it open.
+        mStatusBarStateController.setLeaveOpenOnKeyguardHide(false);
     }
 
     public void onUnlockHintStarted() {
