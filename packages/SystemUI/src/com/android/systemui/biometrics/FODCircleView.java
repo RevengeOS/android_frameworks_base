@@ -83,6 +83,8 @@ public class FODCircleView extends ImageView {
 
     private Timer mBurnInProtectionTimer;
 
+    private int mMinBottomMargin;
+
     private IFingerprintInscreenCallback mFingerprintInscreenCallback =
             new IFingerprintInscreenCallback.Stub() {
         @Override
@@ -116,10 +118,18 @@ public class FODCircleView extends ImageView {
         public void onKeyguardBouncerChanged(boolean isBouncer) {
             mIsBouncer = isBouncer;
             if (mUpdateMonitor.isFingerprintDetectionRunning()) {
-                if (isPinOrPattern(mUpdateMonitor.getCurrentUser()) || !isBouncer) {
-                    show();
+                if (mMinBottomMargin != 0) {
+                    if (isPinOrPattern(mUpdateMonitor.getCurrentUser()) || !isBouncer) {
+                        show();
+                    } else {
+                        hide();
+                    }
                 } else {
-                    hide();
+                    if (isBouncer) {
+                        hide();
+                    } else {
+                        show();
+                    }
                 }
             } else {
                 hide();
@@ -167,6 +177,9 @@ public class FODCircleView extends ImageView {
         mColorBackground = res.getColor(R.color.config_fodColorBackground);
         mPaintFingerprintBackground.setColor(mColorBackground);
         mPaintFingerprintBackground.setAntiAlias(true);
+
+        mMinBottomMargin = res.getDimensionPixelSize(
+                R.dimen.kg_security_container_min_bottom_margin);
 
         mWindowManager = context.getSystemService(WindowManager.class);
 
