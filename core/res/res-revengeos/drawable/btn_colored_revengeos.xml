@@ -24,8 +24,8 @@
             <shape android:shape="rectangle">
                 <corners android:radius="?attr/buttonCornerRadius" />
                 <gradient 
-                    android:startColor="@color/gradient_start"
-                    android:endColor="@color/gradient_end"
+                    android:startColor="?attr/colorGradientStart"
+                    android:endColor="?attr/colorGradientEnd"
                     android:angle="45"/>
                 <padding android:left="@dimen/button_padding_horizontal_material"
                          android:top="@dimen/button_padding_vertical_material"

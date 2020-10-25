@@ -31,8 +31,8 @@
                 <corners android:radius="?attr/progressBarCornerRadius" />
                 <size android:height="@dimen/progress_bar_height_material" />
                 <gradient 
-                    android:startColor="@color/gradient_start"
-                    android:endColor="@color/gradient_end"
+                    android:startColor="?attr/colorGradientStart"
+                    android:endColor="?attr/colorGradientEnd"
                     android:angle="45"/>
             </shape>
         </scale>

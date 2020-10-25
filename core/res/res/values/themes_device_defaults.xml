@@ -217,6 +217,9 @@ easier.
         <item name="colorError">@color/error_color_device_default_dark</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_dark</item>
         <item name="colorPopupBackground">?attr/colorBackgroundFloating</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <style name="Theme.DeviceDefault" parent="Theme.DeviceDefaultBase" />
@@ -246,6 +249,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <!-- Variant of {@link #Theme_DeviceDefault} with no action bar and no status bar.  This theme
@@ -274,6 +280,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <!-- Variant of {@link #Theme_DeviceDefault} with no action bar and no status bar and
@@ -304,6 +313,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <!-- Variant of {@link #Theme_DeviceDefault} that has no title bar and translucent
@@ -333,6 +345,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <!-- DeviceDefault theme for dialog windows and activities. This changes the window to be
@@ -370,6 +385,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <!-- Variant of {@link #Theme_DeviceDefault_Dialog} that has a nice minimum width for a
@@ -398,6 +416,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <!-- Variant of {@link #Theme_DeviceDefault_Dialog} without an action bar -->
@@ -425,6 +446,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <!-- Variant of {@link #Theme_DeviceDefault_Dialog_NoActionBar} that has a nice minimum width
@@ -453,6 +477,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <!-- Variant of Theme.DeviceDefault.Dialog that has a fixed size. -->
@@ -497,6 +524,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <!-- DeviceDefault theme for a window without an action bar that will be displayed either
@@ -526,6 +556,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <!-- DeviceDefault theme for a presentation window on a secondary display. -->
@@ -553,6 +586,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <!-- DeviceDefault theme for panel windows. This removes all extraneous window
@@ -582,6 +618,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+        
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <!-- DeviceDefault theme for windows that want to have the user's selected wallpaper appear
@@ -610,6 +649,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <!-- DeviceDefault theme for windows that want to have the user's selected wallpaper appear
@@ -638,6 +680,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <!-- DeviceDefault style for input methods, which is used by the
@@ -666,6 +711,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- DeviceDefault style for input methods, which is used by the
@@ -694,6 +742,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <style name="Theme.DeviceDefault.Dialog.Alert" parent="Theme.Material.Dialog.Alert">
@@ -722,6 +773,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <!-- Theme for the dialog shown when an app crashes or ANRs. -->
@@ -755,6 +809,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <style name="Theme.DeviceDefault.Dialog.NoFrame" parent="Theme.Material.Dialog.NoFrame">
@@ -781,6 +838,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <!-- Variant of {@link #Theme_DeviceDefault} with a light-colored style -->
@@ -946,6 +1006,9 @@ easier.
         <item name="colorError">@color/error_color_device_default_light</item>
         <item name="colorBackgroundFloating">@color/background_floating_device_default_light</item>
         <item name="colorPopupBackground">?attr/colorBackgroundFloating</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- Variant of the DeviceDefault (light) theme that has a solid (opaque) action bar with an
@@ -974,6 +1037,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- Variant of {@link #Theme_DeviceDefault_Light} with no action bar -->
@@ -1001,6 +1067,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- Variant of {@link #Theme_DeviceDefault_Light} with no action bar and no status bar.
@@ -1029,6 +1098,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- Variant of {@link #Theme_DeviceDefault_Light} with no action bar and no status bar
@@ -1059,6 +1131,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- Variant of {@link #Theme_DeviceDefault_Light} that has no title bar and translucent
@@ -1088,6 +1163,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- DeviceDefault light theme for dialog windows and activities. This changes the window to be
@@ -1123,6 +1201,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- Variant of {@link #Theme_DeviceDefault_Light_Dialog} that has a nice minimum width for a
@@ -1154,6 +1235,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
      <!-- Variant of {@link #Theme_DeviceDefault_Light_Dialog} without an action bar -->
@@ -1184,6 +1268,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- Variant of {@link #Theme_DeviceDefault_Light_Dialog_NoActionBar} that has a nice minimum
@@ -1215,6 +1302,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- Variant of Theme.DeviceDefault.Dialog that has a fixed size. -->
@@ -1229,6 +1319,9 @@ easier.
         <item name="colorPrimaryDark">@color/primary_dark_device_default_light</item>
         <item name="colorAccent">@color/accent_device_default_light</item>
         <item name="colorError">@color/error_color_device_default_light</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- Variant of Theme.DeviceDefault.Dialog.NoActionBar that has a fixed size. -->
@@ -1243,6 +1336,9 @@ easier.
         <item name="colorPrimaryDark">@color/primary_dark_device_default_light</item>
         <item name="colorAccent">@color/accent_device_default_light</item>
         <item name="colorError">@color/error_color_device_default_light</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- DeviceDefault light theme for a window that will be displayed either full-screen on smaller
@@ -1274,6 +1370,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- DeviceDefault light theme for a window without an action bar that will be displayed either
@@ -1306,6 +1405,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- DeviceDefault light theme for a presentation window on a secondary display. -->
@@ -1336,6 +1438,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- DeviceDefault light theme for panel windows. This removes all extraneous window
@@ -1365,6 +1470,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <style name="Theme.DeviceDefault.Light.Dialog.Alert" parent="Theme.Material.Light.Dialog.Alert">
@@ -1393,6 +1501,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <style name="Theme.DeviceDefault.Dialog.Alert.DayNight" parent="Theme.DeviceDefault.Light.Dialog.Alert" />
@@ -1421,6 +1532,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <style name="Theme.DeviceDefault.Light.Voice" parent="Theme.Material.Light.Voice">
@@ -1447,6 +1561,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- DeviceDefault theme for a window that should look like the Settings app.  -->
@@ -1494,6 +1611,9 @@ easier.
 
         <item name="colorListDivider">@color/list_divider_color_light</item>
         <item name="opacityListDivider">@color/list_divider_opacity_device_default_light</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- @hide DeviceDefault theme for a window that should use Settings theme colors
@@ -1524,6 +1644,9 @@ easier.
 
         <!-- volume background -->
         <item name="panelColorBackground">@color/primary_material_light</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <style name="Theme.DeviceDefault.QuickSettings.Dialog" parent="Theme.DeviceDefault.Light.Dialog">
@@ -1541,6 +1664,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- Variant of {@link #Theme_DeviceDefault_Settings_Dark} with no action bar -->
@@ -1569,6 +1695,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <style name="Theme.DeviceDefault.Settings.DialogBase" parent="Theme.Material.Light.BaseDialog">
@@ -1581,6 +1710,9 @@ easier.
 
         <!-- Dialog attributes -->
         <item name="alertDialogTheme">@style/Theme.DeviceDefault.Light.Dialog.Alert</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <style name="Theme.DeviceDefault.Settings.Dialog" parent="Theme.DeviceDefault.Settings.DialogBase">
@@ -1603,6 +1735,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <style name="Theme.DeviceDefault.Settings.DialogWhenLarge" parent="Theme.Material.Settings.DialogWhenLarge">
@@ -1633,6 +1768,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <style name="Theme.DeviceDefault.Settings.Dialog.Alert" parent="Theme.Material.Settings.Dialog.Alert">
@@ -1663,6 +1801,9 @@ easier.
 
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <style name="Theme.DeviceDefault.Settings.Dialog.NoActionBar" parent="Theme.DeviceDefault.Light.Dialog.NoActionBar" />
@@ -1737,10 +1878,16 @@ easier.
 
     <style name="ThemeOverlay.DeviceDefault.Accent">
         <item name="colorAccent">@color/accent_device_default_dark</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <style name="ThemeOverlay.DeviceDefault.Accent.Light">
         <item name="colorAccent">@color/accent_device_default_light</item>
+
+        <item name="colorGradientStart">@color/gradient_start_light</item>
+        <item name="colorGradientEnd">@color/gradient_end_light</item>
     </style>
 
     <!-- Theme overlay that replaces colorAccent with the colorAccent from {@link #Theme_DeviceDefault_DayNight}. -->
@@ -1749,6 +1896,9 @@ easier.
 
     <style name="ThemeOverlay.DeviceDefault.Dark.ActionBar.Accent" parent="ThemeOverlay.Material.Dark.ActionBar">
         <item name="colorAccent">@color/accent_device_default_dark</item>
+
+        <item name="colorGradientStart">@color/gradient_start_dark</item>
+        <item name="colorGradientEnd">@color/gradient_end_dark</item>
     </style>
 
     <style name="Theme.DeviceDefault.Light.Dialog.Alert.UserSwitchingDialog" parent="Theme.DeviceDefault.NoActionBar.Fullscreen">

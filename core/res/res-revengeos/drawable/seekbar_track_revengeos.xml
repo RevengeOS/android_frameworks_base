@@ -35,8 +35,8 @@
                         <corners android:radius="@dimen/seekbar_track_background_height_revengeos" />
                         <size android:height="@dimen/seekbar_track_background_height_revengeos" />
                         <gradient 
-                            android:startColor="@color/gradient_start"
-                            android:endColor="@color/gradient_end"
+                            android:startColor="?attr/colorGradientStart"
+                            android:endColor="?attr/colorGradientEnd"
                             android:angle="45"/>
                     </shape>
                 </item>

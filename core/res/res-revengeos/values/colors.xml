@@ -22,9 +22,6 @@
     <color name="gradient_end_light">?attr/colorAccent</color>
     <color name="gradient_end_dark">?attr/colorAccent</color>
 
-    <color name="gradient_start">@color/gradient_start_light</color>
-    <color name="gradient_end">@color/gradient_end_light</color>
-
     <!-- Pocket Lock -->
     <java-symbol type="layout" name="pocket_lock_view_layout" />
     <java-symbol type="id" name="pocket_hint_container" />

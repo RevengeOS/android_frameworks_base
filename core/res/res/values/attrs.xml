@@ -1157,6 +1157,10 @@
              a value of 'true' will not override any 'false' value in its parent chain nor will
              it prevent any 'false' in any of its children. -->
         <attr name="forceDarkAllowed" format="boolean" />
+
+        <!-- RevengeOS additions -->
+        <attr name="colorGradientStart" format="color" />
+        <attr name="colorGradientEnd" format="color" />
     </declare-styleable>
 
     <!-- **************************************************************** -->
