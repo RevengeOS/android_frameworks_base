@@ -18,9 +18,4 @@
     <!-- Color of the FOD view -->
     <color name="config_fodColor">#00ff00</color>
     <color name="config_fodColorBackground">#20000000</color>
-
-    <color name="binary_clock_dot_color">#ffffff</color>
-    <color name="binary_clock_empty_dot_color">#ffffff</color>
-    <color name="binary_clock_ambient_dot_color">#ffffff</color>
-    <color name="binary_clock_ambient_empty_dot_color">#ffffff</color>
 </resources>
