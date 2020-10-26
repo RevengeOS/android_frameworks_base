@@ -314,12 +314,12 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
                 });
                 anim.setDuration(1000);
                 mIsAnimating = true;
-                mHandler.post(() -> anim.start());
+                anim.start();
             } else if (!mIsAnimating) {
                 setColorFilter(Color.argb(getDimAlpha(), 0, 0, 0), PorterDuff.Mode.SRC_ATOP);
             }
         } else {
-            mHandler.post(() -> setColorFilter(Color.argb(0, 0, 0, 0), PorterDuff.Mode.SRC_ATOP));
+            setColorFilter(Color.argb(0, 0, 0, 0), PorterDuff.Mode.SRC_ATOP);
         }
     }
 
