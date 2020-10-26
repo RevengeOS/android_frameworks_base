@@ -4059,7 +4059,4 @@
 
   <!-- Device has OnePlus haptic motor -->
   <java-symbol type="bool" name="config_hasOnePlusHapticMotor" />
-
-  <!-- FOD icon dimming -->
-  <java-symbol type="bool" name="config_targetUsesInKernelDimming" />
 </resources>
