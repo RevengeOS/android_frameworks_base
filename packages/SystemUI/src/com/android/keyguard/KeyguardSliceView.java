@@ -57,6 +57,7 @@ import androidx.slice.widget.ListContent;
 import androidx.slice.widget.RowContent;
 import androidx.slice.widget.SliceContent;
 import androidx.slice.widget.SliceLiveData;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.graphics.ColorUtils;
@@ -595,7 +596,8 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
             final int color = getCurrentTextColor();
             for (Drawable drawable : getCompoundDrawables()) {
                 if (drawable != null) {
-                    drawable.setTint(color);
+                    Drawable wrapped = DrawableCompat.wrap(drawable);
+                    DrawableCompat.setTintList(wrapped, null);
                 }
             }
         }

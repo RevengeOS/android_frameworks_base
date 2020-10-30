@@ -38,6 +38,7 @@ import android.provider.Settings;
 import android.service.notification.ZenModeConfig;
 import android.text.TextUtils;
 import android.text.style.StyleSpan;
+import android.content.res.Resources;
 
 import androidx.core.graphics.drawable.IconCompat;
 import androidx.slice.Slice;
@@ -62,6 +63,8 @@ import com.android.systemui.statusbar.policy.NextAlarmController;
 import com.android.systemui.statusbar.policy.ZenModeController;
 import com.android.systemui.util.wakelock.SettableWakeLock;
 import com.android.systemui.util.wakelock.WakeLock;
+
+import com.revengeos.weathericons.WeatherIconsHelper;
 
 import java.util.Date;
 import java.util.Locale;
@@ -141,6 +144,9 @@ public class KeyguardSliceProvider extends SliceProvider implements
     private int mStatusBarState;
     private boolean mMediaIsVisible;
     private SystemUIAppComponentFactory.ContextAvailableCallback mContextAvailableCallback;
+    private String mTemperature;
+    private int mWeatherIcon;
+    private String mWeatherIntent = "org.revengeos.simpleweather.UPDATE";
 
     /**
      * Receiver responsible for time ticking and updating the date format.
@@ -157,6 +163,13 @@ public class KeyguardSliceProvider extends SliceProvider implements
             } else if (Intent.ACTION_LOCALE_CHANGED.equals(action)) {
                 synchronized (this) {
                     cleanDateFormatLocked();
+                }
+            }
+            if (action.equals(mWeatherIntent)){  
+                synchronized (this){
+                    mTemperature = intent.getStringExtra("temp");
+                    mWeatherIcon = intent.getIntExtra("icon", 1);
+                    notifyChange();
                 }
             }
         }
@@ -207,6 +220,7 @@ public class KeyguardSliceProvider extends SliceProvider implements
             } else {
                 builder.addRow(new RowBuilder(mDateUri).setTitle(mLastText));
             }
+            addWeather(builder);
             addNextAlarmLocked(builder);
             addZenModeLocked(builder);
             addPrimaryActionLocked(builder);
@@ -270,6 +284,22 @@ public class KeyguardSliceProvider extends SliceProvider implements
                 .addEndItem(alarmIcon, ListBuilder.ICON_IMAGE);
         builder.addRow(alarmRowBuilder);
     }
+
+    protected void addWeather(ListBuilder builder) {
+        if (mTemperature == null) {
+            return;
+        }
+
+        int resourceIdentifier = WeatherIconsHelper.Companion.getDrawable(mWeatherIcon,getContext());
+
+        IconCompat mIcon = IconCompat.createWithResource(getContext(),resourceIdentifier);
+
+        RowBuilder weatherRowBuilder = new RowBuilder()
+                .setTitle(mTemperature)
+                .addEndItem(mIcon, ListBuilder.ICON_IMAGE);
+        builder.addRow(weatherRowBuilder);
+    }
+    
 
     /**
      * Add zen mode (DND) icon to slice if it's enabled.
@@ -388,6 +418,7 @@ public class KeyguardSliceProvider extends SliceProvider implements
             IntentFilter filter = new IntentFilter();
             filter.addAction(Intent.ACTION_DATE_CHANGED);
             filter.addAction(Intent.ACTION_LOCALE_CHANGED);
+            filter.addAction(mWeatherIntent);
             getContext().registerReceiver(mIntentReceiver, filter, null /* permission*/,
                     null /* scheduler */);
             getKeyguardUpdateMonitor().registerCallback(mKeyguardUpdateMonitorCallback);
