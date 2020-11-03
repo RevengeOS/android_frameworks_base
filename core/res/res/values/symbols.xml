@@ -4062,4 +4062,6 @@
 
   <!-- FOD icon dimming -->
   <java-symbol type="bool" name="config_targetUsesInKernelDimming" />
+
+  <java-symbol type="array" name="config_keep_warming_services" />
 </resources>
