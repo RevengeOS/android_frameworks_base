@@ -117,7 +117,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -10103,8 +10102,8 @@ public class TelephonyManager {
     @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.P, trackingBug = 115609023)
     public void setBasebandVersionForPhone(int phoneId, String version) {
         if (SubscriptionManager.isValidPhoneId(phoneId)) {
-            List<String> newList = Arrays.asList(updateTelephonyProperty(
-                    TelephonyProperties.baseband_version(), phoneId, version).get(0));
+            List<String> newList = updateTelephonyProperty(
+                    TelephonyProperties.baseband_version(), phoneId, version);
             TelephonyProperties.baseband_version(newList);
         }
     }
