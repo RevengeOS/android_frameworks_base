@@ -50,15 +50,15 @@
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
     <string-array name="type_clock_minutes">
         <item>O\u2019Clock</item>
-        <item>Oh Un</item>
-        <item>Oh Deux</item>
-        <item>Oh Trois</item>
-        <item>Oh Quatre</item>
-        <item>Oh Cinq</item>
-        <item>Oh Six</item>
-        <item>Oh Sept</item>
-        <item>Oh Huit</item>
-        <item>Oh Neuf</item>
+        <item>Un</item>
+        <item>Deux</item>
+        <item>Trois</item>
+        <item>Quatre</item>
+        <item>Cinq</item>
+        <item>Six</item>
+        <item>Sept</item>
+        <item>Huit</item>
+        <item>Neuf</item>
         <item>Dix</item>
         <item>Eleven</item>
         <item>Twelve</item>
@@ -180,23 +180,23 @@
     <string name="screenrecord_taps_summary">Afficher les retours visuels lors de l\'enregistrement</string>
     <string name="screenrecord_low_quality_title">Basse qualité</string>
     <string name="screenrecord_low_quality_summary">Enregistrez en qualité inférieure pour économiser de l\'espace sur votre appareil</string>
-    <string name="screenrecord_capture_protected_title">Capture protected content</string>
-    <string name="screenrecord_capture_protected_summary">Allow capture of content protected by apps</string>
+    <string name="screenrecord_capture_protected_title">Capturer le contenu protégé</string>
+    <string name="screenrecord_capture_protected_summary">Autoriser la capture de contenu protégé par les applications</string>
     <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_on_charge_label">AOD on charge</string>
     <string name="quick_settings_aod_off_label">AOD off</string>
     <string name="quick_settings_aod_off_powersave_label">AOD off\nBattery Saver</string>
     <!-- QS for sync on/off -->
-    <string name="quick_settings_sync_label">Sync</string>
-    <string name="accessibility_quick_settings_sync_off">Sync off.</string>
-    <string name="accessibility_quick_settings_sync_on">Sync on.</string>
-    <string name="accessibility_quick_settings_sync_changed_off">Sync turned off.</string>
-    <string name="accessibility_quick_settings_sync_changed_on">Sync turned on.</string>
+    <string name="quick_settings_sync_label">Synchronisation</string>
+    <string name="accessibility_quick_settings_sync_off">Synchronisation désactivée.</string>
+    <string name="accessibility_quick_settings_sync_on">Synchronisation activée.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">La synchronisation a été déactivée.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">La synchronisation a été activée.</string>
     <!-- QS for switch data card data -->
-    <string name="qs_data_switch_label">Switch data card</string>
-    <string name="qs_data_switch_toast_0">Currently no SIM card is inserted</string>
-    <string name="qs_data_switch_toast_1">Currently only one SIM card is inserted</string>
-    <string name="qs_data_switch_changed_1">Using SIM 1 for Mobile data</string>
-    <string name="qs_data_switch_changed_2">Using SIM 2 for Mobile data</string>
+    <string name="qs_data_switch_label">Changer la carte pour les données</string>
+    <string name="qs_data_switch_toast_0">Aucune carte SIM n\'est insérée actuellement</string>
+    <string name="qs_data_switch_toast_1">Une seule carte SIM est insérée actuellement</string>
+    <string name="qs_data_switch_changed_1">Utilisation de la carte SIM 1 pour les données mobiles</string>
+    <string name="qs_data_switch_changed_2">Utilisation de la carte SIM 2 pour les données mobiles</string>
 </resources>
