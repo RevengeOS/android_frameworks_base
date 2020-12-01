@@ -29,12 +29,27 @@
 
     [CHAR LIMIT=8] -->
     <plurals name="type_clock_header">
-        <item quantity="one"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
-        <item quantity="other"><annotation name="color">It\u2019s</annotation>\n^1\n^2</item>
+        <item quantity="one"><annotation name="color">Il est</annotation>\n^1\n^2</item>
+        <item quantity="other"><annotation name="color">Il est</annotation>\n^1\n^2</item>
     </plurals>
     <!-- Hour displayed in words on the typographic clock face. [CHAR LIMIT=12] -->
     <string-array name="type_clock_hours">
-        <item>Douze</item>
+        <item>Douze heures</item>
+        <item>Une heure</item>
+        <item>Deux heures</item>
+        <item>Trois heures</item>
+        <item>Quatre heures</item>
+        <item>Cinq heures</item>
+        <item>Six heures</item>
+        <item>Sept heures</item>
+        <item>Huit heures</item>
+        <item>Neuf heures</item>
+        <item>Dix heures</item>
+        <item>Onze heures</item>
+    </string-array>
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes">
+        <item>Pile</item>
         <item>Un</item>
         <item>Deux</item>
         <item>Trois</item>
@@ -46,97 +61,82 @@
         <item>Neuf</item>
         <item>Dix</item>
         <item>Onze</item>
-    </string-array>
-    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
-    <string-array name="type_clock_minutes">
-        <item>O\u2019Clock</item>
-        <item>Un</item>
-        <item>Deux</item>
-        <item>Trois</item>
-        <item>Quatre</item>
-        <item>Cinq</item>
-        <item>Six</item>
-        <item>Sept</item>
-        <item>Huit</item>
-        <item>Neuf</item>
-        <item>Dix</item>
-        <item>Eleven</item>
-        <item>Twelve</item>
-        <item>Thirteen</item>
-        <item>Fourteen</item>
-        <item>Fifteen</item>
-        <item>Sixteen</item>
-        <item>Seventeen</item>
-        <item>Eighteen</item>
-        <item>Nineteen</item>
-        <item>Twenty</item>
-        <item>Twenty\nOne</item>
-        <item>Twenty\nTwo</item>
-        <item>Twenty\nThree</item>
-        <item>Twenty\nFour</item>
-        <item>Twenty\nFive</item>
-        <item>Twenty\nSix</item>
-        <item>Twenty\nSeven</item>
-        <item>Twenty\nEight</item>
-        <item>Twenty\nNine</item>
-        <item>Thirty</item>
-        <item>Thirty\nOne</item>
-        <item>Thirty\nTwo</item>
-        <item>Thirty\nThree</item>
-        <item>Thirty\nFour</item>
-        <item>Thirty\nFive</item>
-        <item>Thirty\nSix</item>
-        <item>Thirty\nSeven</item>
-        <item>Thirty\nEight</item>
-        <item>Thirty\nNine</item>
-        <item>Forty</item>
-        <item>Forty\nOne</item>
-        <item>Forty\nTwo</item>
-        <item>Forty\nThree</item>
-        <item>Forty\nFour</item>
-        <item>Forty\nFive</item>
-        <item>Forty\nSix</item>
-        <item>Forty\nSeven</item>
-        <item>Forty\nEight</item>
-        <item>Forty\nNine</item>
-        <item>Fifty</item>
-        <item>Fifty\nOne</item>
-        <item>Fifty\nTwo</item>
-        <item>Fifty\nThree</item>
-        <item>Fifty\nFour</item>
-        <item>Fifty\nFive</item>
-        <item>Fifty\nSix</item>
-        <item>Fifty\nSeven</item>
-        <item>Fifty\nEight</item>
-        <item>Fifty\nNine</item>
+        <item>Douze</item>
+        <item>Treize</item>
+        <item>Quatorze</item>
+        <item>Quinze</item>
+        <item>Seize</item>
+        <item>Dix-sept</item>
+        <item>Dix-huit</item>
+        <item>Dix-neuf</item>
+        <item>Vingt</item>
+        <item>Vingt\nEt-un</item>
+        <item>Vingt\nDeux</item>
+        <item>Vingt\nTrois</item>
+        <item>Vingt\nQuatre</item>
+        <item>Vingt\nCinq</item>
+        <item>Vingt\nSix</item>
+        <item>Vingt\nSept</item>
+        <item>Vingt\nHuit</item>
+        <item>Vingt\nNeuf</item>
+        <item>Trente</item>
+        <item>Trente\nEt-un</item>
+        <item>Trente\nDeux</item>
+        <item>Trente\nTrois</item>
+        <item>Trente\nQuatre</item>
+        <item>Trente\nCinq</item>
+        <item>Trente\nSix</item>
+        <item>Trente\nSept</item>
+        <item>Trente\nHuit</item>
+        <item>Trente\nNeuf</item>
+        <item>Quarante</item>
+        <item>Quarante\nEt-un</item>
+        <item>Quarante\nDeux</item>
+        <item>Quarante\nTrois</item>
+        <item>Quarante\nQuatre</item>
+        <item>Quarante\nCinq</item>
+        <item>Quarante\nSix</item>
+        <item>Quarante\nSept</item>
+        <item>Quarante\nHuit</item>
+        <item>Quarante\nNeuf</item>
+        <item>Cinquante</item>
+        <item>Cinquante\nEt-un</item>
+        <item>Cinquante\nDeux</item>
+        <item>Cinquante\nTrois</item>
+        <item>Cinquante\nQuatre</item>
+        <item>Cinquante\nCinq</item>
+        <item>Cinquante\nSix</item>
+        <item>Cinquante\nSept</item>
+        <item>Cinquante\nHuit</item>
+        <item>Cinquante\nNeuf</item>
     </string-array>
     <!-- Title for Typographic clock face that will appear in the picker app next to a preview image of
          the clock face. [CHAR LIMIT=8] -->
     <!-- Title for statusbar items -->
-    <string name="statusbar_items_title">Statusbar items</string>
+    <string name="statusbar_items_title">Éléments de la barre d\'état</string>
     <!-- Name of the volte status bar icon. -->
     <string name="status_bar_volte">VoLTE</string>
     <!-- Caffeine QS Tile -->
-    <string name="quick_settings_caffeine_label">Caffeine</string>
-    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+    <string name="quick_settings_caffeine_label">Caféine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caféine désactivée</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caféine activée</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+    <string name="quick_settings_heads_up_label">Notifications flottantes</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifications flottantes désactivées.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifications flottantes activées.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notifications flottantes désactivées.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notifications flottantes activées.</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device, within the Restart Options dialog -->
-    <string name="global_action_restart_system">System</string>
+    <string name="global_action_restart_system">Système</string>
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_recovery">Récupération</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-    <string name="global_action_restart_download">Download</string>
+    <string name="global_action_restart_download">Télécharger</string>
     <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
-    <string name="global_action_restart_progress">Restarting\u2026</string>
+    <string name="global_action_restart_progress">Redémarrage\u2026</string>
     <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_recovery_progress">Redémarrage en mode recovery\u2026</string>
     <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
@@ -147,7 +147,7 @@
     <string name="global_action_current_user">Actuel</string>
     <!-- QS Config -->
     <string name="qs_menu_item_columns">Colonnes</string>
-    <string name="qs_menu_item_columns_landscape">Columns landscape</string>
+    <string name="qs_menu_item_columns_landscape">Colonnes paysages</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
     <string name="qs_menu_item_columns_five">5</string>
@@ -184,9 +184,9 @@
     <string name="screenrecord_capture_protected_summary">Autoriser la capture de contenu protégé par les applications</string>
     <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
-    <string name="quick_settings_aod_on_charge_label">AOD on charge</string>
-    <string name="quick_settings_aod_off_label">AOD off</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD off\nBattery Saver</string>
+    <string name="quick_settings_aod_on_charge_label">AOD pendant la charge</string>
+    <string name="quick_settings_aod_off_label">AOD désactivé</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD désactivé\nÉconomiseur de batterie</string>
     <!-- QS for sync on/off -->
     <string name="quick_settings_sync_label">Synchronisation</string>
     <string name="accessibility_quick_settings_sync_off">Synchronisation désactivée.</string>
