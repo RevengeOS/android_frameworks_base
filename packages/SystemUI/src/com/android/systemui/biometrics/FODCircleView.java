@@ -62,7 +62,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class FODCircleView extends ImageView {
-    private static final int FADE_ANIM_DURATION = 250;
+    private static final int FADE_ANIM_DURATION = 125;
     private final String SCREEN_BRIGHTNESS = Settings.System.SCREEN_BRIGHTNESS;
     private final int[][] BRIGHTNESS_ALPHA_ARRAY = {
         new int[]{0, 255},
