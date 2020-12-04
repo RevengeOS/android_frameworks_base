@@ -71,9 +71,9 @@
         <item>Neunzehn</item>
         <item>Zwanzig</item>
         <item>Zwanzig\nEins</item>
-        <item>Twenty\nTwo</item>
-        <item>Twenty\nThree</item>
-        <item>Twenty\nFour</item>
+        <item>Zwanzig\nZwei</item>
+        <item>Zwanzig\nDrei</item>
+        <item>Zwanzig\nVier</item>
         <item>Twenty\nFive</item>
         <item>Twenty\nSix</item>
         <item>Twenty\nSeven</item>
@@ -93,12 +93,12 @@
         <item>Forty\nOne</item>
         <item>Forty\nTwo</item>
         <item>Forty\nThree</item>
-        <item>Forty\nFour</item>
-        <item>Forty\nFive</item>
-        <item>Forty\nSix</item>
-        <item>Forty\nSeven</item>
-        <item>Forty\nEight</item>
-        <item>Forty\nNine</item>
+        <item>Vierzig\nVier</item>
+        <item>Fünfzig\nFünf</item>
+        <item>Fünfzig\nSechs</item>
+        <item>Fünfzig\nSieben</item>
+        <item>Fünfzig\nAcht</item>
+        <item>Fünfzig\nNeun</item>
         <item>Fünfzig</item>
         <item>Fünfzig\nEins</item>
         <item>Fünfzig\nZwei</item>
@@ -180,21 +180,21 @@
     <string name="screenrecord_taps_summary">Visuelles Feedback während der Aufnahme anzeigen</string>
     <string name="screenrecord_low_quality_title">Niedrige Qualität</string>
     <string name="screenrecord_low_quality_summary">In geringerer Qualität aufnehmen, um Speicherplatz auf Ihrem Gerät zu sparen</string>
-    <string name="screenrecord_capture_protected_title">Capture protected content</string>
-    <string name="screenrecord_capture_protected_summary">Allow capture of content protected by apps</string>
+    <string name="screenrecord_capture_protected_title">Geschützte Inhalte erfassen</string>
+    <string name="screenrecord_capture_protected_summary">Ermöglicht die Erfassung von Inhalten, die von Apps geschützt werden</string>
     <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
-    <string name="quick_settings_aod_on_charge_label">AOD on charge</string>
-    <string name="quick_settings_aod_off_label">AOD off</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD off\nBattery Saver</string>
+    <string name="quick_settings_aod_on_charge_label">AOD bei Aufladen</string>
+    <string name="quick_settings_aod_off_label">AOD aus</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD aus\nEnergiesparmodus</string>
     <!-- QS for sync on/off -->
-    <string name="quick_settings_sync_label">Sync</string>
-    <string name="accessibility_quick_settings_sync_off">Sync off.</string>
-    <string name="accessibility_quick_settings_sync_on">Sync on.</string>
-    <string name="accessibility_quick_settings_sync_changed_off">Sync turned off.</string>
-    <string name="accessibility_quick_settings_sync_changed_on">Sync turned on.</string>
+    <string name="quick_settings_sync_label">Synchronisation</string>
+    <string name="accessibility_quick_settings_sync_off">Synchronisierung aus.</string>
+    <string name="accessibility_quick_settings_sync_on">Synchronisieren ein.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synchronisation deaktiviert.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synchronisation aktiviert.</string>
     <!-- QS for switch data card data -->
-    <string name="qs_data_switch_label">Switch data card</string>
+    <string name="qs_data_switch_label">Datenkarte umschalten</string>
     <string name="qs_data_switch_toast_0">Currently no SIM card is inserted</string>
     <string name="qs_data_switch_toast_1">Currently only one SIM card is inserted</string>
     <string name="qs_data_switch_changed_1">Using SIM 1 for Mobile data</string>
