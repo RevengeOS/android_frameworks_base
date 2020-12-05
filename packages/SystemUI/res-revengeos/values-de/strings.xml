@@ -195,8 +195,8 @@
     <string name="accessibility_quick_settings_sync_changed_on">Synchronisation aktiviert.</string>
     <!-- QS for switch data card data -->
     <string name="qs_data_switch_label">Datenkarte umschalten</string>
-    <string name="qs_data_switch_toast_0">Currently no SIM card is inserted</string>
-    <string name="qs_data_switch_toast_1">Currently only one SIM card is inserted</string>
-    <string name="qs_data_switch_changed_1">Using SIM 1 for Mobile data</string>
-    <string name="qs_data_switch_changed_2">Using SIM 2 for Mobile data</string>
+    <string name="qs_data_switch_toast_0">Derzeit ist keine SIM-Karte eingelegt</string>
+    <string name="qs_data_switch_toast_1">Zurzeit ist nur eine SIM-Karte eingelegt</string>
+    <string name="qs_data_switch_changed_1">SIM 1 für Mobile Daten verwenden</string>
+    <string name="qs_data_switch_changed_2">SIM 2 für Mobile Daten verwenden</string>
 </resources>
