@@ -1089,4 +1089,11 @@
     <string name="controls_added_tooltip" msgid="4842812921719153085">"按住电源按钮即可查看新控件"</string>
     <string name="controls_menu_add" msgid="4447246119229920050">"添加控件"</string>
     <string name="controls_menu_edit" msgid="890623986951347062">"修改控件"</string>
+	    <!-- Power Menu -->
+    <string name="global_action_reboot">重启</string>
+    <string name="global_action_reboot_more">重启...</string>
+    <string name="global_action_reboot_sub">系统</string>
+    <string name="global_action_reboot_recovery">恢复模式</string>
+    <string name="global_action_reboot_bootloader">引导模式</string>
+    <string name="global_action_settings">设置</string>
 </resources>
