@@ -135,6 +135,10 @@
      <!-- Defines custom OEM sensor for pocket detection. -->
      <string name="config_pocketJudgeVendorSensorName"></string>
 
+    <!-- Button backlight -->
+     <dimen name="config_buttonBrightnessSettingDefaultFloat">1.0</dimen>
+     <bool name="config_deviceHasVariableButtonBrightness">false</bool>
+
     <!-- Default values for LiveDisplay -->
     <integer name="config_dayColorTemperature">6500</integer>
     <integer name="config_nightColorTemperature">4800</integer>
