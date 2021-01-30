@@ -34,6 +34,7 @@ import com.android.systemui.qs.tiles.CastTile;
 import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
+import com.android.systemui.qs.tiles.DataSwitchTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.HotspotTile;
@@ -75,6 +76,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<UserTile> mUserTileProvider;
     private final Provider<BatterySaverTile> mBatterySaverTileProvider;
     private final Provider<DataSaverTile> mDataSaverTileProvider;
+    private final Provider<DataSwitchTile> mDataSwitchTileProvider;
     private final Provider<NightDisplayTile> mNightDisplayTileProvider;
     private final Provider<NfcTile> mNfcTileProvider;
     private final Provider<GarbageMonitor.MemoryTile> mMemoryTileProvider;
@@ -102,6 +104,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<UserTile> userTileProvider,
             Provider<BatterySaverTile> batterySaverTileProvider,
             Provider<DataSaverTile> dataSaverTileProvider,
+            Provider<DataSwitchTile> dataSwitchTileProvider,
             Provider<NightDisplayTile> nightDisplayTileProvider,
             Provider<NfcTile> nfcTileProvider,
             Provider<GarbageMonitor.MemoryTile> memoryTileProvider,
@@ -125,6 +128,7 @@ public class QSFactoryImpl implements QSFactory {
         mUserTileProvider = userTileProvider;
         mBatterySaverTileProvider = batterySaverTileProvider;
         mDataSaverTileProvider = dataSaverTileProvider;
+        mDataSwitchTileProvider = dataSwitchTileProvider;
         mNightDisplayTileProvider = nightDisplayTileProvider;
         mNfcTileProvider = nfcTileProvider;
         mMemoryTileProvider = memoryTileProvider;
@@ -175,6 +179,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mBatterySaverTileProvider.get();
             case "saver":
                 return mDataSaverTileProvider.get();
+            case "dataswitch":
+                return mDataSwitchTileProvider.get();
             case "night":
                 return mNightDisplayTileProvider.get();
             case "nfc":
