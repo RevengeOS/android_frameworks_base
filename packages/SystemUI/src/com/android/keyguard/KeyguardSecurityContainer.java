@@ -991,4 +991,3 @@ public class KeyguardSecurityContainer extends FrameLayout implements KeyguardSe
         mSecurityViewFlipper.showUsabilityHint();
     }
 }
-
